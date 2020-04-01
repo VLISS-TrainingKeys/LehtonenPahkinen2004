@@ -35,7 +35,9 @@ A) CALCULATION OF THE PARAMETER DEFF FOR STRATIFIED SIMPLE RANDOM SAMPLING WITH 
 
 We calculate the parameter DEFF for stratified simple random sampling (STRSRS) with proportional allocation. Further instructions will be given once you start.
 
-We calculate the parameter <a href="concepts/deff.htm" onclick="return popupa(this,'examplea')"> <u>DEFF </u></a> for <a href="../concepts/str.htm" onclick="return popupa(this,'examplea')"> <u>stratified</u></a> <a href="../concepts/srswor.htm" onclick="return popupa(this,'examplea')"> <u>simple random sampling</u></a> (STRSRS) with proportional allocation. Further instructions will be given once you start.<br/>
+We calculate the parameter [DEFF](concepts/deff.htm)
+testi...
+<a href="concepts/deff.htm" onclick="return popupa(this,'examplea')"> <u>DEFF </u></a> for <a href="../concepts/str.htm" onclick="return popupa(this,'examplea')"> <u>stratified</u></a> <a href="../concepts/srswor.htm" onclick="return popupa(this,'examplea')"> <u>simple random sampling</u></a> (STRSRS) with proportional allocation. Further instructions will be given once you start.<br/>
 		
 
 <!---Testi linkityksestä:

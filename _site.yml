@@ -1,0 +1,27 @@
+name: VLISS-website
+output_dir: "docs"
+navbar:
+  title: VLISS HOME
+  left:
+  - text: Home
+    href: index.html
+  - text: Chapter 2
+    href: Chapter2.html
+  - text: Chapter 3
+    href: Chapter3.html
+  - text: Chapter 4
+    href: Chapter4.html
+  - text: Chapter 5
+    href: Chapter5.html
+  - text: Chapter 6
+    href: Chapter6.html
+  - text: Chapter 7
+    href: Chapter7.html
+  - text: Chapter 8
+    href: Chapter8.html
+  - text: Chapter 9
+    href: Chapter9.html
+output:
+  html_document:
+    theme: flatly
+

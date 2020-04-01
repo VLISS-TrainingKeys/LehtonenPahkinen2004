@@ -1,0 +1,18 @@
+---
+title: "VLISS HOME"
+output_dir: "docs"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: flatly
+---
+
+
+This Web site features a Web extension of the textbook [Practical Methods for Design and Analysis of Complex Surveys](https://www.wiley.com/en-us/Practical+Methods+for+Design+and+Analysis+of+Complex+Surveys%2C+2nd+Edition-p-9780470847695), published by John Wiley & Sons, Ltd. The Web extension contains the following functions:
+
+Training Keys section is the core of the Web pages. Training Keys are connected to selected worked examples presented in the book and contain more detailed technical treatment of the examples and their extensions. There is an option for interactive analysis and to download program codes, output files and real data sets.
+
+This Web site is maintained by the Faculty of Social Sciences of the University of Helsinki. The development of the application in 2001-2005 has been supported by the Virtual University Project of the University of Jyväskylä and 2005-2017 the Department of Mathematics and Statistics of the University of Helsinki. Feedback on accessibility and contents is warmly welcomed.

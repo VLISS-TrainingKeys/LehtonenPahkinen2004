@@ -1602,10 +1602,143 @@ div.tocify {
 </div>
 
 
+<div id="ancova" class="section level2">
+<h2>ANCOVA</h2>
+<p>Analysis of covariance is used to test the main and interaction effects of categorical variableson a continuous dependent variable, controlling for the effects of selected other continuous variables which covary with the dependent. The control variable is called the “covariate.” There may be more than one covariate. One may also perform planned comparison or post hoc comparisons to see which values of a factor contribute most to the explanation of the dependent.</p>
+<p>See chapter 8 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="auxiliary-variable" class="section level2">
+<h2>Auxiliary Variable</h2>
+<p>The auxiliary variable represents additional information on the finite population and is usually assumed known for all the N population elements.</p>
+<p>See page 16 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="the-boot-technique" class="section level2">
+<h2>The BOOT Technique</h2>
+<p>Similar to the other sample reuse methods, the bootstrap can be used for varianceapproximation of a non-linear estimator under a complex sampling design. The method, however, differs from BRR and JRR in many respects, e.g. the generationof pseudosamples is quite different. We consider the bootstrap technique for variance estimation of a ratio estimator under a two-stage stratified epsem design where a constant number of clusters (which may be greater than two) is drawn with replacement from each stratum.</p>
+<p>See page 160 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="the-brr-technique" class="section level2">
+<h2>The BRR Technique</h2>
+<p>The technique of balanced half-samples (BHS, BRR) was introduced by McCarthy (1966, 1969) for variance approximation of a nonlinear estimator under an epsem design, where a large number of strata are formed and exactly two clusters are drawn with replacement from each stratum. The way of forming pseudosamples in the BRR technique starts from the fact that, with H strata and <span class="math inline">\(m_h = 2\)</span> sample clusters per stratum, the total sample can be split into <span class="math inline">\(2^H\)</span> overlapping half-samples each with <span class="math inline">\(H\)</span> sample clusters.</p>
+<p>See page 150-&gt; in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="cluster-sampling-clu" class="section level2">
+<h2>Cluster sampling (CLU)</h2>
+<p>The population is assumed to be readily divided into naturally formed subgroups called clusters. Subgroups often used in practice are, for example, clusters of pupils in schools and clusters of people in households. A sample of clusters is drawn from the population of clusters. If the clusters are internally homogeneous, which is usually the case, then cluster sampling is less efficient than simple random sampling.</p>
+<p>See pages 17, 60 and 70 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="coefficient-of-variation" class="section level2">
+<h2>Coefficient of variation</h2>
+<p>The coefficient of variation is, for example, for an estimator <span class="math inline">\(\hat{t}\)</span> of the total <span class="math inline">\(T\)</span></p>
+<p><span class="math inline">\(c.v(\hat{t}) = s.e(\hat{t}) / \hat{t}\)</span>.</p>
+<p>It measures the stability of the estimators.</p>
+<p>See page 29 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
 <div id="design-effect-deff" class="section level2">
 <h2>Design effect DEFF</h2>
 <p>A convenient way to evaluate a sampling design is to compare the design variance of an estimator to the design variance from a references sampling scheme of the same (expected) sample size. Usually, simple random sampling without replacement is chosen as reference. For example, for an estimator <span class="math inline">\(\hat{t}\)</span> of the total <span class="math inline">\(T\)</span>, the ratio of the two design variances is called the design effect and abbreviated to DEFF. In practice, an estimate of the design effect is calculated using the corresponding variance estimators for the sample data set. An estimator of the design effect is thus <span class="math inline">\(deff_{p(s)}(\hat{t}) = \hat{v}_{p(s)}(\hat{t})/\hat{v}_{srs}(\hat{t})\)</span>, where <span class="math inline">\(p(s)\)</span> refers to the actual sampling design.</p>
 <p>See page 15 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="design-based-approach" class="section level2">
+<h2>Design-based approach</h2>
+<p>When a survey is analysed in practice, it is emphasized that the estimation should take into account the structure of the sampling scheme. To accomplish this, the analysis is carried out using theso-called design-based approach. An essential property of the design-based approach is that any of the complexities due to the sampling scheme can be properly accounted in the estimation. These complexities can arise, for example, when elements have unequal selection probabilities.</p>
+<p>See page 10 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="generalized-estimating-equations-gee" class="section level2">
+<h2>Generalized estimating equations (GEE)</h2>
+<p>A preliminary GEE method with an independent correlation assumption relates to the standard PML method where observations are assumed independent within clusters for the estimation of the regression coefficients, but are allowed to be correlated for the estimation of the covariance matrix of the estimated regression coefficients. In a more advanced GEE method, assuming an exchangeable correlation structure, observations are allowed to be correlated within clusters in the estimation of both regression coefficients and the covariance matrix of estimated regression coefficients.</p>
+<p>See pages 287-289 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="generalized-regression-estimator-greg" class="section level2">
+<h2>Generalized regression estimator (GREG)</h2>
+<p>Under a design-based approach for domain estimation, auxiliary data are usually incorporated in an estimation procedure by model-assisted techniques. Linear regression models are often adopted in the construction of generalized regression estimators (GREG; Särndal, et al. 1992; Estevao et al. 1995) that are design-unbiased. GREG estimators can often be expected to be precise especially for domains large enough but in the smallest domains, they tend to have large variance. Thus, small domains seem to call for model-dependent (or composite) estimators.</p>
+<p>See page 97 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="generalized-weighted-least-squares-gwls" class="section level2">
+<h2>Generalized Weighted Least Squares (GWLS)</h2>
+<p>The GWLS method of generalized weighted least squares estimation provides a simple technique for the analysis of categorical data with ANOVA-type logit and linear models on domain proportions. Allowing all the complexities of a sampling design including stratification, clustering and weighting, the design-based option provides a generally valid GWLS analysis. Analysis under the weighted or unweighted SRS options assuming simple random sampling serves as a reference when studying the effects of clustering and weighting on results. This simple noniterativemethod will be discussed in Section 8.3 for logit and linear modelling of categorical data. The GWLS method, introduced in Grizzle et al. (1969) andKoch et al. (1975).</p>
+<p>See pages 269-&gt; in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="horvitz-thompson-estimator" class="section level2">
+<h2>Horvitz-Thompson estimator</h2>
+<p>As described in Horvitz and Thompson (1952) a Horvitz-Thompson estimator is an unbiased estimator of a population total of a finite population, applicable in the general case where individuals are sampled with unequal probabilities.</p>
+<p>See pages 25, 118 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="imputation" class="section level2">
+<h2>Imputation</h2>
+<p>Imputation for item nonresponse means that a missing value of a measurement <span class="math inline">\(y_k\)</span> is filled in by a predicted value <span class="math inline">\(\hat{y}_k\)</span>. The goal of imputation is to achieve a complete data matrix for further analysis. Imputation can be performed under single or multiple imputation methods.</p>
+<p>See pages 115 and 122 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="the-jrr-technique" class="section level2">
+<h2>The JRR Technique</h2>
+<p>The particular jackknife method based on jackknife repeated replications has many features of the BRR technique, since only the method of forming the pseudo samples is different. We consider the JRR technique in the simplest case where the number of sample clusters per stratum is exactly two, and the clusters are assumed to be drawn with replacement. JRR variance estimators are derived for a ratio estimator, which is a subpopulation proportion or estimator.</p>
+<p>See page 156 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="linearization-method" class="section level2">
+<h2>Linearization method</h2>
+<p>In the estimation of the variance of a general non-linear estimator, we adopt the method based on the so-called Taylor series expansion. The method is usually called the linearization method because we first reduce the original non-linear quantity to an approximate linear quantity by using the linear terms of the corresponding Taylor series expansion, and then construct the variance formula and an estimator of the variance of this linearized quantity.</p>
+<p>See page 141 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="the-mini-finland-health-survey-mfh" class="section level2">
+<h2>THE MINI-FINLAND HEALTH SURVEY (MFH)</h2>
+<p>The Mini-Finland Health Survey was designed to obtain a comprehensive picture of health and the need for care in Finnish adults, and to develop methods for monitoring health in the population. A two-stage stratified cluster-sampling design was used in such away that one cluster was sampled from each of the 40 geographical strata. The one-cluster-per-stratum design was used to attain a deep stratification of the population of the clusters. The sample of 8000 persons was allocated to achieve an epsem sample (equal probability of selection method; see Section 3.2). Collapsed stratum technique was used in variance estimation with linearization and sample re-use methods.</p>
+<p>See pages 132-137 and 146 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="model-assisted-estimation" class="section level2">
+<h2>Model-assisted estimation</h2>
+<p>Model-assisted estimation refers to the property of the estimators that models such as linear regression are used in incorporating the auxiliary information in the estimation procedure for the finite-population parameters of interest, such as totals.</p>
+<p>See page 87 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="nonresponse" class="section level2">
+<h2>Nonresponse</h2>
+<p>Failure to obtain all the intended measurements or responses from all the selected sample members is called nonresponse. Nonresponse causes missing data, i.e. results in a data set whose size for the study variable y is smaller than planned. Two types of missing data (unit nonresponse and item nonresponse) are distinguished for a sample element.</p>
+<p>See pages 112-113 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="the-occupational-health-care-survey-ohc" class="section level2">
+<h2>THE OCCUPATIONAL HEALTH CARE SURVEY (OHC)</h2>
+<p>The sampling design of the OHC Survey is an example of stratified cluster samplingin which both one-stage and two-stage sampling are used. Thus, the OHC Survey sampling design is slightly more complex than the MFH Survey. Moreover, in the OHC Survey sampling design a large number (250) of sample clusters are available, and the design produces noticeable clustering effects for several response variables. Therefore, this sampling design is very suitable for examining the effects of clustering in the analysis of complex surveys. The OHC Survey will be used for further examples given in Chapters 7 and 8.</p>
+<p>See pages 166-171 and 180 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="planned-domain-structure" class="section level2">
+<h2>Planned domain structure</h2>
+<p>For planned domains on the other hand, the <i>domain sample sizes are fixed in advance by stratification</i>. Stratified sampling in connection with a suitable allocation scheme is often used in practical applications.</p>
+<p>See pages 188-190 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="pseudo-maximum-likelihood-pml" class="section level2">
+<h2>Pseudo Maximum Likelihood (PML)</h2>
+<p>The PML method of pseudolikelihood estimation can be used in analysis situations similar to the GWLS method, but its main applications are in logistic regression with continuous predictors. Under the design-based option, the PML method provides valid logit analysis for complex surveys. It is also beneficial for the PMLmethod that the number of sample clusters is large, and similar adjustments are available for unstable cases, as for the GWLS method.The PML method covers not only logistic regression models but also other model types from the class of generalized linear models. So, linear models on continuous responses are also covered.</p>
+<p>See page 261 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="poststratification" class="section level2">
+<h2>Poststratification</h2>
+<p>Poststratification can be used for improvement of efficiency of an estimator if a discrete auxiliary variable is available. This variable is used to stratify the sample data set after the sample has been selected.</p>
+<p>See pages 88-90 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="pps-sampling" class="section level2">
+<h2>PPS sampling</h2>
+<p>Sampling with PPS provides a practical technique when sampling from populations with large variation in the values of the study variable and often gives a considerable gain in efficiency. Efficiency varies considerably according to the type of parameter to be estimated. Under PPS sampling an auxiliary size measure (<span class="math inline">\(z\)</span>) must be available and for efficient estimation the size measure should be strongly related to the study variable <span class="math inline">\(y\)</span>. A condition for this is that the variable pair <span class="math inline">\((z, y2/z)\)</span> is positively correlated. The ratio <span class="math inline">\(Y_k / Z_k\)</span> must also remain constant over the population.</p>
+<p>See pages 49 to 61 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="pps-sampling-without-replacement-ppswor" class="section level2">
+<h2>PPS sampling without replacement (PPSWOR)</h2>
+<p>When selecting without replacement, a new problem arises concerning the computation of inclusion probabilities. With the selection of the first element, the single-draw probability is exactly <span class="math inline">\(\pi_k = p_k = Z_k / T_z\)</span>. When the first sample element has been selected, the single draw selection probability changes because the total <span class="math inline">\(T_z\)</span> of the remaining <span class="math inline">\(N - 1\)</span> elements in the population decreases.</p>
+<p>See page 51 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="province91-population" class="section level2">
+<h2>PROVINCE’91 population</h2>
+<p>To illustrate the main ideas, a small data set under the title Provinceí91 has been taken from the official statistics of Finland. This data set will be used as a sampling frame in Chapters 2 to 4. Finland is divided into 14 provinces from which one has been selected for demonstration. This province comprises 32 municipalities and had a total population of 254 584 inhabitants on 31 December, 1991. The data set is presented in Table 2.1.</p>
+<p>See pages 18-19 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="ratio-estimation-of-population-total" class="section level2">
+<h2>Ratio Estimation of Population Total</h2>
+<p>Ratio estimation can be used to improve the efficiency of the estimation of <span class="math inline">\(T\)</span>, if a continuous auxiliary variable <span class="math inline">\(z\)</span> is available. The population total <span class="math inline">\(T_z\)</span> and the <span class="math inline">\(n\)</span> sample values <span class="math inline">\(z_k\)</span> of <span class="math inline">\(z\)</span> are required for this method. This information can be used to improve the estimation of <span class="math inline">\(T\)</span> by first calculating the sample estimator of the ratio <span class="math inline">\(R = T/T_z\)</span> and multiplying it by the known total <span class="math inline">\(T_z\)</span>. Ratio estimation of the total can be very efficient if the ratio <span class="math inline">\(Y_k / Z_k\)</span> of the values of the study and auxiliary variables is nearly constant across the population. Ratio estimators are usually effective but slightly biased.</p>
+<p>See pages 93-95 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="regression-estimation-of-totals" class="section level2">
+<h2>Regression estimation of totals</h2>
+<p>Regression estimation of the population total <span class="math inline">\(T\)</span> of a study variable <span class="math inline">\(y\)</span> is based on the linear regression between <span class="math inline">\(y\)</span> and a continuous auxiliary variable <span class="math inline">\(z\)</span>. The linear regression can, for example, be given by <span class="math inline">\(E_M(y_k) = \alpha + \beta z_k\)</span> with a variance <span class="math inline">\(V_M(y_k) = \sigma^2\)</span>, where <span class="math inline">\(y_k\)</span> are independent random variables with the population values <span class="math inline">\(Y_k\)</span> as their assumed realizations, <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown parameters, <span class="math inline">\(Z_k\)</span> are known population values of <span class="math inline">\(z\)</span>, and <span class="math inline">\(E_M\)</span> and <span class="math inline">\(V_M\)</span> refer respectively to the expectation and variance under the model. A regression estimator is given by</p>
+<p><span class="math inline">\(\hat{t}_{reg} = \hat{t}_{HT} + b(T_Z - \hat{t}_{ZHT})\)</span> where <span class="math inline">\(\hat{t}_{HT}\)</span> is the Horwitz-Thompson estimator of the total <span class="math inline">\(T\)</span>, <span class="math inline">\(b\)</span> is the estimated slope coefficient, and <span class="math inline">\(T_Z\)</span> and <span class="math inline">\(\hat{t}_{ZHT}\)</span> are the known population total of <span class="math inline">\(z\)</span> and the HT estimator of <span class="math inline">\(T_Z\)</span>, respectively.</p>
+<p>See pages 97-101 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
 </div>
 <div id="simple-random-sampling-without-replacement-srswor" class="section level2">
 <h2>Simple Random Sampling Without Replacement (SRSWOR)</h2>
@@ -1617,6 +1750,26 @@ div.tocify {
 <h2>Stratified sampling (STR)</h2>
 <p>In stratified sampling, the target population is divided into non-overlapping subpopulations called strata. These are conceptually regarded as separate populations in which sampling can be performed independently. To carry out stratification, appropriate auxiliary information is required in the sampling frame. Regional, demographic and sosioeconomic variables are often used as the stratifying auxiliary variables.</p>
 <p>See pages 16 and 61 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="systematic-sampling-sys" class="section level2">
+<h2>Systematic sampling (SYS)</h2>
+<p>Systematic sampling is one of the most frequently used sample selection tecniques. A list of populaton elements or a computerized register serves as the selection frame from which every qth element can be systematically selected. Systematic sampling may in some cases be more effective than simple random sampling.</p>
+<p>See pages 16 and 37 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="systematic-pps-sampling-ppssys" class="section level2">
+<h2>Systematic PPS sampling (PPSSYS)</h2>
+<p>In this method, the properties of systematic sampling and sampling proportional to size are combined into a single sampling scheme. In ordinary systematic sampling, the sampling interval is determined by the quotient <span class="math inline">\(q = N/n\)</span>. In systematic PPS sampling, the sampling interval is given by <span class="math inline">\(q = Tz/n\)</span>. As in the ordinary onerandom-start systematic sampling, we first select a random number from the closed interval <span class="math inline">\([1, q]\)</span>.</p>
+<p>See pages 51-52 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="unit-nonresponse" class="section level2">
+<h2>Unit Nonresponse</h2>
+<p>All intended measurements for a selected sample element could be missing, e.g. owing to a refusal to participate in a personal interview. Unit nonresponse results in a sample data set whose size <span class="math inline">\(n_{(r)}\)</span> is smaller than the intended sample size <span class="math inline">\(n\)</span>, thus increasing the standard errors of the estimates.</p>
+<p>See pages 113-114 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
+</div>
+<div id="unplanned-domain-structure" class="section level2">
+<h2>Unplanned domain structure</h2>
+<p>A domain is defined unplanned, if the <i>domain sample size <span class="math inline">\(n_{sd}\)</span> is not fixed in the sampling design</i>. This is the case in which the desired domain structure is not a part of the sampling design. Thus, the domain sample sizes are random quantities introducing an increase in the variance estimates of domain estimators. In addition, an extremely small number (even zero) of sample elements in a domain can be realized in this case, if the domain size in the population is small.</p>
+<p>See pages 188-190 in Lehtonen, R &amp; Pahkinen, E. (2004)</p>
 </div>
 
 

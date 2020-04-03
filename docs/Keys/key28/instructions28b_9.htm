@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+<title>New Page 3</title>
+<base target="_self">
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 28 PART B: SRS 
+ESTIMATION WITH DIFFERENT SAMPLE SIZES</font></p>
+<hr>
+<p align="left"><font face="Arial">In this exercise we examine SRSWOR estimation 
+of the total of UE91 (number of unemployed in the province) and LAB91 (size of 
+labour force in the province) and of the ratio UE91/LAB91 by using different size 
+SRSWOR samples. The purpose is to examine how sample size (n) affects to the 
+total estimate and to the ratio estimate and their corresponding 
+standard errors. We use Province'91 data set as the frame population.&nbsp; </font></p>
+<p align="left"><font face="Arial">In the calculation we use the SAS procedure <A HREF="../training/concepts/procsurveymeans.htm" onClick="return popupa(this,'')">
+<u>SURVEYMEANS</u></a>. (Tested with SAS 9.1)</font></p>
+
+
+<p align="left"><font face="Arial Black">HOW TO MANAGE THIS EXERCISE</font></p>
+<p align="left"><font face="Arial">1) View sampling frame from the menu frame.
+</font></p>
+<p align="left"><font face="Arial">2) Select the sample size (n=4,8,16 or 32) 
+of SRSWOR sample from the dropdown menu on the left and press submit to view 
+the results of the SRSWOR estimation for the total of UE91 and LAB91 and for the 
+ratio UE91/LAB91.</font></p>
+<p align="left"><font face="Arial">3) Examine the SRSWOR estimates for the total 
+of UE91, LAB91 and for the ratio UE91/LAB91 and their standard errors estimated 
+with different sample sizes. Pay 
+also attention to the 95% confidence limits of the estimates.</font></p>
+<p align="left"><font face="Arial">4) View  summary of  results from the 
+dropdown menu to examine how sample size affects to the SRSWOR estimates for the 
+total and their standard errors.</font></p>
+<p align="left">&nbsp;</p>
+<p align="left"><font face="Arial">After completing these steps please examine the SAS macro 
+to perform such analysis for your own purposes.</font></p>
+
+</body>
+
+</html> 

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+<SCRIPT TYPE="text/javascript">
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=550,height=300,scrollbars=no');
+return false;
+}
+//-->
+</SCRIPT>
+<head>
+<title>Handling Nonsampling Errors</title>
+<base target="ylaoikealla">
+</head>
+
+<body bgcolor="#E9E9E9" RIGHTMARGIN=20>
+
+<p align="center"><i><font size="2" face="Arial">Practical Methods for Design and Analysis of Complex Surveys.</font></i></p>
+<p align="center"><font size="2" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font face="Arial Black">TRAINING KEY 117: Reweighting</font></p>
+<hr>
+<p><font face="Arial Black" size="3">INTRODUCTION</font></p>
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial Black">A)&nbsp;
+REFERENCE EXAMPLE 4.2: SAS CODE AND OUTPUT</font></p>
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial">Techniques for adjusting for 
+
+<A HREF="../concepts/unitnon.htm" onClick="return popupa(this,'examplea')">
+<font color="#3366FF"><u>unit nonresponse</u></font></a>
+
+ are worked out in this Training Key by reweighting for an 
+
+<A HREF="../concepts/srswor.htm" onClick="return popupa(this,'examplea')">
+<font color="#3366FF"><u>SRSWOR</u></font></a>
+
+ sample drawn from 
+
+<A HREF="../concepts/province.htm" onClick="return popupa(this,'examplea')">
+<font color="#3366FF"><u>the Province'91 population.</u></font></a>
+
+ The methods include reweighting by the response homogeneity group method
+ and ratio estimation. In addition, accounting for the extra variation because of reweighting is illustrated in variance estimation of a HT estimator of the total of UE91.
+
+
+</font></p>
+
+
+<p align="left">
+<font size="3">
+<font face="Arial">
+<input type="button" value="Start"
+onclick="popup=window.open('../key117/intro.htm','PopupPage','scrollbars=yes,width=900,height=650,toolbar=no,resizable=yes');return false">
+</font>
+</p>
+
+
+<p align="left"><font face="Arial Black">B)  INTERACTIVE SAS USE&nbsp;</font></p>
+<p align="left"><font size="3" face="Arial">Please download the SAS code for your own
+further training. Select your own sample or several samples and exercise
+reweighting with different sample sizes for a SRSWOR sample. The macro
+parameters used in the application are DATA=data, <i>n</i> = sample size and SEED = seed for the random number
+generator. You may choose 1 &lt; n &lt; 32 elements in
+the sample and by changing the seed different sample configuration will be
+obtained.</font></p>
+<p align="left"><font face="Arial"><b>NOTE!</b> You need to have access to SAS in your
+computer.</font></p>
+<p align="left">
+<font face="Arial">
+<input type="button" value="Download"
+onclick="window.open('../key117/rew-macro.sas')">
+</font>
+</font>
+</p>
+
+
+<hr>
+<p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

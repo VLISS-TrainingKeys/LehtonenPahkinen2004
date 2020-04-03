@@ -1,0 +1,52 @@
+<html>
+
+<head> <meta http-equiv="Content-Language" content="fi">
+
+<title>Right frame</title> <base target="_self"> </head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR
+TRAINING KEY 63 PART B:</font><font face="Arial Black" size="3">
+DIFFERENT ALLOCATION SCHEMES UNDER STRATIFIED SIMPLE RANDOM
+SAMPLING</font></p> <hr> <p
+align="left"><font face="Arial">We use the Province'91 data set as the
+frame population to examine the different allocation schemes. The population is divided into two strata, one for urban municipalities and the other for rural municipalities.
+Stratum size for urban municipalities is <i>N<sub>1</sub></i>=7 and for rural municipalities <i>N<sub>2</sub></i>=25.
+A stratified simple random sample of eight (<i>n</i>=8) municipalities is drawn, and the appropriate stratum sample sizes
+are calculated under proportional, optimal and power allocation schemes. The total of the study variable UE91 (number of
+unemployed in the province) is to be estimated. Results of Example 3.2 will be reproduced.</font></p>
+
+<p> <font face="Arial">In proportional allocation the number of sample elements
+<i>n<sub>h</sub></i> in stratum <i>h</i> is given by </br>
+<i>n<sub>h,pro</sub> = n * N<sub>h</sub> / N = n * W<sub>h</sub></i>, where
+<i>W<sub>h</sub>=N<sub>h</sub> / N</i> is the stratum weight. It presupposes knowledge of the stratum sizes only, since the sampling
+fraction <i>n<sub>h</sub> / N<sub>h</sub></i> is constant for each stratum. Proportional allocation guarantees an equal share of the sample
+in all the strata, but can produce less efficient estimates than sometimes expected. Here,
+proportional allocation produces sample sizes <i>n<sub>1</sub></i>=2 and
+<i>n<sub>2</sub></i>=6 for the total of eight sampling elements
+(<i>n</i>=8).</font></p>
+
+<p> <font face="Arial">Optimal allocation can be used if <i>S<sub>h</sub></i>, the standard deviations for individual strata of the study
+variable, are known. The number of sample units in stratum <i>h</i> is given by </br>
+<i>n<sub>h,opt</sub> = n * ( N<sub>h</sub> * S<sub>h</sub> ) / ( &#8721 N<sub>h</sub> * S<sub>h</sub> )</i>.
+This type of allocation provides the most efficient estimates under stratified sampling. Here, optimal allocation produces
+sample sizes <i>n<sub>1</sub></i>=4 and
+<i>n<sub>2</sub></i>=4.</font></p>
+
+<p> <font face="Arial">Power allocation is suggested for surveys in which there are numerous small strata and that there is a need for precise estimates at each stratum level.
+ The number of sample units in stratum <i>h</i> is given by </br>
+<i>n<sub>h,pow</sub> = n * [ (T<sub>hz</sub>)<sup>a</sup> C.V<sub>hy</sub> ] / [ &#8721 (T<sub>hz</sub>)<sup>a</sup> C.V<sub>hy</sub> ]</i>,
+where <i>T<sub>hz</sub></i> is the stratum total of an auxiliary variable <i>z</i> and <i>C.V<sub>hy</sub></i> is the coefficient
+of variation of <i>y</i> in stratum <i>h</i>. The constant <i>a</i> is called the power of allocation. In this exercise <i>a</i>=0.
+Power allocation (approximate) produces sample sizes <i>n<sub>1</sub></i>=4 and
+<i>n<sub>2</sub></i>=4 and power allocation (exact) with stratum specific coefficient <i>c<sub>h</sub></i> produces sample sizes <i>n<sub>1</sub></i>=3 and
+<i>n<sub>2</sub></i>=5.</font></p>
+
+<p><font face="Arial">View the results from
+the menu on the left. A piece of SAS code is given to exercise the different allocation schemes.</font></p>
+
+
+</body>
+
+</html>

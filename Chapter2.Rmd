@@ -13,24 +13,27 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(SASmarkdown)
 ```
 
-In Chapter 2 of the textbook Practical Methods for Design and Analysis of Complex Surveys, Simple random sampling, systematic sampling and sampling with probability proportional to size are introduced as the basic sampling techniques. The estimation of three different population parameters (population total, ratio and median) is examined. A small fixed population – the Province’91 population - is used throughout to illustrate the estimation methods, where the main focus is on the derivation of appropriate sampling weights under each sampling technique. Special efforts are made in comparing the relative performances of the estimators (in terms of their standard errors) and the available information on the structure of the population is increasingly utilized. The use of such auxiliary information is considered for two purposes: the sampling design and the estimation of parameters for a given sampling design.
+In Chapter 2 of the textbook **Practical Methods for Design and Analysis of Complex Surveys**, Simple random sampling, systematic sampling and sampling with probability proportional to size are introduced as the basic sampling techniques. The estimation of three different population parameters (population total, ratio and median) is examined. A small fixed population – the Province’91 population - is used throughout to illustrate the estimation methods, where the main focus is on the derivation of appropriate sampling weights under each sampling technique. Special efforts are made in comparing the relative performances of the estimators (in terms of their standard errors) and the available information on the structure of the population is increasingly utilized. The use of such auxiliary information is considered for two purposes: the sampling design and the estimation of parameters for a given sampling design.
 
-In Training Key 28, SRSWOR sampling is demonstrated by first reproducing the results of Example 2.1. Then, the SRSWOR estimation procedure is extended to samples with different sample sizes. Finally, the performance of SRSWOR estimators is examined by using Monte Carlo simulation methods.
+In **Training Key 28**, SRSWOR sampling is demonstrated by first reproducing the results of Example 2.1. Then, the SRSWOR estimation procedure is extended to samples with different sample sizes. Finally, the performance of SRSWOR estimators is examined by using Monte Carlo simulation methods.
 
-In Training Key 45, intra-class correlation is demonstrated under systematic sampling. First, the results of Example 2.4 are reproduced. Then, intra-class correlation is examined for systematic sampling under varying sorting orders of the population.
+In **Training Key 45**, intra-class correlation is demonstrated under systematic sampling. First, the results of Example 2.4 are reproduced. Then, intra-class correlation is examined for systematic sampling under varying sorting orders of the population.
 
-In Training Key 54, PPS sampling is demonstrated by first reproducing the results of Example 2.6. Then, PPS sampling is examined in more detail by incorporating different types of auxiliary data into the estimation procedure.
+In **Training Key 54**, PPS sampling is demonstrated by first reproducing the results of Example 2.6. Then, PPS sampling is examined in more detail by incorporating different types of auxiliary data into the estimation procedure.
 
 
 NOTE: Instructions for the use of Training Keys are given in the Instructions section.
 
 # 2.2 The Province'91 population
 
-Download SAS data 	Download SPSS data 	Download Excel file 	Download text file
+<a href="Datat/province91.sas7bdat">Download SAS data</a> |
+<a href="Datat/province91.sav">Download SPSS data</a> |
+<a href="Datat/province91.xls">Download Excel file</a> |
+<a href="Datat/Province91.txt">Download text file</a>
 
+ 
 ```{r eval=FALSE}
 install.packages("tidyverse")
 library(tidyverse)
@@ -96,101 +99,103 @@ kable(province91, caption = "THE PROVINCE91 POPULATION")
 
 
 
-## TRAINING KEY 28: Analysing an SRS sample
+# TRAINING KEY 28: Analysing an SRS sample
 
 ### INTRODUCTION
 
-In this Training Key we use the Province'91 data set as a frame population in analysing an SRSWOR sample. In part A we calculate the SRSWOR estimates for the total of UE91 (number of unemployed in the province) and for the total of LAB91 (number of work force in the province) and their corresponding standard errors from the selected sample where sample size is eight (n=8). In part B, we examine how sample size affects to the SRSWOR estimates and their standard errors by selecting different sample sizes. In part C we simulate SRSWOR samples by using Monte Carlo simulation techniques to examine the behaviour of the SRSWOR estimator. Part D is the option for interactive analysis.
+In this Training Key we use the [Province'91 data set](concepts/concepts.html) as a frame population in analysing an [SRSWOR](concepts/concepts.html) sample. In part A we calculate the SRSWOR estimates for the total of UE91 (number of unemployed in the province) and for the total of LAB91 (number of work force in the province) and their corresponding standard errors from the selected sample where sample size is eight $(n=8)$. In part B, we examine how sample size affects to the SRSWOR estimates and their standard errors by selecting different sample sizes. In part C we simulate SRSWOR samples by using Monte Carlo simulation techniques to examine the behaviour of the SRSWOR estimator. Part D is the option for interactive analysis.
 
-**A) ANALYSING AN SRS SAMPLE FROM THE PROVINCE'91 POPULATION**
+#### A) ANALYSING AN SRS SAMPLE FROM THE PROVINCE'91 POPULATION
 
 We calculate the SRSWOR total estimates of UE91 and LAB91, the ratio estimate (UE91/LAB91) and their corresponding standard error estimates. Further instructions will be given once you start.
 
-#### INSTRUCTIONS FOR TRAINING KEY 28 PART A: ANALYSING AN SRS SAMPLE BY SAS/SURVEYMEANS
+<a href="Keys/key28/key28a_9.htm" target="_blank">SAS version 9</a>
 
-In this exercise we calculate the SRSWOR (simple random sampling without replacement) estimates for the total of UE91(number of unemployed in the province) and LAB91 (size of labour force in the province) and for the RATIO UE91/LAB91 with their standard errors. We use Province'91 data set as the frame population.
-
-In the calculation we use the SAS procedure SURVEYMEANS and R package survey. 
-
-HOW TO MANAGE THIS EXERCISE
-
-Selected SRSWOR sample and the estimates for the total of UE91 and LAB91 and for the ratio UE91/LAB91 will be viewed (they are similar to the results viewed in table 2.4 on page 29 in Lehtonen and Pahkinen 2004). Pay attention to the estimates and their standard errors and try to think why SRSWOR may lack any significance for practical purposes according to this case study.
-
-After viewing the results, you can examine the SAS code used to calculate the estimates for the total of UE91 and LAB91 and for the ratio UE91/LAB91. Then, you may move on to next step of Key 28 in which different size SRSWOR samples will be selected to study how the sample size affects to the total estimate and to the ratio estimate. 
-
-<a href="file://///ATKK/home/v/valaste/Documents/STUFF/SURVEY_SAMPLING_SAE/VLISS/kversio/masterwww/VLISS/key28/key28a_9.htm" target="_blank">SAS code</a>
+<a href="Keys/key28/key28a.htm" target="_blank">SAS SUDAAN</a>
 
 
-# Testing SAS code
+####  B) SRS ESTIMATION WITH DIFFERENT SAMPLE SIZES
 
-# In a first code chunk, set up with
-```{r}
-require(SASmarkdown)
-sasexe <- "C:/Program Files/SASHome/9.4/SASFoundation/9.4/sas.exe"
-sasopts <- "-nosplash -ls 75"
-```
+In this part, We examine how sample size affects to the SRSWOR total estimates and for the ratio estimate and their corresponding standard errors. Further instructions will be given once you start.
 
-```{r, engine="sas", engine.path=sasexe, engine.opts=sasopts, collectcode=TRUE} 
+<a href="Keys/key28/key28b_9.htm" target="_blank">SAS version 9, NOT COMPLETED</a>
 
-data Province91; 
-	input Stratum Cluster Id Municipality $ 10-22 
-	POP91 LAB91 UE91 HOU85 URB85;
-	datalines;
-1  1   1  Jyväskylä    67200 33786  4123 26881  1
-1  2   2  Jämsä        12907  6016   666  4663  1
-1  2   3  Jämsänkoski   8118  3818   528  3019  1
-1  2   4  Keuruu       12707  5919   760  4896  1
-1  3   5  Saarijärvi   10774  4930   721  3730  1
-1  5   6  Suolahti      6159  3022   457  2389  1
-1  3   7  Äänekoski    11595  5823   767  4264  1
-2  5   8  Hankasalmi    6080  2594   391  2179  0
-2  6   9  Joutsa        4594  2069   194  1823  0
-2  7  10  Jyväskmlk    29349 13727  1623  9230  0
-2  4  11  Kannonkoski   1919   821   153   726  0
-2  4  12  Karstula      5594  2521   341  1868  0
-2  8  13  Kinnula       2324   927   129   675  0
-2  8  14  Kivijärvi     1972   819   128   634  0
-2  3  15  Konginkangas  1636   675   142   556  0
-2  5  16  Konnevesi     3453  1557   201  1215  0
-2  1  17  Korpilahti    5181  2144   239  1793  0
-2  2  18  Kuhmoinen     3357  1448   187  1463  0
-2  4  19  Kyyjärvi      1977   831    94   672  0
-2  5  20  Laukaa       16042  7218   874  4952  0
-2  6  21  Leivonmäki    1370   573    61   545  0
-2  6  22  Luhanka       1153   522    54   435  0
-2  7  23  Multia        2375  1059   119   925  0
-2  1  24  Muurame       6830  3024   296  1853  0
-2  7  25  Petäjävesi    3800  1737   262  1352  0
-2  8  26  Pihtipudas    5654  2543   331  1946  0
-2  4  27  Pylkönmäki    1266   545    98   473  0
-2  3  28  Sumiainen     1426   617    79   485  0
-2  1  29  Säynätsalo    3628  1615   166  1226  0
-2  6  30  Toivakka      2499  1084   127   834  0
-2  7  31  Uurainen      3004  1330   219   932  0
-2  8  32  Viitasaari    8641  4011   568  3119  0
-;
-run;
-
-proc means data = Province91;
-  var UE91;
-run;
-```
+<a href="Keys/key28/key28b.htm" target="_blank">SAS SUDAAN, NOT COMPLETED</a>
 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+#### C) SIMULATING SRSWOR SAMPLES BY USING MONTE CARLO SIMULATION TECHNIQUES
 
-```{r cars}
-summary(cars)
-```
+Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator. Further instructions will be given once you start.
 
-## Including Plots
+<a href="Keys/key28/key28c.htm" target="_blank">Start, NOT COMPLETED</a>
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+# TRAINING KEY 45: Intra-class correlation for systematic sampling
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### INTRODUCTION
+
+In this Training Key we use the [Province'91 data set](concepts/concepts.html) as the frame population in calculating the intra-class correlation coefficient under [systematic sampling](concepts/concepts.html). The total of the study variable UE91 (number of unemployed in the province) is to be estimated. In Part A, the book example will be worked out. The effect of different sorting orders of the population on the intra-class correlation will be examined in Part B. Part C provides an option for interactive analysis.
+
+#### A) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING IN THE PROVINCE'91 POPULATION
+
+We calculate the intra-class correlation coefficient for systematic sampling involving four separate systematic samples of eight elements (see book example 2.4 on page 45). Further instructions will be given once you start.
+
+<a href="Keys/key45/key45a.htm" target="_blank">Start, NOT COMPLETED: html file is missing</a>
+
+#### B) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING WHEN VARYING THE SORTING ORDER
+
+We examine the effect of the sorting order of the Province'91 population on intra-class correlation. It will be shown that the sorting order matters: the value of the intra-class correlation coefficient varies much depending on the sorting order. Further instructions will be given once you start.
+
+<a href="Keys/key45/key45b.htm" target="_blank">Start, NOT COMPLETED</a>
+ 
+#### C) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Instructions are given in the SAS code once you download. NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key45/key45a.sas" target="_blank">Download SAS code, Key45a.sas</a> 
+
+<a href="Keys/key45/key45b.sas" target="_blank">Download SAS code, Key45b.sas</a> 
+
+
+# TRAINING KEY 54: The use of auxiliary information in PPS sampling
+
+### INTRODUCTION
+
+In point A we will show how to perform estimation under [systematic PPS sampling (PPSSYS)](concepts/concepts.html). Point A refers to example 2.6 (page 54). In point B we will demonstrate how the use of [auxiliary information](concepts/concepts.html) affects to the total estimate of UE91 (number of unemployed in the province) and the corresponding variance estimate. This is to get familiar on the selection and use of auxiliary information in [PPS sampling](concepts/concepts.html). Point C is an option for interactive analysis. We use Province'91 data set as the frame population.
+
+#### A) REFERENCE EXAMPLE 2.6: Estimation under systematic PPS sampling
+
+Systematic PPS sample $(n=8)$ is drawn from the [Province'91 population](concepts/concepts.html) such that the number of households (HOU85) is used as the size measure $z$. PPSSYS estimate and the corresponding standard error estimate are calculated from the selected sample. The results are compared to estimation under [SRSWOR sampling](concepts/concepts.html). Further instructions will be given once you start.
+ 
+<a href="Keys/key54/key54a.htm" target="_blank">Start</a> 
+
+#### B) THE USE OF ALTERNATIVE AUXILIARY INFORMATION IN PPSWOR SAMPLING
+
+We use three different auxiliary variables in [PPSWOR](concepts/concepts.html) sampling. The first auxiliary variable is HOU85 (the number of households in the municipality). The two others are artificial variables x and z. These variables are constructed for pedagogical purposes to demonstrate the role of correlation of the study variable and auxiliary variable, and that a strong correlation alone does not guarantee good efficiency for PPSWOR. Further instructions are given once you start.
+
+<a href="Keys/key54/key54b.htm" target="_blank">Start, NOT COMPLETED</a> 
+
+#### C) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Further instructions are given once you download the code.
+
+NOTE! You need to have access to SAS in your computer.
+ 
+ 
+<a href="Keys/key54/sasmacro54.sas" target="_blank">Download SAS code</a> 
+
+# Further Reading
+
+### Chapter 2: Further Reading
+
+#### TRAINING KEY 28: Analysing an SRS sample
+
+* Cochran W.G. (1977). Sampling Techniques. 3rd edition. New York: Wiley. (Chapters 1-5)
+
+#### TRAINING KEY 54: The use of auxiliary information in PPS sampling
+
+* Brewer, K.R.W. and Hanif, M. (1983). Sampling with Unequal Probabilities. New York: Springer.
+* Hedayat, A.S. and Sinha, B.K. (1991). Finite Population Sampling. New York: Wiley.
+
+

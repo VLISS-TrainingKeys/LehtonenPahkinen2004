@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+<STYLE TYPE="text/css">
+
+
+   a:link {color:black; text-decoration:none}
+   a:visited {color:black; text-decoration:none}
+   a:hover {color:blue; text-decoration:none}
+
+
+ 
+</STYLE>
+
+<base target="_self">
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 54: 
+Estimation under systematic PPS sampling</font></p>
+<hr>
+<p align="left"><font face="Arial">In this part we will examine how to perform 
+the estimation under systematic PPS sampling. A sample of eight (n=8) 
+municipalities is drawn with systematic PPS sampling from the Province'91 
+population such that the number of households (HOU85) is used as the size 
+measure z.</p>
+
+<p align="left"> In Province'91 population the cumulative sum of HOU85 over the population is 
+91753 and under systematic PPS sampling the sampling interval would be 
+q=91753/8=11469. However, the largest element 'Jyvaskyla' has the value 26881 
+for the variable, which is more than twice the sampling interval. Therefore, 
+the element would be drawn twice and the remaining 6 elements would be drawn from the 
+remaining population elements. In this case, therefore, we first take the 
+largest element 'Jyväskylä' with certainty and then draw 7 elements from the 
+remaining population elements by systematic PPS sampling. Such a situation is 
+commonly managed in the way described above. </font></p>
+
+<p align="left"><font face="Arial Black">HOW TO MANAGE THIS EXERCISE</font></p>
+<p align="left"><font face="Arial">View the results from the menu on the left 
+(estimation under PPS sampling). The total estimate of UE91 and its 
+corresponding variance estimate are calculated. 
+PPS_SYS&nbsp; and SRSWOR estimation strategies are compared. Try to evaluate 
+from the output whether HOU85 is an efficient auxiliary variable in this case 
+study. </font></p>
+<p align="left"><font face="Arial">Please view the SAS code to examine how the study is 
+performed.</font></p>
+<p align="left"><font face="Arial">NOTE! The true value of UE91 is 15098.</font></p>
+
+</body>
+
+</html>

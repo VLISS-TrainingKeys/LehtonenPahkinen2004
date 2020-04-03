@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+
+<html>
+
+
+<head>
+<title>Handling Nonsampling Errors</title>
+<base target="ylaoikealla">
+</head>
+<body bgcolor="#C0C0C0">
+<STYLE TYPE="text/css">
+<!--
+.indented
+{
+padding-left: 100pt;
+padding-right: 50pt;
+}
+-->
+</STYLE>
+
+
+<p align="center">&nbsp;</p>
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 123: 
+Imputation for Item Nonresponse</font></p>
+
+
+<p align="center"><font face="Arial Black">(Multiple Imputation)</font></p>
+
+
+<hr>
+<font size="3" face="Arial">
+<p>
+We impute for two missing values for the sample selected from the Province’91
+population with SRSWOR. The same sample is used as in Example 4.2, and it
+includes n = 8 municipalities. A missing value is created for the study variable
+UE91 for two municipalities (Kuhmoinen and Toivakka). Variable HOU85 serves as
+an auxiliary variable having no missing values.<BR>
+
+<p>For this simple exercise, we
+apply hot-deck imputation independently five times. Note that hot-deck imputation
+ is used here just to illustrate the basic principles of multiple imputation
+for this quite restricted small-scale data set. In practice, more complex imputation modes are used.</p>
+
+For each run, a missing response is replaced by a value selected randomly
+from the respondent data set. This procedure results in five complete data sets,
+which are presented in the results.<BR>
+
+A point estimate 
+<img border="0" src="p2.gif" ALIGN=MIDDLE width="26" height="34">
+ of the total of unemployed persons is here the mean value of the five individual datawise estimates 
+<img border="0" src="p3.gif" ALIGN=MIDDLE width="21" height="37"> of the same total.
+
+The variance of the estimator 
+<img border="0" src="p2.gif" ALIGN=MIDDLE width="26" height="34"> is decomposed to within-imputation
+variability and between-imputation variability.<BR>
+Within-imputation variability:<BR>
+
+<p CLASS="indented">
+<img border="0" src="p4.gif" ALIGN=MIDDLE width="182" height="62"></p>
+
+Between-imputation variability:<BR>
+<p CLASS="indented">
+<img border="0" src="p5.gif" ALIGN=MIDDLE width="238" height="66">
+</p>
+
+The results from all imputation methods are shown in the final table of this Training Key.
+</font>
+</p>
+<p>
+
+
+<hr>
+
+<p>&nbsp;</p>
+
+
+</body>
+
+
+</html>

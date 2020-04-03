@@ -1,0 +1,724 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="code63b_files/filelist.xml">
+<title>**Reference example 3</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:LastAuthor>tevaultti</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>28</o:TotalTime>
+  <o:Created>2005-03-30T08:38:00Z</o:Created>
+  <o:LastSaved>2005-03-31T06:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>883</o:Words>
+  <o:Characters>5039</o:Characters>
+  <o:Company>University of Jyväskylä</o:Company>
+  <o:Lines>41</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>5911</o:CharactersWithSpaces>
+  <o:Version>11.6360</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+    {font-family:SimSun;
+    panose-1:2 1 6 0 3 1 1 1 1 1;
+    mso-font-alt:\5B8B\4F53;
+    mso-font-charset:134;
+    mso-generic-font-family:auto;
+    mso-font-pitch:variable;
+    mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+    {font-family:"\@SimSun";
+    panose-1:2 1 6 0 3 1 1 1 1 1;
+    mso-font-charset:134;
+    mso-generic-font-family:auto;
+    mso-font-pitch:variable;
+    mso-font-signature:3 135135232 16 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+    {mso-style-parent:"";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Times New Roman";
+    mso-fareast-font-family:SimSun;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+    {margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Courier New";
+    mso-fareast-font-family:SimSun;}
+@page Section1
+    {size:612.0pt 792.0pt;
+    margin:72.0pt 65.95pt 72.0pt 65.95pt;
+    mso-header-margin:35.4pt;
+    mso-footer-margin:35.4pt;
+    mso-paper-source:0;}
+div.Section1
+    {page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+    {mso-style-name:"Table Normal";
+    mso-tstyle-rowband-size:0;
+    mso-tstyle-colband-size:0;
+    mso-style-noshow:yes;
+    mso-style-parent:"";
+    mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+    mso-para-margin:0cm;
+    mso-para-margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Times New Roman";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:#0400;
+    mso-fareast-language:#0400;
+    mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+<p class=MsoPlainText><span style='color:green'>**Stratified SRSWOR with different allocation schemes;<o:p></o:p></span></p>
+<p class=MsoPlainText><span style='color:green'>**Reference example 3.2 from
+Lehtonen &amp; Pahkinen (2004);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='color:navy'>data</span></b> Province91;</p>
+
+<p class=MsoPlainText><span style='color:blue'>input</span> Id Municipality $ <b
+style='mso-bidi-font-weight:normal'><span style='color:teal'>4-17</span></b>
+UE91 URB85;</p>
+
+<p class=MsoPlainText><span lang=FI style='color:blue;mso-ansi-language:FI'>datalines</span><span
+lang=FI style='mso-ansi-language:FI'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>1<span style='mso-spacerun:yes'> 
+</span>Jyväskylä<span style='mso-spacerun:yes'>    </span>4123 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>2<span style='mso-spacerun:yes'> 
+</span>Jämsä<span style='mso-spacerun:yes'>         </span>666 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>3<span style='mso-spacerun:yes'> 
+</span>Jämsänkoski<span style='mso-spacerun:yes'>   </span>528 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>4<span style='mso-spacerun:yes'> 
+</span>Keuruu<span style='mso-spacerun:yes'>        </span>760 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>5<span style='mso-spacerun:yes'> 
+</span>Saarijärvi<span style='mso-spacerun:yes'>    </span>721 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>6<span style='mso-spacerun:yes'> 
+</span>Suolahti<span style='mso-spacerun:yes'>      </span>457 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>7<span style='mso-spacerun:yes'> 
+</span>Äänekoski<span style='mso-spacerun:yes'>     </span>767 1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>8<span style='mso-spacerun:yes'> 
+</span>Hankasalmi<span style='mso-spacerun:yes'>    </span>391 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'><span style='mso-spacerun:yes'> </span>9<span style='mso-spacerun:yes'> 
+</span>Joutsa<span style='mso-spacerun:yes'>        </span>194 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>10<span style='mso-spacerun:yes'>  </span>Jyväskmlk<span
+style='mso-spacerun:yes'>    </span>1623 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>11<span style='mso-spacerun:yes'>  </span>Kannonkoski<span
+style='mso-spacerun:yes'>   </span>153 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>12<span style='mso-spacerun:yes'>  </span>Karstula<span
+style='mso-spacerun:yes'>      </span>341 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>13<span style='mso-spacerun:yes'>  </span>Kinnula<span
+style='mso-spacerun:yes'>       </span>129 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>14<span style='mso-spacerun:yes'>  </span>Kivijärvi<span
+style='mso-spacerun:yes'>     </span>128 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>15<span style='mso-spacerun:yes'>  </span>Konginkangas<span
+style='mso-spacerun:yes'>  </span>142 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>16<span style='mso-spacerun:yes'>  </span>Konnevesi<span
+style='mso-spacerun:yes'>     </span>201 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>17<span style='mso-spacerun:yes'>  </span>Korpilahti<span
+style='mso-spacerun:yes'>    </span>239 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>18<span style='mso-spacerun:yes'>  </span>Kuhmoinen<span
+style='mso-spacerun:yes'>     </span>187 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>19<span style='mso-spacerun:yes'>  </span>Kyyjärvi<span
+style='mso-spacerun:yes'>       </span>94 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>20<span style='mso-spacerun:yes'>  </span>Laukaa<span
+style='mso-spacerun:yes'>        </span>874 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>21<span style='mso-spacerun:yes'>  </span>Leivonmäki<span
+style='mso-spacerun:yes'>     </span>61 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>22<span style='mso-spacerun:yes'>  </span>Luhanka<span
+style='mso-spacerun:yes'>        </span>54 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>23<span style='mso-spacerun:yes'>  </span>Multia<span
+style='mso-spacerun:yes'>        </span>119 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>24<span style='mso-spacerun:yes'>  </span>Muurame<span
+style='mso-spacerun:yes'>       </span>296 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>25<span style='mso-spacerun:yes'>  </span>Petäjävesi<span
+style='mso-spacerun:yes'>    </span>262 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>26<span style='mso-spacerun:yes'>  </span>Pihtipudas<span
+style='mso-spacerun:yes'>    </span>331 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>27<span style='mso-spacerun:yes'>  </span>Pylkönmäki<span
+style='mso-spacerun:yes'>     </span>98 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>28<span style='mso-spacerun:yes'>  </span>Sumiainen<span
+style='mso-spacerun:yes'>      </span>79 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>29<span style='mso-spacerun:yes'>  </span>Säynätsalo<span
+style='mso-spacerun:yes'>    </span>166 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>30<span style='mso-spacerun:yes'>  </span>Toivakka<span
+style='mso-spacerun:yes'>      </span>127 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>31<span style='mso-spacerun:yes'>  </span>Uurainen<span
+style='mso-spacerun:yes'>      </span>219 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='background:#FFFFCC;mso-ansi-language:
+FI'>32<span style='mso-spacerun:yes'>  </span>Viitasaari<span
+style='mso-spacerun:yes'>    </span>568 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='mso-ansi-language:FI'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><b><span lang=FI style='color:navy;mso-ansi-language:
+FI'>run</span></b><span lang=FI style='mso-ansi-language:FI'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='mso-ansi-language:FI'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span lang=FI style='mso-ansi-language:FI'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b><span lang=FI style='color:navy;mso-ansi-language:
+FI'>proc summary</span></b><span lang=FI style='mso-ansi-language:FI'> <span
+style='color:blue'>data</span>=Province91;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:blue'>var</span> UE91;</p>
+
+<p class=MsoPlainText><span style='color:blue'>output out</span>=a <span
+style='color:blue'>css</span>=SST <span style='color:blue'>n</span>=N_tot <span
+style='color:blue'>mean</span>=popmean <span style='color:blue'>var</span>=<span
+style='color:blue'>var std</span>=<span style='color:blue'>std cv</span>=<span
+style='color:blue'>cv sum</span>=tot;</p>
+
+<p class=MsoPlainText>run;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>* Division of the population into
+two subpopulations by variable URB85: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>  </span>URB85=1 for towns and URB85=0 for rural
+municipalities;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> strata1
+strata2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> Province91;</p>
+
+<p class=MsoPlainText><span style='color:blue'>if</span> URB85=<b><span
+style='color:teal'>1</span></b> <span style='color:blue'>then output</span>
+strata1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>if</span> URB85=<b><span
+style='color:teal'>0</span></b> <span style='color:blue'>then output</span>
+strata2;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>proc print</span></b> <span
+style='color:blue'>data</span>=strata1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>title2</span> <span
+style='color:purple'>&quot;Stratum 1&quot;</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>proc print</span></b> <span
+style='color:blue'>data</span>=strata2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>title2</span> &quot;<span
+style='color:purple'>Stratum 2&quot;</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>proc summary</span></b> <span
+style='color:blue'>data</span>=strata1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>var</span> UE91;</p>
+
+<p class=MsoPlainText><span style='color:blue'>output out</span>=var1 <span
+style='color:blue'>n</span>=n1 <span style='color:blue'>var</span>=var1 <span
+style='color:blue'>css</span>=css1 <span style='color:blue'>mean</span>=mean1 <span
+style='color:blue'>cv</span>=cv1 <span style='color:blue'>std</span>=std1
+sum=tot1;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>proc summary</span></b> <span
+style='color:blue'>data</span>=strata2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>var</span> UE91;</p>
+
+<p class=MsoPlainText><span style='color:blue'>output out</span>=var2 <span
+style='color:blue'>n</span>=n2 <span style='color:blue'>var</span>=var2 <span
+style='color:blue'>css</span>=css2 <span style='color:blue'>mean</span>=mean2 <span
+style='color:blue'>cv</span>=cv2<span style='color:blue'> std</span>=std2 <span
+style='color:blue'>sum</span>=tot2;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> stra1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> var1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n1=StratumSize;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> cv1=Cv;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> std1=Std;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> tot1=Total;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> mean1=Mean;</p>
+
+<p class=MsoPlainText>name=<span style='color:purple'>&quot;Stratum 1&quot;</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> stra2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> var2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n2=StratumSize;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> cv2=Cv;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> std2=Std;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> tot2=Total;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> mean2=Mean;</p>
+
+<p class=MsoPlainText>name=<span style='color:purple'>&quot;Stratum 2&quot;</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> pop;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> a;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> N_tot=StratumSize;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> cv=Cv;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> std=Std;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> tot=Total;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> popmean=Mean;</p>
+
+<p class=MsoPlainText>name=<span style='color:purple'>&quot;All<span
+style='mso-spacerun:yes'>         </span>&quot;</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> info(keep=name
+Mean Total Std Cv StratumSize);</p>
+
+<p class=MsoPlainText><span style='color:blue'>set </span>pop stra1 stra2;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>proc print</span></b> <span
+style='color:blue'>data</span>=info;</p>
+
+<p class=MsoPlainText><span style='color:blue'>var</span><span
+style='mso-spacerun:yes'>  </span>name Mean Total Std Cv StratumSize;</p>
+
+<p class=MsoPlainText><span style='color:blue'>title2</span> <span
+style='color:purple'>“</span><span style='mso-bidi-font-family:Arial;
+color:purple;mso-bidi-font-weight:bold;mso-bidi-font-style:italic'>Stratum-level
+parameters for the variable UE91</span><span style='color:purple'>”</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>* A stratified simple random
+sampling of eight (n=8) municipalities;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b>
+alloc(keep=var var1 var2 tot1 tot2 tot n1 n2 N_tot std1 std2 cv1 cv2 n11_pro
+n22_pro n11_opt n22_opt n11_pow1 n22_pow1 n11_pow2 n22_pow2 CV1_pro CV2_pro
+CV1_opt CV2_opt CV1_pow1 CV2_pow1 CV1_pow2 CV2_pow2 CV_pro CV_opt CV_pow1
+CV_pow2 DEFF_pro DEFF_opt DEFF_pow1 DEFF_pow2);</p>
+
+<p class=MsoPlainText><span style='color:blue'>merge</span> a var1 var2;</p>
+
+<p class=MsoPlainText><span style='color:green'>* Proportional allocation;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>n1_pro=<b><span style='color:teal'>8</span></b>*n1/N_tot;</p>
+
+<p class=MsoPlainText>n11_pro=round(n1_pro,1);</p>
+
+<p class=MsoPlainText>n2_pro=<b><span style='color:teal'>8</span></b>*n2/N_tot;</p>
+
+<p class=MsoPlainText>n22_pro=round(n2_pro,1);</p>
+
+<p class=MsoPlainText><span style='color:green'>* Optimal allocation;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>n1_opt=<b><span style='color:teal'>8</span></b>*(n1*std1)/(n1*std1+n2*std2);</p>
+
+<p class=MsoPlainText>n11_opt=round(n1_opt,1);</p>
+
+<p class=MsoPlainText>n2_opt=<b><span style='color:teal'>8</span></b>*(n2*std2)/(n1*std1+n2*std2);</p>
+
+<p class=MsoPlainText>n22_opt=round(n2_opt,1);</p>
+
+<p class=MsoPlainText><span style='color:green'>* Power allocation
+(approximate) with a=0;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>n1_pow1=<b><span style='color:teal'>8</span></b>*cv1/(cv1+cv2);</p>
+
+<p class=MsoPlainText>n11_pow1=round(n1_pow1,1);</p>
+
+<p class=MsoPlainText>n2_pow1=<b><span style='color:teal'>8</span></b>*cv2/(cv1+cv2);</p>
+
+<p class=MsoPlainText>n22_pow1=round(n2_pow1,1);</p>
+
+<p class=MsoPlainText><span style='color:green'>* Power allocation (exact) with
+a=0 and a stratum-specific coefficient c_h;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>n1_pow2=n1_pow1*<b><span style='color:teal'>0.81</span></b>;</p>
+
+<p class=MsoPlainText>n11_pow2=round(n1_pow2);</p>
+
+<p class=MsoPlainText>n2_pow2=8*cv2/(cv1+cv2)*<b><span style='color:teal'>1.19</span></b>;</p>
+
+<p class=MsoPlainText>n22_pow2=round(n2_pow2);</p>
+
+<p class=MsoPlainText><span style='color:green'>* Stratum specific coefficient
+of variation for different allocation schemes;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>CV1_pro=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pro/n1)*(<b><span style='color:teal'>1</span></b>/n11_pro)*var1)/tot1;</p>
+
+<p class=MsoPlainText>CV2_pro=sqrt(n2**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n22_pro/n2)*(<b><span style='color:teal'>1</span></b>/n22_pro)*var2)/tot2;</p>
+
+<p class=MsoPlainText>CV1_opt=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_opt/n1)*(<b><span style='color:teal'>1</span></b>/n11_opt)*var1)/tot1;</p>
+
+<p class=MsoPlainText>CV2_opt=sqrt(n2**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n22_opt/n2)*(<b><span style='color:teal'>1</span></b>/n22_opt)*var2)/tot2;</p>
+
+<p class=MsoPlainText>CV1_pow1=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pow1/n1)*(<b><span style='color:teal'>1</span></b>/n11_pow1)*var1)/tot1;</p>
+
+<p class=MsoPlainText>CV2_pow1=sqrt(n2**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n22_pow1/n2)*(<b><span style='color:teal'>1</span></b>/n22_pow1)*var2)/tot2;</p>
+
+<p class=MsoPlainText>CV1_pow2=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pow2/n1)*(<b><span style='color:teal'>1</span></b>/n11_pow2)*var1)/tot1;</p>
+
+<p class=MsoPlainText>CV2_pow2=sqrt(n2**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n22_pow2/n2)*(<b><span style='color:teal'>1</span></b>/n22_pow2)*var2)/tot2;</p>
+
+<p class=MsoPlainText><span style='color:green'>* Coefficient of variation for
+different allocation schemes;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>CV_pro=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pro/n1)*(<b><span style='color:teal'>1</span></b>/n11_pro)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_pro/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_pro)*var2)/tot;</p>
+
+<p class=MsoPlainText>CV_opt=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_opt/n1)*(<b><span style='color:teal'>1</span></b>/n11_opt)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_opt/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_opt)*var2)/tot;</p>
+
+<p class=MsoPlainText>CV_pow1=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pow1/n1)*(<b><span style='color:teal'>1</span></b>/n11_pow1)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_pow1/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_pow1)*var2)/tot;</p>
+
+<p class=MsoPlainText>CV_pow2=sqrt(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pow2/n1)*(<b><span style='color:teal'>1</span></b>/n11_pow2)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_pow2/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_pow2)*var2)/tot;</p>
+
+<p class=MsoPlainText><span style='color:green'>* Design effects;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>DEFF_pro=(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pro/n1)*(<b><span style='color:teal'>1</span></b>/n11_pro)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_pro/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_pro)*var2)/(N_tot**2*(<b><span
+style='color:teal'>1</span></b>-(n11_pro+n22_pro)/N_tot)*(<b><span
+style='color:teal'>1</span></b>/(n11_pro+n22_pro))*var);</p>
+
+<p class=MsoPlainText>DEFF_opt=(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_opt/n1)*(<b><span style='color:teal'>1</span></b>/n11_opt)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_opt/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_opt)*var2)/(N_tot**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-(n11_opt+n22_opt)/N_tot)*(<b><span
+style='color:teal'>1</span></b>/(n11_opt+n22_opt))*var);</p>
+
+<p class=MsoPlainText>DEFF_pow1=(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pow1/n1)*(<b><span style='color:teal'>1</span></b>/n11_pow1)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_pow1/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_pow1)*var2)/(N_tot**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-(n11_pow1+n22_pow1)/N_tot)*(<b><span
+style='color:teal'>1</span></b>/(n11_pow1+n22_pow1))*var);</p>
+
+<p class=MsoPlainText>DEFF_pow2=(n1**<b><span style='color:teal'>2</span></b>*(<b><span
+style='color:teal'>1</span></b>-n11_pow2/n1)*(<b><span style='color:teal'>1</span></b>/n11_pow2)*var1+n2**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-n22_pow2/n2)*(<b><span
+style='color:teal'>1</span></b>/n22_pow2)*var2)/(N_tot**<b><span
+style='color:teal'>2</span></b>*(<b><span style='color:teal'>1</span></b>-(n11_pow2+n22_pow2)/N_tot)*(<b><span
+style='color:teal'>1</span></b>/(n11_pow2+n22_pow2))*var);</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b>
+d(keep=n11_pro n22_pro CV1_pro CV2_pro CV_pro DEFF_pro) e(keep=n11_opt n22_opt
+CV1_opt CV2_opt CV_opt DEFF_opt) f(keep=n11_pow1 n22_pow1 CV1_pow1 CV2_pow1
+CV_pow1 DEFF_pow1) g(keep=n11_pow2 n22_pow2 CV1_pow2 CV2_pow2 CV_pow2
+DEFF_pow2);</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> alloc;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> d;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> d;</p>
+
+<p class=MsoPlainText>Alloc=<span style='color:purple'>&quot;Proport&quot;</span>;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n11_pro=n1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n22_pro=n2; </p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV1_pro=CV1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV2_pro=CV2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> Cv_pro=CV;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> DEFF_pro=DEFF;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> e;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> e;</p>
+
+<p class=MsoPlainText>Alloc=<span style='color:purple'>&quot;Optimal&quot;</span>;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n11_opt=n1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n22_opt=n2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV1_opt=CV1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV2_opt=CV2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV_opt=CV;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> DEFF_opt=DEFF;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> f;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> f;</p>
+
+<p class=MsoPlainText>Alloc=<span style='color:purple'>&quot;Power1 &quot;</span>;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n11_pow1=n1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n22_pow1=n2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV1_pow1=CV1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV2_pow1=CV2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV_pow1=CV;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> DEFF_pow1=DEFF;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> g;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> g;</p>
+
+<p class=MsoPlainText>Alloc=<span style='color:purple'>&quot;Power2 &quot;</span>;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n11_pow2=n1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> n22_pow2=n2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV1_pow2=CV1;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV2_pow2=CV2;</p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> CV_pow2=CV; </p>
+
+<p class=MsoPlainText><span style='color:blue'>rename</span> DEFF_pow2=DEFF;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>data</span></b> defg;</p>
+
+<p class=MsoPlainText><span style='color:blue'>set</span> d e f g;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='color:navy'>proc print</span></b> <span
+style='color:blue'>data</span>=defg <span style='color:blue'>noobs round</span>;</p>
+
+<p class=MsoPlainText><span style='color:blue'>var</span> Alloc n1 n2 CV1 CV2
+CV DEFF;</p>
+
+<p class=MsoPlainText><span style='color:blue'>label</span> Alloc=<span
+style='color:purple'>'Allocation'</span>;</p>
+
+<p class=MsoPlainText><span style='color:blue'>title2 </span><span
+style='color:purple'>&quot;Stratum sample sizes and coefficients of
+variation&quot;</span>;</p>
+
+<p class=MsoPlainText><b><span style='color:navy'>run</span></b>;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</br></br>
+
+<input type=button value="Download SAS file" onclick="window.open('../key63/key63b.sas')">
+
+</body>
+
+</html>

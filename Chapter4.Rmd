@@ -1,0 +1,106 @@
+---
+title: "Chapter 4: Handling Nonsampling Errors"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In Chapter 4 of the textbook **Practical Methods for Design and Analysis of Complex Surveys**, handling nonsampling errors concentrates on techniques to adjust for unit nonresponse and item nonresponse. Unit nonresponse refers to the situation in which data are not available within the survey data set for a number of sampling units. Reweighting can then be used and applied to the observations from the respondents, with the auxiliary information available for both the respondents and the nonrespondents. Item nonresponse means that in the data set to be analysed some values are present for a sample element, but at least for one item a value is missing for that element. Imputation implies simply that a missing value of the study variable y for a sample element k in the data matrix is substituted by an imputed value.
+
+In **Training Key 114**, the effect of unit nonresponse on the bias of an estimator is demonstrated by reproducing the results of Example 4.1
+
+In **Training Key 117**, reweighting is demonstrated by reproducing the results of Example 4.2. A reweighted Horvitz-Thompson estimator, the response homogeneity group (RHG) method and ratio estimation are applied for a SRSWOR sample involving some degree of unit nonresponse.
+
+In **Training Key 123**, single imputation and multiple imputation are demonstrated by reproducing the results of Example 4.3. Mean imputation, the nearest neighbor method and ratio estimation, providing single imputation methods, are applied for a SRSWOR sample involving some degree of item nonresponse. In addition, multiple imputation is demonstrated briefly.   
+
+NOTE: Instructions for the use of Training Keys are given in the Instructions section. 
+
+# TRAINING KEY 114: Nonresponse
+
+### INTRODUCTION
+
+#### A) REFERENCE EXAMPLE 4.1: SAS CODE AND OUTPUT
+
+Evaluation of the bias due to [nonresponse](concepts/concepts.html) in the [Province'91 population](concepts/concepts.html).
+
+Nonresponse can be harmful in two ways:
+
+1. Estimation can be biased if the characteristics of the nonrespondents systematically differ from those of the respondets. For example, in the case of a population total $T$, this difference may cause nonresponse bias defined as 
+$BIAS(\hat{t}) = E(\hat{t}_{HT(r)}) - T$, where $\hat{t}_{HT(r)}$ is a Horvitz-Thompson estimator calculated from the respondent data.
+
+2. Estimation can be less efficient than planned, because under [unit nonresponse](concepts/concepts.html), the number of measurements is less than the original sample size $(n(r) < n)$ thus decreasing the denominator of the standard error formula.
+
+<a href="Keys/key114/intro.htm" target="_blank">Start</a>
+
+ 
+# TRAINING KEY 117: Reweighting
+
+### INTRODUCTION
+
+#### A) REFERENCE EXAMPLE 4.2: SAS CODE AND OUTPUT
+
+Techniques for adjusting to [unit nonresponse](concepts/concepts.html) are worked out in this Training Key by reweighting for an [SRSWOR](concepts/concepts.html) sample drawn from the [Province'91 population](concepts/concepts.html). The methods include reweighting by the response homogeneity group method and [ratio estimation](concepts/concepts.html). In addition, accounting for the extra variation because of reweighting is illustrated in variance estimation of a [HT estimator](concepts/concepts.html) of the total of UE91.
+ 
+<a href="Keys/key117/intro.htm" target="_blank">Start</a> 
+
+#### B) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Select your own sample or several samples and exercise reweighting with different sample sizes for a SRSWOR sample. The macro parameters used in the application are DATA=data, n = sample size and SEED = seed for the random number generator. You may choose $1 < n < 32$ elements in the sample and by changing the seed different sample configuration will be obtained.
+
+NOTE! You need to have access to SAS in your computer.
+ 
+<a href="Keys/key117/rew-macro.sas" target="_blank">Download SAS code</a> 
+
+
+# TRAINING KEY 123: Imputation for Item Nonresponse
+
+### INTRODUCTION
+
+#### A) REFERENCE EXAMPLE 4.3: SAS CODE AND OUTPUT (Single Imputation)
+
+[Imputation](concepts/concepts.html) implies that a missing value of the study variable $y$ for a sample element $k$ in the data matrix is substituted by an imputed value $\hat{y}_k$. For example, in some computer packages, a technique called mean imputation is available, in which an overall respondent mean $\bar{y}_{(r)}$, calculated from the respondent values of the study variable, is inserted in place of the missing values for that variable. Then the imputed value for element $k$ is $\hat{y}_k= \bar{y}_{(r)}$. This method is not generally valid, and alternative methods are demonstrated in this Training Key. The methods include single imputation methods and multiple imputation methods. Further instructions will be given once you start.
+
+<a href="Keys/key123/intro-a.htm" target="_blank">Start</a>  
+ 
+
+#### B) REFERENCE EXAMPLE 4.3: SAS CODE AND OUTPUT (Multiple Imputation)
+
+In multiple imputation, we predict $m$ values $\hat{y}_1, \ldots, \hat{y}_j, \ldots, \hat{y}_m$ for each missing item. We thus create m completed data sets. Further instructions will be given once you start.
+ 
+<a href="Keys/key123/intro-b.htm" target="_blank">Start</a>  
+
+
+#### C) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Select your own sample or several samples and exercise imputation with different sample sizes for a SRSWOR sample. The macro parameters used in the application are DATA = data set now, n = sample size, SEED = seed for the random number generator, VAR = dependent variable, AUX = auxiliary variable and REP = (in MI) for number of complete data sets (recommendation m = 2,3,4 or 5). You may choose $1 < n < 32$ elements in the sample and by changing the seed a different sample configuration will be obtained.
+
+NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key123/CODE123macro.sas" target="_blank">Download SAS code, Single Imputation macro</a>   
+
+<a href="Keys/key123/mi.sas" target="_blank">Download SAS code, Multiple Imputation macro</a> 
+
+
+# Further Reading
+
+### Chapter 4: Further Reading
+
+#### TRAINING KEY 114: Nonresponse
+
+ 
+#### TRAINING KEY 117: Reweighting
+
+ 
+#### TRAINING KEY 123: Imputation
+
+* Schafer J. L. (2000) Analysis of Incomplete Multivariate Data New York: Chapman & Hall
+

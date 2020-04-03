@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+<title>Right frame</title>
+<base target="_self">
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 45 PART A:</font><font face="Arial Black" size="3">
+INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING IN THE PROVINCE'91 POPULATION</font></p>
+<hr>
+<p align="left"><font face="Arial">In this exercise we calculate the intra-class correlation coefficient under systematic sampling. The connection between the intra-class correlation coefficient and design effect DEFF is also demonstrated.
+We use the Province'91 data set as the frame population. Results of Example 2.4 will be reproduced. We also provide a piece of SAS program code to carry out the calculations.</font></p>
+
+<p align="left"><font face="Arial Black">HOW TO MANAGE THIS EXERCISE</font></p>
+<p><font face="Arial">View the results from the menu on the left. For the Province'91 population,
+four separate systematic samples of eight elements (<i>q=N/n</i>=32/8=4) are drawn from the population data set.
+The total of the study variable UE91 (number of unemployed in the province) is to be estimated.</font></p>
+
+<p><font face="Arial">In systematic sampling, a certain design parameter exists. This parameter, called the
+intra-class correlation coefficient <i>rho<sub>int</sub></i>, will be included in the design variance <i>V<sub>sys</sub></i>
+of an estimator of the population total. The magnitude of the intra-class correlation, and consequently its effect on variance estimates,
+depends partly on whether there is a successive system of ordering of the study variable values in the population frame.
+The effect of sorting order is examined in Part B of this training key.</font></p>
+
+<p><font face="Arial">To calculate the intra-class correlation we first decompose the population variance into the variation between the systematic samples and the variation
+within the systematic samples, as in standard one-way analysis of variance. In ANOVA terms we have <i>SST = SSW + SSB</i>, where
+<i>SST</i> represents the total sum of squares, <i>SSW</i> the within sum of squares and <i>SSB</i> the between sum of squares.
+By using the decomposition of the total sum of squares, the intra-class correlation is defined as <br>
+<i>rho<sub>int</sub> = 1 - n/(n-1)*SSW/SST</i>. </font></p>
+
+<p><font face="Arial">Systematic sampling compared with simple random sampling without replacement is i) more efficient, if <i>-1/(n-1) < rho<sub>int</sub> < 0</i>, ii) equally efficient, if <i>rho<sub>int</sub> = 0</i> or iii) less efficient, if <i>0 < rho<sub>int</sub> < 1</i>.</font></p>
+
+<p><font face="Arial">In this exercise the intra-class correlation is negative (-0.08) which means that given the current sorting order of the population, systematic sampling will be more efficient than simple random sampling without replacement (SRSWOR). Note that the population was pre-sorted first by the variable URB85 (urbanicity) and within each URB85 class, by the variable Municipality for this exercise.</font></p>
+
+<p><font face="Arial">
+The design effect is calculated by equation (2.24):<br>
+<i>DEFF<sub>sys</sub> = V<sub>sys</sub>(t_hat)/V<sub>srs</sub>(t_hat) = 1 + ( n-1)*rho<sub>int</sub></i>. In this exercise the design effect is DEFF=0.43 which implies that systematic sampling is very efficient in this case.</font></p>
+
+<p><font face="Arial">Further, we can write the design variance of the total estimator in the form <br>
+<i>V<sub>sys</sub>(t_hat) = N<sup>2</sup> * (1 - n/N) * S<sup>2</sup>/n * [1 + (n-1)*rho<sub>int</sub>]</i> or alternatively <br>
+ <i>V<sub>sys</sub>(t_hat) = V<sub>srs</sub>(t_hat)*[1 + (n-1)*rho<sub>int</sub>]</i>, as is given in equation (2.23). <br>
+ This also implies that systematic sampling is more efficient than SRSWOR when <i>rho<sub>int</sub></i> is negative.
+</font></p>
+<p><font face="Arial">After viewing the results, you can examine the SAS code
+used to calculate the intra-class correlation and the design effect.</font></p>
+
+</body>
+
+</html> 

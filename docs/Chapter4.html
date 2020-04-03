@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Chapter 4: Handling Nonsampling Errors</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">VLISS HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Chapter2.html">Chapter 2</a>
+</li>
+<li>
+  <a href="Chapter3.html">Chapter 3</a>
+</li>
+<li>
+  <a href="Chapter4.html">Chapter 4</a>
+</li>
+<li>
+  <a href="Chapter5.html">Chapter 5</a>
+</li>
+<li>
+  <a href="Chapter6.html">Chapter 6</a>
+</li>
+<li>
+  <a href="Chapter7.html">Chapter 7</a>
+</li>
+<li>
+  <a href="Chapter8.html">Chapter 8</a>
+</li>
+<li>
+  <a href="Chapter9.html">Chapter 9</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Chapter 4: Handling Nonsampling Errors</h1>
+
+</div>
+
+
+<p>In Chapter 4 of the textbook <strong>Practical Methods for Design and Analysis of Complex Surveys</strong>, handling nonsampling errors concentrates on techniques to adjust for unit nonresponse and item nonresponse. Unit nonresponse refers to the situation in which data are not available within the survey data set for a number of sampling units. Reweighting can then be used and applied to the observations from the respondents, with the auxiliary information available for both the respondents and the nonrespondents. Item nonresponse means that in the data set to be analysed some values are present for a sample element, but at least for one item a value is missing for that element. Imputation implies simply that a missing value of the study variable y for a sample element k in the data matrix is substituted by an imputed value.</p>
+<p>In <strong>Training Key 114</strong>, the effect of unit nonresponse on the bias of an estimator is demonstrated by reproducing the results of Example 4.1</p>
+<p>In <strong>Training Key 117</strong>, reweighting is demonstrated by reproducing the results of Example 4.2. A reweighted Horvitz-Thompson estimator, the response homogeneity group (RHG) method and ratio estimation are applied for a SRSWOR sample involving some degree of unit nonresponse.</p>
+<p>In <strong>Training Key 123</strong>, single imputation and multiple imputation are demonstrated by reproducing the results of Example 4.3. Mean imputation, the nearest neighbor method and ratio estimation, providing single imputation methods, are applied for a SRSWOR sample involving some degree of item nonresponse. In addition, multiple imputation is demonstrated briefly.</p>
+<p>NOTE: Instructions for the use of Training Keys are given in the Instructions section.</p>
+<div id="training-key-114-nonresponse" class="section level1">
+<h1>TRAINING KEY 114: Nonresponse</h1>
+<div id="introduction" class="section level3">
+<h3>INTRODUCTION</h3>
+<div id="a-reference-example-4.1-sas-code-and-output" class="section level4">
+<h4>A) REFERENCE EXAMPLE 4.1: SAS CODE AND OUTPUT</h4>
+<p>Evaluation of the bias due to <a href="concepts/concepts.html">nonresponse</a> in the <a href="concepts/concepts.html">Province’91 population</a>.</p>
+<p>Nonresponse can be harmful in two ways:</p>
+<ol style="list-style-type: decimal">
+<li><p>Estimation can be biased if the characteristics of the nonrespondents systematically differ from those of the respondets. For example, in the case of a population total <span class="math inline">\(T\)</span>, this difference may cause nonresponse bias defined as <span class="math inline">\(BIAS(\hat{t}) = E(\hat{t}_{HT(r)}) - T\)</span>, where <span class="math inline">\(\hat{t}_{HT(r)}\)</span> is a Horvitz-Thompson estimator calculated from the respondent data.</p></li>
+<li><p>Estimation can be less efficient than planned, because under <a href="concepts/concepts.html">unit nonresponse</a>, the number of measurements is less than the original sample size <span class="math inline">\((n(r) &lt; n)\)</span> thus decreasing the denominator of the standard error formula.</p></li>
+</ol>
+<p><a href="Keys/key114/intro.htm" target="_blank">Start</a></p>
+</div>
+</div>
+</div>
+<div id="training-key-117-reweighting" class="section level1">
+<h1>TRAINING KEY 117: Reweighting</h1>
+<div id="introduction-1" class="section level3">
+<h3>INTRODUCTION</h3>
+<div id="a-reference-example-4.2-sas-code-and-output" class="section level4">
+<h4>A) REFERENCE EXAMPLE 4.2: SAS CODE AND OUTPUT</h4>
+<p>Techniques for adjusting to <a href="concepts/concepts.html">unit nonresponse</a> are worked out in this Training Key by reweighting for an <a href="concepts/concepts.html">SRSWOR</a> sample drawn from the <a href="concepts/concepts.html">Province’91 population</a>. The methods include reweighting by the response homogeneity group method and <a href="concepts/concepts.html">ratio estimation</a>. In addition, accounting for the extra variation because of reweighting is illustrated in variance estimation of a <a href="concepts/concepts.html">HT estimator</a> of the total of UE91.</p>
+<p><a href="Keys/key117/intro.htm" target="_blank">Start</a></p>
+</div>
+<div id="b-interactive-sas-use" class="section level4">
+<h4>B) INTERACTIVE SAS USE</h4>
+<p>Please download the SAS code for your own further training. Select your own sample or several samples and exercise reweighting with different sample sizes for a SRSWOR sample. The macro parameters used in the application are DATA=data, n = sample size and SEED = seed for the random number generator. You may choose <span class="math inline">\(1 &lt; n &lt; 32\)</span> elements in the sample and by changing the seed different sample configuration will be obtained.</p>
+<p>NOTE! You need to have access to SAS in your computer.</p>
+<p><a href="Keys/key117/rew-macro.sas" target="_blank">Download SAS code</a></p>
+</div>
+</div>
+</div>
+<div id="training-key-123-imputation-for-item-nonresponse" class="section level1">
+<h1>TRAINING KEY 123: Imputation for Item Nonresponse</h1>
+<div id="introduction-2" class="section level3">
+<h3>INTRODUCTION</h3>
+<div id="a-reference-example-4.3-sas-code-and-output-single-imputation" class="section level4">
+<h4>A) REFERENCE EXAMPLE 4.3: SAS CODE AND OUTPUT (Single Imputation)</h4>
+<p><a href="concepts/concepts.html">Imputation</a> implies that a missing value of the study variable <span class="math inline">\(y\)</span> for a sample element <span class="math inline">\(k\)</span> in the data matrix is substituted by an imputed value <span class="math inline">\(\hat{y}_k\)</span>. For example, in some computer packages, a technique called mean imputation is available, in which an overall respondent mean <span class="math inline">\(\bar{y}_{(r)}\)</span>, calculated from the respondent values of the study variable, is inserted in place of the missing values for that variable. Then the imputed value for element <span class="math inline">\(k\)</span> is <span class="math inline">\(\hat{y}_k= \bar{y}_{(r)}\)</span>. This method is not generally valid, and alternative methods are demonstrated in this Training Key. The methods include single imputation methods and multiple imputation methods. Further instructions will be given once you start.</p>
+<p><a href="Keys/key123/intro-a.htm" target="_blank">Start</a></p>
+</div>
+<div id="b-reference-example-4.3-sas-code-and-output-multiple-imputation" class="section level4">
+<h4>B) REFERENCE EXAMPLE 4.3: SAS CODE AND OUTPUT (Multiple Imputation)</h4>
+<p>In multiple imputation, we predict <span class="math inline">\(m\)</span> values <span class="math inline">\(\hat{y}_1, \ldots, \hat{y}_j, \ldots, \hat{y}_m\)</span> for each missing item. We thus create m completed data sets. Further instructions will be given once you start.</p>
+<p><a href="Keys/key123/intro-b.htm" target="_blank">Start</a></p>
+</div>
+<div id="c-interactive-sas-use" class="section level4">
+<h4>C) INTERACTIVE SAS USE</h4>
+<p>Please download the SAS code for your own further training. Select your own sample or several samples and exercise imputation with different sample sizes for a SRSWOR sample. The macro parameters used in the application are DATA = data set now, n = sample size, SEED = seed for the random number generator, VAR = dependent variable, AUX = auxiliary variable and REP = (in MI) for number of complete data sets (recommendation m = 2,3,4 or 5). You may choose <span class="math inline">\(1 &lt; n &lt; 32\)</span> elements in the sample and by changing the seed a different sample configuration will be obtained.</p>
+<p>NOTE! You need to have access to SAS in your computer.</p>
+<p><a href="Keys/key123/CODE123macro.sas" target="_blank">Download SAS code, Single Imputation macro</a></p>
+<p><a href="Keys/key123/mi.sas" target="_blank">Download SAS code, Multiple Imputation macro</a></p>
+</div>
+</div>
+</div>
+<div id="further-reading" class="section level1">
+<h1>Further Reading</h1>
+<div id="chapter-4-further-reading" class="section level3">
+<h3>Chapter 4: Further Reading</h3>
+<div id="training-key-114-nonresponse-1" class="section level4">
+<h4>TRAINING KEY 114: Nonresponse</h4>
+</div>
+<div id="training-key-117-reweighting-1" class="section level4">
+<h4>TRAINING KEY 117: Reweighting</h4>
+</div>
+<div id="training-key-123-imputation" class="section level4">
+<h4>TRAINING KEY 123: Imputation</h4>
+<ul>
+<li>Schafer J. L. (2000) Analysis of Incomplete Multivariate Data New York: Chapman &amp; Hall</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

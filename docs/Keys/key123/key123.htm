@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+<title>Handling Nonsampling Errors</title>
+<base target="ylaoikealla">
+</head>
+
+<body bgcolor="#E9E9E9" RIGHTMARGIN=20>
+
+<p align="center"><i><font size="2" face="Arial">Practical Methods for Design and Analysis of Complex Surveys.
+</font></i></p>
+<p align="center"><font size="2" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font face="Arial Black">TRAINING KEY 123: Imputation for Item Nonresponse</font></p>
+<hr>
+<p><font face="Arial Black" size="3">INTRODUCTION</font></p>
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial Black">A)&nbsp;
+REFERENCE EXAMPLE 4.3: SAS CODE AND OUTPUT (Single Imputation)</font></p>
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial">
+
+Imputation implies that a missing value of the study variable <i>y</i> for a sample element <i>k</i> in the data matrix is substituted by 
+an imputed value 
+<img border="0" src="p6.gif" ALIGN=ABSMIDDLE>. For example, in some computer packages, a technique called mean imputation is 
+available, in which an overall respondent mean 
+<img border="0" src="p7.gif" ALIGN=MIDDLE>,calculated from the respondent values of the study 
+variable, is inserted in place of the missing values for that variable. Then the imputed value for element <i>k</i> is 
+<img border="0" src="p6.gif" ALIGN=MIDDLE> = 
+<img border="0" src="p7.gif" ALIGN=MIDDLE>. This method is not generally valid, and alternative methods are demonstrated in this Training Key. The 
+methods include single imputation methods and multiple imputation methods. Further instructions will be given once you start. 
+
+
+</font></p>
+
+
+<p align="left">
+<font size="3">
+<font face="Arial">
+<input type="button" value="Start Imputation"
+onclick="popup=window.open('../key123/intro-a.htm','PopupPage','scrollbars=yes,width=900,height=650,toolbar=no,resizable=yes');return false">
+
+</font>
+</p>
+
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial Black">B)&nbsp;
+REFERENCE EXAMPLE 4.3: SAS CODE AND OUTPUT (Multiple Imputation)</font></p>
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial">
+In multiple imputation, we predict <i>m</i> values 
+<img border="0" src="p1.gif" ALIGN=MIDDLE width="132" height="34"> for each missing
+item. We thus create <i>m</i> ‘completed’ data sets. Further instructions will be given once you start.
+</font></p>
+
+
+<p align="left">
+<font size="3">
+<font face="Arial">
+<input type="button" value="Start Imputation"
+onclick="popup=window.open('../key123/intro-b.htm','PopupPage','scrollbars=yes,width=900,height=650,toolbar=no,resizable=yes');return false">
+
+</font>
+</p>
+
+<p align="left"><font face="Arial Black">C)  INTERACTIVE SAS USE&nbsp;</font></p>
+<p align="left"><font size="3" face="Arial">Please download the SAS code for your own
+further training. Select your own sample or several samples and exercise
+imputation with different sample sizes for a SRSWOR sample. The macro
+parameters used in the application are DATA = data set now, <i>n</i> = sample size, SEED 
+= seed for the random number generator, VAR = dependent variable, AUX = auxiliary variable 
+and REP = (in MI) for number of complete data sets (recommendation <i>m</i> = 2,3,4 or 5).
+ You may choose 1 &lt; <i>n</i> &lt; 32 elements in
+the sample and by changing the seed a different sample configuration will be
+obtained.</font></p>
+<p align="left"><font face="Arial"><b>NOTE!</b> You need to have access to SAS in your
+computer.</font></p>
+<p align="left">
+<font face="Arial">
+<input type="button" value="Download"
+onclick="window.open('../key123/CODE123macro.sas')"> Single Imputation macro
+<p><input type="button" value="Download"
+onclick="window.open('../key123/mi.sas')"> Multiple Imputation macro</p>
+</font>
+</font>
+</p>
+
+
+
+
+<hr>
+<p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+
+<html>
+
+
+<head>
+<title>Handling Nonsampling Errors</title>
+<base target="ylaoikealla">
+</head>
+<body bgcolor="#C0C0C0">
+
+
+<p align="center">&nbsp;</p>
+
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 117: 
+Reweighting</font></p>
+
+
+<hr>
+<font size="3" face="Arial">
+<p>In this exercise, the initial sample size is eight municipalities drawn from the <i>Province'91</i> population. Let us
+assume two unit nonresponse cases, namely, Kuhmoinen and Toivakka. Thus, the estimated response
+rate is 0.75. Note that the value of the auxiliary variables HOU85 and URB85 are available for the nonresponse cases
+also. In addition, three of the sampled municipalities are towns (response homogeneity group c = 1) and 
+the other five are rural municipalities (response homogeneity group c = 2).
+</p>
+<p>
+For calculating the reweights, we should first define the appropriate response
+homogeneity groups. For the total estimators 
+<img border="0" src="p2.gif" ALIGN=MIDDLE width="31" height="34"> and 
+<img border="0" src="p3.gif" ALIGN=MIDDLE width="29" height="34">, 
+the total sample is a natural single group. For the total estimator 
+<img border="0" src="p4.gif" ALIGN=MIDDLE width="31" height="37">, two response homogeneity groups 
+are created according to urbanicity (URB85).
+</p>
+<p>
+Using the calculated reweights, the estimated totals and their variance estimates
+can be calculated. Estimates for the total T of UE91 are simply reweighted
+HT estimators calculated for the respondent data set. We focus on the variance estimation because it now includes two
+components: the variance estimator Var_sam due to the sampling design and the
+variance estimator Var_rew caused by the response mechanism. We assume that
+nonresponse is ignorable within each response homogeneity group.
+</p>
+<p>
+The Var_sam component is the same for each reweighted estimator. The
+reweighting component depends on the reweighting method
+used. For all the reweighting methods, the estimation of Var_rew is carried out. This includes, the reweighted 
+Horvitz-Thompson estimator, the response homogeneity group (RHG) method and the ratio method. A desired property of a reweighted estimator is that 
+it reproduces, as closely as possible, the value of the full response estimator. In this case, both the response data estimator and the reweighted HT 
+estimator give poor results. The same holds for variance estimates. The response homogeneity group estimator and the ratio estimator use auxiliary information. 
+These estimators are based on more appropriate model assumptions, and if the assumptions hold closely these two estimators reproduce closely the 'Full response' estimate.
+
+</font>
+</p>
+<p>
+
+
+<hr>
+
+<p>&nbsp;</p>
+
+
+</body>
+
+
+</html>

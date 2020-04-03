@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+
+<html>
+
+
+<head>
+<title>Calibration of Weights</title>
+<base target="ylaoikealla">
+</head>
+<body bgcolor="#C0C0C0">
+
+<p align="center">&nbsp;</p>
+<p align="center"><font face="Arial" size="4">INSTRUCTIONS FOR TRAINING KEY 106: 
+Calibration of Weights</font></p>
+
+
+
+<hr>
+
+
+<p align="left" style="line-height: 100%"><font size="3" face="Arial">
+1) The calibration equation for an auxiliary variable z in poststratification, ratio estimation and regression estimation is 
+<img border="0" src="../key106/pic/p4.gif" ALIGN=MIDDLE>. This means that the HT estimator of the total of the auxiliary variable z reproduces the 
+known population total of z-variable.<BR><BR>
+
+2) To verify this, we need to calculate:<BR>
+
+<ul>
+a) Sampling weights w<SUB>k</SUB> = 1/&#960;<SUB>k</SUB><BR>
+b) Adjustment weights (g-weights) g<SUB>k</SUB>, which depend on both the chosen model-assisted technique and the realized sample.Formulas for 
+different g-weights are given in page 89 (poststratification), page 93 (ratio estimation) and page 98 (regression estimation).<BR>
+c) Calibrated weights w<SUP>*</SUP><SUB>k</SUB>=g<SUB>k</SUB>w<SUB>k</SUB>.<BR>
+</ul>
+
+&#8226; For ratio estimation and regression estimation the calibration property is verified by showing that the total T<SUB>z</SUB> = 91753 will be reproduced.<BR>
+&#8226; For poststratification the total T<SUB>z</SUB> = 7 is reproduced being the number of urban municipalities in the population.
+<BR><BR>
+
+3) For poststratification and regression estimation, you can also make additional checks:
+<ul>
+a) <img border="0" src="../key106/pic/p1.gif" ALIGN=MIDDLE><BR>
+b) <img border="0" src="../key106/pic/p2.gif" ALIGN=MIDDLE><BR>
+c) <img border="0" src="../key106/pic/p3.gif" ALIGN=MIDDLE><BR>
+</ul>
+4) For ratio estimation, the check 3a) only is valid (because the regression model used in ratio estimation does not include an intercept term).
+<BR><BR>
+We use a SRSWOR sample (n=8) selected from the Province’91 population to verify the calibration property. The results are shown first for 
+poststratification, then for ratio estimation and finally for regression estimation. In addition, model-assisted estimates of the total of UE91 
+are calculated by using the calibrated weights.
+
+</font></p>
+
+<hr>
+
+<p>&nbsp;</p>
+
+
+</body>
+
+
+</html>

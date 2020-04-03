@@ -1,0 +1,73 @@
+<html>
+
+
+<head>
+<title>instructions</title>
+
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+
+
+
+<base target="_self">
+
+
+
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center"><font face="Arial Black" size="3">INSTRUCTIONS FOR TRAINING KEY
+101a PART B: REGRESSION ESTIMATION WITH DIFFERENT SAMPLES</font></p>
+<hr>
+<p align="left"><font face="Arial" size="3">In this exercise we will study 
+further the regression estimation of totals by using
+the Province'91 data as the frame population.
+Regression estimation will be applied for the total of UE91 (the number of unemployed
+in a county in 1991) by using one auxiliary variable HOU85 (the number of
+households according to the population census 1985). We will
+select different samples to examine the effect of the sample size and the sample
+configuration on the estimates. Regression estimates are calculated by the SAS procedure <A HREF="../../training/concepts/procsurveyreg.htm" onClick="return popupa(this,'')"><u>SURVEYREG</u></a>.</font></p>
+<p align="left"><font face="Arial Black">HOW TO MANAGE THIS EXERCISE</font></p>
+<p align="left"><font face="Arial" size="3">1) View the frame population from the
+link on the left frame to see the original population and the population  correlations of UE91 and HOU85.</font></p>
+<p align="left"><font face="Arial" size="3">2) Select the sample size (n=8,12
+or 16) and sample configuration* (sample 1 or sample 2) from the drop-down menu on the left and view the
+results by pressing submit button. In each case, <i><b>SRSWOR estimate for UE91
+total&nbsp;</b></i> can be found from <b><i>data summary</i>  table as <i>weighted sum of UE91</i></b> and <i><b>regression
+estimate</b></i> and its standard error estimate from <b><i>analysis of estimable
+functions table&nbsp; - UE91 total.</i></b></font></p>
+<p align="left"><font face="Arial" size="3">3) After viewing the results, you
+can display <i><b>summary table</b></i> from the dropdown menu to compare the results for each selected sample.</font></p>
+<p align="left"><font face="Arial"><b>NOTE. The population total of UE91 is
+15098 persons</b>. Use this figure as a reference when comparing the results. </font></p>
+
+
+<p align="left"><font face="Arial">*) Sample configuration is determined by the
+seed number for the random number generator.</font></p>
+
+
+<hr>
+
+
+</body>
+
+
+</html> 

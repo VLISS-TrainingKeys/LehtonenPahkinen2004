@@ -17,60 +17,164 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In Chapter 3 of the textbook Practical Methods for Design and Analysis of Complex Surveys, the use of auxiliary information is demonstrated further. Auxiliary information can be used to improve the efficiency of estimation by incorporating the auxiliary data into the sampling design, as in stratified sampling discussed in Section 3.1 of the textbook. Auxiliary information also can be used to improve the efficiency of a given sample, by using model-assisted estimation techniques discussed in Section 3.3. In model assisted estimation, the auxiliary data are incorporated in estimation by using statistical models. In poststratification, a linear analysis of variance or ANOVA model is assumed, and the auxiliary data consists of population cell and marginal frequencies of one or several categorical variables. Ratio estimation uses a linear regression model where the intercept is excluded, and the auxiliary data consists of the population totals of one or several continuous variables, which can come from a source such as official statistics. In regression estimation, a standard linear regression model is used to incorporate the auxiliary data in the estimation procedure. The methods are special cases of generalized regression (GREG) estimators. In all these methods, estimation can be more effective than that from just simple random sampling (SRS) if there is a relation between the study variable and auxiliary variable, such as a strong correlation.
 
-In Training Key 63, stratified sampling is demonstrated by first calculating the design effect DEFF for proportional allocation, reproducing results of Example 3.1. Then, the various allocation schemes are examined and results of Example 3.2 are reproduced.
+**In Training Key 63**, stratified sampling is demonstrated by first calculating the design effect DEFF for proportional allocation, reproducing results of Example 3.1. Then, the various allocation schemes are examined and results of Example 3.2 are reproduced.
 
-In Training Key 101, regression estimation is demonstrated by first reproducing the results of Example 3.13. Then, regression estimation is extended to samples with different sample sizes. Finally, the performance of SRSWOR estimators is examined by using Monte Carlo simulation methods. A Horvitz-Thompson estimator for a PPS sample is compared with regression estimation for a SRSWOR sample using the same auxiliary information in both cases.
+**In Training Key 101**, regression estimation is demonstrated by first reproducing the results of Example 3.13. Then, regression estimation is extended to samples with different sample sizes. Finally, the performance of SRSWOR estimators is examined by using Monte Carlo simulation methods. A Horvitz-Thompson estimator for a PPS sample is compared with regression estimation for a SRSWOR sample using the same auxiliary information in both cases.
 
-In Training Key 104, the calibration technique is demonstrated for a SRSWOR sample for three cases: poststratification, ratio estimation and regression estimation. 
-
-
-## TRAINING KEY 63: Design effect and allocation under stratified sampling
-
-###INTRODUCTION
-
-In this Training Key we use the Province'91 data set as the frame population is estimating the total of the study variable UE91 (the number of unemployed in the province) by stratified sampling. In Part A, we calculate the DEFF statistic and the book example 3.1 is worked out. In Part B, different allocation schemes are demonstrated (see book example 3.2). Part C is the option for interactive analysis.
+**In Training Key 104**, the calibration technique is demonstrated for a SRSWOR sample for three cases: poststratification, ratio estimation and regression estimation. 
 
 
-A) CALCULATION OF THE PARAMETER DEFF FOR STRATIFIED SIMPLE RANDOM SAMPLING WITH PROPORTIONAL ALLOCATION
+# TRAINING KEY 63: Design effect and allocation under stratified sampling
 
-We calculate the parameter DEFF for stratified simple random sampling (STRSRS) with proportional allocation. Further instructions will be given once you start.
+### INTRODUCTION
 
-We calculate the parameter [DEFF](concepts/concepts.html) for [stratified](concepts/concepts.html) [simple random sampling](concepts/concepts.html) (STRSRS) with proportional allocation. Further instructions will be given once you start.
+In this Training Key we use the [Province'91](concepts/concepts.html) data set as the frame population is estimating the total of the study variable UE91 (the number of unemployed in the province) by stratified sampling. In Part A, we calculate the DEFF statistic and the book example 3.1 is worked out. In Part B, different allocation schemes are demonstrated (see book example 3.2). Part C is the option for interactive analysis.
 
-		
+
+#### A) CALCULATION OF THE PARAMETER DEFF FOR STRATIFIED SIMPLE RANDOM SAMPLING WITH PROPORTIONAL ALLOCATION
+
+We calculate the parameter [DEFF](concepts/concepts.html#DEFF) for [stratified](concepts/concepts.html) [simple random sampling](concepts/concepts.html) (STRSRS) with proportional allocation. Further instructions will be given once you start.
 
 <!---Testi linkityksestä:
-#```{r}
-#setwd("//ATKK/home/v/valaste/Documents/STUFF/SURVEY_SAMPLING_SAE/VLISS/kversio/masterwww/VLISS/training")
-#polku <- "////ATKK/home/v/valaste/Documents/STUFF/SURVEY_SAMPLING_SAE/VLISS/kversio/masterwww/VLISS/training/"
-#polku
+Huom. jotta aukeaa sulavasti uuteen ikkunaan, kannattaa käyttää html-koodia.
 ````-->
+<a href="Keys/key63/key63a.htm" target="_blank">Start</a>
 
+#### B) DIFFERENT ALLOCATION SCHEMES UNDER STRATIFIED SIMPLE RANDOM SAMPLING
 
+We examine the behaviour of different allocation schemes under ratified sampling from the Province'91 population. The population is divided into two strata, urban municipalities and rural municipalities. A stratified simple random sampling of eight elements is drawn, and the appropriate sample sizes are calculated under proportional, optimal and power allocation schemes. Further instructions will be given once you start.
+
+<a href="Keys/key63/key63b.htm" target="_blank">Start</a>
+
+#### C) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Instructions are given in the SAS code once you download. NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key63/key63a.sas" target="_blank">Download SAS code, Key63a.sas</a>
+
+<a href="Keys/key63/key63b.sas" target="_blank">Download SAS code, Key63b.sas</a>
 
 
 # TRAINING KEY 101a: Regression Estimation
 
 ###  INTRODUCTION
 
-We will first show in point A how to compute regression estimated totals with their standard error estimates. In point B, regression estimation of totals can be examined in more detail by selecting different SRSWOR samples (simple random sampling without replacement) and comparing the results. In point C, you can download a piece of SAS code for your own further training. Regression-estimated totals will be computed in the Province'91 Population for UE91 (the number of unemployed in a county in 1991). The auxiliary variables to be used are HOU85 (the number of households according to population census 1985) and URB85 (indicator of urban municipalities).
+We will first show in point A how to compute [regression estimated totals](concepts/concepts.html) with their standard error estimates. In point B, regression estimation of totals can be examined in more detail by selecting different [SRSWOR](concepts/concepts.html) samples (simple random sampling without replacement) and comparing the results. In point C, you can download a piece of SAS code for your own further training. Regression-estimated totals will be computed in the [Province'91 Population](concepts/concepts.html) for UE91 (the number of unemployed in a county in 1991). The [auxiliary variables](concepts/concepts.html) to be used are HOU85 (the number of households according to population census 1985) and URB85 (indicator of urban municipalities).
 
 
-### A) REFERENCE EXAMPLE 3.13: SAS CODE AND OUTPUT
+#### A) REFERENCE EXAMPLE 3.13: SAS CODE AND OUTPUT
 
 Computation of a regression estimated total and its standard error for UE91. SAS code and output will be examined for two cases:
 
+<a href="Keys/key101/intro.htm" target="_blank">Start: One auxiliary variable (HOU85)</a>
 
+<a href="Keys/key101/intro2.htm" target="_blank">Start: Two auxiliary variables (HOU85 and URB85)</a>
+
+#### B) REGRESSION ESTIMATION WITH DIFFERENT SRSWOR SAMPLES
+
+Examination of the variation of total estimates of UE91 calculated from different pre-drawn SRSWOR samples using auxiliary variable HOU85. Instructions will be given once you start.
+
+<a href="Keys/key101/reg/key101reg.htm" target="_blank">Start, NOT COMPLETED</a>
+
+#### INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Select your own sample or several samples and exercise regression estimation with different sample sizes for a SRSWOR sample. The macro parameters used in the application are n = sample size (default=8) and seed = seed for the random number generator (default seed=01234567). You may choose $2 < n < 32$ (recommendation n = 4) elements in the sample and by changing the seed different sample configuration will be obtained.
+
+NOTE! You need to have access to SAS in your computer.
+ 
+<a href="Keys/key101/key101-interactive.sas" target="_blank">Macro using SAS/SURVEYREG procedure</a>  
+
+<a href="Keys/key101/var-est/varest-macro.sas" target="_blank">Macro using Formula (3.32)</a> 
+  
 
 # TRAINING KEY 101b: Monte Carlo simulation
 
 ###  INTRODUCTION
 
-Behavior of the HT estimator for SRSWOR sample, HT estimator for PPS sample and REG estimator for SRSWOR sample is examined by Monte Carlo simulation techniques.
+Behavior of the [HT estimator for SRSWOR sample](concepts/concepts.html), HT estimator for [PPS sample](concepts/concepts.html) and [REG estimator for SRSWOR sample](concepts/concepts.html) is examined by Monte Carlo simulation techniques.
 
-Monte Carlo simulation of samples will be applied for the Province'91 Population
+Monte Carlo simulation of samples will be applied for the [Province'91 Population](concepts/concepts.html).
 
 
-### A) MONTE CARLO SIMULATION
+#### A) MONTE CARLO SIMULATION
 
 Instructions for carrying out the experiments will be given once you start.
+
+<a href="Keys/key101/simulateframe.htm" target="_blank">Start, NOT COMPLETED</a> 
+
+
+#### B) INTERACTIVE SAS USE
+
+Simulation of samples by selecting the sample size $(n)$ and the number of simulated samples $(K)$ for your further training by using the SAS macro for Monte Carlo simulations.
+
+NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key101/simulatemacro.sas" target="_blank">Download SAS code</a> 
+
+
+<!---Tämä jäänee pois
+
+# TRAINING KEY 101: TEST
+
+### INTRODUCTION
+
+We collect some preliminary data from the users of the VliSS application for the next four purposes:
+
+1. To examine on how users find information from the VliSS application.
+2. To test the training keys and their quality.
+3.To measure the effect of response time (time taken to perform the questionnaire) on the responses.
+4. To provide some tasks for the users to increase their motivation to navigate in the application.
+
+The data collection will take place inside the VliSS application by using web forms. Please read the instructions carefully and answer to the questions asked.
+
+### HOW TO PERFORM THE TEST?
+
+The test we use here is a web questionnaire with some multiple choice questions that concerns the topics discussed in TRAINING KEY 101. Instructions on how to answer:
+
+1. Open the test from by pressing the "test" button.
+2. Choose the option from the multiple choice question that is most likely true from your point of view. There is only one correct option.
+
+IMPORTANT! You can use the VliSS application at the same time when answering to the questions. This is also suggested.
+
+3. Perform all the multiple choice questions and press submit to submit the form.
+4. An overall results table is viewed and you may close the window after viewing them. The test is completed.
+
+NOT COMPLETED
+
+````-->
+
+# TRAINING KEY 104: Calibration of Weights
+
+### INTRODUCTION
+
+#### A) Calibration EXAMPLE: SAS CODE AND OUTPUT
+
+[Design-based](concepts/concepts.html) analysis of survey data requires the use of sampling weights wk derived from the actual sampling design. In [model-assisted estimation](concepts/concepts.html) discussed in Section 3.3, we use [auxiliary information](concepts/concepts.html) to adjust the sampling weights for more efficient estimators. To reach this goal, we first calculate the adjustment weights gk, whose values depend on the chosen calibration method ([poststratification](concepts/concepts.html), [ratio estimation](concepts/concepts.html), [regression estimation](concepts/concepts.html)) and the realized sample. Finally, a calibrated weight $w_k^*$ for the sample element $k$, is the product $w_k^* = g_k w_k$. It is highly recommended that the calibration property is checked by using the calibration equations. Further instructions will be given once you start.
+
+<a href="Keys/key104/calibration-intro.htm" target="_blank">Start</a>  
+ 
+#### B) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Select your own sample (or several samples) and calculate calibrated weights (poststratified, ratio and regression weights) with different sample sizes for a SRSWOR sample and make sure that the calculated weights fulfill the calibration equations. The macro parameters used in the application are n = sample size and SEED = seed for the random number generator. You may choose $1 < n < 32$ elements in the sample and by changing the seed, a different sample configuration will be obtained.
+
+NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key104/calibration-macro.sas" target="_blank">Download SAS code</a>  
+
+
+# Further Reading
+
+### Chapter 3: Further Reading
+
+#### TRAINING KEY 101: Regression Estimation
+
+* Deville J.C., Särndal C.-E. (1992) Calibration estimators in survey sampling Journal of the American Statistical Association 87 376-382.
+* Deville J.C., Särndal C.-E. and Sautory O. (1993) Generalized raking procedures in survey sampling Journal of the American Statistical Association 88 1013-1020.
+* Estevao V., Hidiroglou M.A. and Särndal C.-E. (1995) Methodological principles for a generalized estimation system at Statistics Canada Journal of Official Statistics 11 181-204.
+* Holt D. and Smith T.M.F. (1979) Post Stratification Journal of the Royal Statistical Society A142 303-320.
+* Smith T.M.F. (1991) Post-stratification The Statistician 40 315-323.
+* Särndal C.-E., Swensson B. and Wretman J. (1992) Model Assisted Survey Sampling New York: Springer.
+
+#### TRAINING KEY 104: Calibration of Weights
+
+* Särndal C.-E., Swensson B. and Wretman J. (1992) Model Assisted Survey Sampling New York: Springer.

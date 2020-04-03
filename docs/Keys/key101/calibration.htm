@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+<title>Calibration of Weights</title>
+<base target="ylaoikealla">
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><i><font size="3" face="Arial">Practical Methods for Design and Analysis of
+Complex Surveys.</font></i></p>
+<p align="center"><font size="3" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font size="4" face="Arial"><b>TRAINING KEY 106: Calibration of Weights</b></font></p>
+<hr>
+<p align="left"><font size="3" face="Arial"><b>INTRODUCTION</b></font></p>
+<p align="left" style="line-height: 100%"><font size="3" face="Arial"><b>A)</b></font><font size="3" face="Arial"><b>&nbsp;
+Calibration EXAMPLE: SAS CODE AND OUTPUT</b></font></p>
+
+<p><font size="3" face="Arial">
+Design-based analysis of survey data requires the use of sampling weights w<SUB>k</SUB> derived from the actual
+sampling design. In model-assisted estimation discussed in Section 3.3, we use auxiliary information to adjust the sampling weights for  
+more efficient estimators. To reach this goal, we first calculate the adjustment weights g<SUB>k</SUB>, whose values depend on the chosen 
+calibration method (poststratification, ratio estimation, regression estimation) and the realized sample. Finally, a calibrated weight w<SUP>*</SUP><SUB>k</SUB> 
+for the sample element k, is the product w<SUP>*</SUP><SUB>k</SUB> = g<SUB>k</SUB>w<SUB>k</SUB>. It is highly recommended 
+that the calibration property is checked by using the calibration equations. Further instructions will be given once you start.
+
+</font>
+
+
+
+<p align="left">
+<font size="3">
+<font face="Arial">
+<input type="button" value="Start"
+onclick="popup=window.open('../key106/calibration-intro.htm','PopupPage','scrollbars=yes,width=900,height=650,toolbar=no,resizable=yes');return false">
+
+</font>
+</p>
+
+<p align="left"><font face="Arial"><b>B)</b></font><b><font face="Arial">  INTERACTIVE SAS USE&nbsp;</font></b></p>
+<p align="left"><font size="3" face="Arial">Please download the SAS code for your own
+further training. Select your own sample (or several samples) and calculate calibrated weights (poststratified, ratio and regression weights) with different 
+sample sizes for a SRSWOR sample and make sure that the calculated weights fulfill the calibration equations. The macro parameters used in the application are <i>n</i> = sample size 
+and SEED = seed for the random number generator. You may choose 1 &lt; n &lt; 32 elements in
+the sample and by changing the seed, a different sample configuration will be
+obtained.</font></p>
+<p align="left"><font face="Arial"><b>NOTE!</b> You need to have access to SAS in your
+computer.</font></p>
+<p align="left">
+<font face="Arial">
+<input type="button" value="Download"
+onclick="window.open('../key106/calibration-macro.sas')">
+</font>
+</font>
+</p>
+
+
+
+<hr>
+
+</body>
+
+</html>

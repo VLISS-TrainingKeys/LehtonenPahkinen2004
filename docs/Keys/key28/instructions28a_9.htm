@@ -1,0 +1,56 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+<title>Right frame</title>
+<base target="_self">
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 28 PART A:</font><font face="Arial Black" size="3"> 
+ANALYSING AN SRS SAMPLE BY SAS/SURVEYMEANS</font></p>
+<hr>
+<p align="left"><font face="Arial">In this exercise we calculate the SRSWOR 
+(simple random sampling without replacement) estimates for the total of UE91(number 
+of unemployed in the province) and 
+LAB91 (size of labour force in the province) and 
+for the RATIO UE91/LAB91 with their standard errors. We use Province'91 data set as 
+the frame 
+population. </font></p>
+<p align="left"><font face="Arial">In the calculation we use the SAS procedure <A HREF="../training/concepts/procsurveymeans.htm" onClick="return popupa(this,'')">
+<u>SURVEYMEANS</u></a>. (Tested with SAS 9.1)</font></p>
+
+<p align="left"><font face="Arial Black">HOW TO MANAGE THIS EXERCISE</font></p>
+<p><font face="Arial">View the results from the menu on the left. Selected SRSWOR sample and the estimates for the total of UE91 and LAB91 and for the ratio 
+UE91/LAB91 will be viewed (they are similar to the results viewed in table 2.4 
+on page 29 in Lehtonen and Pahkinen 2004). Pay attention to the estimates 
+and their standard errors and try to think why SRSWOR may lack any significance 
+for practical purposes according to this case study. </font></p>
+<p><font face="Arial">After viewing the results, you can examine the SAS code 
+used to calculate the estimates for the total of UE91 and LAB91 and for the ratio 
+UE91/LAB91. Then, you may move on to next step of Key 28 in which different 
+size SRSWOR samples will be selected to study how the sample size affects to the 
+total estimate and to the ratio estimate. </font></p>
+
+</body>
+
+</html> 

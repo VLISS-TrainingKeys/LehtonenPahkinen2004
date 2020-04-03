@@ -1,0 +1,69 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+<STYLE TYPE="text/css">
+
+
+   a:link {color:black; text-decoration:none}
+   a:visited {color:black; text-decoration:none}
+   a:hover {color:blue; text-decoration:none}
+
+
+ 
+</STYLE>
+
+<base target="_self">
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR TRAINING KEY 54: 
+The use of alternative auxiliary information in  PPSWOR sampling</font></p>
+<hr>
+<p align="left"><font face="Arial">The use of alternative auxiliary information is 
+demonstrated by using different size measure variables in estimation under 
+PPSWOR. We apply three different size measure variables and in 
+each case we perform a Monte Carlo simulation study (1000 selected samples) to 
+examine the distribution of PPSWOR estimator of the total of UE91 (number of unemployed in 
+the province). The purpose is to examine the effectiveness of each size measure 
+variable. The Province'91 data set is used as the frame population.</font></p>
+<p align="left"><font face="Arial Black">HOW TO MANAGE THIS EXERCISE</font></p>
+<p align="left"><font face="Arial">View the frame population data set from the 
+link on the left. Select the size variable from the drop-down menu on the left 
+and perform the Monte Carlo simulation (1000 simulated samples, n=8) in order to 
+examine the properties of PPSWOR estimator in each situation. Correlation 
+coefficient between the study variable (UE91) and auxiliary variable, 
+scatterplot of UE91 against the auxiliary variable, descriptive statistics of 
+the estimator (including Monte Carlo mean, Mont Carlo standard error, bias, 
+ARB(absolute relative bias), RMSE (Root mean squared error) and distribution of the Monte 
+Carlo estimates are viewed.</font></p>
+<p align="left"><font face="Arial">Size variables that you can select are:
+</font></p>
+<p align="left"><font face="Arial">1) HOU85 (number of households in a 
+municipality)</font></p>
+<p align="left"><font face="Arial">2) Z (artificially created variable for 
+pedagogical purposes, N(500,150))</font></p>
+<p align="left"><font face="Arial">3) X (artificially created variable for 
+pedagogical purposes, UE91 + 3000)</font></p>
+<p align="left"><font face="Arial">Please try to evaluate the usefulness of the 
+size measure variables (HOU85, Z, X) in PPS sampling in this case 
+study. Please try to think how the type of auxiliary information affects to 
+the PPS estimates and their corresponding variance estimates. Finally, the interpretation 
+help menu can be examined. </font></p>
+<p align="left"><font face="Arial">NOTE! PPSWOR_STR estimation strategy is 
+applied when HOU85 is used as the auxiliary variable. This is because the size of 
+the largest element is more than twice the sampling interval and therefore the 
+element would be drawn twice for each simulated sample. We handle the problem by 
+stratifying the Province'91 into two strata. The largest element belongs to 
+stratum 1 and the rest of the elements belong to stratum 2. The largest element is 
+drawn with certainty from the stratum 1 only once, and the remaining 7 elements 
+for each simulated sample are selected from the stratum 2 for each simulated 
+sample. The problem does not arise when Z or X are used as auxiliary variables. 
+In these cases PPSWOR estimation strategy is applied without stratification. </font></p>
+
+</body>
+
+</html>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> <head> <meta name="Generator" content="SAS Software, see
+www.sas.com" sasversion="9.1"> <meta http-equiv="Content-type"
+content="text/html; charset=windows-1252"> <title>SAS
+Output</title> <style type="text/css"> <!-- .l {text-align: left }
+.c {text-align: center } .r {text-align: right } .d {text-align:
+"." } .t {vertical-align: top } .m {vertical-align: middle } .b
+{vertical-align: bottom } TD, TH {vertical-align: top }
+.stacked_cell{padding: 0 } .ContentTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+} .Output {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #F0F0F0;
+  border-width: 1px;
+  border-color: #000000;
+} .HeaderEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .NoteContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Graph {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 1px;
+  border-color: #000000;
+} .WarnContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .NoteBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .FatalContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Document {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} a:link { color:#0066AA } a:visited { color:#004488 } a:active {
+color:#004488 } .BeforeCaption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+} .ContentsDate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+} .Pages {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  margin-left: 8px;
+  margin-right: 8px;
+  list-style-type: decimal;
+} .TitlesAndFooters {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .IndexProcName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .ProcTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .IndexAction {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+} .Data {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Table {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #F0F0F0;
+  border-width: 1px;
+  border-color: #000000;
+} .top_stacked_value {
+  padding-bottom: 1px;
+} .middle_stacked_value {
+  padding-top: 1px;
+  padding-bottom: 1px;
+} .bottom_stacked_value {
+  padding-top: 1px;
+} .FooterEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .SysTitleAndFooterContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+} .RowFooterEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ContentFolder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: NONE;
+} .RowFooterEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowFooterStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowFooterFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .Index {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ExtendedPage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 1pt;
+  text-align: center;
+} .Container {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Date {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+} .Caption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+} .WarnBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Frame {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .HeaderStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .IndexTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+} .NoteContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Byline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FatalBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ProcTitleFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ByContentFolder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: NONE;
+} .PagesProcLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .RowHeaderFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowFooterEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .WarnContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Cell {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PageNo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  text-align: right;
+  vertical-align: top;
+} .ContentProcLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .HeaderFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PagesTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+} .RowHeaderEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PagesProcName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .Batch {
+  font-family: SAS Monospace, Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+  border-width: 1px;
+  border-color: #000000;
+} .ContentItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  list-style-type: NONE;
+} .Body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  margin-left: 8px;
+  margin-right: 8px;
+} .PagesDate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+} .HeaderEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ErrorContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .HeaderStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .DataEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #000000;
+  background-color: #D3D3D3;
+} .TitleAndNoteContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+} .RowFooter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .IndexItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+} .BylineContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+} .FatalContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .BodyDate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  width: 100%;
+  text-align: right;
+  vertical-align: top;
+} .Contents {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  margin-left: 8px;
+  margin-right: 8px;
+  list-style-type: decimal;
+} .RowFooterStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .UserText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .HeadersAndFooters {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowHeaderEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ErrorBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ContentProcName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .RowHeaderStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PagesItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  list-style-type: NONE;
+} .RowHeader {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .AfterCaption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+} .RowHeaderStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowHeaderEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .DataStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FolderAction {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+} .HeaderEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .SystemTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ErrorContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .SystemFooter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .FooterEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} --> </style> <script language="javascript"
+type="text/javascript"> <!-- function startup(){
+
+} function shutdown(){
+
+}
+
+//-->
+</script>
+
+<noscript></noscript> </head> <body onload="startup()"
+onunload="shutdown()" class="Body">
+
+<script language="javascript" type="text/javascript"> <!-- var
+_info = navigator.userAgent var _ie = (_info.indexOf("MSIE") > 0
+          && _info.indexOf("Win") > 0
+          && _info.indexOf("Windows 3.1") < 0);
+
+//-->
+</script>
+
+<noscript></noscript> <div class="branch"> <a name="IDX"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr> <td class="c SystemTitle">SRSWOR estimation for the total of
+UE91 and LAB91 and for the ratio UE91/LAB91 with different Sample
+sizes</td> </tr> <tr> <td class="c SystemTitle">Province91
+Population, Sample size = 16</td> </tr> </table><br> <div class="c
+ProcTitle">The SURVEYSELECT Procedure</div> <p> <div> <div
+align="center"> <table class="Table" cellspacing="1"
+cellpadding="7" rules="groups" frame="box" border="1px"
+bordercolor="#000000" summary="Procedure Surveyselect: Sample
+Selection Method"> <colgroup> <col> <col> </colgroup> <tbody> <tr>
+<th class="l RowHeader" scope="row">Selection Method</th> <td
+class="l Data">Simple Random Sampling</td> </tr> </tbody> </table>
+</div> </div> <br> <a name="IDX1"></a> <div> <div align="center">
+<table class="Table" cellspacing="1" cellpadding="7"
+rules="groups" frame="box" border="1px" bordercolor="#000000"
+summary="Procedure Surveyselect: Sample Selection Summary">
+<colgroup> <col> <col> </colgroup> <tbody> <tr> <th class="l
+RowHeader" scope="row">Input Data Set</th> <td class="r
+Data">PROVINCE91</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Random Number Seed</th> <td class="r
+Data">98765432</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Sample Size</th> <td class="r Data">16</td> </tr> <tr>
+<th class="l RowHeader" scope="row">Selection Probability</th> <td
+class="r Data">0.5</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Sampling Weight</th> <td class="r Data">2</td> </tr>
+<tr> <th class="l RowHeader" scope="row">Output Data Set</th> <td
+class="r Data">SAMPLE</td> </tr> </tbody> </table> </div> </div>
+<br> </div> <div class="branch"> <p style="page-break-after:
+always;"><br></p><hr size="3"> <a name="IDX2"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr> <td class="c SystemTitle">SRSWOR estimation for the total of
+UE91 and LAB91 and for the ratio UE91/LAB91 with different Sample
+sizes</td> </tr> <tr> <td class="c SystemTitle">Selected sample
+data set</td> </tr> </table><br> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Print: Data Set WORK.SAMPLE"> <colgroup> <col> </colgroup>
+<colgroup> <col> <col> <col> <col> <col> <col> <col> <col> <col>
+<col> <col> </colgroup> <thead> <tr> <th class="c Header"
+scope="col">Obs</th> <th class="c Header" scope="col">STR</th> <th
+class="c Header" scope="col">CLU</th> <th class="c Header"
+scope="col">ID</th> <th class="l Header" scope="col">LABEL</th>
+<th class="c Header" scope="col">POP91</th> <th class="c Header"
+scope="col">LAB91</th> <th class="c Header" scope="col">UE91</th>
+<th class="c Header" scope="col">HOU85</th> <th class="c Header"
+scope="col">SelectionProb</th> <th class="c Header"
+scope="col">SamplingWeight</th> <th class="c Header"
+scope="col">N</th> </tr> </thead> <tbody> <tr> <th class="r
+RowHeader" scope="row"> 1</th> <td class="r Data">1</td> <td
+class="r Data">2</td> <td class="r Data"> 2</td> <td class="l
+Data">Jamsa</td> <td class="r Data">12907</td> <td class="r
+Data">6016</td> <td class="r Data">666</td> <td class="r
+Data">4663</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row"> 2</th> <td class="r Data">1</td> <td
+class="r Data">2</td> <td class="r Data"> 4</td> <td class="l
+Data">Keuruu</td> <td class="r Data">12707</td> <td class="r
+Data">5919</td> <td class="r Data">760</td> <td class="r
+Data">4896</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row"> 3</th> <td class="r Data">1</td> <td
+class="r Data">5</td> <td class="r Data"> 6</td> <td class="l
+Data">Suolahti</td> <td class="r Data"> 6159</td> <td class="r
+Data">3022</td> <td class="r Data">457</td> <td class="r
+Data">2389</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row"> 4</th> <td class="r Data">2</td> <td
+class="r Data">6</td> <td class="r Data"> 9</td> <td class="l
+Data">Joutsa</td> <td class="r Data"> 4594</td> <td class="r
+Data">2069</td> <td class="r Data">194</td> <td class="r
+Data">1823</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row"> 5</th> <td class="r Data">2</td> <td
+class="r Data">4</td> <td class="r Data">11</td> <td class="l
+Data">Kannonkoski</td> <td class="r Data"> 1919</td> <td class="r
+Data"> 821</td> <td class="r Data">153</td> <td class="r Data">
+726</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> <tr> <th class="r RowHeader"
+scope="row"> 6</th> <td class="r Data">2</td> <td class="r
+Data">8</td> <td class="r Data">13</td> <td class="l
+Data">Kinnula</td> <td class="r Data"> 2324</td> <td class="r
+Data"> 927</td> <td class="r Data">129</td> <td class="r Data">
+675</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> <tr> <th class="r RowHeader"
+scope="row"> 7</th> <td class="r Data">2</td> <td class="r
+Data">8</td> <td class="r Data">14</td> <td class="l
+Data">Kivijarvi</td> <td class="r Data"> 1972</td> <td class="r
+Data"> 819</td> <td class="r Data">128</td> <td class="r Data">
+634</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> <tr> <th class="r RowHeader"
+scope="row"> 8</th> <td class="r Data">2</td> <td class="r
+Data">5</td> <td class="r Data">16</td> <td class="l
+Data">Konnevesi</td> <td class="r Data"> 3453</td> <td class="r
+Data">1557</td> <td class="r Data">201</td> <td class="r
+Data">1215</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row"> 9</th> <td class="r Data">2</td> <td
+class="r Data">1</td> <td class="r Data">17</td> <td class="l
+Data">Korpilahti</td> <td class="r Data"> 5181</td> <td class="r
+Data">2144</td> <td class="r Data">239</td> <td class="r
+Data">1793</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row">10</th> <td class="r Data">2</td> <td
+class="r Data">2</td> <td class="r Data">18</td> <td class="l
+Data">Kuhmoinen</td> <td class="r Data"> 3357</td> <td class="r
+Data">1448</td> <td class="r Data">187</td> <td class="r
+Data">1463</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row">11</th> <td class="r Data">2</td> <td
+class="r Data">5</td> <td class="r Data">20</td> <td class="l
+Data">Laukaa</td> <td class="r Data">16042</td> <td class="r
+Data">7218</td> <td class="r Data">874</td> <td class="r
+Data">4952</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row">12</th> <td class="r Data">2</td> <td
+class="r Data">7</td> <td class="r Data">23</td> <td class="l
+Data">Multia</td> <td class="r Data"> 2375</td> <td class="r
+Data">1059</td> <td class="r Data">119</td> <td class="r Data">
+925</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> <tr> <th class="r RowHeader"
+scope="row">13</th> <td class="r Data">2</td> <td class="r
+Data">8</td> <td class="r Data">26</td> <td class="l
+Data">Pihtipudas</td> <td class="r Data"> 5654</td> <td class="r
+Data">2543</td> <td class="r Data">331</td> <td class="r
+Data">1946</td> <td class="r Data">0.5</td> <td class="r
+Data">2</td> <td class="r Data">32</td> </tr> <tr> <th class="r
+RowHeader" scope="row">14</th> <td class="r Data">2</td> <td
+class="r Data">4</td> <td class="r Data">27</td> <td class="l
+Data">Pylkonmaki</td> <td class="r Data"> 1266</td> <td class="r
+Data"> 545</td> <td class="r Data"> 98</td> <td class="r Data">
+473</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> <tr> <th class="r RowHeader"
+scope="row">15</th> <td class="r Data">2</td> <td class="r
+Data">6</td> <td class="r Data">30</td> <td class="l
+Data">Toivakka</td> <td class="r Data"> 2499</td> <td class="r
+Data">1084</td> <td class="r Data">127</td> <td class="r Data">
+834</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> <tr> <th class="r RowHeader"
+scope="row">16</th> <td class="r Data">2</td> <td class="r
+Data">7</td> <td class="r Data">31</td> <td class="l
+Data">Uurainen</td> <td class="r Data"> 3004</td> <td class="r
+Data">1330</td> <td class="r Data">219</td> <td class="r Data">
+932</td> <td class="r Data">0.5</td> <td class="r Data">2</td> <td
+class="r Data">32</td> </tr> </tbody> </table> </div> </div> <br>
+</div> <div class="branch"> <p style="page-break-after:
+always;"><br></p><hr size="3"> <a name="IDX3"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr> <td class="c SystemTitle">SRSWOR estimation for the total of
+UE91 and LAB91 and for the ratio UE91/LAB91 with different Sample
+sizes</td> </tr> <tr> <td class="c SystemTitle">Estimates for the
+total of UE91 and LAB91 while Sample size is 16</td> </tr>
+</table><br> <div class="c ProcTitle">The SURVEYMEANS
+Procedure</div> <p> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Surveymeans: Data Summary"> <colgroup> <col> <col> </colgroup>
+<thead> <tr> <th class="c b Header" colspan="2"
+scope="colgroup">Data Summary</th> </tr> </thead> <tbody> <tr> <th
+class="l RowHeader" scope="row">Number of Observations</th> <td
+class="r Data">16</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Sum of Weights</th> <td class="r Data">32</td> </tr>
+</tbody> </table> </div> </div> <br> <a name="IDX4"></a> <div>
+<div align="center"> <table class="Table" cellspacing="1"
+cellpadding="7" rules="groups" frame="box" border="1px"
+bordercolor="#000000" summary="Procedure Surveymeans: Statistics">
+<colgroup> <col> </colgroup> <colgroup> <col> <col> <col> <col>
+</colgroup> <thead> <tr> <th class="c b Header" colspan="5"
+scope="colgroup">Statistics</th> </tr> <tr> <th class="l b Header"
+scope="col">Variable</th> <th class="r b Header"
+scope="col">Sum</th> <th class="r b Header" scope="col">Std
+Dev</th>
+<th class="c b Header" colspan="2" scope="colgroup">95% CL for Sum</th>
+</tr> </thead> <tbody> <tr> <th class="l RowHeader"
+scope="row">UE91</th> <td class="r Data">9764.000000</td> <td
+class="r Data">1407.210195</td> <td class="r Data">6764.6025</td>
+<td class="r Data">12763.398</td> </tr> <tr> <th class="l
+RowHeader" scope="row">LAB91</th> <td class="r Data">77042</td>
+<td class="r Data">11879</td> <td class="r Data">51721.8622</td>
+<td class="r Data">102362.138</td> </tr> </tbody> </table> </div>
+</div> <br> </div> <div class="branch"> <p
+style="page-break-after: always;"><br></p><hr size="3"> <a
+name="IDX5"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr> <td class="c SystemTitle">SRSWOR estimation for the total of
+UE91 and LAB91 and for the ratio UE91/LAB91 with different Sample
+sizes</td> </tr> <tr> <td class="c SystemTitle">Estimates for the
+ratio UE91/LAB91 while Sample size is 16</td> </tr> </table><br>
+<div class="c ProcTitle">The SURVEYMEANS Procedure</div> <p> <div>
+<div align="center"> <table class="Table" cellspacing="1"
+cellpadding="7" rules="groups" frame="box" border="1px"
+bordercolor="#000000" summary="Procedure Surveymeans: Data
+Summary"> <colgroup> <col> <col> </colgroup> <thead> <tr> <th
+class="c b Header" colspan="2" scope="colgroup">Data Summary</th>
+</tr> </thead> <tbody> <tr> <th class="l RowHeader"
+scope="row">Number of Strata</th> <td class="r Data">2</td> </tr>
+<tr> <th class="l RowHeader" scope="row">Number of
+Observations</th> <td class="r Data">16</td> </tr> <tr> <th
+class="l RowHeader" scope="row">Sum of Weights</th> <td class="r
+Data">32</td> </tr> </tbody> </table> </div> </div> <br> <a
+name="IDX6"></a> <div> <div align="center"> <table class="Table"
+cellspacing="1" cellpadding="7" rules="groups" frame="box"
+border="1px" bordercolor="#000000" summary="Procedure Surveymeans:
+Class Level Information"> <colgroup> <col> </colgroup> <colgroup>
+<col> <col> </colgroup> <thead> <tr> <th class="c b Header"
+colspan="3" scope="colgroup">Class Level Information</th> </tr>
+<tr> <th class="l b Header" scope="col">Class Variable</th> <th
+class="r b Header" scope="col">Levels</th> <th class="l b Header"
+scope="col">Values</th> </tr> </thead> <tbody> <tr> <th class="l
+RowHeader" scope="row">LABEL</th> <td class="r Data">16</td> <td
+class="l Data">Jamsa Joutsa Kannonkoski Keuruu Kinnula Kivijarvi
+Konnevesi Korpilahti Kuhmoinen Laukaa Multia Pihtipudas Pylkonmaki
+Suolahti Toivakka Uurainen</td> </tr> </tbody> </table> </div>
+</div> <br> <a name="IDX7"></a> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Surveymeans: Statistics"> <colgroup> <col> <col> </colgroup>
+<colgroup> <col> <col> <col> <col> <col> <col> </colgroup> <thead>
+<tr> <th class="c b Header" colspan="8"
+scope="colgroup">Statistics</th> </tr> <tr> <th class="l b Header"
+scope="col">Variable</th> <th class="l b Header"
+scope="col">Level</th> <th class="l b Header"
+scope="col">Label</th> <th class="r b Header" scope="col">N</th>
+<th class="r b Header" scope="col">Mean</th> <th class="r b
+Header" scope="col">Std Error of Mean</th>
+<th class="c b Header" colspan="2" scope="colgroup">95% CL for Mean</th>
+</tr> </thead> <tbody> <tr> <th class="l RowHeader"
+scope="row">CLU</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">5.000000</td> <td
+class="r Data">0.430940</td> <td class="r Data">4.07572</td> <td
+class="r Data">5.92428</td> </tr> <tr> <th class="l RowHeader"
+scope="row">ID</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">16.687500</td> <td
+class="r Data">1.274013</td> <td class="r Data">13.95501</td> <td
+class="r Data">19.41999</td> </tr> <tr> <th class="l RowHeader"
+scope="row">POP91</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">5338.312500</td> <td
+class="r Data">771.552247</td> <td class="r Data">3683.49751</td>
+<td class="r Data">6993.12749</td> </tr> <tr> <th class="l
+RowHeader" scope="row">LAB91</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">2407.562500</td> <td
+class="r Data">347.472935</td> <td class="r Data">1662.30718</td>
+<td class="r Data">3152.81782</td> </tr> <tr> <th class="l
+RowHeader" scope="row">UE91</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">305.125000</td> <td
+class="r Data">38.752205</td> <td class="r Data">222.00979</td>
+<td class="r Data">388.24021</td> </tr> <tr> <th class="l
+RowHeader" scope="row">HOU85</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">1896.187500</td> <td
+class="r Data">248.531504</td> <td class="r Data">1363.14044</td>
+<td class="r Data">2429.23456</td> </tr> <tr> <th class="l
+RowHeader" scope="row">SelectionProb</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">Probability of
+Selection</td> <td class="r Data">16</td> <td class="r
+Data">0.500000</td> <td class="r Data">0</td> <td class="r
+Data">0.50000</td> <td class="r Data">0.50000</td> </tr> <tr> <th
+class="l RowHeader" scope="row">N</th> <th class="l RowHeader"
+scope="row">&nbsp;</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">16</td> <td class="r Data">32.000000</td> <td
+class="r Data">0</td> <td class="r Data">32.00000</td> <td
+class="r Data">32.00000</td> </tr> <tr> <th class="l RowHeader"
+scope="row">LABEL</th> <th class="l RowHeader"
+scope="row">Jamsa</th> <td class="l Data">&nbsp;</td> <td class="r
+Data">1</td> <td class="r Data">0.062500</td> <td class="r
+Data">0.059498</td> <td class="r Data">0.00000</td> <td class="r
+Data">0.19011</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Joutsa</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Kannonkoski</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Keuruu</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.059498</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.19011</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Kinnula</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Kivijarvi</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Konnevesi</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Korpilahti</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Kuhmoinen</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Laukaa</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Multia</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Pihtipudas</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Pylkonmaki</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Suolahti</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.059498</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.19011</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Toivakka</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> <tr> <th class="l RowHeader"
+scope="row">&nbsp;</th> <th class="l RowHeader"
+scope="row">Uurainen</th> <td class="l Data">&nbsp;</td> <td
+class="r Data">1</td> <td class="r Data">0.062500</td> <td
+class="r Data">0.048159</td> <td class="r Data">0.00000</td> <td
+class="r Data">0.16579</td> </tr> </tbody> </table> </div> </div>
+<br> <a name="IDX8"></a> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Surveymeans: Ratio Analysis"> <colgroup> <col> <col> </colgroup>
+<colgroup> <col> <col> <col> <col> <col> </colgroup> <thead> <tr>
+<th class="c b Header" colspan="7" scope="colgroup">Ratio
+Analysis</th> </tr> <tr> <th class="l b Header"
+scope="col">Numerator</th> <th class="l b Header"
+scope="col">Denominator</th> <th class="r b Header"
+scope="col">N</th> <th class="r b Header" scope="col">Ratio</th>
+<th class="r b Header" scope="col">Std Err</th>
+<th class="c b Header" colspan="2" scope="colgroup">95% CL for Ratio</th>
+</tr> </thead> <tbody> <tr> <th class="l RowHeader"
+scope="row">UE91</th> <th class="l RowHeader"
+scope="row">LAB91</th> <td class="r Data">16</td> <td class="r
+Data">0.126736</td> <td class="r Data">0.004448</td> <td class="r
+Data">0.11719660</td> <td class="r Data">0.13627553</td> </tr>
+</tbody> </table> </div> </div> <br> </div> </body> </html>

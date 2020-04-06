@@ -1,0 +1,94 @@
+---
+title: "Chapter 6: Model-Assisted Estimation for Domains"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In Chapter 6 of the textbook **Practical Methods for Design and Analysis of Complex Surveys**, estimation of population totals for population subgroups or domains is discussed by using design-based model-assisted estimation procedures. The generalized regression (GREG) estimator is used extensively. Different extensions are introduced where the alternatives of the assisting model cover linear fixed-effects models and linear mixed models involving domain-specific random effects in addition to the fixed effects. In addition to the GREG estimator, various synthetic estimators are introduced. Variance estimation of the estimated domain totals is discussed. The methods are demonstrated for the Occupational Health Care Survey data set.
+
+In **Training Key 190**, the Horvitz-Thompson estimator and the GREG estimator of domain totals are compared with respect to the accuracy of estimation, reproducing the results of Example 6.1
+
+In **Training Key 205**, the methods for domain estimation are examined further and the results of Example 6.2 are reproduced. An option is provided for more detailed examination of the accuracy of the estimators with different sample sizes.
+
+NOTE: Instructions for the use of Training Keys are given in the Instructions section.
+
+
+# TRAINING KEY 190: Framework for Domain Estimation
+
+### INTRODUCTION
+
+#### A) REFERENCE EXAMPLE 6.1: SAS CODE AND OUTPUT
+
+Impact of sampling design in estimation for domains: the cases of [unplanned domain](concepts/concepts.html) and [planned domain](concepts/concepts.html) structures.
+ 
+<a href="Keys/key190/intro.htm" target="_blank">Start</a> 
+
+
+#### B) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training.
+
+NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key190/Key190.sas" target="_blank">Download SAS code, SAS code (key190.sas)</a>  
+
+<a href="Datat/saem.sas7bdat" target="_blank">Download SAS data, Data (saem.sas7bdat)</a> 
+
+
+# TRAINING KEY 205: Model-Assisted Estimation for Domains
+
+### INTRODUCTION
+
+Example 6.2. Estimation of domain totals by [design-based](concepts/concepts.html) model-assisted methods under [SRSWOR](concepts/concepts.html) sampling. We illustrate the domain estimation methodology by selecting an SRSWOR sample ($n = 1960$ persons) from the [OHC Survey data set](concepts/concepts.html) ($N = 7841$ persons) and estimating the total number of chronically ill persons in the $D = 30$ domains constructed. In the population, the sizes of the domains vary with a minimum of 81 persons and a maximum of 517 persons. The domain proportion of chronically ill persons varies from 18 to 39%, and the overall proportion is 29%. The intra-domain correlation of being chronically ill (binary response) and the age (in years) varies from 0.08 to 0.55; the overall correlation is 0.28.
+
+
+#### A) MODEL-ASSISTED ESTIMATION FOR DOMAINS
+
+We will demonstrate how to perform [model-assisted](concepts/concepts.html) estimation for domains in the setting of Example 6.2. Further instructions are given once you start.
+ 
+<a href="Keys/key205/model-assisted.htm" target="_blank">Start</a>  
+
+
+#### B) MODEL-ASSISTED ESTIMATION FOR DOMAINS WITH DIFFERENT SAMPLE SIZES
+
+We will demonstrate how to perform model-assisted estimation for domains with different sample sizes. The [Horvitz-Thompson (HT) estimator](concepts/concepts.html) and the [generalized regression (GREG) estimator](concepts/concepts.html) of a domain total are compared by examining the standard error and [coefficient of variation](concepts/concepts.html) estimates. Further instructions are given once you start.
+
+<a href="Keys/key205/simulateframe.htm" target="_blank">Start, NOT COMPLETED</a>   
+ 
+
+#### C) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training. Select your own sample or several samples and exercise model-assisted estimation for domains with different sample sizes for a SRSWOR sample. The macro parameters used in the application are n = sample size, seed = seed for the random number generator (default seed=99919481957).
+
+NOTE! You need to have access to SAS in your computer.
+ 
+<a href="Keys/key205/key205-macro.sas" target="_blank">Download SAS code, SAS code (key205-macro.sas)</a> 
+
+<a href="Datat/saem.sas7bdat" target="_blank">Data (saem.sas7bdat)</a>
+
+
+# Further Reading
+
+### Chapter 6: Further Reading
+
+#### TRAINING KEY 190: Impact of Sampling Design in Estimation for Domains
+
+#### TRAINING KEY 206: Model-Assisted Estimation for Domains
+
+* Estevao V., Hidiroglou M. A. and Särndal C.-E. (1995) Methodological principles for a generalized estimation system at Statistics Canada, *Journal of Official Statistics 11* 181-204.
+* Estevao V. M. and Särndal C.-E. (1999) The use of auxiliary information in design-based estimation for domains, *Survey Methodology 25* 213-221.
+* Lehtonen R. and Veijanen A. (1999) Domain estimation with logistic generalized regression and related estimators. Proceedings, IASS Satellite Conference on Small Area Estimation, Riga, August 1999; Riga: *Latvian Council of Science*, 121-128.
+* Lehtonen R. and Veijanen A. (1998) Logistic generalized regression estimators, *Survey Methodology 24* 51-55.
+* Lehtonen, R., Särndal, C.-E. and Veijanen, A. (2003). The effect of model choice in estimation for domains, including small domains. *Survey Methodology Journal 29*, 33-44.
+
+

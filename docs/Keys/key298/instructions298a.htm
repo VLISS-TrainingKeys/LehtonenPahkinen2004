@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<base target="_self">
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center" style="text-align:center">
+<span style="font-family:Arial Black">INSTRUCTIONS FOR TRAINING KEY 298: </span></p>
+
+<p align="center" style="text-align:center">
+<span style="font-family:Arial Black">
+ACCOUNTING FOR CLUSTERING EFFECTS
+FOR A CONTINOUS STUDY VARIABLE</span></p>
+<hr>
+<p><span style="font-family: Arial">The aim in this part is to compare 
+empirically methods that aim at accounting for sampling design complexities: 
+stratification, clustering and weighting. The main concern is in clustering 
+effects.</span></p>
+<p><span style="font-family: Arial">We compare empirically the methods using the 
+OHC Survey dataset. We use perceived psychic strain (PSYCH) as the variable of 
+interest. </span></p>
+<p><span style="font-family: Arial">The continuous variable PSYCH is</span><span style="font-family:Arial"> 
+the first principal component of nine psychic symptoms (explaining 42 % of the 
+total variation of the symptoms). The variable PSYCH is standardized for mean 
+zero and variance one. Psychic strain increases with increasing the value of PSYCH. 
+The overall design effect of PSYCH is about 2 indicating substantial clustering 
+effect. </span></p>
+<p><span style="font-family:Arial">Our main explanatory variable is CHRON 
+(Chronic morbidity). Age and sex are used as additional predictors in the 
+models; we calculate sex-age adjusted figures. </span></p>
+
+<p><span style="font-family: Arial">For the continuous study variable PSYCH we 
+carry out further use of the SUDAAN procedure REGRESS and SAS procedure SURVEYREG. We compare the SUDAAN and SAS 
+results with those given by the SAS procedures GENMOD and MIXED, and the R functions gee and lme.</span></p>
+
+<p><span style="font-family: Arial">In the previous Training Keys we have used 
+SUDAAN analysis procedures to account for the clustering effects. Modeling based 
+on pseudo-maximum likelihood (PML) estimation has been this far our main method. 
+We now turn to certain alternative methods.</span></p>
+
+<p><font face="Arial Black">METHODS WE DEMONSTRATE ARE THE FOLLOWING:</font><span style="font-family: Arial"><br>
+<br>
+- Modeling for a fixed-effects linear model based on generalized estimating 
+equations (GEE) techniques with an exchangeable correlation structure, using the 
+SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. </span></p>
+
+<p><span style="font-family: Arial">- Linear mixed modeling based on restricted 
+maximum likelihood (REML) estimation, using the SAS procedure MIXED and the R function lme. We use a simple 
+model involving cluster-specific random intercepts in addition to the fixed 
+effects (a variance components model).</span></p>
+
+<p><span style="font-family: Arial">In all these instances, standard errors of 
+model coefficients are estimated by a robust (or empirical), “sandwich” type estimator (Lehtonen 
+and Pahkinen 2004 page 271). </span></p>
+
+<p><span style="font-family: Arial">A standard ML estimation procedure by the SAS 
+procedure REG, using a model-based standard error estimate, is used as a 
+reference. All sampling complexities are ignored under this option.</span></p>
+
+<p><span style="font-family: Arial">Analysis options applied are the following:</span></p>
+
+
+<table>
+<tr>
+<td><span style="font-family:Arial">Option</td>
+<td>Procedure</td>
+<td>Accounting for…</td>
+</tr>
+<tr><td colspan=3>--------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>Option 1a:</td>
+<td>SUDAAN/REGRESS</td>
+<td>Clustering and stratification</td>
+</tr>
+<tr>
+<td>Option 1b:</td>
+<td>SAS/SURVEYREG</td>
+<td>Clustering and stratification</td>
+</tr>
+<tr>
+<td>Option 2a:&nbsp;&nbsp;&nbsp;</td>
+<td>SAS/MIXED</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 2b:</td>
+<td>R - lme</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 3a</td>
+<td>SAS/GENMOD</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 3b:</td>
+<td>R - gee</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 4:</td>
+<td>SAS/REG</td>
+<td>None (reference option)</td>
+</tr>
+</span>
+</table>
+
+
+<p><span style="font-family: Arial"><b>NOTE!</b> In MIXED and GENMOD procedures and in R functions, 
+the variable CLUSTER is transformed to a new variable SUBJECT having values 
+1,2,...,250.</span></p>
+<p><span style="font-family: Arial">GEE estimation and computation are discussed 
+in Diggle, Liang and Zeger (1994) and Horton and Lipsitz (1999). Mixed, or 
+multilevel, models are addressed in Goldstein (1995) and McCulloch and Searle 
+(2001). Multilevel modeling is also discussed in Chapter 9 of Lehtonen and 
+Pahkinen (2004).</span></p>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+</body>
+
+</html> 

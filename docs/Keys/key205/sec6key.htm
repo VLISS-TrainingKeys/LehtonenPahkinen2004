@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+
+<html>
+<SCRIPT TYPE="text/javascript">
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=550,height=350,scrollbars=no');
+return false;
+}
+//-->
+</SCRIPT>
+
+<head>
+<title>Practical Methods for Design and Analysis of Complex Surveys</title>
+<base target="ylaoikealla">
+</head>
+
+
+<body bgcolor="#E9E9E9" RIGHTMARGIN=20>
+
+
+<p align="center"><i><font size="2" face="Arial">Practical Methods for Design and Analysis of
+Complex Surveys.</font></i></p>
+<p align="center"><font size="2" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font face="Arial Black">TRAINING KEY 205: Model-Assisted Estimation for Domains</font></p>
+<hr>
+<p><font face="Arial Black" size="3">INTRODUCTION</font></p>
+<p><font face="Arial">
+
+Example 6.2.
+   Estimation of domain totals by design-based model-assisted methods under 
+
+<A HREF="../concepts/srswor.htm" onClick="return popupa(this,'examplea')">
+<font color="#3366FF"><u>SRSWOR</u></font></a>
+ sampling. 
+
+We illustrate the domain estimation methodology by selecting an SRSWOR sample (n = 1960 persons) 
+from 
+
+
+<A HREF="../concepts/ohc.htm" onClick="return popupa(this,'examplea')">
+<font color="#3366FF"><u>the OHC Survey data set</u></font></a>
+
+ (N = 7841 persons) and estimating the total number of chronically ill 
+persons in the D = 30 domains constructed. In the population, the sizes of the domains vary with a 
+minimum of 81 persons and a maximum of 517 persons. The domain proportion of chronically ill persons 
+varies from 18 to 39%, and the overall proportion is 29%. The intra-domain correlation of being chronically 
+ill (binary response) and the age (in years) varies from 0.08 to 0.55; the overall correlation is 0.28.
+
+
+</font></b></p>
+
+<p><font face="Arial Black" size="3">A) MODEL-ASSISTED ESTIMATION FOR DOMAINS</font></p>
+<font face="Arial">We will demonstrate how to perform model-asisted estimation for 
+domains in the setting of Example 6.2. Further 
+instructions are given once you start.</font><p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Start"
+onclick="popup=window.open('../key205/model-assisted.htm','PopupPage','width=850,height=650,scrollbars=yes,toolbar=no,resizable=yes');return false">
+</font>
+</p>
+
+<p><font face="Arial Black" size="3">B) MODEL-ASSISTED ESTIMATION FOR DOMAINS WITH DIFFERENT SAMPLE SIZES</font></p>
+<font face="Arial">We will demonstrate how to perform model-asisted estimation for 
+domains with different sample sizes. The Horvitz-Thompson (HT) estimator and 
+
+<A HREF="../concepts/reg.htm" onClick="return popupa(this,'examplea')">
+<font color="#3366FF"><u>the generalized regression (GREG) estimator</u></font></a>
+
+ of a domain total are compared by 
+examining the standard error and coefficient of variation estimates. Further 
+instructions are given once you start.</font><p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Start"
+onclick="popup=window.open('../key205/simulateframe.htm','PopupPage','width=850,height=650,scrollbars=yes,toolbar=no,resizable=yes');return false">
+</font>
+</p>
+
+<p align="left"><font face="Arial Black">C) INTERACTIVE SAS USE&nbsp;</font></p>
+
+<p align="left"><font size="3" face="Arial">Please download the SAS code for your own
+further training. Select your own sample or several samples and exercise
+model-assisted estimation for domains with different sample sizes for a SRSWOR 
+sample. The macro parameters used in the application are n = sample size, seed = 
+seed for the random number generator (default seed=99919481957). </font></p>
+
+<p align="left"><font face="Arial"><b>NOTE!</b> You need to have access to SAS in your
+computer.</font></p>
+
+<p align="left">
+<font face="Arial">
+<input type="button" value="Download"
+onclick="window.open('../key205/key205-macro.sas')"> SAS code (key205-macro.sas)
+<p>
+<input type="button" value="Download"
+onclick="window.open('../datat/saem.sas7bdat')"> Data (saem.sas7bdat)
+</font>
+</p>
+
+
+<hr>
+<p>&nbsp;</p>
+
+
+
+
+
+
+<p>&nbsp;</p>
+
+
+</body>
+
+
+</html>

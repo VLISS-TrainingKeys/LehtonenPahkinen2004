@@ -1,0 +1,2532 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="key205_files/filelist.xml">
+<title>data MFH;</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>vesku</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>apasane</o:LastAuthor>
+  <o:Revision>8</o:Revision>
+  <o:TotalTime>8</o:TotalTime>
+  <o:Created>2003-08-18T07:34:00Z</o:Created>
+  <o:LastSaved>2004-01-28T11:54:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2287</o:Words>
+  <o:Characters>13041</o:Characters>
+  <o:Company>University of Jyväskylä</o:Company>
+  <o:Lines>108</o:Lines>
+  <o:Paragraphs>30</o:Paragraphs>
+  <o:CharactersWithSpaces>15298</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**Reference
+example 6.2: Estimation of Domain totals by design-based model-assisted methods
+under SRSWOR sampling.;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**Illustration
+of the Domain estimation methodology by selecting an SRSWOR sample (n = 1960
+persons) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>from
+the OHC Survey data set (N = 7841 persons) and estimating the total number of
+Chronically ill <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>persons
+in the D = 30 Domains constructed;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>libname
+[your libname] </span><span style='font-size:10.0pt;font-family:"Courier New";
+color:purple;background:white'>&quot;path to Saem data in your computer&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Sae;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>set
+[your libname]</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.S</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>aem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>********************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Sample selection<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>********************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>surveyselect</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> data=Sae out=Samplex
+method=srs n=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1960</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> stats seed=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>99919481957</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title1</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Model-Assisted Estimation for Domains&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Selecting a SRSWOR sample&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Samplex;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Samplex;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>Filter=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>w=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+a.Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>Filter=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>w=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>pi=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>merge</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Saem Samplex;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Id;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+w=</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>1</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>/(</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>7841</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>Chrons=Chron;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Chrons=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Computation<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Population totals;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Chron;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=c1(drop=_type_ rename=(_freq_=Pop_n)) </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>sum</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>t</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*****************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*(1)
+HT estimator<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*****************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Chrons;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>weight</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+w;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=s11(drop=_type_ rename=(_freq_=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>n</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>))
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>sum</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=t_HT;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*********************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+y_Sum y_Css x_css <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*********************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem;<span
+style='mso-spacerun:yes'>                                                                                                                
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                            
+</span><span style='mso-spacerun:yes'>            </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Chrons Age;<span
+style='mso-spacerun:yes'>                                                                                                                        
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<span
+style='mso-spacerun:yes'>                                                                                            
+</span><span style='mso-spacerun:yes'>                                  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=s12(drop=_type_ _freq_) </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>sum</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>(Chrons)=y_Sum
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>css</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>(Chrons)=y_Css </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>css</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>(Age)=z_Css;<span
+style='mso-spacerun:yes'>                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                               
+</span><span
+style='mso-spacerun:yes'>                                                    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>          </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>***********************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+hts (Estimate for the Population)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>***********************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+hts(drop=Domain rename=(t_HT=t_HTs));<span
+style='mso-spacerun:yes'>                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s11(keep=t_HT Domain);<span
+style='mso-spacerun:yes'>                                                                                            
+</span><span style='mso-spacerun:yes'>                     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                            
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*******************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Correlation of Variables Chrons and Age in the sample<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*******************************************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>                                                                                       
+</span><span
+style='mso-spacerun:yes'>                                                                                                                                                                       </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>corr</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>cov</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:blue;background:white'>noprint</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>outp</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=s14;<span
+style='mso-spacerun:yes'>                                               </span><span
+style='mso-spacerun:yes'>                                                </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                        
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Chrons Age;<span
+style='mso-spacerun:yes'>                                                      
+</span><span
+style='mso-spacerun:yes'>                                                                  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>       </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s14(keep=yz_Cov);<span
+style='mso-spacerun:yes'>                                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s14;<span style='mso-spacerun:yes'>                              </span><span
+style='mso-spacerun:yes'>                                                                                                  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>rename</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>                                                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>Age=yz_Cov<span
+style='mso-spacerun:yes'>          </span><span
+style='mso-spacerun:yes'>                                                                                                                    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                                      
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_type_=</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:purple;background:white'>&quot;COV&quot;</span><span style='font-size:
+10.0pt;font-family:"Courier New";color:black;background:white'> and _name_=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;chrons&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>******************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Calculation of Variances to every Domain<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>******************************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s1c1;<span
+style='mso-spacerun:yes'>                                                                                                                             
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>merge</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+c1 s11 s12;<span
+style='mso-spacerun:yes'>                                                                                                         
+</span><span style='mso-spacerun:yes'>             </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<span
+style='mso-spacerun:yes'>                                                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>y_Var=y_Css/(n-</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>);<span
+style='mso-spacerun:yes'>                                                                                  
+</span><span
+style='mso-spacerun:yes'>                                   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>z_Var=z_Css/(n-</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>);<span
+style='mso-spacerun:yes'>                                                                                                                     
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                              
+</span><span
+style='mso-spacerun:yes'>                                                     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>***********************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Variance of whole Population only<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>***********************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s13(rename=(y_Var=y2_Var z_Var=z2_Var));<span
+style='mso-spacerun:yes'>                                         </span><span
+style='mso-spacerun:yes'>                                                  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s1c1(keep=Domain y_Var z_Var);<span
+style='mso-spacerun:yes'>                                                                                                         
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                
+</span><span
+style='mso-spacerun:yes'>                                                                            </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*****************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*(2)
+Greg estimators<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*****************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Age;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=Agep(keep=Domain Agep) </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>sum</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Agep;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Agep2(keep=Agep2);<span
+style='mso-spacerun:yes'>                                                                                                                
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Agep;<span
+style='mso-spacerun:yes'>                                                                                                    
+</span><span style='mso-spacerun:yes'>                          </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                            
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>rename</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Agep=Agep2;<span
+style='mso-spacerun:yes'>                                                                                                                     
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                        
+</span><span style='mso-spacerun:yes'>           </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem;<span
+style='mso-spacerun:yes'>                                                                                                                
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                       
+</span><span style='mso-spacerun:yes'>                                 </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Age;<span
+style='mso-spacerun:yes'>                                                                                                                               
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>weight</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+w;<span
+style='mso-spacerun:yes'>                                                                           
+</span><span
+style='mso-spacerun:yes'>                                                   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<span
+style='mso-spacerun:yes'>                                                                                                                              
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=Ages(keep=Domain t_Age) </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>sum</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=t_Age;<span
+style='mso-spacerun:yes'>                  </span><span
+style='mso-spacerun:yes'>                                                                             </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Ages2(keep=Ages2 z_Mean z2_Mean);<span
+style='mso-spacerun:yes'>                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Ages;<span style='mso-spacerun:yes'>                            </span><span
+style='mso-spacerun:yes'>                                                                                                   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                            
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>z_Mean=t_Age/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>7841</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                     
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>z2_Mean=t_Age/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                      
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>rename</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+t_Age=Ages2;<span
+style='mso-spacerun:yes'>                                                                                                                   
+</span><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>****************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Calculation of ratio r=y/z<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>****************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+r(keep=r t_HTs);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>merge</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+hts Ages2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>r=t_HTs/Ages2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*******
+Linear Syn estimator ************;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>                                                     
+</span><span
+style='mso-spacerun:yes'>                                        </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>                                                                                                                                       
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**
+Area-level auxiliary data;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>                                                                                                          
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>                                                                                                                                                   
+</span><span
+style='mso-spacerun:yes'>                                                                                                                   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Syn;<span
+style='mso-spacerun:yes'>                                                                                                                              
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>merge</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s1c1 Agep Ages;<span
+style='mso-spacerun:yes'>                                                                                                                  
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<span
+style='mso-spacerun:yes'>                                                                                                               
+</span><span style='mso-spacerun:yes'>                  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                                   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Syn;<span
+style='mso-spacerun:yes'>                                                                                          
+</span><span
+style='mso-spacerun:yes'>                                    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> r;<span
+style='mso-spacerun:yes'>                                                                                                                   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> Agep2;<span
+style='mso-spacerun:yes'>                                                         
+</span><span
+style='mso-spacerun:yes'>                                                      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> Ages2;<span
+style='mso-spacerun:yes'>                                                                                                               
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> s13;<span
+style='mso-spacerun:yes'>                                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> s14;<span
+style='mso-spacerun:yes'>                                                                                                                 
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Syn;<span
+style='mso-spacerun:yes'>                                                                                                                               
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>                                                                                                                 
+</span><span style='mso-spacerun:yes'>                  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>               </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*******
+Linear Greg estimator ************;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**
+Unit-level auxiliary data;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> r;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>do</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>      </span>yhat=r*Age;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>      </span>ehat=Chrons-yhat;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>      </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>end</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Saem;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title3</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Greg estimator&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Filter=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+ehat;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=s2(drop=_type_ _freq_) </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>sum</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>(ehat)=t_e
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>css</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>(ehat)=e_Css;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s22;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>rename</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+e_Css=e_Css2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_n_=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>set</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> s22;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+s2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>***************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Calculation of formulas (6.22) and table 6.5 CV<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>***************************************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+All;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>merge</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Syn s2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>w<span
+style='mso-spacerun:yes'>  </span>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>7841</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>pd
+= n/</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1960</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>qd
+= </span><b><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>1</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>-pd;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>y_CV<span
+style='mso-spacerun:yes'>       </span>= sqrt(y_Var)/(t_HT/Pop_n); <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+y_CV=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+y_CV=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>0</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_HT_Var<span
+style='mso-spacerun:yes'>   </span>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>7841</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>**</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>*(</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>-</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>7841</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>)*(</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>)*pd*y_Var*(</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>+qd/y_CV**</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>);<span
+style='mso-spacerun:yes'>  </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>**Formula (6.22);</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_HT_se<span
+style='mso-spacerun:yes'>    </span>= sqrt(t_HT_Var);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_HT_CV<span
+style='mso-spacerun:yes'>    </span>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>100</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>*t_HT_se/t_HT;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_Greg<span
+style='mso-spacerun:yes'>     </span>= Agep*r+w*t_e;<span
+style='mso-spacerun:yes'>                </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>e_Var<span
+style='mso-spacerun:yes'>      </span>= e_Css/(n-</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>e_CV<span
+style='mso-spacerun:yes'>       </span>= sqrt(e_Var)/(t_e/Pop_n);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_Greg_Var
+= </span><b><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>7841</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>**</span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>*(</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>-</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>7841</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>)*(</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>/</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1960</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>)*pd*e_Var*(</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>+qd/e_CV**</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>);<span
+style='mso-spacerun:yes'>  </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>**Formula (6.22);</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_Greg_se<span
+style='mso-spacerun:yes'>  </span>= sqrt(t_Greg_Var);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>t_Greg_CV<span
+style='mso-spacerun:yes'>  </span>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>100</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>*t_Greg_se/t_Greg;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+n le </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>40</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>else</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>if</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> n ge </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>40</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+and n le </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>80</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>2</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>else</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>if</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> n ge </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>80</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>then</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> size=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>3</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>4</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*****
+Final results *****<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*************************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>sort</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=All
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=Final;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+n;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>format</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>value</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+sizef<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;-39&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;40-79&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>3</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;80-&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>4</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Total&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>print</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Final
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>noobs</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;HT estimates and their Variance, s.e. and C.V &quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title3</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;&quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title4</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_HT = HT estimate of Chron in each Domain&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title5</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot; &quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title6</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_HT_Var<span style='mso-spacerun:yes'>   </span>=
+7841**2*(1-1960/7841)*(1/1960)*pd*y_Var*(1+qd/y_CV**2)&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title7</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot; &quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title8</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_HT_CV<span style='mso-spacerun:yes'>    </span>=
+100*t_HT_se/t_HT&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain n Pop_n t <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT t_HT_Var t_HT_se t_HT_CV;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>format</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_numeric_ </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>5.0</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT_se t_HT_Var </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT_CV </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>size </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white'>sizef.</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>print</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Final
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>noobs</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Greg estimates and their Variance, s.e. and C.V &quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title3</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;&quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title4</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_Greg<span style='mso-spacerun:yes'>     </span>=
+Agep*r+w*t_e&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title5</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;e_Var<span style='mso-spacerun:yes'>      </span>=
+e_Css/(n-1)&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title6</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;e_CV<span style='mso-spacerun:yes'>       </span>=
+sqrt(e_Var)/(t_e/Pop_n)&quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title7</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot; &quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title8</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_Greg_Var =
+7841**2*(1-1960/7841)*(1/1960)*pd*e_Var*(1+qd/e_CV**2)&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title9</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot; &quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title10</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_Greg_CV<span style='mso-spacerun:yes'>  </span>=
+100*t_Greg_se/t_Greg&quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain n t_Greg t_Greg_Var t_Greg_se t_Greg_CV e_Var e_CV;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>format</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_numeric_ </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>5.0</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_Greg e_Var e_CV </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_Greg_se t_Greg_Var </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_Greg_CV </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>size </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white'>sizef.</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>print</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Final;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Auxiliary information used in calculations &quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>by</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain pd qd y_Var y_CV Agep r t_e e_Css;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>format</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_numeric_ </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>5.0</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>pd qd r </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.5</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>y_Var y_CV </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.3</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_e </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>7.4</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>Agep </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>e_Css </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>7.3</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>size </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white'>sizef.</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>******************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Table 6.5 Print<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>******************;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>format</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>value</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+sizef<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;All&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;-39&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;40-79&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>3</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;80-&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>summary</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Final;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>where</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain ne </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+n Pop_n t <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT t_Greg <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT_CV t_Greg_CV<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>class</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>output</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=Sum1(drop=_type_) </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>Mean</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=
+;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>print</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Sum1
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>noobs</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title3</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Means of C.V in groups&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+size n t_HT_CV t_Greg_CV <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>             </span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>format</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+_numeric_ </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>6.0</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>t_HT_CV t_Greg_CV </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6.2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>            </span>size </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white'>sizef.</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**********<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+GRAPHICS<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>**********;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>rank</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Final
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>out</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=Order </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>ties</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=low;
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>Var</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+n;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>ranks</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+nrank;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Order;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>set</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Order;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain = </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>18</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+nrank= </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>3</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain = </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>16</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+nrank= </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>8</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>if</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Domain = </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>0</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>then</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+nrank=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>.</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> ;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>goptions</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>reset</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=global </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>gunit</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=pct
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>cback</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=white<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>         </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>ctext</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=black
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>colors</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=(blue red)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span><span
+style='mso-spacerun:yes'> </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>hsize</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=25cm
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>vsize</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=25cm </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>htitle</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>4</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>htext</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>3</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span><span
+style='mso-spacerun:yes'> </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>interpol</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=join<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>symbol1</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>       </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>CV</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=blue<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>       </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>wIdth</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>symbol2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>       </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>CV</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=red<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>       </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>wIdth</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>6</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>gplot</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Order;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>      </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>plot</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+t_HT_se * nrank <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>           </span>t_Greg_se * nrank<span
+style='mso-spacerun:yes'>  </span>/</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>overlay</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>vaxis</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+to </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>25</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> by </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>5</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>haxis</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+to </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>30</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> by </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>10</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title1</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Standard error estimates&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_HT_se (blue) and t_Greg_se (red)&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>footnote1</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+j=</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>50</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white'>'Domain Id (sorted by Domain
+sample size n(d)'</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>proc</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white'>gplot</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white'> </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:blue;background:white'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=Order;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>      </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>plot</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+t_HT_CV * nrank <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>             </span>t_Greg_CV * nrank<span
+style='mso-spacerun:yes'>  </span>/</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:blue;background:white'>overlay</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>vaxis</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>5</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+to </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>40</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> by </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>5</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:blue;
+background:white'>haxis</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>= </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+to </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>30</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> by </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>10</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title1</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Standard error estimates&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>title2</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;t_HT_CV (blue) and t_Greg_CV (red)&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white'>footnote1</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+j=</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>50</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white'>'Domain Id (sorted by Domain
+sample size n(d)'</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;background:white'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+<p align="center">
+<input type=button value="Download SAS file" onclick="window.open('../key205/Key205.sas')">
+<p></p>
+</body>
+
+</html>

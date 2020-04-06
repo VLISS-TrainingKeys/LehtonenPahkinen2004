@@ -1,0 +1,1397 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="jrr_files/filelist.xml">
+<title>***********************************************************************</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>vesku</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>apasane</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>4</o:TotalTime>
+  <o:Created>2002-10-29T11:56:00Z</o:Created>
+  <o:LastSaved>2004-01-28T10:38:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>807</o:Words>
+  <o:Characters>4603</o:Characters>
+  <o:Company>University of Jyvaskyla</o:Company>
+  <o:Lines>38</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5400</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-GB;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>*EXAMPLE 5.3. Variance estimation by the Jackknife
+technique.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>INTRODUCTION: This SAS code produces variance
+estimates by the jackknife, or JRR (Jackknife Repeated <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>Replications),technique for CHRON proportion and SYSBP
+mean in the MFH Survey dataset. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>The sampling design assumption is a paired Clusters
+design, that is, a design where exactly two Clusters<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>have been drawn from each stratum. The number of
+strata is 24 and there are 48 sample Clusters.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>Note that an aggregated MFH dataset is used such that
+there are 48 observations (Clusters) in the dataset.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>Therefore, variance estimation by JRR technique is
+based on the between-Clusters variation. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>INSTRUCTIONS:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>1) Submit first two data steps and first two proc
+steps for the MFH Survey.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>2) Activate MACRO JRR (Jackknife Repeated
+Replications).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>3) Insert macro parameters DATA (default=mhf), Clu
+(Cluster ID, default=Clu), STR (stratum ID, default=str),<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>Y (response
+variable, default=chron),X (number of sample elements in the Clusters run,
+default=x),<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>S (number of
+strata in the paired Clusters design, default=24).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>4) Activate the line %JRR to run the macro. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>5) Use the macro for your own purposes or modify it if
+needed. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>FURTHER EXCERCISES:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>1)There are 7 different JRR variance estimators
+introduced in Lehtonen &amp; Pahkinen (1996, 157-161). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>Please try to calculate all of them for the MFH design
+by appropriately modifying the macro JRR.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>You may practice also with the OHC Survey data set. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>Feel free to download the OHC dataset from Index of
+SAS codes.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>/*MFH Survey data*/</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>data</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>
+MFH;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>input</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> STR Clu
+CHRON SYSBP X;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>datalines</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>1 1 70 29056
+204 <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>1 2 74 29417
+210<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>2 1 12<span
+style='mso-spacerun:yes'>  </span>3692<span style='mso-spacerun:yes'> 
+</span>26<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>2 2 14<span
+style='mso-spacerun:yes'>  </span>4564<span style='mso-spacerun:yes'> 
+</span>30<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>3 1 15<span
+style='mso-spacerun:yes'>  </span>7741<span style='mso-spacerun:yes'> 
+</span>59<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>3 2 16<span
+style='mso-spacerun:yes'>  </span>8585<span style='mso-spacerun:yes'> 
+</span>63<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>4 1<span
+style='mso-spacerun:yes'>  </span>9<span style='mso-spacerun:yes'> 
+</span>6277<span style='mso-spacerun:yes'>  </span>45<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>4 2 14<span
+style='mso-spacerun:yes'>  </span>5668<span style='mso-spacerun:yes'> 
+</span>43<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>5 1 10<span
+style='mso-spacerun:yes'>  </span>2322<span style='mso-spacerun:yes'> 
+</span>17<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>5 2 16<span
+style='mso-spacerun:yes'>  </span>3960<span style='mso-spacerun:yes'> 
+</span>30<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>6 1 10<span
+style='mso-spacerun:yes'>  </span>3080<span style='mso-spacerun:yes'> 
+</span>21<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>6 2<span
+style='mso-spacerun:yes'>  </span>6<span style='mso-spacerun:yes'> 
+</span>3252<span style='mso-spacerun:yes'>  </span>22<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>7 1 10<span
+style='mso-spacerun:yes'>  </span>3966<span style='mso-spacerun:yes'> 
+</span>27<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>7 2<span
+style='mso-spacerun:yes'>  </span>4<span style='mso-spacerun:yes'> 
+</span>3261<span style='mso-spacerun:yes'>  </span>24<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>8 1 12<span
+style='mso-spacerun:yes'>  </span>4156<span style='mso-spacerun:yes'> 
+</span>28<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>8 2<span
+style='mso-spacerun:yes'>  </span>6<span style='mso-spacerun:yes'> 
+</span>2852<span style='mso-spacerun:yes'>  </span>20<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>9 1 15<span
+style='mso-spacerun:yes'>  </span>6617<span style='mso-spacerun:yes'> 
+</span>46<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span>9 2 23<span
+style='mso-spacerun:yes'>  </span>6616<span style='mso-spacerun:yes'> 
+</span>48<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>10 1 37 10552<span style='mso-spacerun:yes'> 
+</span>73<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>10 2 25 11032<span style='mso-spacerun:yes'> 
+</span>77<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>11 1 11<span style='mso-spacerun:yes'> 
+</span>8759<span style='mso-spacerun:yes'>  </span>60<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>11 2 25<span style='mso-spacerun:yes'> 
+</span>9876<span style='mso-spacerun:yes'>  </span>72<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>12 1 33<span style='mso-spacerun:yes'> 
+</span>9901<span style='mso-spacerun:yes'>  </span>69<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>12 2 24<span style='mso-spacerun:yes'> 
+</span>6828<span style='mso-spacerun:yes'>  </span>47<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>13 1 31<span style='mso-spacerun:yes'> 
+</span>8624<span style='mso-spacerun:yes'>  </span>61<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>13 2 27<span style='mso-spacerun:yes'> 
+</span>9390<span style='mso-spacerun:yes'>  </span>66<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>14 1 22<span style='mso-spacerun:yes'> 
+</span>6960<span style='mso-spacerun:yes'>  </span>48<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>14 2 20<span style='mso-spacerun:yes'> 
+</span>7130<span style='mso-spacerun:yes'>  </span>49<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>15 1 18<span style='mso-spacerun:yes'> 
+</span>6646<span style='mso-spacerun:yes'>  </span>49<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>15 2 22<span style='mso-spacerun:yes'> 
+</span>7094<span style='mso-spacerun:yes'>  </span>49<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>16 1 24<span style='mso-spacerun:yes'> 
+</span>9841<span style='mso-spacerun:yes'>  </span>69<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>16 2 37 11786<span style='mso-spacerun:yes'> 
+</span>83<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>17 1 19<span style='mso-spacerun:yes'> 
+</span>6910<span style='mso-spacerun:yes'>  </span>48<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>17 2 23<span style='mso-spacerun:yes'> 
+</span>6446<span style='mso-spacerun:yes'>  </span>45<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>18 1 25 10742<span style='mso-spacerun:yes'> 
+</span>73<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>18 2 29<span style='mso-spacerun:yes'> 
+</span>9026<span style='mso-spacerun:yes'>  </span>61<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>19 1 36<span style='mso-spacerun:yes'> 
+</span>9350<span style='mso-spacerun:yes'>  </span>65<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>19 2 34<span style='mso-spacerun:yes'> 
+</span>8912<span style='mso-spacerun:yes'>  </span>62<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>20 1<span style='mso-spacerun:yes'>  </span>9 <span
+style='mso-spacerun:yes'> </span>3810<span style='mso-spacerun:yes'>  </span>26<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>20 2 22<span style='mso-spacerun:yes'> 
+</span>7098<span style='mso-spacerun:yes'>  </span>51<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>21 1 18<span style='mso-spacerun:yes'> 
+</span>6998<span style='mso-spacerun:yes'>  </span>53<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>21 2 34<span style='mso-spacerun:yes'> 
+</span>9970<span style='mso-spacerun:yes'>  </span>69<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>22 1 29 11146<span style='mso-spacerun:yes'> 
+</span>79<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>22 2 41 13215<span style='mso-spacerun:yes'> 
+</span>94<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>23 1 22<span style='mso-spacerun:yes'> 
+</span>6596<span style='mso-spacerun:yes'>  </span>48<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>23 2 18<span style='mso-spacerun:yes'> 
+</span>6002<span style='mso-spacerun:yes'>  </span>41<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>24 1 15<span style='mso-spacerun:yes'> 
+</span>3808<span style='mso-spacerun:yes'>  </span>27<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:#FFFFC0;
+mso-ansi-language:EN-US'>24 2<span style='mso-spacerun:yes'>  </span>7<span
+style='mso-spacerun:yes'>  </span>3148<span style='mso-spacerun:yes'> 
+</span>22<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>run</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>/*Preparation of the data set for the JRR technique*/</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>proc</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white;mso-ansi-language:EN-US'>sort</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:blue;background:white;mso-ansi-language:EN-US'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>=MFH </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:blue;background:white;mso-ansi-language:EN-US'>out</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>=MFH;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>by</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> Clu;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>run</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>data</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>
+MFH;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>set</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> MFH;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>label</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>STR=</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Stratum
+ID&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>Clu=</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Cluster
+ID&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>CHRON=</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Cluster
+sample sum of Chronic morbidity (CHRON)&quot;</span><span style='font-size:
+10.0pt;font-family:"Courier New";color:black;background:white;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>SYSBP=</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Cluster
+sample sum for Systolic blood pressure (SYSBP)&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>X=</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Number
+of sample elements in the Clusters&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>run</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>/*Viewing the MFH survey dataset contents*/</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>proc</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white;mso-ansi-language:EN-US'>contents</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:blue;background:white;mso-ansi-language:EN-US'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>=MFH position;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>title1</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white;
+mso-ansi-language:EN-US'>&quot;EXAMPLE 5.3. Variance estimation in the
+Mini-Finland Health Survey data&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>title2</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white;
+mso-ansi-language:EN-US'>&quot;Subpopulation of persons aged 30-64 years&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>title3</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white;
+mso-ansi-language:EN-US'>&quot;Variance approximation by the JRR method&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>title4</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white;
+mso-ansi-language:EN-US'>&quot;Contents of the dataset MFH&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>run</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>proc</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:navy;
+background:white;mso-ansi-language:EN-US'>print</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:blue;background:white;mso-ansi-language:EN-US'>data</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>=MFH;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>title4</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white;
+mso-ansi-language:EN-US'>&quot;The dataset MFH&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>sum</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> x;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>run</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>/*SAS macro JRR*/</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>%macro</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>
+jrr(data,str,clu,y,x,s);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title4 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;&amp;data
+Survey data, Response variable &amp;y&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>* Step 1. Creation of the weight matrix;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>%let</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> m=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>%eval</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>(2*&amp;s);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc iml;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>w1=diag(j(&amp;s,</span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white;mso-ansi-language:
+EN-US'>1</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>,-</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>1</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>))+</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>1</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>w2=diag(j(&amp;s,</span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white;mso-ansi-language:
+EN-US'>1</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>,</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>1</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>))+</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>1</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>w=w1//w2;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>create w from w;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>append from w;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>close w;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>b=j(&amp;m,&amp;s,</span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white;mso-ansi-language:
+EN-US'>1</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>a=shape({-</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> </span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>},</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>,</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>%do</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> t=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>2</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>%to</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> &amp;s;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  
+</span>a&amp;t=shape({-</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> </span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>},</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>,</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  
+</span>a=block(a,a&amp;t);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span></span><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue;background:white;
+mso-ansi-language:EN-US'>%end</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>w=b+a;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>create a from a;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>append from a;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>create b from b;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>append from b;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>close b;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>quit;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data abw;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>merge a b w;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data sumw;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>merge &amp;data abw;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>if &amp;y=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> then &amp;y=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>if &amp;x=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>.</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> then &amp;x=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc print data=sumw;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title5 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Step
+1. Weight matrix (10 first weight vectors are printed)&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title6 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Data
+SUMW&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>var &amp;str &amp;Clu &amp;y &amp;x col1-col10;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>sum &amp;y &amp;x col1-col10;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc summary data=sumw nway;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>var &amp;y &amp;x;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>output out=tsum(drop=_type_ _freq_) sum=sumy sumx;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data tsum(keep=rhat);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>set tsum;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>rhat=sumy/sumx;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data sumw;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>if _n_=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> then set tsum;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>set sumw;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>* Step 2. Creation of pseudo samples and calculation
+of ratio estimates from pseudo samples;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data Jrr(keep=r rhat);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>retain y1-y&amp;s </span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white;mso-ansi-language:
+EN-US'>0</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>retain x1-x&amp;s </span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:teal;background:white;mso-ansi-language:
+EN-US'>0</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>set sumw end=end;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>array w{&amp;s} col1-col&amp;s;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>array sumx{&amp;s} x1-x&amp;s;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>array sumy{&amp;s} y1-y&amp;s;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>do i=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> to &amp;s;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  
+</span>sumy{i}+w{i}*&amp;y;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  
+</span>sumx{i}+w{i}*&amp;x;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>if end then do;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>do i=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>1</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'> to &amp;s;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>     
+</span>r=sumy{i}/sumx{i};<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>      </span>output
+jrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>      </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc print data=Jrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title5 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Step
+2. Creation of pseudo samples and calculation of ratio estimates from pseudo
+samples&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title6 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Data
+JRR&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>* Step 3: Variance approximation by the JRR technique;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data Jrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>set Jrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>vjrr=(r-rhat)**</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc print data=Jrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title5 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Step
+3. JRR-variances by stratum&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title6 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Data
+JRR&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title7 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;NOTE:
+vjrr=(r-rhat)**2&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>sum vjrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc summary data=Jrr nway;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>var vjrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>id rhat;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>output out=Jrrest(drop=_type_ _freq_) sum=var_jrr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc summary data=&amp;data nway;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>var &amp;x;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>output out=Nn(drop=_type_ _freq_) sum=nobs;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>data Jrrest;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>if _n_=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white;mso-ansi-language:EN-US'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'> then set Nn;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>set Jrrest;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>se_Jrr=sqrt(var_Jrr);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>proc print data=Jrrest;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title5 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Step
+3. JRR variance estimate, SRS variance estimate and the corresponding DEFF
+estimate&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title6 </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:purple;background:white;mso-ansi-language:EN-US'>&quot;Data
+JRREST&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>title5;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-ansi-language:EN-US'>%mend</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-ansi-language:EN-US'>*EXAMPLE CALLS;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>%<b><i>jrr</i></b>(MFH,str,Clu,chron,x,</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>24</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white;
+mso-ansi-language:EN-US'>%<b><i>jrr</i></b>(MFH,str,Clu,sysbp,x,</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white;
+mso-ansi-language:EN-US'>24</span></b><span style='font-size:10.0pt;font-family:
+"Courier New";color:black;background:white;mso-ansi-language:EN-US'>);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB><o:p>&nbsp;</o:p></span></p>
+
+</div>
+<p align="center">
+<input type=button value="Download SAS file" onclick="window.open('../key158/jrrmacro.sas')">
+<p></p>
+</body>
+
+</html>

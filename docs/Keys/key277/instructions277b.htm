@@ -1,0 +1,63 @@
+<html>
+
+
+<head>
+<title>Instructions</title>
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center">&nbsp;</p>
+
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR KEY 277 PART B: LOGIT ANOVA WITH THE GWLS METHOD</font></p>
+<hr>
+<p><font face="Arial">In Part B we demonstrate how to fit a logit ANOVA model for the OHC survey data with the GWLS (Generalized weighted least squares) method. The purpose of this exercise is to give a more technical view on the GWLS method, because the necessary formulas are programmed with a matrix language. Numerical results of Example 8.1 of Lehtonen and Pahkinen (2004) also will be reproduced.</font></p>
+<p><font face="Arial">The GWLS method of generalized weighted least squares estimation provides a flexible technique for ANOVA type logit modelling in the case where all predictor variables are categorical. GWLS estimation can be used under the full design-based DES option and all the complexities of the sampling design including stratification, clustering and weighting, will be allowed. Analysis under the BIN option assuming simple random sampling serves as a reference, because all the sampling complexities will be ignored under this option.</font></p>
+<p><font face="Arial">The GWLS method is computationally simple because closed-form expressions can be used (requiring no iteration). The execution of the GWLS method is programmed in <A HREF="../training/concepts/sasiml.htm" onClick="return popupa(this,'')"><u>SAS/IML</u></a> language (Interactive Matrix Language).</font></p>
+
+<p><font face="Arial Black" size="3"><span style="mso-fareast-font-family: Times New Roman">HOW
+TO MANAGE THIS EXERCISE</span></font></p>
+
+<p><font face="Arial">In this exercise we consider the GWLS method for a binary response variable PSYCH (Psychic strain, 1 present; 0 otherwise) and a set of categorical predictors, SEX, AGE and PHYS (Physical health hazards, 1 present; 0 otherwise).</font></p>
+<p><font face="Arial Black">1) See the overview of OHC data from the link on the left to get familiar with the data we are dealing with</font></p>
+<p><font face="Arial Black">2) Principles in fitting the logit ANOVA model with the GWLS method</font></p>
+<p><font face="Arial">We apply the GWLS method to fit the main effects model:</font></p>
+<p><font face="Arial">LOGIT (PSYCH)= INTERCEPT + SEX + AGE + PHYS</font></p>
+<p><font face="Arial">When applying the GWLS method for logit modelling under a given analysis option, DES or BIN, the starting point is the calculation of the corresponding proportion estimate vector and its covariance matrix estimate. By using these estimates, the model coefficients are estimated, together with the covariance matrix of estimated coefficients. Using these estimates, fitted proportions and their covariance matrix estimate is obtained. Further, the Wald test of goodness of fit of the model, and desired Wald tests of linear hypotheses on the model coefficients, is executed. Finally, residual analysis is carried out to more closely examine the fit of the selected model.</font>
+</p>
+
+<p><font face="Arial">Please note that the GWLS method applies for both DES and BIN options. The key point is the selection of the proportion estimator vector and its covariance matrix estimator, which properly reflect the sampling design assumption.</font></p>
+
+
+<p><font face="Arial Black">3) See the details of fitting the logit ANOVA model 
+with the GWLS method</font></p>
+<p><font face="Arial">Please examine the SAS/IML code where the details of the model fitting procedures are described. The key formulas that are used to carry out the estimation with the GWLS method are (8.5) - (8.13) in Lehtonen and Pahkinen (2004). Formulas can be found from pages 270-273.</font></p>
+<p><font face="Arial Black">4) Interpret the results</font></p>
+<p><font face="Arial">Please interpret the results from the results link on the left. Please compare the results under the DES option and the BIN option.</font></p>
+<p><font face="Arial"><b>NOTE!</b>To fully understand the results, please examine Example 8.1 of Lehtonen and Pahkinen (2004) (pages 277-283). Please also examine the respective SAS code.</font></p>
+
+
+</body>
+
+
+</html> 

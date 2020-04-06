@@ -1,0 +1,459 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>* TRAINING KEY 277: Logit ANOVA;</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+    {font-family:SimSun;
+    panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+    {font-family:"\@SimSun";
+    panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+    {margin:0cm;
+    margin-bottom:.0001pt;
+    font-size:12.0pt;
+    font-family:"Times New Roman";}
+@page Section1
+    {size:612.0pt 792.0pt;
+    margin:72.0pt 90.0pt 72.0pt 90.0pt;}
+div.Section1
+    {page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>* TRAINING KEY 277:
+Logistic ANOVA with the PML method;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>* INSTRUCTIONS FOR THE
+USE OF MACRO ANOVA:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>0) In the macro we use
+SAS-callable SUDAAN procedure RLOGIST and to work properly</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>   it needs SUDAAN
+version 9 to be installed on your computer.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>1) FILL in the LIBNAME
+Statement and first DATA STEP to gain access to Ohc data.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>2) Submit LIBNAME and
+DATA statements. Check Log window. Everything went fine? </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>3) Activate MACRO ANOVA
+(paste from %MACRO statement to %MEND statement and submit).</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>4) Input in %ANOVA
+statement the interaction terms you want to be included in the model. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>   See examples: Full
+model, several reduced models, main effects model.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>5) Call macro %ANOVA
+(paste and submit). Check LOG window. Everything went fine?</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>6) Examine results
+(Output window and Graphics window). </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>7) Select another model
+or close SAS system.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>libname [your libname] </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;path
+to Ohc data folder&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>*Example: libname a
+&quot;u:\VLISS\datat\&quot;;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Ohc;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>set [your libname]</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.O</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>hc;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>*Example:  set a.ohc;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white'>%MACRO</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+ANOVA(m1,m2,m3,m4);</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>title1 </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Ohc
+Survey data&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>/* SAS-Callable SUDAAN
+Procedure RLOGIST */</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>proc rlogist data=Ohc
+design=wr deft1 r=independent;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>title2 </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Logit-ANOVA
+/ PML-estimation / Model terms: Intercept Sex Age2 Phys &amp;m1 &amp;m2 &amp;m3
+&amp;m4&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>title3 </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;SUDAAN
+/ LOGISTIC&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>nest Stratum Cluster;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>weight _one_;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>class Sex Age2 Phys;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>model Psych2=Sex Age2
+Phys &amp;m1 &amp;m2 &amp;m3 &amp;m4;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>reflevel Sex=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Age2=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> Phys=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>setenv decwidth=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>4</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>print / style=nchs;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>output expected idvar /
+filename=SUDput3 filetype=sas replace;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>idvar Sex Age2 Phys;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>run;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>proc format;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>value Sexf</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Males&quot;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Females&quot;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>value Age2f</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;-44&quot;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;45-&quot;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>run;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>proc sort data=SUDput3;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>by Phys; </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>run;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>data SUDput3;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>set SUDput3;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>if Sex=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+then do;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>Sex1=expected;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>label Sex1=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Males&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>end;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>if Sex=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+then do;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>Sex2=expected;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>label Sex2=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Females&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>end;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>goptions reset=global
+gunit=pct border cback=white</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>         ctext=black
+colors=(blue green red)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>         ftext=swiss
+ftitle=swissb</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>             htitle=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>8</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+htext=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>4</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>             hsize=7cm
+vsize=7cm</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>             i=join;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>proc gplot data=SUDput3
+gout=sasgraph;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>title2 </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Logit(PSYCH2)=Intercept
+Sex Age2 Phys &amp;m1 &amp;m2 &amp;m3 &amp;m4&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>plot (Sex1 Sex2)*Age2=Phys
+/ vaxis=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>0.3</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> to </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>0.8</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+by </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>0.1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> haxis=</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+to </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>2</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> by </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>format Sex </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>Sexf.</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Age2 </span><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>Age2f.</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>run;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>quit;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white'>%MEND</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>*EXAMPLE MODELS;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>* Full model;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>%<b><i>ANOVA</i></b>(Sex*Age2,Sex*Phys,Age2*Phys,Sex*Age2*Phys);</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>*Reduced model 1;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>%<b><i>ANOVA</i></b>(Sex*Age2,Sex*Phys,Age2*Phys,);</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>*Reduced model 2;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>%<b><i>ANOVA</i></b>(Sex*Phys,Age2*Phys,,);</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>*Reduced model 3;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>%<b><i>ANOVA</i></b>(Sex*Phys,,,);</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:green;background:white'>* Main effects model;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>%<b><i>ANOVA</i></b>(,,,);</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<p align="center"><input type=button value="Download SAS file" onclick="window.open('../key277/anovamacro.sas')"></p>
+
+</body>
+
+</html>

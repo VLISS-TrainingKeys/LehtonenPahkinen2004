@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+
+<html>
+
+<SCRIPT TYPE="text/javascript">
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=330,scrollbars=no');
+return false;
+}
+//-->
+</SCRIPT>
+
+<head>
+<title>Practical Methods for Design and Analysis of Complex Surveys</title>
+</head>
+
+
+<body bgcolor="#E9E9E9" RIGHTMARGIN=20>
+
+
+<p align="center"><i><font size="2" face="Arial">Practical Methods for Design and Analysis of
+Complex Surveys.</font></i></p>
+<p align="center"><font size="2" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font face="Arial Black">TRAINING KEY 158: The JRR technique</font></p>
+<hr>
+<p><font face="Arial Black" size="3">INTRODUCTION</font></p>
+<p><font face="Arial" size="3">Example 5.3. Similar to the other sample re-use
+methods and the linearization method, the 
+
+<A HREF="../concepts/jrr.htm" onClick="return popupa(this,'examplea')"><font color="#3366FF">
+JRR technique</font></a>
+(Jackknife repeated replications) can be used for variance
+approximation of a nonlinear estimator under a complex sampling design. In this Tarining Key 
+we apply the JRR technique for variance approximation of a subpopulation proportion estimator
+for the binary response variable CHRON (chronic morbidity) and a subpopulation
+mean estimator for the continuous response variable SYSBP (systolic blood
+pressure) in the 
+
+<A HREF="../concepts/mfh.htm" onClick="return popupa(this,'examplea')"><font color="#3366FF">
+MFH survey</font></a>.
+
+The subgroup considered is males aged 30-64 years.</font></p>
+<p><font face="Arial Black" size="3">A) JRR TECHNIQUE</font></p>
+<span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-GB; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">
+<font face="Arial" size="3">In
+this part we will demonstrate how the estimation of the variance of a combined
+ratio type proportion or mean estimator can be carried out with the JRR 
+technique.&nbsp;The reason for the use
+of an aproximative variance estimator is that the proportion and mean
+estimators should be treated here as nonlinear estimators of type y/x where both
+the numerator y and the denominator x are random variables. The denominator x is
+random because the sampling design of the MFH Survey is a stratified two-stage
+design where the cluster sample sizes are not fixed in advance, and the subgroup
+size is not fixed</font><font size="3">.</font></span><p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Start"
+onclick="popup=window.open('../key158/key158jrr.htm','PopupPage','height=650,width=850,scrollbars=yes,resizable=yes,toolbar=no');return false">
+</font>
+</p>
+
+
+<p><font face="Arial Black" size="3">B) INTERACTIVE SAS USE</font></p>
+<p><font face="Arial" size="3">Please download the SAS macro JRR for your own
+further JRR technique training. Instructions will be given in the code once
+you download it.</font></p>
+<p align="left"><font face="Arial" size="3"><b>NOTE!</b> You need to have access to SAS in your
+computer.</font></p>
+
+
+<p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Download"
+onclick="window.open('../key158/jrrmacro.sas')">
+</font>
+</p>
+
+
+
+
+<hr>
+
+
+
+
+<p align="left">&nbsp;</p>
+
+
+</body>
+
+
+</html>

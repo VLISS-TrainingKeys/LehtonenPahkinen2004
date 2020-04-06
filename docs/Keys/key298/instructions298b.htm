@@ -1,0 +1,138 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+<base target="_self">
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center" style="text-align:center">
+<span style="font-family:Arial Black">INSTRUCTIONS FOR TRAINING KEY 298: </span></p>
+
+<p align="center" style="text-align:center">
+<span style="font-family:Arial Black">
+ACCOUNTING FOR CLUSTERING EFFECTS
+FOR A BINARY STUDY VARIABLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p align="center" style="text-align:center"><b>
+<span style="font-size:13.5pt;
+font-family:Arial">&nbsp;</span></b></p>
+<hr>
+<p><span style="font-family: Arial">The aim in this part is to compare 
+empirically methods that aim at accounting for sampling design complexities: 
+stratification, clustering and weighting. The main concern is in clustering 
+effects.</span></p>
+
+<p><span style="font-family: Arial">We compare empirically the methods using the 
+OHC Survey dataset. We use perceived psychic strain (PSYCH) as the variable of 
+interest. </span></p>
+
+<p><span style="font-family:Arial">For the binary study variable, people having 
+PSYCH score greater than zero are included in the higher strain group (value 1); 
+a value of zero is assigned otherwise. The overall design effect of PSYCH2 is 
+1.7 indicating substantial clustering effect. </span></p>
+
+<p><span style="font-family:Arial">Our main explanatory variable is CHRON 
+(Chronic morbidity). Age and sex are used as additional predictors in the 
+models; we calculate sex-age adjusted figures. </span></p>
+
+<p><span style="font-family: Arial">For the binary study variable PSYCH2 we 
+carry out further use of the SUDAAN procedure LOGISTIC (RLOGIST) and SAS procedure SURVEYLOGISTIC. We compare the 
+SUDAAN and SAS results with those given by the SAS procedure GENMOD, the SAS macro GLIMMIX, 
+and the R functions gee and glmmPQL.</span></p>
+
+<p><span style="font-family: Arial">In the previous Training Keys we have used 
+SUDAAN analysis procedures to account for the clustering effects. Modeling based 
+on pseudo-maximum likelihood (PML) estimation has been this far our main method. 
+We now turn to certain alternative methods.</span></p>
+
+
+<p><font face="Arial Black">METHODS WE DEMONSTRATE INCLUDE THE 
+FOLLOWING:</font><span style="font-family: Arial"><br>
+<br>
+- Modeling for a fixed-effects logistic model based on generalized estimating 
+equations (GEE) techniques with an exchangeable correlation structure, using the 
+SUDAAN procedure LOGISTIC(RLOGIST), the SAS procedure GENMOD and the R function gee. </span></p>
+
+<p><span style="font-family: Arial">- Logistic mixed modeling based on 
+restricted maximum likelihood (REML) estimation, using the SAS macro GLIMMIX and the R function glmmPQL. We use 
+a simple model involving cluster-specific random intercepts in addition to the 
+fixed effects (a variance components model).</span></p>
+
+<p><span style="font-family: Arial">In all these instances, standard errors of 
+model coefficients are estimated by a robust (or empirical), “sandwich” type estimator 
+(Lehtonen and Pahkinen 2004 page 271). </span></p>
+
+<p><span style="font-family: Arial">A standard ML estimation procedure by the SAS 
+procedure GENMOD, using a model-based standard error estimate, is used as a 
+reference. All sampling complexities are ignored under this option.</span></p>
+<p><span style="font-family: Arial">Analysis options applied are the following:</span></p>
+
+
+
+
+
+<table>
+<tr>
+<td><span style="font-family:Arial">Option</td>
+<td>Procedure</td>
+<td>Accounting for…</td>
+</tr>
+<tr>
+<td colspan=3>--------------------------------------------------------------------------------------<td>
+</tr>
+<tr>
+<td>Option 1a:</td>
+<td>SUDAAN/RLOGIST</td>
+<td>Clustering and stratification</td>
+</tr>
+<tr>
+<td>Option 1b:</td>
+<td>SAS/SURVEYLOGISTIC</td>
+<td>Clustering and stratification</td>
+</tr>
+<tr>
+<td>Option 2a:</td>
+<td>SAS/GLIMMIX</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 2b:</td>
+<td>R/glmmPQL</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 3a:</td>
+<td>SAS/GENMOD</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 3b:</td>
+<td>R/gee</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td>Option 4:</td>
+<td>SAS/GENMOD</td>
+<td>None (reference option)</span></td>
+</tr>
+</table>
+
+
+
+
+<p><span style="font-family: Arial"><b>NOTE!</b> In GLIMMIX macro and GENMOD 
+procedure, and in R functions, the variable CLUSTER is transformed to a new variable SUBJECT having 
+values 1,2,...,250.</span></p>
+<p><span style="font-family: Arial">GEE estimation and computation are discussed 
+in Diggle, Liang and Zeger (1994) and Horton and Lipsitz (1999). Mixed, or 
+multilevel, models are addressed in Goldstein (1995) and McCulloch and Searle 
+(2001). Multilevel modeling is also discussed in Chapter 9 of Lehtonen and 
+Pahkinen (2004).</span></p>
+
+<p align="center">&nbsp;</p>
+<p align="left">&nbsp;</p>
+
+</body>
+
+</html> 

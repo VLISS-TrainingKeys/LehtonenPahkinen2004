@@ -1,0 +1,209 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center" style="text-align:center"><b>
+<span style="font-size:13.5pt;
+font-family:Arial">Option 3b: RESULTS BY R GEE FUNCTION</span></b></p>
+
+
+<p><b><span style="font-family:Arial">GEE FUNCTION (from package gee):</span></b></p>
+<p><span style="font-family:Arial">Inferential approach: Model-based</span></p>
+<p><span style="font-family:Arial">Accounting for clustering:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID and CORSTR statements.</span></p>
+<p><span style="font-family:Arial">Model formulation and estimation method: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fixed-effects model, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estimation: GEE (Generalized estimation equations), &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exchangeable correlation structure, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Robust SE (standard error) method.</span></p>
+
+
+<p><b><span style="font-family:Arial">CODE for the analysis of the model <br>
+PSYCH = Intercept + AGE + SEX + CHRON:</span></b></p>
+
+
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">summary ( </span></b><br>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"><b><span style="color:navy">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gee (</span></b><br>
+<span style="color:blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>PSYCH = AGE + SEX + CHRON,<span style="color:blue">
+&nbsp;id </span>= SUBJECT, <span style="color:blue">&nbsp;data </span>= ohc, <span style="color:blue">&nbsp;family </span>= gaussian,  
+<span style="color:blue">&nbsp;corstr </span>= 'exchangeable'<br>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+)</span></p>
+
+
+<p><b><span style="font-family:Arial">RESULTS:</span></b></p>
+
+
+
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>GEE: GENERALIZED LINEAR MODELS FOR DEPENDENT DATA</b></font></TD>
+</TR>
+<TR>
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>gee S-function, version 4.13 modified 98/01/27 (1998)</b></font></TD>
+</font>
+</TR>
+<TR>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>&nbsp;&nbsp;Data = ohc</b></font></TD>
+</font>
+</TR>
+</TABLE>
+
+
+<p align="left">&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>Model:</b></font></TD>
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b></b></font></TD>
+</font>
+</TR>
+<TR>
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>&nbsp;&nbsp;Link:</b></font></TD>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Identity</font></TD>
+</font>
+</TR>
+<TR>
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>&nbsp;&nbsp;Variance to Mean Relation:</b></font></TD>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Gaussian</font></TD>
+</font>
+</TR>
+<TR>
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>&nbsp;&nbsp;Correlation Structure:</b></font></TD>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Exchangeable</font></TD>
+</font>
+</TR>
+</TABLE>
+
+
+
+<p align="left">&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=5 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>Summary of Residuals : </b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Min</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>1Q</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Median</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>3Q</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Max</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=CENTER bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-1.4813298</font></TD>
+ <TD ALIGN=CENTER bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-0.7630228</font></TD>
+ <TD ALIGN=CENTER bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-0.2207131</font></TD>
+ <TD ALIGN=CENTER bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.5118407</font></TD>
+ <TD ALIGN=CENTER bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">4.9805855</font></TD>
+</font>
+</TR>
+</TABLE>
+
+
+<p align="left">&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=7 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>Coefficients :<b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b></b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Estimate</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Naive S.E</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Naive z</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Robust S.E</b></font></TD>
+ <TD ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>Robust z</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>(Intercept)</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-0.541855057</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.053791273</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-10.073289</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.059457072</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-9.113383</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>AGE</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.002540809</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.001088538</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">2.334148</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.001292665</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">1.965559</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>SEX</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.232765519</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.023735733</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">9.806544</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.026810410</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">8.681908</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA"><b>CHRON</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.397331076</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.025182177</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">15.778266</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.029160503</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">13.625659</font></TD>
+</font>
+</TR>
+</TABLE>
+
+
+
+<p align="left">&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>Estimated Scale Parameter: &nbsp&nbsp&nbsp 0.9494268</b></font></TD>
+</TR>
+<TR>
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="3" color="#0033AA">
+  <b>Number of Iterations: &nbsp&nbsp&nbsp 2</b></font></TD>
+</font>
+</TR>
+</TABLE>
+
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center" style="text-align:center"><b>
+<span style="font-size:13.5pt;
+font-family:Arial">Option 3a: RESULTS BY SAS GENMOD PROCEDURE </span></b></p>
+<p><b><span style="font-family:Arial">PROCEDURE GENMOD:</span></b></p>
+<p><span style="font-family:Arial">Inferential approach: Model-based</span></p>
+<p><span style="font-family:Arial">Accounting for clustering:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REPEATED statement (SUBJECT=SUBJECT),</span></p>
+<p><span style="font-family:Arial">Model formulation and estimation method: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fixed-effects model, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estimation: GEE (Generalized estimation equations), <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exchangeable correlation structure,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Robust SE (standard error) method</span></p>
+<p><b><span style="font-family:Arial">CODE for the analysis of the model PSYCH = 
+Intercept + AGE + SEX + CHRON:</span></b></p>
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">
+proc</span></b><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">
+<b><span style="color:navy">genmod</span></b> <span style="color:blue">data</span>=ohc
+<span style="color:blue">descending</span>;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+class</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+subject;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+model</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+psych2=age sex chron /<span style="color: #0000FF">dist</span>=bin </span>
+<font size="2" color="#0000FF"><span style="font-family: Courier New">link</span></font><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">=logit</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+repeated</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+subject=subject / <span style="color:blue">type</span>=exch;</span></p>
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">
+run</span></b><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">;</span></p>
+<p><b><span style="font-family:Arial">RESULTS:</span></b></p>
+<font face="Arial">
+<p>&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=2 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Model Information</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Data Set</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">WORK.OHC</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Distribution</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Binomial</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Link Function</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Logit</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Dependent Variable</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">PSYCH2</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Observations Used</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7841</font></TD>
+</font>
+</TR>
+</TABLE>
+<p>&nbsp;</p>
+</font> 
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=2 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Model Information</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Data Set</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">WORK.OHC</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Distribution</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Binomial</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Link Function</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Logit</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Dependent Variable</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">PSYCH2</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Observations Used</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7841</font></TD>
+</font>
+</TR>
+</TABLE>
+<p>&nbsp;</p>
+<p>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+<font  face="Arial, Helvetica, Helv" size="4" color="#002288"><b><i>PROC GENMOD is modeling the probability that PSYCH2='1'.</i></b></font></font></p>
+<p>&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=4 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Criteria For Assessing Goodness Of Fit</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Criterion</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>DF</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Value</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Value/DF</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Deviance</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7837</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">10647.2250</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">1.3586</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Scaled Deviance</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7837</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">10647.2250</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">1.3586</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Pearson Chi-Square</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7837</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7840.3445</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">1.0004</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Scaled Pearson X2</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7837</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7840.3445</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">1.0004</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Log Likelihood</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">&nbsp;</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-5323.6125</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">&nbsp;</font></TD>
+</font>
+</TR>
+</TABLE>
+<p>&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=2 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>GEE Model Information</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Correlation Structure</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Exchangeable</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Subject Effect</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">subject (250 levels)</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Number of Clusters</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">250</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Correlation Matrix Dimension</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">88</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Maximum Cluster Size</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">88</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Minimum Cluster Size</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">11</font></TD>
+</font>
+</TR>
+</TABLE>
+<p>&nbsp;</p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=7 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Analysis Of GEE Parameter Estimates</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD COLSPAN=7 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Empirical Standard Error Estimates</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Parameter</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Estimate</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Standard Error</b></font></TD>
+ <TD COLSPAN=2 ALIGN=CENTER VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>95% Confidence Limits</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Z</b></font></TD>
+ <TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Pr&nbsp;&gt;&nbsp;|Z|</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Intercept</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-0.8223</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.1205</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-1.0584</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-0.5861</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-6.82</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">&lt;.0001</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>AGE</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.0015</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.0025</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">-0.0034</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.0065</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.60</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.5467</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>SEX</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.4197</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.0541</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.3136</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.5257</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">7.75</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">&lt;.0001</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>CHRON</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.5730</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.0567</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.4620</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">0.6841</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">10.12</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">&lt;.0001</font></TD>
+</font>
+</TR>
+</TABLE>
+
+</body>
+
+</html>

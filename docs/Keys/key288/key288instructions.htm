@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+
+<html>
+
+
+<head>
+<title>instructions</title>
+<base target="mainpage288">
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center" style="text-align:center"><font face="Arial Black" size="3">INSTRUCTIONS
+FOR KEY 288: Logistic ANCOVA by SUDAAN/RLOGIST<o:p>
+</o:p>
+</font></p>
+<hr>
+<p><font face="Arial" size="3">The purpose in this exercise is to demonstrate
+the role of interaction terms in design-based multivariate logistic ANCOVA modelling. The OHC
+Survey data set will be used. The binary response variable PSYCH2 measures
+psychic strain (1: present, 2: otherwise). AGE (in years), PHYS (binary;
+Physical health hazards; 1 present, 0 otherwise) and CHRON (binary; Chronic
+morbidity; 1 present, 0 otherwise) are treated as continuous predictors. SEX is
+the discrete predictor. Thus there are four predictors available. Because SEX is
+the only discrete predictor,&nbsp;interaction terms of SEX with AGE, PHYS and
+CHRON can be included in this model setting (note that we will not include
+interactions formed by continuous predictors).</font></p>
+<p><font face="Arial Black" size="3">HOW TO MANAGE THIS EXERCISE</font></p>
+<p><font face="Arial" size="3">Please examine the different modes by selecting a
+model (Model1, Model 2 or Model 3) from the <b>SELECT MODEL</b> drop-down menu.
+The first model includes all the two-variable interaction terms of SEX with AGE,
+PHYS and CHRON. Please examine the p-values of t-tests to determine whether an
+interaction term is statistically significant. Model 2 includes one interaction
+term, which appears to be statistically significant at 5 % level. Model 3
+includes only the main effects. For each model, also the odds ratio statistics (OR)
+and their standard errors are calculated. <o:p>
+</o:p>
+</font></p>
+<p><font face="Arial" size="3">For each model, predicted proportions of PSYCH2
+are calculated and presented graphically, for each PHYS-CHRON combination.<span style="mso-spacerun: yes">&nbsp;
+</span>Pay careful attention to these graphs, because they appear to be very
+useful in interpreting the models and the role of the interaction terms. Try to
+explain the results from each model. <o:p>
+</o:p>
+</font></p>
+<p><font face="Arial" size="3">Please compare the results with the logit ANOVA
+exercise (KEY 277). What conclusions can be drawn?</font></p>
+<p><font face="Arial" size="3"><i>MODEL 1:<span style="mso-spacerun: yes">&nbsp;
+</span></i><b>LOGIT(PSHYCH2) = INTERCEPT + SEX + AGE + PHYS + CHRON + SEX*AGE +
+PHYS*SEX + CHRON*SEX</b></font></p>
+<p><font face="Arial" size="3"><i>MODEL 2:<span style="mso-spacerun: yes">&nbsp;
+</span></i><b>LOGIT(PSYCH2) = INTERCEPT + SEX + AGE + PHYS + CHRON + SEX*AGE</b></font></p>
+<p><font face="Arial" size="3"><i>MODEL 3: </i><b>LOGIT(PSYCH2) = INTERCEPT +
+SEX + AGE + PHYS + CHRON</b></font></p>
+<p><font face="Arial" size="3">Guidelines for the interpretation of each model
+are given in the bottom drop-down <b>INTERPRETATION HELP menu</b>.<o:p>
+</o:p>
+</font></p>
+
+
+</body>
+
+
+</html> 

@@ -1,0 +1,171 @@
+---
+title: "Chapter 5: Linearization and sample reuse in variance estimation"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In Chapter 5 of the textbook **Practical Methods for Design and Analysis of Complex Surveys**, various approximate techniques for variance and covariance estimation of nonlinear estimators are introduced. Variance estimation is needed to obtain standard error estimates of sample means and proportions for the total population and, more importantly, for various subpopulations. In modelling procedures, variance estimates of estimated model coefficients, such as regression coefficients, are needed for proper test statistics. The linearization method is used as the basic approximation method. Alternative methods include balanced half-samples, jackknife and bootstrap, which are based on sample reuse techniques. The variance approximation methods are demonstrated for the Mini-Finland Health Survey, providing a complex analytical survey in which stratified cluster sampling is used with regional stratification and two regional sample clusters per stratum. A more complex sampling design is provided by the Occupational Health Care Survey (OHC), to be used for covariance matrix estimation of a vector of nonlinear estimators. The sampling design of the OHC Survey is a combination of stratified one-stage and two-stage sampling with industrial establishments as clusters.
+
+In **Training Key 145**, the linearization method is demonstrated by reproducing the results of Example 5.1. The Mini-Finland Health Survey data set is used. Two different response variables are used: Chronic morbidity, providing an example of a binary variable, and systolic blood pressure, providing an example of a continuous variable.
+
+In **Training Key 158**, the jackknife technique is demonstrated by reproducing the results of Example 5.3.
+
+In **Training Key 162,** the bootstrap technique is demonstrated by reproducing the results of Example 5.4. An option is provided for the examination of the distribution of bootstrap estimates with varying number of generated bootstrap samples.
+
+NOTE: Instructions for the use of Training Keys are given in the Instructions section.
+
+
+# 5.1 The Mini-Finland health survey
+
+<a href="Datat/mfh.sas7bdat">Download SAS data</a> |
+<a href="Datat/mfh.sav">Download SPSS data</a> |
+<a href="Datat/mfh.xls">Download Excel file</a> |
+
+### MFH SURVEY OVERVIEW
+
+#### Introduction to MFH Survey sampling design
+
+The Mini-Finland Health Survey was designed to obtain a comprehensive picture of health and of the need for care in Finnish adults, and to develop methods for monitoring health in the population. A two-stage stratified cluster-sampling design was used in such away that one cluster was sampled from each of the 40 geographical strata. The one-cluster-per-stratum design was used to attain a deep stratification of the population of the clusters. The sample of 8000 persons was allocated to achieve an epsem sample (equal probability of selection method; see Section 3.2). Collapsed stratum technique was used in variance estimation with linearization and sample re-use methods. See pages 132-137 and 146 in Lehtonen, R. & Pahkinen, E. (2004)
+
+The list of variables and the MFH data set are shown below.
+
+Mini-Finland Health Survey data set
+Subpopulation of persons aged 30-64 years
+
+Variable |	Type |	Len	| Pos	| Label
+---------|-------|------|-----|------  
+STR	     | Num	 | 8    |	0	  | Stratum ID
+CLU      |	Num	 | 8	  | 8	  | Cluster ID
+CHRON    |	Num	 | 8	  | 16	| Cluster sample sum of Chronic morbidity (CHRON)
+SYSBP    |	Num	 | 8	  | 24  |	Cluster sample sum for Systolic blood pressure (SYSBP)
+X	       | Num	 | 8	  | 32	| Number of sample elements in the clusters
+
+
+# TRAINING KEY 145: Linearization method
+
+### INTRODUCTION
+
+Example 5.1. In this Training Key we concentrate on the use of the {linearization method](concepts/concepts.html) in the [MFH Survey](concepts/concepts.html). We examine the linearization method in the estimation of the variance of a subpopulation proportion estimator for the binary response variable CHRON (chronic morbidity) and a subpopulation mean estimator for the continuous response variable SYSBP (systolic blood pressure). The subgroup considered is males aged 30-64 years.
+
+#### A) LINEARIZATION METHOD 
+
+We will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the linearization method. Instructions will be given once you start.
+ 
+<a href="Keys/key145/linearization.htm" target="_blank">Start</a>
+
+
+#### B) INTERACTIVE SAS USE 
+
+Please download the SAS code for your own further linearization method training. One of tasks is to try to complete the code in order to calculate the [design effects (deffs)](concepts/concepts.html) of the CHRON proportion estimator and the SYSBP mean estimator. Instructions will be given in the SAS code once you have downloaded it.
+
+NOTE! You need to have access to SAS in your computer.
+
+<a href="Keys/key145/linearizationcode.sas" target="_blank">Download SAS code</a> 
+
+
+# TRAINING KEY 158: The JRR technique
+
+### INTRODUCTION
+
+Example 5.3. Similar to the other sample re-use methods and the [linearization method](concepts/concepts.html), the [JRR technique](concepts/concepts.html) (Jackknife repeated replications) can be used for variance approximation of a nonlinear estimator under a complex sampling design. In this Training Key we apply the JRR technique for variance approximation of a subpopulation proportion estimator for the binary response variable CHRON (chronic morbidity) and a subpopulation mean estimator for the continuous response variable SYSBP (systolic blood pressure) in the [MFH survey](concepts/concepts.html). The subgroup considered is males aged 30-64 years.
+
+#### A) JRR TECHNIQUE
+
+In this part we will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the JRR technique. The reason for the use of an approximate variance estimator is that the proportion and mean estimators should be treated here as nonlinear estimators of type y/x where both the numerator y and the denominator x are random variables. The denominator x is random because the sampling design of the MFH Survey is a stratified two-stage design where the cluster sample sizes are not fixed in advance, and the subgroup size is not fixed.
+
+<a href="Keys/key158/key158jrr.htm" target="_blank">Start</a> 
+
+
+#### B) INTERACTIVE SAS USE
+
+Please download the SAS macro JRR for your own further JRR technique training. Instructions will be given in the code once you download it.
+
+NOTE! You need to have access to SAS in your computer.
+ 
+<a href="Keys/key158/jrrmacro.sas" target="_blank">Download SAS code</a>  
+
+
+# TRAINING KEY 162: Bootstrap Technique
+
+### INTRODUCTION
+
+Example 5.4. Similar to the other sample re-use methods and the [linearization method](concepts/concepts.html), the bootstrap can be used for variance approximation of a nonlinear estimator under a complex sampling design. In this Training Key we apply the [BOOT technique](concepts/concepts.html) for variance approximation of a subpopulation proportion estimator for the binary response variable CHRON (chronic morbidity) and a subpopulation mean estimator for the continuous response variable SYSBP (systolic blood pressure) in the [MFH survey](concepts/concepts.html). The subgroup considered is males aged 30-64 years.
+
+
+#### A) BOOTSTRAP TECHNIQUE
+
+In this part we will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the bootstrap method. We will also demonstrate how the number of bootstrap samples generated affects to the distribution of bootstrap estimates. The reason for the use of an approximative variance estimator is that the proportion and mean estimators should be treated here as nonlinear estimators of type y/x where both the numerator y and the denominator x are random variables. The denominator x is random because the sampling design of the MFH Survey is a stratified two-stage design where the cluster sample sizes are not fixed in advance, and the subgroup size is not fixed.
+
+<a href="Keys/key162/boot/boot.htm" target="_blank">Start, NOT COMPLETED</a> 
+
+
+#### B) INTERACTIVE SAS USE
+
+Please download the SAS macro BOOT for your own further bootstrap method training. Instructions will be given in the code once you download it.
+
+NOTE! You need to have access to SAS in your computer.
+ 
+<a href="Keys/key162/boot/bootmacro.sas" target="_blank">Download SAS code</a>   
+
+
+# OHC Survey overview
+
+<a href="Datat/ohc.sas7bdat">Download SAS data</a> |
+<a href="Datat/ohc.sav">Download SPSS data</a> |
+<a href="Datat/ohc.xls">Download Excel file</a> |
+<a href="Datat/ohc.txt">Download Excel file</a> 
+
+### OHC SURVEY OVERVIEW
+
+#### Introduction to OHC Survey sampling design
+
+The sampling design of the OHC Survey is an example of stratified cluster sampling where both one-stage and two-stage sampling have been used. The pedacogical data set constructed for training purposes in this example includes a total of 250 clusters, i.e. industrial establishments, organized in five strata (stratums 2 to 6), and a total of 7841 persons. Stratification is based on the type of industry and cluster size (the number of salaried employees). Clusters having at least 10 employees are included in the OHC example data set. There is variable number of clusters per stratum in the design. The average cluster sample size is 11.2 employees. A more detailed description of the study design and sampling design of the OHC Survey are given in Section 5.6 of Lehtonen and Pahkinen (2004).
+
+To give you an idea of conditional distributions and correlations of response variable and predictor variables, basic descriptive statistics with the correlation matrix of AGE, PHYS, CHRON, PSYCH and PSYCH2 also are shown, separately for both SEXes.
+
+The list of variables in the OHC Survey data set is shown below.
+
+
+Variable | 	Type |	Len |	Pos |	Label
+---------|-------|------|-----|------
+STRATUM  | Num 	 | 8 	  | 8 	| Stratum Identification, 2 to 6
+CLUSTER  | Num 	 | 8 	  | 16 	| Cluster Identification
+SEX 	   | Num 	 | 8 	  | 24 	| 1 males, 2 females
+AGE 	   | Num 	 | 8 	  | 32 	| in years, range 15 to 64
+PHYS 	   | Num 	 | 8 	  | 40 	| Physical Health Hazards, 1 present, 0 otherwise
+CHRON 	 | Num 	 | 8 	  | 48 	| Chronic morbidity, 1 present, 0 otherwise
+PSYCH 	 | Num 	 | 8 	  | 56 	| Psychic Strain, standardized first principal component of nine psychic symptoms
+PSYCH2 	 | Num 	 | 8 	  | 64 	| Psychic Strain, constructed from PSYCH such that score below median =0 and above median =1
+
+
+# Further Reading
+
+### Chapter 5: Further Reading
+
+#### TRAINING KEY 145: Linearization Method
+
+* Kish L. (1995) Methods for design effects Journal of Official Statistics 11 55-77.
+* Wolter K.M. (1985) Introduction to Variance Estimation New York:Springer.
+
+#### TRAINING KEY 159: JRR Technique
+
+* Frankel M.R. (1971) Inference from Survey Samples. Ann Abor: Institute for Social research, The University of Michigan.
+* Wolter K.M. (1985) Introduction to Variance Estimation New York:Springer.
+
+#### TRAINING KEY 162: Bootstrap Method
+
+* Kalton G.(1983) Introduction to Survey Sampling Beverly Hills: Sage.
+* Rao J.N.K., Wu C.F.J. and Yue K. (1992) Some recent work on resampling methods for complex surveys Survey Methodology 18 209-217.
+* Verma V., Scott, C. and O'Muircheartaigh C. (1980) Sample designs and sampling errors for the World Fertility Survey Journal of the Royal Statistical Society A143 431-473.
+* Wolter K.M. (1985) Introduction to Variance Estimation New York:Springer.
+

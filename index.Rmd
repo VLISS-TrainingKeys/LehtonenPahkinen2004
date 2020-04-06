@@ -15,4 +15,4 @@ This Web site features a Web extension of the textbook [Practical Methods for De
 
 Training Keys section is the core of the Web pages. Training Keys are connected to selected worked examples presented in the book and contain more detailed technical treatment of the examples and their extensions. There is an option for interactive analysis and to download program codes, output files and real data sets.
 
-This Web site is maintained by the Faculty of Social Sciences of the University of Helsinki. The development of the application in 2001-2005 has been supported by the Virtual University Project of the University of Jyväskylä and 2005-2017 the Department of Mathematics and Statistics of the University of Helsinki. Feedback on accessibility and contents is warmly welcomed.
+This Web site is maintained by the Centre for Social Data Science (CSDS) of the University of Helsinki. The development of the application in 2001-2005 has been supported by the Virtual University Project of the University of Jyväskylä and 2005-2017 the Department of Mathematics and Statistics of the University of Helsinki. Feedback on accessibility and contents is warmly welcomed.

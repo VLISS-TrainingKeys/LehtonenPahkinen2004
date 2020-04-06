@@ -1,0 +1,107 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="center">&nbsp;</p>
+<p align="center" style="text-align:center"><b>
+<span style="font-size:13.5pt;
+font-family:Arial">Option 1: RESULTS BY SAS/SUDAAN RLOGIST PROCEDURE</span></b></p>
+<p>&nbsp;<b><span style="font-family:Arial">PROCEDURE RLOGIST</span></b></p>
+<p><span style="font-family:Arial">Inferential approach: Design-based</span></p>
+<p><span style="font-family:Arial">Accounting for stratification and clustering<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NEST statement,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option DESIGN=WR.</span></p>
+<p><span style="font-family:Arial">Model formulation and estimation method: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fixed-effects model, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estimation: QML (Quasi maximum likelihood), <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exchangeable correlation structure (option R=EXCH), <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Robust SE (standard error) method, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linearization method in SE estimation.</span></p>
+<p><b><span style="font-family:Arial">CODE for the analysis of the model <br>
+PSYCH2 = Intercept + AGE + SEX + CHRON:</span></b></p>
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">
+proc</span></b><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">
+<b><span style="color:navy">rlogist</span></b> data=ohc design=wr deft1 
+r=exchangeable;</span></p>
+<p><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">nest 
+stratum cluster;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+weight</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+_one_;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+model</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+psych2=age sex chron;</span></p>
+<p><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">setenv 
+decwidth=<b><span style="color:teal">4</span></b>;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+print </span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">
+/style=nchs;</span></p>
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">
+run</span></b><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">;</span></p>
+<p align="left"><b><font face="Arial">RESULTS:</font></b></p>
+<TABLE  cellspacing=1 cellpadding=7 rules=GROUPS frame=BOX border=1 bgcolor="#F0F0F0" bordercolor="#000000">
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=CENTER bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>Obs</b></font></TD>
+ <TD ALIGN=LEFT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>MODELRHS</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>BETA</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>SEBETA</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>T_BETA</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>P_BETA</b></font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>1</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Intercept</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">   -0.8166</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.1212</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3" nowrap><font  face="Arial, Helvetica, Helv" size="3" color="#000000">   -6.7394</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">  0.0000</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>2</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Age</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.0015</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.0025</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.5731</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">  0.5671</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>3</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Sex</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.4180</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.0542</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    7.7107</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">  0.0000</font></TD>
+</font>
+</TR>
+<TR>
+<font  face="Arial, Helvetica, Helv" size="3" color="#002288"> 
+ <TD ALIGN=RIGHT bgcolor="#B0B0B0"><font  face="Arial, Helvetica, Helv" size="4" color="#0033AA"><b>4</b></font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">Chron</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.5724</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">    0.0566</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">   10.1198</font></TD>
+ <TD ALIGN=RIGHT bgcolor="#D3D3D3"><font  face="Arial, Helvetica, Helv" size="3" color="#000000">  0.0000</font></TD>
+</font>
+</TR>
+</TABLE>
+
+</body>
+
+</html>

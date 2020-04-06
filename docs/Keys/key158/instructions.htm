@@ -1,0 +1,71 @@
+<html>
+
+
+<head>
+<title>Instructions</title>
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center">&nbsp;</p>
+
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR KEY 158:
+JRR TECHNIQUE</font></p>
+<hr>
+<p><span style="mso-fareast-font-family: Times New Roman"><font face="Arial" size="3">In
+this part we will demonstrate how the estimation of the variance of a combined
+ratio type proportion or mean estimator can be carried out with the
+JRR technique. The reason for the use of JRR technique is that the
+proportion and mean estimators should be treated here as nonlinear estimators of
+type y/x where both the numerator y and the denominator x are random variables.
+The denominator x is random because the sampling design of the MFH Survey is a
+stratified two-stage design where the cluster sample sizes are not fixed in
+advance, and the subgroup size is not fixed. </font></span></p>
+<p><font face="Arial Black" size="3">&nbsp;<span style="mso-fareast-font-family: Times New Roman">HOW
+TO MANAGE THIS EXERCISE</span></font></p>
+<p><span style="mso-fareast-font-family: Times New Roman"><font face="Arial" size="3">In
+this exercise, </font></span><font face="Arial" size="3">variance approximations
+are calculated using the JRR technique for the proportion estimate of the
+binary variable CHRON (Chronic morbidity; 1 present, 0 otherwise) and the mean
+estimate of the continuous variable SYSBP (Systolic blood pressure).<o:p>
+</o:p>
+</font></p>
+<p><font face="Arial" size="3">1) Please examine first the MFH Survey data set:
+Variables and the cluster sample sums of CHRON and PHYS.<span style="mso-spacerun: yes">&nbsp;
+</span>You will note that the sampling design is a paired clusters design with 24 strata and two sample clusters drawn from each stratum. <o:p>
+</o:p>
+</font></p>
+<p><font face="Arial">2) View results from the links on the left. In the first 
+table the weight matrix for forming the pseudosamples is constructed. 10 first 
+weight vectors are printed. </font></p>
+<p><font face="Arial">3) In the second table, the pseudo samples have been 
+constructed and the ratio estimates from the pseudosamples are calculated. 
+Pseudosamples are constructed as follows. For the first pseudosample, we exclude 
+the first cluster <i>h1 </i>from the first stratum and weight the second cluster
+<i>h2</i> by the value 2, leaving the remaining <i>H-1 </i>data unchanged. By 
+repeating this procedure for all strata, we get a total of <i>H</i> 
+pseudosamples. In our example case, <i>H</i>=24. The JRR variance estimator is 
+derived by using this set of pseudosamples. </font></p>
+<p><font face="Arial">NOTE! It is possible to construct a similar set of <i>H</i> 
+complement pseudosamples by changing the order of the clusters that are 
+excluded. By doing so, it is possible to construct more JRR variance estimators. 
+However, this part is left for the option of interactive analysis.</font></p>
+<p><font face="Arial">4) In the third table, JRR variance estimates by stratum 
+are calculated from the pseudosamples. </font></p>
+<p><font face="Arial">5) In the fourth table, the JRR variance estimate is 
+displayed with its corresponding variance estimate and standard error.</font></p>
+<p><font face="Arial" size="3">6) View the SAS MACRO to get a more clear picture 
+on how JRR technique functions. </font></p>
+
+
+<p><font face="Arial">7) Use the macro and modify it for your own purposes 
+(option for the interactive analysis).</font></p>
+
+
+</body>
+
+
+</html>

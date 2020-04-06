@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Chapter 5: Linearization and sample reuse in variance estimation</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">VLISS HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Chapter2.html">Chapter 2</a>
+</li>
+<li>
+  <a href="Chapter3.html">Chapter 3</a>
+</li>
+<li>
+  <a href="Chapter4.html">Chapter 4</a>
+</li>
+<li>
+  <a href="Chapter5.html">Chapter 5</a>
+</li>
+<li>
+  <a href="Chapter6.html">Chapter 6</a>
+</li>
+<li>
+  <a href="Chapter7.html">Chapter 7</a>
+</li>
+<li>
+  <a href="Chapter8.html">Chapter 8</a>
+</li>
+<li>
+  <a href="Chapter9.html">Chapter 9</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Chapter 5: Linearization and sample reuse in variance estimation</h1>
+
+</div>
+
+
+<p>In Chapter 5 of the textbook <strong>Practical Methods for Design and Analysis of Complex Surveys</strong>, various approximate techniques for variance and covariance estimation of nonlinear estimators are introduced. Variance estimation is needed to obtain standard error estimates of sample means and proportions for the total population and, more importantly, for various subpopulations. In modelling procedures, variance estimates of estimated model coefficients, such as regression coefficients, are needed for proper test statistics. The linearization method is used as the basic approximation method. Alternative methods include balanced half-samples, jackknife and bootstrap, which are based on sample reuse techniques. The variance approximation methods are demonstrated for the Mini-Finland Health Survey, providing a complex analytical survey in which stratified cluster sampling is used with regional stratification and two regional sample clusters per stratum. A more complex sampling design is provided by the Occupational Health Care Survey (OHC), to be used for covariance matrix estimation of a vector of nonlinear estimators. The sampling design of the OHC Survey is a combination of stratified one-stage and two-stage sampling with industrial establishments as clusters.</p>
+<p>In <strong>Training Key 145</strong>, the linearization method is demonstrated by reproducing the results of Example 5.1. The Mini-Finland Health Survey data set is used. Two different response variables are used: Chronic morbidity, providing an example of a binary variable, and systolic blood pressure, providing an example of a continuous variable.</p>
+<p>In <strong>Training Key 158</strong>, the jackknife technique is demonstrated by reproducing the results of Example 5.3.</p>
+<p>In <strong>Training Key 162,</strong> the bootstrap technique is demonstrated by reproducing the results of Example 5.4. An option is provided for the examination of the distribution of bootstrap estimates with varying number of generated bootstrap samples.</p>
+<p>NOTE: Instructions for the use of Training Keys are given in the Instructions section.</p>
+<div id="the-mini-finland-health-survey" class="section level1">
+<h1>5.1 The Mini-Finland health survey</h1>
+<p><a href="Datat/mfh.sas7bdat">Download SAS data</a> | <a href="Datat/mfh.sav">Download SPSS data</a> | <a href="Datat/mfh.xls">Download Excel file</a> |</p>
+<div id="mfh-survey-overview" class="section level3">
+<h3>MFH SURVEY OVERVIEW</h3>
+<div id="introduction-to-mfh-survey-sampling-design" class="section level4">
+<h4>Introduction to MFH Survey sampling design</h4>
+<p>The Mini-Finland Health Survey was designed to obtain a comprehensive picture of health and of the need for care in Finnish adults, and to develop methods for monitoring health in the population. A two-stage stratified cluster-sampling design was used in such away that one cluster was sampled from each of the 40 geographical strata. The one-cluster-per-stratum design was used to attain a deep stratification of the population of the clusters. The sample of 8000 persons was allocated to achieve an epsem sample (equal probability of selection method; see Section 3.2). Collapsed stratum technique was used in variance estimation with linearization and sample re-use methods. See pages 132-137 and 146 in Lehtonen, R. &amp; Pahkinen, E. (2004)</p>
+<p>The list of variables and the MFH data set are shown below.</p>
+<p>Mini-Finland Health Survey data set Subpopulation of persons aged 30-64 years</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Len</th>
+<th>Pos</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STR</td>
+<td>Num</td>
+<td>8</td>
+<td>0</td>
+<td>Stratum ID</td>
+</tr>
+<tr class="even">
+<td>CLU</td>
+<td>Num</td>
+<td>8</td>
+<td>8</td>
+<td>Cluster ID</td>
+</tr>
+<tr class="odd">
+<td>CHRON</td>
+<td>Num</td>
+<td>8</td>
+<td>16</td>
+<td>Cluster sample sum of Chronic morbidity (CHRON)</td>
+</tr>
+<tr class="even">
+<td>SYSBP</td>
+<td>Num</td>
+<td>8</td>
+<td>24</td>
+<td>Cluster sample sum for Systolic blood pressure (SYSBP)</td>
+</tr>
+<tr class="odd">
+<td>X</td>
+<td>Num</td>
+<td>8</td>
+<td>32</td>
+<td>Number of sample elements in the clusters</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="training-key-145-linearization-method" class="section level1">
+<h1>TRAINING KEY 145: Linearization method</h1>
+<div id="introduction" class="section level3">
+<h3>INTRODUCTION</h3>
+<p>Example 5.1. In this Training Key we concentrate on the use of the {linearization method](concepts/concepts.html) in the <a href="concepts/concepts.html">MFH Survey</a>. We examine the linearization method in the estimation of the variance of a subpopulation proportion estimator for the binary response variable CHRON (chronic morbidity) and a subpopulation mean estimator for the continuous response variable SYSBP (systolic blood pressure). The subgroup considered is males aged 30-64 years.</p>
+<div id="a-linearization-method" class="section level4">
+<h4>A) LINEARIZATION METHOD</h4>
+<p>We will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the linearization method. Instructions will be given once you start.</p>
+<p><a href="Keys/key145/linearization.htm" target="_blank">Start</a></p>
+</div>
+<div id="b-interactive-sas-use" class="section level4">
+<h4>B) INTERACTIVE SAS USE</h4>
+<p>Please download the SAS code for your own further linearization method training. One of tasks is to try to complete the code in order to calculate the <a href="concepts/concepts.html">design effects (deffs)</a> of the CHRON proportion estimator and the SYSBP mean estimator. Instructions will be given in the SAS code once you have downloaded it.</p>
+<p>NOTE! You need to have access to SAS in your computer.</p>
+<p><a href="Keys/key145/linearizationcode.sas" target="_blank">Download SAS code</a></p>
+</div>
+</div>
+</div>
+<div id="training-key-158-the-jrr-technique" class="section level1">
+<h1>TRAINING KEY 158: The JRR technique</h1>
+<div id="introduction-1" class="section level3">
+<h3>INTRODUCTION</h3>
+<p>Example 5.3. Similar to the other sample re-use methods and the <a href="concepts/concepts.html">linearization method</a>, the <a href="concepts/concepts.html">JRR technique</a> (Jackknife repeated replications) can be used for variance approximation of a nonlinear estimator under a complex sampling design. In this Training Key we apply the JRR technique for variance approximation of a subpopulation proportion estimator for the binary response variable CHRON (chronic morbidity) and a subpopulation mean estimator for the continuous response variable SYSBP (systolic blood pressure) in the <a href="concepts/concepts.html">MFH survey</a>. The subgroup considered is males aged 30-64 years.</p>
+<div id="a-jrr-technique" class="section level4">
+<h4>A) JRR TECHNIQUE</h4>
+<p>In this part we will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the JRR technique. The reason for the use of an approximate variance estimator is that the proportion and mean estimators should be treated here as nonlinear estimators of type y/x where both the numerator y and the denominator x are random variables. The denominator x is random because the sampling design of the MFH Survey is a stratified two-stage design where the cluster sample sizes are not fixed in advance, and the subgroup size is not fixed.</p>
+<p><a href="Keys/key158/key158jrr.htm" target="_blank">Start</a></p>
+</div>
+<div id="b-interactive-sas-use-1" class="section level4">
+<h4>B) INTERACTIVE SAS USE</h4>
+<p>Please download the SAS macro JRR for your own further JRR technique training. Instructions will be given in the code once you download it.</p>
+<p>NOTE! You need to have access to SAS in your computer.</p>
+<p><a href="Keys/key158/jrrmacro.sas" target="_blank">Download SAS code</a></p>
+</div>
+</div>
+</div>
+<div id="training-key-162-bootstrap-technique" class="section level1">
+<h1>TRAINING KEY 162: Bootstrap Technique</h1>
+<div id="introduction-2" class="section level3">
+<h3>INTRODUCTION</h3>
+<p>Example 5.4. Similar to the other sample re-use methods and the <a href="concepts/concepts.html">linearization method</a>, the bootstrap can be used for variance approximation of a nonlinear estimator under a complex sampling design. In this Training Key we apply the <a href="concepts/concepts.html">BOOT technique</a> for variance approximation of a subpopulation proportion estimator for the binary response variable CHRON (chronic morbidity) and a subpopulation mean estimator for the continuous response variable SYSBP (systolic blood pressure) in the <a href="concepts/concepts.html">MFH survey</a>. The subgroup considered is males aged 30-64 years.</p>
+<div id="a-bootstrap-technique" class="section level4">
+<h4>A) BOOTSTRAP TECHNIQUE</h4>
+<p>In this part we will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the bootstrap method. We will also demonstrate how the number of bootstrap samples generated affects to the distribution of bootstrap estimates. The reason for the use of an approximative variance estimator is that the proportion and mean estimators should be treated here as nonlinear estimators of type y/x where both the numerator y and the denominator x are random variables. The denominator x is random because the sampling design of the MFH Survey is a stratified two-stage design where the cluster sample sizes are not fixed in advance, and the subgroup size is not fixed.</p>
+<p><a href="Keys/key162/boot/boot.htm" target="_blank">Start, NOT COMPLETED</a></p>
+</div>
+<div id="b-interactive-sas-use-2" class="section level4">
+<h4>B) INTERACTIVE SAS USE</h4>
+<p>Please download the SAS macro BOOT for your own further bootstrap method training. Instructions will be given in the code once you download it.</p>
+<p>NOTE! You need to have access to SAS in your computer.</p>
+<p><a href="Keys/key162/boot/bootmacro.sas" target="_blank">Download SAS code</a></p>
+</div>
+</div>
+</div>
+<div id="ohc-survey-overview" class="section level1">
+<h1>OHC Survey overview</h1>
+<p><a href="Datat/ohc.sas7bdat">Download SAS data</a> | <a href="Datat/ohc.sav">Download SPSS data</a> | <a href="Datat/ohc.xls">Download Excel file</a> | <a href="Datat/ohc.txt">Download Excel file</a></p>
+<div id="ohc-survey-overview-1" class="section level3">
+<h3>OHC SURVEY OVERVIEW</h3>
+<div id="introduction-to-ohc-survey-sampling-design" class="section level4">
+<h4>Introduction to OHC Survey sampling design</h4>
+<p>The sampling design of the OHC Survey is an example of stratified cluster sampling where both one-stage and two-stage sampling have been used. The pedacogical data set constructed for training purposes in this example includes a total of 250 clusters, i.e. industrial establishments, organized in five strata (stratums 2 to 6), and a total of 7841 persons. Stratification is based on the type of industry and cluster size (the number of salaried employees). Clusters having at least 10 employees are included in the OHC example data set. There is variable number of clusters per stratum in the design. The average cluster sample size is 11.2 employees. A more detailed description of the study design and sampling design of the OHC Survey are given in Section 5.6 of Lehtonen and Pahkinen (2004).</p>
+<p>To give you an idea of conditional distributions and correlations of response variable and predictor variables, basic descriptive statistics with the correlation matrix of AGE, PHYS, CHRON, PSYCH and PSYCH2 also are shown, separately for both SEXes.</p>
+<p>The list of variables in the OHC Survey data set is shown below.</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="21%" />
+<col width="18%" />
+<col width="15%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Len</th>
+<th>Pos</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STRATUM</td>
+<td>Num</td>
+<td>8</td>
+<td>8</td>
+<td>Stratum Identification, 2 to 6</td>
+</tr>
+<tr class="even">
+<td>CLUSTER</td>
+<td>Num</td>
+<td>8</td>
+<td>16</td>
+<td>Cluster Identification</td>
+</tr>
+<tr class="odd">
+<td>SEX</td>
+<td>Num</td>
+<td>8</td>
+<td>24</td>
+<td>1 males, 2 females</td>
+</tr>
+<tr class="even">
+<td>AGE</td>
+<td>Num</td>
+<td>8</td>
+<td>32</td>
+<td>in years, range 15 to 64</td>
+</tr>
+<tr class="odd">
+<td>PHYS</td>
+<td>Num</td>
+<td>8</td>
+<td>40</td>
+<td>Physical Health Hazards, 1 present, 0 otherwise</td>
+</tr>
+<tr class="even">
+<td>CHRON</td>
+<td>Num</td>
+<td>8</td>
+<td>48</td>
+<td>Chronic morbidity, 1 present, 0 otherwise</td>
+</tr>
+<tr class="odd">
+<td>PSYCH</td>
+<td>Num</td>
+<td>8</td>
+<td>56</td>
+<td>Psychic Strain, standardized first principal component of nine psychic symptoms</td>
+</tr>
+<tr class="even">
+<td>PSYCH2</td>
+<td>Num</td>
+<td>8</td>
+<td>64</td>
+<td>Psychic Strain, constructed from PSYCH such that score below median =0 and above median =1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="further-reading" class="section level1">
+<h1>Further Reading</h1>
+<div id="chapter-5-further-reading" class="section level3">
+<h3>Chapter 5: Further Reading</h3>
+<div id="training-key-145-linearization-method-1" class="section level4">
+<h4>TRAINING KEY 145: Linearization Method</h4>
+<ul>
+<li>Kish L. (1995) Methods for design effects Journal of Official Statistics 11 55-77.</li>
+<li>Wolter K.M. (1985) Introduction to Variance Estimation New York:Springer.</li>
+</ul>
+</div>
+<div id="training-key-159-jrr-technique" class="section level4">
+<h4>TRAINING KEY 159: JRR Technique</h4>
+<ul>
+<li>Frankel M.R. (1971) Inference from Survey Samples. Ann Abor: Institute for Social research, The University of Michigan.</li>
+<li>Wolter K.M. (1985) Introduction to Variance Estimation New York:Springer.</li>
+</ul>
+</div>
+<div id="training-key-162-bootstrap-method" class="section level4">
+<h4>TRAINING KEY 162: Bootstrap Method</h4>
+<ul>
+<li>Kalton G.(1983) Introduction to Survey Sampling Beverly Hills: Sage.</li>
+<li>Rao J.N.K., Wu C.F.J. and Yue K. (1992) Some recent work on resampling methods for complex surveys Survey Methodology 18 209-217.</li>
+<li>Verma V., Scott, C. and O’Muircheartaigh C. (1980) Sample designs and sampling errors for the World Fertility Survey Journal of the Royal Statistical Society A143 431-473.</li>
+<li>Wolter K.M. (1985) Introduction to Variance Estimation New York:Springer.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

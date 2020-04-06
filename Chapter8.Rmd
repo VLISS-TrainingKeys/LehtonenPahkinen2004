@@ -1,0 +1,184 @@
+---
+title: "Chapter 8: Multivariate Survey Analysis"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In Chapter 8 of the textbook **Practical Methods for Design and Analysis of Complex Surveys**, multivariate analysis for complex surveys is discussed in the case of one response variable and a set of predictor or explanatory variables. For this kind of analysis situation, logistic models and linear models are widely used. Proper methods are introduced for fitting these models for intra-cluster correlated response variables from complex sampling designs. Design-based analysis of categorical data using a logit ANOVA model, and methods for design-based logistic and linear regression analysis, are discussed and applied for data from a complex sample survey.
+
+In **Training Key 277**, design-based logit ANOVA modelling is examined reproducing the results of Example 8.1. A step-wise ANOVA model building procedure is demonstrated. A program for generalized weighted least squares (GWLS) estimation is examined in detail. The Occupational Health Care Survey data set is used.
+
+In **Training Key 288**, logistic analysis of covariance (ANCOVA) is demonstrated for a binary response variable and the results of Example 8.2 are reproduced. Pseudolikelihood (PML) estimation is used for the OHC Survey data set, accounting for the sampling complexities. An option is provided for a detailed examination of the role of interaction effects in a logistic ANCOVA model.
+
+In **Training Key 293**, a linear ANCOVA model is fitted for a continuous response variable from the OHC Survey data set by using weighted least squares estimation.
+
+The results of Example 8.4 will be reproduced.
+
+In **Training Key 298**, alternative multivariate analyses for a binary response variable and a continuous response variable from the OHC Survey data set are demonstrated. The methods include the PML and generalized estimating equations (GEE) estimation for fixed-effects logistic and linear models and residual maximum likelihood (REML) estimation for logistic and linear mixed models. The methods extend the methodology presented in the textbook. It will be noted that closely agreeing numerical results can be obtained by the different methods available.
+
+
+NOTE: Instructions for the use of Training Keys are given in the Instructions section.
+
+
+# TRAINING KEY 277: Logit ANOVA
+
+### INTRODUCTION
+
+In this Training Key we will practice [design-based](concepts/concepts.html) multivariate model fitting for categorical data in the [OHC survey](concepts/concepts.html) setting. In point A, the aim is to model the variation of domain proportions of the binary response variable PSYCH2 (psychic strain; 1 present, 0 otherwise) across the eight domains formed by a cross-classification of SEX, a two-category variable AGE (-44 years, 45- years) and the variable PHYS (physical health hazards of work; 1 present, 0 otherwise) by fitting the model in stepwise manner. In point B, the aim is to describe and practice the [GWLS method](concepts/concepts.html) from more detailed and theoretical perspective. Point C is the option for interactive analysis.
+
+
+#### A) EXERCISE ON LOGIT ANOVA MODEL FITTING WITH THE PML METHOD
+
+In this part we will exercise how to fit a logit ANOVA model in the OHC survey setting described above. We use [pseudolikelihood (PML)](concepts/concepts.html) estimation in this exercise. Detailed instructions of this exercise will be given once you start.
+
+<a href="Keys/key277/key277a.htm" target="_blank">SUDAAN / RLOGIST, SOME LINKS DON'T WORK</a> 
+
+<a href="Keys/key277/key277a_9.htm" target="_blank">SAS / SURVEYLOGISTIC, SOME LINKS DON'T WORK</a>
+
+
+#### B) GWLS METHOD FOR LOGIT MODELLING ON DOMAIN PROPORTIONS IN THE OHC SURVEY SETTING
+
+This option is related to Example 8.1 and is for those who wish to gain deeper understanding on how the GWLS method functions in logit ANOVA. SAS/IML macro is provided with the description of each step of the model fitting procedure. Full design-based (DES) option and model-assisted BIN option (assuming [simple random sampling](concepts/concepts.html)) are compared. Further instructions are given once you start.
+ 
+<a href="Keys/key277/key277b.htm" target="_blank">Start</a> 
+
+
+#### C) INTERACTIVE SAS USE
+
+1. Please download the reduced version of the OHC data set (only relevant variables are included) and save the data in the disk.
+2. Download the SAS code for your own further training in logit ANOVA model fitting (NOTE! you need to have access to SUDAAN (a SAS callable version)).
+3. Download SAS/IML macro for practicing GWLS method and model building from more theoretical point of view (NOTE! You need to have access to SAS/IML).
+
+Further instructions are given in the code once you download.
+
+<a href="Datat/ohc.sas7bdat" target="_blank">Download OHC data</a> 
+ 
+<a href="Keys/key277/anovamacro.sas" target="_blank">Download SAS code</a>  
+ 
+<a href="Keys/key277/gwlsmacro.sas" target="_blank">Download SAS/IML macro</a>   
+
+
+# TRAINING KEY 288: Logistic ANCOVA
+
+### INTRODUCTION
+
+Example 8.2: In this Training Key we concentrate on performing [design-based](concepts/concepts.html) logistic [ANCOVA](concepts/concepts.html) (Analysis of Covariance) modelling with the pseudolikelihood or [PML method](concepts/concepts.html). We fit a multivariate logistic ANCOVA model by entering in the model some of the predictors as continuous measurements and some as discrete variables. We will also demonstrate the effect of interaction terms in the interpretation of the results. The data is again from the [OHC Survey](concepts/concepts.html).
+
+
+#### A) LOGISTIC ANCOVA
+
+In this part we will study how to perform design-based logistic ANCOVA modelling with the PML method for a binary response variable in the case of three continuous predictors and one discrete predictor. We will build the model by removing interaction terms from a model including all possible interaction terms of the discrete predictor with the continuous predictors. Graphical displays are used to show the effect of presence or absence of an interaction term on predicted proportions calculated for a given logistic ANCOVA model. The results can be compared with those from the logit ANOVA exercise (key 277).
+
+Instructions will be given once you start.
+
+<a href="Keys/key288/key288exercise.htm" target="_blank">SAS/SUDAAN, NOT COMPLETED</a>   
+
+<a href="Keys/key288/Key288_9exercise.htm" target="_blank">SAS/SURVEYLOGISTIC</a>  
+
+
+#### B) INTERACTIVE SAS USE
+
+Please first download the reduced version of the OHC data set (only relevant variables are included) and save it to the disk.
+
+Then download the enclosed SAS code for your own further training of model fitting by logistic ANCOVA.
+
+NOTE! You need to have access to SAS and SUDAAN in your computer.
+ 
+<a href="Datat/ohc.sas7bdat" target="_blank">Download OHC data</a> 
+ 
+<a href="Keys/key288/Key288_9.sas" target="_blank">Download SAS code</a>  
+ 
+<a href="Keys/key288/ancovamacro.sas" target="_blank">Download SAS/SUDAAN Code</a> 
+
+
+# TRAINING KEY 293: Linear ANCOVA
+
+### INTRODUCTION
+
+Example 8.4. In this Training Key we concentrate on performing [design-based](concepts/concepts.html) linear [ANCOVA](concepts/concepts.html) (Analysis of Covariance) modelling with the weighted least squares [WLS method](concepts/concepts.html). We fit a linear ANCOVA model by entering in the model some of the predictors as continuous measurements and some as discrete variables. The data we are using are again from the [OHC survey](concepts/concepts.html).
+
+
+#### A) LINEAR ANCOVA
+
+In this part we will study how to perform design-based linear ANCOVA modelling with the PML method for a continuous response in the case of three continuous predictors, one discrete predictor and one continuous interaction term. Instructions will be given once you start.
+
+<a href="Keys/key293/key293_9.htm" target="_blank">SAS / SURVEYREG</a>
+
+<a href="Keys/key293/key293.htm" target="_blank">SUDAAN / REGRESS</a>
+
+
+#### B) INTERACTIVE SAS USE
+
+Please first download the reduced version of the OHC data set (only relevant variables are included) and save it to the disk.
+
+Then download the enclosed SAS code for your own further training of a linear ANCOVA model fitting. NOTE! You need to have access to SAS and SUDAAN in your computer.
+ 
+<a href="Datat/ohc.sas7bdat" target="_blank">Download OHC data</a> 
+ 
+<a href="Keys/key293/linearancova_9.sas" target="_blank">Download SAS code</a>  
+ 
+<a href="Keys/key293/linearancova.sas" target="_blank">Download SUDAAN Code</a>  
+ 
+ 
+# TRAINING KEY 298: Alternative multivariate analyses for the OHC Survey design
+
+### INTRODUCTION
+
+In this Training Key, accounting for the sampling design complexities is studied for multivariate survey analysis. The main concern is in the clustering effects. [Design-based](concepts/concepts.html) and model-based analysis options are compared empirically, using the appropriate SUDAAN and SAS analysis procedures, and R functions. We use the [OHC Survey data set](concepts/concepts.html) in our analyses.
+
+
+A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE
+
+For a continuous study variable, modeling takes place under a fixed-effects linear model and under a mixed linear model. For a fixed-effects linear model, [GEE estimation](concepts/concepts.html) (generalized estimating equations) is used with the SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. For a mixed linear model, REML estimation is used with the SAS procedure MIXED and the R function lme. Further instructions will be given once you start.
+
+<a href="Keys/key298/key298a.htm" target="_blank">Start, NOT COMPLETED</a>  
+
+
+#### B) ACCOUNTING FOR CLUSTERING EFFECTS FOR A BINARY STUDY VARIABLE
+
+For a binary study variable, modeling takes place under a fixed-effects logistic model and under a mixed logistic model. For a fixed-effects logistic model, GEE estimation is used with the SUDAAN procedure LOGISTIC (RLOGIST), the SAS procedure GENMOD and the R function gee. For a mixed logistic model, REML estimation is used with the SAS macro GLIMMIX and the R function glmmPQL. Further instructions will be given once you start.
+ 
+<a href="Keys/key298/key298b.htm" target="_blank">Start, NOT COMPLETED</a>   
+
+
+#### C) INTERACTIVE SAS USE
+
+Please download the SAS code for your own further training (NOTE! you need to have access to SUDAAN (a SAS callable version)).
+
+Further instructions are given in the code once you download.
+ 
+<a href="Keys/key298/key298.sas" target="_blank">Download SAS code</a>   
+
+<a href="Keys/key298/GLIMMIX.sas" target="_blank">Download SAS macro GLIMMIX</a>     
+ 
+
+# Further Reading
+
+### Chapter 8: Further Reading
+
+#### TRAINING KEY 277: Logit ANOVA
+
+#### TRAINING KEY 288: Logistic ANCOVA
+
+#### TRAINING KEY 293: Linear ANCOVA
+ 
+#### TRAINING KEY 298: Alternative multivariate analyses for the OHC survey design
+
+* Diggle P.J., Liang K.-Y. and Zeger S.L. (1994). *Analysis of Longitudinal Data.* Oxford: Oxford University Press.
+* Goldstein H. (1995). *Multilevel Statistical Models.* 2nd Edition. London: Arnold and New York: John Wiley & Sons Ltd.
+* Horton N.J. and Lipsitz S.R. (1999). Review of software to fit generalized estimating equation regression models. *The American Statistician*, 53, 160-169.
+* McCulloch C.E. and Searle S.R. (2001). *Generalized, Linear, and Mixed Models.* New York: John Wiley & Sons Ltd.
+* Chambers R.L. and Skinner C.J. (Eds.) (2003). *Analysis of Survey Data.* Chichester: John Wiley & Sons Ltd.
+* Korn E.L. and Graubard B.I. (1999). *Analysis of Health Surveys.* New York: John Wiley & Sons Ltd.
+
+ 

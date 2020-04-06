@@ -1,0 +1,28 @@
+---
+title: "Chapter 9: More Detailed Case Studies"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+In Chapter 8 of the textbook Practical Methods for Design and Analysis of Complex Surveys, four additional case studies are selected to provide a more subject-matter oriented demonstration of the survey methodology discussed in the book.
+
+The first case study deals with monitoring the quality of data collection in a long-term survey. A number of statistics introduced earlier in this book are used as quality indicators. Empirical findings are from a passenger transport survey.
+
+The second case study is from a business survey that is an example of resolving sampling frame problems often met in the production of business statistics. The estimation of the annual mean salary of certain occupational groups is discussed when two different frames are present.
+
+In the case study from a socioeconomic survey, a logit model is fitted to categorical data from a cluster-sampling design with households as the clusters. The main emphasis is not only on pointing out the importance of accounting for the clustering effects but also on the importance of adequate selection of model type for analysis.
+
+In the final case study, we introduce and demonstrate an approach of modelling hierarchically structured data sets using multi-level regression models, applied to clustered survey data from a multinational educational survey. These models differ from the methods of the nuisance approach, as used in the preceding case study, in the sense that in multi-level modelling, the hierarchical structure of the population is reflected in the structure of the model. Some interesting comparisons between countries are also included.
+
+**Training Keys**, for Chapter 9 will be included.

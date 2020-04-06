@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=350,scrollbars=no');
+return false;
+}
+//-->
+</SCRIPT>
+<head>
+<title>Practical Methods for Design and Analysis of Complex Surveys</title>
+<base target="ylaoikealla">
+</head>
+
+<body bgcolor="#E9E9E9" RIGHTMARGIN=20>
+
+<p align="center"><i><font size="2" face="Arial">Practical Methods for Design and Analysis of
+Complex Surveys.</font></i></p>
+<p align="center"><font size="2" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font face="Arial Black">TRAINING KEY 277: Logit ANOVA</font></p>
+<hr>
+<p><font face="Arial Black" size="3">INTRODUCTION</font></p>
+<p><font face="Arial" size="3">In this Training Key we will practice design-based multivariate
+model fitting for categorical data in the 
+
+<A HREF="../concepts/ohc.htm" onClick="return popup(this,'examplea')"><font color="#3366FF">
+OHC survey</font></a>
+ setting. In point A, the aim is to model the variation of domain 
+proportions of the binary response variable PSYCH2 (psychic strain; 1 present, 0 
+otherwise) across the eight domains formed by a cross-classification of SEX, a 
+two-category variable AGE (-44 years, 45- years) and the variable PHYS (physical 
+health hazards of work; 1 present, 0 otherwise) by fitting the model in stepwise 
+manner. In point B, the aim is to describe and practice 
+
+<A HREF="../concepts/wls.htm" onClick="return popup(this,'examplea')"><font color="#3366FF">
+the GWLS method</font></a>
+ from more detailed and theoretical perspective. Point C is the option for interactive 
+analysis. </font></p>
+<p><font face="Arial Black" size="3">A) EXERCISE ON LOGIT ANOVA MODEL FITTING WITH 
+THE PML METHOD</font></p>
+<p><font face="Arial" size="3">In this part we will exercise how to fit a logit
+ANOVA model in the OHC survey setting described above. We use pseudolikelihood 
+(PML) estimation in this exercise. Detailed instructions of
+this exercise will be given once you start.</font></p>
+<p align="left"><font size="3" face="Arial"><input type="button" value="Start"
+onclick="popup2=window.open('../key277/key277a.htm','popupPage','height=700,width=850,scrollbars=yes,resizable=yes,toolbar=no');return false">
+</font>
+</p>
+
+
+<p><font face="Arial Black">B) GWLS METHOD FOR LOGIT MODELLING ON DOMAIN PROPORTIONS 
+IN THE OHC SURVEY SETTING</font></p>
+
+
+<p><font face="Arial">This option is related to Example 8.1 and is for those who wish to gain deeper 
+understanding on how the GWLS method functions in logit ANOVA. SAS/IML macro is 
+provided with the description of each step of the model fitting procedure. Full 
+design-based (DES) option and model-assisted BIN option (assuming simple random 
+sampling) are compared. Further 
+instructions are given once you start. </font></p>
+
+
+<p><font face="Arial">&nbsp;</font><font size="3" face="Arial"><input type="button" value="Start"
+onclick="popup=window.open('../key277/key277b.htm','popupPage','height=700,width=850,scrollbars=yes,resizable=yes,toolbar=no');return false"></font></p>
+
+
+<p><font face="Arial Black">C)</font><font face="Arial Black" size="3"> INTERACTIVE SAS 
+USE</font></p>
+<p><font face="Arial" size="3">1) Please download the reduced version of the OHC 
+data set (only relevant variables are included) and save the data in the disk. </font></p>
+<p><font face="Arial">2) </font><font face="Arial" size="3">Download the SAS 
+code for your own further training in logit ANOVA model fitting (NOTE! you need 
+to have access to SUDAAN (a SAS callable version). </font></p>
+<p><font face="Arial">3) Download SAS/IML macro for practicing GWLS method and 
+model building from more theoretical point of view (NOTE! You need to have 
+access to SAS/IML). </font></p>
+<p><font face="Arial">Further instructions are given in the code once you 
+download. </font></p>
+
+<p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Download OHC data"
+onclick="window.open('../datat/ohc.sas7bdat')">
+</font>
+</p>
+
+<p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Download SAS code"
+onclick="window.open('../key277/anovamacro.sas')">
+</font>
+</p>
+
+<p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Download SAS/IML macro"
+onclick="window.open('../key277/gwlsmacro.sas')"></font></p>
+<hr>
+<p></p>
+
+
+
+</body>
+
+</html>

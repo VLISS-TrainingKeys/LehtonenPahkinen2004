@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+<title>Practical Methods for Design and Analysis of Complex Surveys</title>
+</head>
+
+<body bgcolor="#E9E9E9" RIGHTMARGIN=20>
+
+<p align="center"><i><font size="3" face="Arial">Practical Methods for Design and Analysis of
+Complex Surveys.</font></i></p>
+<p align="center"><font size="3" face="Arial">Risto Lehtonen and Erkki Pahkinen</font></p>
+<p align="center"><font size="4" face="Arial"><b>TRAINING KEY 163: Bootstrap Technique</b></font></p>
+<hr>
+<p><b><font face="Arial" size="3">INTRODUCTION</font></b></p>
+<p><font face="Arial" size="3">EXAMPLE 5.4: Similar to the other sample re-use
+methods and the linearization method, the bootstrap can be used for variance
+approximation of a nonlinear estimator under a complex sampling design. In <b>KEY
+163</b> we apply the 
+<a href="#"
+onClick="popup2=window.open('../concepts/boot.htm', 'Popuppage2','scrollbars=no,width=700,height=300,toolbar=no,resizable=no')"
+onmouseenter="popup=window.open('../concepts/boot.htm', 'Popuppage','scrollbars=no,width=700,height=300,toolbar=no,resizable=no,top=500')" 
+onmouseleave= popup.close() >BOOT technique</a>
+
+for variance approximation of a subpopulation proportion estimator
+for the binary response variable CHRON (chronic morbidity) and a subpopulation
+mean estimator for the continuous response variable SYSBP (systolic blood
+pressure) in the 
+<a href="#"
+onClick="popup2=window.open('../concepts/mfh.htm', 'Popuppage2','scrollbars=no,width=700,height=320,toolbar=no,resizable=no')"
+onmouseenter="popup=window.open('../concepts/mfh.htm', 'Popuppage','scrollbars=no,width=700,height=320,toolbar=no,resizable=no,top=500')" 
+onmouseleave= popup.close() >MFH survey</a>.
+
+The subgroup considered is males aged 30-64 years.</font></p>
+<p><b><font face="Arial" size="3">A) BOOTSTRAP TECHNIQUE</font></b></p>
+<font face="Arial" size="3"><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-GB; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">In
+this part we will demonstrate how the estimation of the variance of a combined
+ratio type proportion or mean estimator can be carried out with the bootstrap
+method. We will also demonstrate how the number of bootstrap samples generated
+affects to the distribution of bootstrap estimates.&nbsp;The reason for the use
+of an approximative variance estimator is that the proportion and mean
+estimators should be treated here as nonlinear estimators of type y/x where both
+the numerator y and the denominator x are random variables. The denominator x is
+random because the sampling design of the MFH Survey is a stratified two-stage
+design where the cluster sample sizes are not fixed in advance, and the subgroup
+size is not fixed</span></font>
+<p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Start"
+onclick="popup=window.open('../boot/boot.htm','PopupPage','height=650,width=850,scrollbars=yes,resizable=yes,toolbar=no');return false">
+</font>
+</p>
+
+<p><b><font face="Arial" size="3">B) INTERACTIVE SAS USE</font></b></p>
+<p><font face="Arial" size="3">Please download the SAS macro BOOT for your own
+further bootstrap method training. Instructions will be given in the code once
+you download it.</font></p>
+<p align="left"><font face="Arial" size="3"><b>NOTE!</b> You need to have access to SAS in your
+computer.</font></p>
+
+<p align="left">
+<font size="3" face="Arial">
+<input type="button" value="Download"
+onclick="window.open('../boot/bootmacro.sas')">
+</font>
+</p>
+
+
+<hr>
+
+
+<p align="left">&nbsp;</p>
+
+</body>
+
+</html>

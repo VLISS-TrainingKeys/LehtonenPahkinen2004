@@ -1,0 +1,75 @@
+<html>
+
+
+<head>
+<title>Instructions</title>
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center">&nbsp;</p>
+
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR KEY 250 PART A: Test 
+of Independence by SAS/SURVEYFREQ</font></p>
+<hr>
+<p><font face="Arial">In this part we will demonstrate how to carry out a test of independence of physical health hazards of work (PHYS) and psychic strain (PSYCH3) &nbsp; in the OHC Survey setting. The test statistics are introduced in Lehtonen and Pahkinen (2004) Section 7.5, and some of the results of Example 7.3 will be reproduced. The design-based test statistics of independence are computed with SAS procedure <A HREF="../training/concepts/procsurveyfreq.htm" onClick="return popupa(this,'')">
+<u>SURVEYFREQ</u></a>, and the SRS-based tests rely on the <A HREF="../training/concepts/procfreq.htm" onClick="return popupa(this,'')">
+<u>FREQ</u></a> procedure.</font> </p>
+<p><font face="Arial Black" size="3">&nbsp;<span style="mso-fareast-font-family: Times New Roman">HOW
+TO MANAGE THIS EXERCISE</span></font></p>
+<p><font face="Arial" size="3">1) Please examine first the overview of the OHC 
+Survey data.</font></p>
+<p><font face="Arial">2) A hypothesis of independence is stated as H<sub>0</sub>: p<sub>jk </sub>= p<sub>j+</sub>p<sub>+k</sub> 
+with j=1,2 and k=1,2,3, or, analogously, H<sub>0</sub>: p<sub>11 </sub>- p<sub>1+</sub>p<sub>+1</sub>= 
+0 and p<sub>12 </sub>- p<sub>1+</sub>p<sub>+2 </sub>= 0. </font></p>
+
+
+<p><font face="Arial">Basically, two different testing approaches are available: the Rao-Scott adjusted SRS-based test statistics and the design-based Wald test statistics (for an overview see Section 7.5 of Lehtonen and Pahkinen 2004).  Both approaches are illustrated in this Training Key.</font></p>
+
+
+<p><font face="Arial">3) View results from the link on the left. </font></p>
+
+<p><font face="Arial">The two-way table of PHYS and PSYCH3 is first displayed. The table includes cell and marginal frequencies and percentages with standard error and design effect estimates for the percentages, produced by the SURVEYFREQ procedure. The figures correspond to those in Table 7.4 of Lehtonen and Pahkinen (2004).</font></p>
+
+<p><font face="Arial">(a) Design-based tests using SURVEYFREQ procedure</font></p>
+
+<p><font face="Arial">Design-based test results for the independence hypothesis are next displayed. The first four test boxes include results for Rao-Scott adjusted Pearson chi-square test statistics with the corresponding degrees of freedom for the chi-square and F tests, and their p-values. Note that the F-tests give somewhat conservative results when compared to the p-values from the chi-square tests, as expected. Please note that in SURVEYFREQ, the Rao-Scott test statistics are based on first-order corrections where adjustments are calculated using mean of the eigenvalues of the generalized deff matrix estimate (see Lehtonen and Pahkinen 2004, p. 249). Note also that SURVEYFREQ does not compute the (more realistic) second-order Rao-Scott adjustments.</font></p>
+
+<p><font face="Arial">The next two boxes include results for the design-based Wald test. Several variants of the Wald test statistic are displayed, including the original design-based Wald test with F-corrections, and the Wald test from a log-linear model for the two-way table with a test of significance of the interaction of PHYS and PSYCH3, again using F-corrections. See Lehtonen and Pahkinen (2004), p. 247 for details.</font></p>
+
+<p><font face="Arial">(b) SRS-based tests using FREQ procedure</font></p>
+
+<p><font face="Arial">The final table provides results from the corresponding SRS-based tests, including the Pearson chi-square test and likelihood ratio test (FREQ procedure). Here, all the complexities (stratification and clustering) are ignored, clearly providing overly liberal testing results. Thus, these testing procedures give too large &#967;<sup>2</sup>-values and therefore too small p-values. This is because the clustering effect is not accounted for in the SRS-based tests of independence, contrary to the design-based testing procedures.</font></p>
+
+<p><font face="Arial">4) Pay attention to the following. 
+<br>The Rao-Scott adjusted SRS-based tests and the design-based Wald tests provide a reasonable testing procedure for an independence hypothesis of PHYS and PSYCH3 in the OHC survey setting.</font></p>
+
+<p><font face="Arial">5) View the SAS code for performing a comparison of design-based and model-based tests of independence. You may also download the code for your personal further training.</font></p>
+
+<p>&nbsp;</p>
+
+
+</body>
+
+
+</html> 

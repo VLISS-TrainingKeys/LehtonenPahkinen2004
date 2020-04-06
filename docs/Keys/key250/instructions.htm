@@ -1,0 +1,73 @@
+<html>
+
+
+<head>
+<title>Instructions</title>
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center">&nbsp;</p>
+
+
+<p align="center"><font face="Arial Black">INSTRUCTIONS FOR KEY 250 PART A: Test 
+of Independence by SUDAAN/CROSSTAB</font></p>
+<hr>
+<p><font face="Arial">In this part we will demonstrate how to carry out a test of 
+independence of health hazards of work (PHYS) and psychic strain (PSYCH3)&nbsp; in the OHC Survey 
+setting. The results obtained from a design-based test of independence are 
+compared to those obtained from a model-based test of independence. The design-based test statistic is calculated by the SAS
+callable SUDAAN procedure <A HREF="sudaancrosstab.htm" onClick="return popupa(this,'examplea')">
+<u>CROSSTAB</u></a>.</font> </p>
+<p><font face="Arial Black" size="3">&nbsp;<span style="mso-fareast-font-family: Times New Roman">HOW
+TO MANAGE THIS EXERCISE</span></font></p>
+<p><font face="Arial" size="3">1) Please examine first the overview of the OHC 
+Survey data.</font></p>
+<p><font face="Arial">2) View results from the link on the left. </font></p>
+<p><font face="Arial">A hypothesis of independence is stated as H<sub>0</sub>: p<sub>jk </sub>= p<sub>j+</sub>p<sub>+k</sub> 
+with j=1,2 and k=1,2,3, or, analogously, H<sub>0</sub>: p<sub>11 </sub>- p<sub>1+</sub>p<sub>+1</sub>= 
+0 and p<sub>12 </sub>- p<sub>1+</sub>p<sub>+2 </sub>= 0. </font></p>
+
+
+<p><font face="Arial">Table 1. The Cell and Marginal proportions of variables 
+PHYS and PSYCH3 are viewed. </font></p>
+
+
+<p><font face="Arial">Table 2. Design-based Wald test results for table PHYS*PSYCH3 are 
+viewed.</font></p>
+<p><font face="Arial">Table 3. Model-based Pearson Chi-Squared test results for table PHYS*PSYCH3 are 
+viewed.</font></p>
+<p><font face="Arial">NOTE: Pay attention to the following. The Design-based Wald test 
+provides a reasonable testing procedure for an independence hypothesis of PHYS and 
+PSYCH3 (the results in Table 2). The model-based test of independence (Table 3) 
+produces too large &#967;<sup>2</sup>-values and therefore too small p-values. This is because 
+the clustering effect is not accounted for the model-based &#967;<sup>2</sup>-test contrary to the design-based Wald 
+test.&nbsp; </font></p>
+<p><font face="Arial">3) View the SAS code for performing a comparison of 
+design-based and model-based tests of independence. The code can be downloaded.</font></p>
+<p>&nbsp;</p>
+
+
+</body>
+
+
+</html> 

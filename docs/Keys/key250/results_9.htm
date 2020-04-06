@@ -1,0 +1,1687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="Generator" content="SAS Software, see www.sas.com" sasversion="9.1">
+<meta http-equiv="Content-type" content="text/html; charset=windows-1252">
+<title>SAS Output</title>
+<style type="text/css">
+<!--
+.l {text-align: left }
+.c {text-align: center }
+.r {text-align: right }
+.d {text-align: "." }
+.t {vertical-align: top }
+.m {vertical-align: middle }
+.b {vertical-align: bottom }
+TD, TH {vertical-align: top }
+.stacked_cell{padding: 0 }
+.ContentTitle
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+}
+.Output
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #F0F0F0;
+  border-width: 1px;
+  border-color: #000000;
+}
+.HeaderEmphasis
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.NoteContent
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.Graph
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 1px;
+  border-color: #000000;
+}
+.WarnContentFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.NoteBanner
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.FatalContent
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.DataStrong
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.Document
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+a:link {
+color:#0066AA
+}
+a:visited {
+color:#004488
+}
+a:active {
+color:#004488
+}
+.BeforeCaption
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+}
+.ContentsDate
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+}
+.Pages
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  margin-left: 8px;
+  margin-right: 8px;
+  list-style-type: decimal;
+}
+.TitlesAndFooters
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.IndexProcName
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+}
+.ProcTitle
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.IndexAction
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+}
+.Data
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.Table
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #F0F0F0;
+  border-width: 1px;
+  border-color: #000000;
+}
+.top_stacked_value
+{
+  padding-bottom: 1px;
+}
+.middle_stacked_value
+{
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.bottom_stacked_value
+{
+  padding-top: 1px;
+}
+.FooterEmpty
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.SysTitleAndFooterContainer
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+}
+.RowFooterEmpty
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.ContentFolder
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: NONE;
+}
+.RowFooterEmphasis
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.RowFooterStrongFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.RowFooterFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.Index
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.FooterFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.ExtendedPage
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 1pt;
+  text-align: center;
+}
+.Container
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.Date
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+}
+.Caption
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+}
+.WarnBanner
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.Frame
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.HeaderStrongFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.IndexTitle
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+}
+.NoteContentFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.DataEmphasisFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.Note
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.Byline
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.FatalBanner
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.ProcTitleFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.ByContentFolder
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: NONE;
+}
+.PagesProcLabel
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+}
+.RowHeaderFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.RowFooterEmphasisFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.WarnContent
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.DataEmpty
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.Cell
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.Header
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.PageNo
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  text-align: right;
+  vertical-align: top;
+}
+.ContentProcLabel
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+}
+.HeaderFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.PagesTitle
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+}
+.RowHeaderEmpty
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.PagesProcName
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+}
+.Batch
+{
+  font-family: SAS Monospace, Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+  border-width: 1px;
+  border-color: #000000;
+}
+.ContentItem
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  list-style-type: NONE;
+}
+.Body
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.PagesDate
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+}
+.HeaderEmpty
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.FooterStrong
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.FooterEmphasis
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.ErrorContent
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.DataFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.HeaderStrong
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.DataEmphasis
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.TitleAndNoteContainer
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+}
+.RowFooter
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.IndexItem
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+}
+.BylineContainer
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+}
+.FatalContentFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.BodyDate
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  width: 100%;
+  text-align: right;
+  vertical-align: top;
+}
+.Contents
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  margin-left: 8px;
+  margin-right: 8px;
+  list-style-type: decimal;
+}
+.RowFooterStrong
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.UserText
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.HeadersAndFooters
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.RowHeaderEmphasisFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.ErrorBanner
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.ContentProcName
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+}
+.RowHeaderStrong
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.PagesItem
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  list-style-type: NONE;
+}
+.RowHeader
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.FooterStrongFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.AfterCaption
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+}
+.RowHeaderStrongFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.RowHeaderEmphasis
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.DataStrongFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+}
+.Footer
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.FolderAction
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+}
+.HeaderEmphasisFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+.SystemTitle
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.ErrorContentFixed
+{
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.SystemFooter
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+}
+.FooterEmphasisFixed
+{
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+}
+-->
+</style>
+<script language="javascript" type="text/javascript">
+<!-- 
+function startup(){
+
+}
+function shutdown(){
+
+}
+
+//-->
+</script>
+
+<noscript></noscript>
+</head>
+<body onload="startup()" onunload="shutdown()" class="Body">
+
+<script language="javascript" type="text/javascript">
+<!-- 
+var _info = navigator.userAgent
+var _ie = (_info.indexOf("MSIE") > 0
+          && _info.indexOf("Win") > 0
+          && _info.indexOf("Windows 3.1") < 0);
+
+//-->
+</script>
+
+<noscript></noscript>
+<div class="branch">
+<a name="IDX"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c SystemTitle">Design-based test of independence of PHYS and PSYCH3 in OHC survey</td>
+</tr>
+</table><br>
+<div class="c ProcTitle">The SURVEYFREQ Procedure</div>
+<p>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Data Summary">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Data Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Number of Strata</th>
+<td class="r Data">5</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Number of Clusters</th>
+<td class="r Data">250</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Number of Observations</th>
+<td class="r Data">7841</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX1"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: CrossTabulation Table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="6" scope="colgroup">Table of PHYS by PSYCH3</th>
+</tr>
+<tr>
+<th class="r b Header" scope="col">PHYS</th>
+<th class="r b Header" scope="col">PSYCH3</th>
+<th class="r b Header" scope="col"> Frequency</th>
+<th class="r b Header" scope="col">Percent</th>
+<th class="r b Header" scope="col">Std Err of<br>   Percent</th>
+<th class="r b Header" scope="col">Design<br>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r RowHeader" scope="row">0</th>
+<th class="r RowHeader" scope="row">1</th>
+<td class="r Data">1785</td>
+<td class="r Data">22.7650</td>
+<td class="r Data">0.6850</td>
+<td class="r Data">2.0923</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">2</th>
+<td class="r Data">1716</td>
+<td class="r Data">21.8850</td>
+<td class="r Data">0.7019</td>
+<td class="r Data">2.2593</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">3</th>
+<td class="r Data">1629</td>
+<td class="r Data">20.7754</td>
+<td class="r Data">0.7435</td>
+<td class="r Data">2.6331</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">Total</th>
+<td class="r Data">5130</td>
+<td class="r Data">65.4253</td>
+<td class="r Data">1.4385</td>
+<td class="r Data">7.1716</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">1</th>
+<th class="r RowHeader" scope="row">1</th>
+<td class="r Data">910</td>
+<td class="r Data">11.6057</td>
+<td class="r Data">0.6078</td>
+<td class="r Data">2.8229</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">2</th>
+<td class="r Data">821</td>
+<td class="r Data">10.4706</td>
+<td class="r Data">0.5323</td>
+<td class="r Data">2.3695</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">3</th>
+<td class="r Data">980</td>
+<td class="r Data">12.4984</td>
+<td class="r Data">0.6330</td>
+<td class="r Data">2.8727</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">Total</th>
+<td class="r Data">2711</td>
+<td class="r Data">34.5747</td>
+<td class="r Data">1.4385</td>
+<td class="r Data">7.1716</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">Total</th>
+<th class="r RowHeader" scope="row">1</th>
+<td class="r Data">2695</td>
+<td class="r Data">34.3706</td>
+<td class="r Data">0.7140</td>
+<td class="r Data">1.7718</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">2</th>
+<td class="r Data">2537</td>
+<td class="r Data">32.3556</td>
+<td class="r Data">0.5863</td>
+<td class="r Data">1.2313</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">3</th>
+<td class="r Data">2609</td>
+<td class="r Data">33.2738</td>
+<td class="r Data">0.6751</td>
+<td class="r Data">1.6092</td>
+</tr>
+<tr>
+<th class="r RowHeader" scope="row">&nbsp;</th>
+<th class="r RowHeader" scope="row">Total</th>
+<td class="r Data">7841</td>
+<td class="r Data">100.000</td>
+<td class="r Data">&nbsp;</td>
+<td class="r Data">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX2"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Rao-Scott Chi-Square Test">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Rao-Scott Chi-Square Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Pearson Chi-Square</th>
+<td class="r Data">16.5692</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Design Correction</th>
+<td class="r Data">1.1781</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Rao-Scott Chi-Square</th>
+<td class="r Data">14.0647</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; ChiSq</th>
+<td class="r Data">0.0009</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">F Value</th>
+<td class="r Data">7.0324</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">490</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; F</th>
+<td class="r Data">0.0010</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th class="c b Footer" colspan="2">Sample Size = 7841</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX3"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Rao-Scott Modified Chi-Square Test">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Rao-Scott Modified Chi-Square Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Pearson Chi-Square</th>
+<td class="r Data">16.5692</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Design Correction</th>
+<td class="r Data">1.1818</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Rao-Scott Chi-Square</th>
+<td class="r Data">14.0204</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; ChiSq</th>
+<td class="r Data">0.0009</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">F Value</th>
+<td class="r Data">7.0102</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">490</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; F</th>
+<td class="r Data">0.0010</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th class="c b Footer" colspan="2">Sample Size = 7841</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX4"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Rao-Scott Likelihood Ratio Test">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Rao-Scott Likelihood Ratio Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Likelihood Ratio Chi-Square</th>
+<td class="r Data">16.4997</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Design Correction</th>
+<td class="r Data">1.1781</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Rao-Scott Chi-Square</th>
+<td class="r Data">14.0058</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; ChiSq</th>
+<td class="r Data">0.0009</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">F Value</th>
+<td class="r Data">7.0029</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">490</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; F</th>
+<td class="r Data">0.0010</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th class="c b Footer" colspan="2">Sample Size = 7841</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX5"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Rao-Scott Modified Likelihood Ratio Test">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Rao-Scott Modified Likelihood Ratio Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Likelihood Ratio Chi-Square</th>
+<td class="r Data">16.4997</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Design Correction</th>
+<td class="r Data">1.1818</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Rao-Scott Chi-Square</th>
+<td class="r Data">13.9616</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; ChiSq</th>
+<td class="r Data">0.0009</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">F Value</th>
+<td class="r Data">6.9808</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">490</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; F</th>
+<td class="r Data">0.0010</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th class="c b Footer" colspan="2">Sample Size = 7841</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX6"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Wald Chi-Square Test">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Wald Chi-Square Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Chi-Square</th>
+<td class="r Data">13.2280</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">F Value</th>
+<td class="r Data">6.6140</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">245</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; F</th>
+<td class="r Data">0.0016</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Adj F Value</th>
+<td class="r Data">6.5870</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">244</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; Adj F</th>
+<td class="r Data">0.0016</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th class="c b Footer" colspan="2">Sample Size = 7841</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX7"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Surveyfreq: Wald Log-Linear Chi-Square Test">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b Header" colspan="2" scope="colgroup">Wald Log-Linear Chi-Square<br>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Chi-Square</th>
+<td class="r Data">13.8337</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">F Value</th>
+<td class="r Data">6.9169</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">245</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; F</th>
+<td class="r Data">0.0012</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">&nbsp;</th>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Adj F Value</th>
+<td class="r Data">6.8886</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Num DF</th>
+<td class="r Data">2</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Den DF</th>
+<td class="r Data">244</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Pr &gt; Adj F</th>
+<td class="r Data">0.0012</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th class="c b Footer" colspan="2">Sample Size = 7841</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br></p><hr size="3">
+<a name="IDX8"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c SystemTitle">Model-based test of independence of PHYS and PSYCH3</td>
+</tr>
+</table><br>
+<div class="c ProcTitle">The FREQ Procedure</div>
+<p>
+<div>
+<div align="center">
+<table  summary="Page Layout"><tr>
+<td class="c t"><div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Freq: Cross-Tabular Freq Table">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+</colgroup>
+<tr>
+<th class="l t Header" scope="col">Frequency       <br>Percent         <br>Row Pct         <br>Col Pct         </th>
+</tr>
+</table>
+</div>
+</td>
+</td><td><div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Freq: Cross-Tabular Freq Table">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c Header" colspan="5" scope="colgroup">Table of PHYS by PSYCH3</th>
+</tr>
+<tr>
+<th class="c b Header" rowspan="2" scope="col">PHYS</th>
+<th class="c b Header" colspan="3" scope="colgroup">PSYCH3</th>
+<th class="r b Header" rowspan="2" scope="col">Total</th>
+</tr>
+<tr>
+<th class="r Header" scope="col">     1      </th>
+<th class="r Header" scope="col">     2      </th>
+<th class="r Header" scope="col">     3      </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t Header" scope="col">   0        </th>
+<td class="r t Data">  1785<br>  22.76<br>  34.80<br>  66.23</td>
+<td class="r t Data">  1716<br>  21.88<br>  33.45<br>  67.64</td>
+<td class="r t Data">  1629<br>  20.78<br>  31.75<br>  62.44</td>
+<td class="r t Data">  5130<br>  65.43<br>&nbsp;<br>&nbsp;</td>
+</tr>
+<tr>
+<th class="r t Header" scope="col">   1        </th>
+<td class="r t Data">   910<br>  11.61<br>  33.57<br>  33.77</td>
+<td class="r t Data">   821<br>  10.47<br>  30.28<br>  32.36</td>
+<td class="r t Data">   980<br>  12.50<br>  36.15<br>  37.56</td>
+<td class="r t Data">  2711<br>  34.57<br>&nbsp;<br>&nbsp;</td>
+</tr>
+<tr>
+<th class="l t Header" scope="col">Total           </th>
+<td class="r t Data">   2695<br>  34.37</td>
+<td class="r t Data">   2537<br>  32.36</td>
+<td class="r t Data">   2609<br>  33.27</td>
+<td class="r t Data">   7841<br> 100.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<p>
+<div class="c ProcTitle">Statistics for Table of PHYS by PSYCH3</div>
+<p>
+<a name="IDX9"></a>
+<div>
+<div align="center">
+<table class="Table" cellspacing="1" cellpadding="7" rules="groups" frame="box" border="1px" bordercolor="#000000" summary="Procedure Freq: Chi-Square Tests">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l b Header" scope="col">Statistic</th>
+<th class="r b Header" scope="col">DF</th>
+<th class="r b Header" scope="col">Value</th>
+<th class="r b Header" scope="col">Prob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l RowHeader" scope="row">Chi-Square</th>
+<td class="r Data">2</td>
+<td class="r Data">16.5692</td>
+<td class="r Data">0.0003</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Likelihood Ratio Chi-Square</th>
+<td class="r Data">2</td>
+<td class="r Data">16.4997</td>
+<td class="r Data">0.0003</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Mantel-Haenszel Chi-Square</th>
+<td class="r Data">1</td>
+<td class="r Data">8.2909</td>
+<td class="r Data">0.0040</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Phi Coefficient</th>
+<td class="r Data">&nbsp;</td>
+<td class="r Data">0.0460</td>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Contingency Coefficient</th>
+<td class="r Data">&nbsp;</td>
+<td class="r Data">0.0459</td>
+<td class="r Data">&nbsp;</td>
+</tr>
+<tr>
+<th class="l RowHeader" scope="row">Cramer&#39;s V</th>
+<td class="r Data">&nbsp;</td>
+<td class="r Data">0.0460</td>
+<td class="r Data">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
+<p>
+<div class="c ProcTitle">Sample Size = 7841</div>
+<p>
+</div>
+</body>
+</html>

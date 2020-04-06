@@ -1,0 +1,696 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="298code_files/filelist.xml">
+<title>* TRAINING KEY 298: Alternative multivariate analyses for the OHC Survey
+design;</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>pitulavi</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>20</o:TotalTime>
+  <o:Created>2005-01-19T11:58:00Z</o:Created>
+  <o:LastSaved>2005-01-19T11:58:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1010</o:Words>
+  <o:Characters>5757</o:Characters>
+  <o:Company>University of Jyvaskyla</o:Company>
+  <o:Lines>47</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>6754</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+    {mso-style-parent:"";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Times New Roman";
+    mso-fareast-font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+    {margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Courier New";
+    mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+    {mso-style-name:"";
+    mso-spl-e:yes;}
+span.GramE
+    {mso-style-name:"";
+    mso-gram-e:yes;}
+@page Section1
+    {size:612.0pt 792.0pt;
+    margin:72.0pt 65.95pt 72.0pt 65.95pt;
+    mso-header-margin:35.4pt;
+    mso-footer-margin:35.4pt;
+    mso-paper-source:0;}
+div.Section1
+    {page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+    {mso-style-name:"Table Normal";
+    mso-tstyle-rowband-size:0;
+    mso-tstyle-colband-size:0;
+    mso-style-noshow:yes;
+    mso-style-parent:"";
+    mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+    mso-para-margin:0cm;
+    mso-para-margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoPlainText><span style='color:green'>* TRAINING KEY 298: Alternative
+multivariate analyses for the OHC Survey design;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>* INSTRUCTIONS:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>1) FILL in the LIBNAME
+Statement and first DATA STEP to gain access to OHC data.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>2) Submit LIBNAME and DATA
+statements. Check Log window. Everything went fine? <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;</span><o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=SpellE><span class=GramE>libname</span></span>
+[your <span class=SpellE>libname</span>] <span style='color:purple'>&quot;path
+to <span class=SpellE>Ohc</span> data in your computer&quot;</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText style='tab-stops:153.75pt'><span style='mso-tab-count:
+1'>                          </span><o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>data</span> <span class=SpellE>Ohc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>set</span> [your <span class=SpellE>libname</span>].<span
+class=SpellE>Ohc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> summary data=<span
+class=SpellE>Ohc</span> <span class=SpellE>nway</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>class</span> stratum cluster;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>output</span> out=a (keep=stratum
+cluster);<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE>data</span> a;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>set</span> a;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>subject</span> + <b style='mso-bidi-font-weight:
+normal'><span style='color:teal'>1</span></b>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE>data</span> <span class=SpellE>Ohc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>merge</span> a <span class=SpellE>Ohc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>by</span> stratum cluster;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>*A) ACCOUNTING FOR CLUSTERING
+EFFECTS FOR A CONTINOUS STUDY VARIABLE;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SUDAAN PROCEDURE REGRESS<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Design-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for stratification
+and clustering:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>NEST statement,<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Option DESIGN=WR.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Fixed-effects model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: QML (Quasi maximum
+likelihood), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Exchangeable correlation structure
+(option R=EXCH), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Robust SE (standard error) method, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span><span class=GramE>Linearization
+method in SE estimation.</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>PSYCH = Intercept + AGE + SEX +
+CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> regress data=<span
+class=SpellE>Ohc</span> design=<span class=SpellE>wr</span> r=exchangeable;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>nest</span> stratum cluster;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>weight</span> _one_;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych=age sex <span
+class=SpellE>chron</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>print</span> /style=<span class=SpellE>nchs</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SAS PROCEDURE MIXED<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Model-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for clustering:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>REPEATED and RANDOM statements
+(SUBJECT=CLUSTER),<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Mixed model (variance components
+model, TYPE=VC), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: REML (Restricted
+maximum likelihood),<span style='mso-spacerun:yes'>       </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Robust SE (standard error) method
+(option EMPIRICAL).<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>PSYCH = Intercept + AGE + SEX +
+CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> mixed data=<span
+class=SpellE>Ohc</span> empirical method=<span class=SpellE>reml</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>class</span> subject;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych=age sex <span
+class=SpellE>chron</span>/solution;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>repeated</span> / subject=subject type=<span
+class=SpellE>vc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SAS PROCEDURE GENMOD<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Model-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for clustering:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>REPEATED statement
+(SUBJECT=SUBJECT),<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Fixed-effects model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: GEE (Generalized
+estimation equations), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Exchangeable correlation structure,<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Robust SE (standard error) method<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>PSYCH = Intercept + AGE + SEX +
+CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> <span class=SpellE>genmod</span>
+data=<span class=SpellE>Ohc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>class</span> subject;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych=age sex <span
+class=SpellE>chron</span> /dist=normal link=identity;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>repeated</span> subject=subject / type=<span
+class=SpellE>exch</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SAS PROCEDURE REG<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Model-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for clustering:
+None.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Fixed-effect model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: ML (Maximum
+likelihood), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span><span class=GramE>Model-based SE
+(standard error) method.</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>PSYCH = Intercept + AGE + SEX +
+CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> <span class=SpellE>reg</span>
+data=<span class=SpellE>Ohc</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych=age sex <span
+class=SpellE>chron</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>*B) ACCOUNTING FOR CLUSTERING
+EFFECTS FOR A BINARY STUDY VARIABLE; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SUDAAN PROCEDURE RLOGIST<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Design-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for stratification
+and clustering<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>NEST statement,<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Option DESIGN=WR.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Fixed-effects model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: QML (Quasi maximum
+likelihood), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Exchangeable correlation structure
+(option R=EXCH), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>         </span><span
+style='mso-spacerun:yes'>   </span>Robust SE (standard error) method, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span><span class=GramE>Linearization
+method in SE estimation.</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>PSYCH2 = Intercept + AGE + SEX
++ CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> <span class=SpellE>rlogist</span>
+data=<span class=SpellE>Ohc</span> design=<span class=SpellE>wr</span> deft1
+r=exchangeable;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>nest</span> stratum cluster;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>weight</span> _one_;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych2=age sex <span
+class=SpellE>chron</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=SpellE><span class=GramE>setenv</span></span>
+<span class=SpellE>decwidth</span>=<b style='mso-bidi-font-weight:normal'><span
+style='color:teal'>4</span></b>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>print</span> /style=<span class=SpellE>nchs</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>GLIMMIX-MACRO<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach: Model-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for clustering:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>REPEATED and RANDOM statements
+(SUBJECT=CLUSTER),<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Mixed model (variance components
+model, TYPE=VC), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: REML (restricted maximum
+likelihood) producing REML <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span style='mso-tab-count:
+6'>                                    </span><span class=GramE>variance</span>
+component estimates. REML estimates produce<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span style='mso-tab-count:
+6'>                                    </span>REPL (restricted <span
+class=GramE>pseudo<span style='mso-spacerun:yes'>  </span>likelihood</span>)
+estimation of the generalized linear mixed model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Robust SE method (EMPIRICAL option
+in PROC statement<span class=GramE>) .</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>PSYCH2 = Intercept + AGE + SEX
++ CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>%<span class=GramE>include 's</span>:\rlehtone\TIL-L22\Macro
+<span class=SpellE>GLIMMIX.sas</span>';<o:p></o:p></p>
+
+<p class=MsoPlainText>%<span class=SpellE><span class=GramE>glimmix</span></span><span
+class=GramE>(</span>data=<span class=SpellE>Ohc</span>, <span class=SpellE>procopt</span>=empirical
+method=<span class=SpellE>reml</span>,<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=SpellE><span class=GramE>stmts</span></span>=%<span
+class=SpellE>str</span>(<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>class</span> subject;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych2=age sex <span
+class=SpellE>chron</span> /solution;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>repeated</span> / subject=subject type=<span
+class=SpellE>vc</span>;),<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>link=</span><span class=SpellE>logit</span>);<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SAS PROCEDURE GENMOD<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Model-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for clustering:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>REPEATED statement
+(SUBJECT=SUBJECT),<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Fixed-effects model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: GEE (Generalized
+estimation equations), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Exchangeable correlation structure,<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Robust SE (standard error) method<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model PSYCH = Intercept + AGE + SEX + CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> <span class=SpellE>genmod</span>
+data=<span class=SpellE>Ohc</span> descending;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>class</span> subject;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych2=age sex <span
+class=SpellE>chron</span> /dist=bin link=<span class=SpellE>logit</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>repeated</span> subject=subject / type=<span
+class=SpellE>exch</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>SAS PROCEDURE GENMOD under the
+reference option<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>***************************************************************<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Inferential approach:
+Model-based<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Accounting for clustering: None<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>Model formulation and
+estimation method: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Fixed-effects model, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Estimation: ML (Maximum
+likelihood), <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><span
+style='mso-spacerun:yes'>            </span>Model-based SE method<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>CODE for the analysis of the
+model PSYCH = Intercept + AGE + SEX + CHRON:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:green'>;</span><o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>proc</span> <span class=SpellE>genmod</span>
+data=<span class=SpellE>Ohc</span> descending;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>model</span> psych2=age sex <span
+class=SpellE>chron</span> /dist=bin link=<span class=SpellE>logit</span>;<o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>run</span>;</p>
+
+</div>
+
+<p align="center">
+<input type=button value="Download SAS file" onclick="window.open('../key298/key298.sas')">
+</p>
+
+</body>
+
+</html>

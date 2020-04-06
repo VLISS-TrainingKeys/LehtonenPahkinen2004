@@ -1,0 +1,477 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="ancovamacro_files/filelist.xml">
+<title>libname b v604 &quot;s:\rlehtone\til-a04\&quot;;</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>vesku</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>apasane</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2002-04-09T12:36:00Z</o:Created>
+  <o:LastSaved>2004-01-28T12:28:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>291</o:Words>
+  <o:Characters>1663</o:Characters>
+  <o:Company>University of Jyväskylä</o:Company>
+  <o:Lines>13</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>1951</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+TRAINING KEY 288: Logistic ANCOVA;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+INSTRUCTIONS FOR THE USE OF MACRO ANCOVA:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>1)
+FILL in the LIBNAME Statement and first DATA STEP to gain access to OHC data.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>2)
+Submit LIBNAME and DATA statements. Check Log window. Everything went fine? <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>3)
+Activate MACRO ANCOVA (paste from %MACRO statement to %MEND statement and
+submit).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>4)
+Input in %ANCOVA statement the interaction terms you want to be included in the
+model. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'><span
+style='mso-spacerun:yes'>   </span>See examples: Full model, reduced model,
+main effects model.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>5)
+Call macro %ANCOVA (paste and submit). Check LOG window. Everything went fine?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>6)
+Examine results (Output window and Graphics window). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>7)
+Select another model or close SAS system.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>libname
+[</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;your libname&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>] </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;path
+to OHC file in your computer&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>data</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+Ohc;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>set
+[</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;your libname&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>]</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>.O</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>hc;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>run</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>%MACRO</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+ANCOVA(m1,m2,m3);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>title1
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;OHC Survey data&quot;</span><span style='font-size:
+10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>proc
+rlogist data=Ohc design=wr deft1;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>title2
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Logit-ANCOVA / PML estimation / Model terms: Intercept
+Sex Age Chron Phys &amp;m1 &amp;m2 &amp;m3&quot;</span><span style='font-size:
+10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>title3
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;SUDAAN / LOGISTIC&quot;</span><span style='font-size:
+10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>nest
+Stratum Cluster;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>weight
+_one_;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>subgroup
+Sex;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>levels
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>2</span></b><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>model
+psych2=Sex Age Chron Phys &amp;m1 &amp;m2 &amp;m3;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>setenv
+decwidth=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>4</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>print
+/ style=nchs;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>output
+Expected <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span>idvar/<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span>filename=SUDput3<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span>filetype=sas;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>idvar
+Sex Age Phys Chron;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>proc
+format;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>value
+Sexf<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Males&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;Females&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>value
+Phchf<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>0</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;0&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>1</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:purple;background:white'>&quot;1&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>proc
+sort data=SUDput3;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>by
+Phys Chron;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>goptions
+reset=global gunit=pct border cback=white<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>         </span>ctext=black colors=(blue green red)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-spacerun:yes'>         </span>ftext=swiss ftitle=swissb<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span><span
+style='mso-spacerun:yes'> </span>htitle=</span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>5</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+htext=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>3</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span><span
+style='mso-spacerun:yes'> </span>hsize=15cm vsize=15cm;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>symbol1
+height=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>1</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span>value=dot;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><span
+style='mso-tab-count:2'>            </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>proc
+gplot data=SUDput3 gout=Ancovagr;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>plot
+Expected*Age=Sex/vaxis=</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:teal;background:white'>0.2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+to </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>0.8</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> by </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>0.2</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+haxis=</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>15</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'> to </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:teal;background:white'>65</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>
+by </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal;background:white'>10</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>by
+Phys Chron;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>title2
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:purple;
+background:white'>&quot;Logit(PSYCH2)=Intercept Sex Age Chron Phys &amp;m1
+&amp;m2 &amp;m3&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>format
+Sex </span><span style='font-size:10.0pt;font-family:"Courier New";color:teal;
+background:white'>Sexf.</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'> Phys Chron </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal;background:white'>phchf.</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>run;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>quit;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white'>%MEND</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Example models;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Full model;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>%<b><i>ANCOVA</i></b>(Sex*Age,Sex*Phys,Sex*Chron);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Reduced model;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>%<b><i>ANCOVA</i></b>(Sex*Age,,);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white'>*
+Main effects model;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black;background:white'>%<b><i>ANCOVA</i></b>(,,);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+<p align="center">
+<input type=button value="Download SAS file" onclick="window.open('../key288/ancovamacro.sas')">
+<p></p>
+</body>
+
+</html>

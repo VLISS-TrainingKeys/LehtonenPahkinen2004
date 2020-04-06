@@ -1,0 +1,185 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fi">
+
+<style>
+<!--
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman"}
+-->
+</style>
+
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<p align="left">&nbsp;</p>
+<p align="center"><b><span style="font-size:13.5pt;font-family:Arial">Option 1: 
+RESULTS BY SAS/SUDAAN REGRESS PROCEDURE</span></b></p>
+<p><b><span style="font-family:Arial">PROCEDURE REGRESS:</span></b></p>
+<p><span style="font-family:Arial">Inferential approach: Design-based</span></p>
+<p><span style="font-family:Arial">Accounting for stratification and clustering:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NEST statement,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option DESIGN=WR.</span></p>
+<p><span style="font-family:Arial">Model formulation and estimation method: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fixed-effects model, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estimation: QML (Quasi maximum likelihood), <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exchangeable correlation structure (option R=EXCH), <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Robust SE (standard error) method, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linearization method in SE estimation.</span></p>
+<p><b><span style="font-family:Arial">CODE for the analysis of the model <br>
+PSYCH = Intercept + AGE + SEX + CHRON:</span></b></p>
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">
+proc</span></b><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">
+<b><span style="color:navy">regress</span></b> data=ohc design=wr r=exchangeable;</span></p>
+<p><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">nest 
+stratum cluster;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+weight</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+_one_;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+model</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+psych=age sex chron;</span></p>
+<p>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:blue">
+print</span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> 
+/style=nchs;</span></p>
+<p><b>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:navy">
+run</span></b><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">;</span></p>
+<p><b><span style="font-family:Arial">RESULTS:</span></b></p>
+<table class="MsoNormalTable" border="1" cellspacing="1" cellpadding="0" style="border: 1.0pt outset black; background: #F0F0F0">
+  <tr>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: #B0B0B0">
+    <p class="MsoNormal"><b><span lang="EN-GB" style="font-family:Arial">&nbsp;</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">&nbsp;</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">Label</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: #B0B0B0">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">&nbsp;</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">Beta </span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">Coeff.</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: #B0B0B0">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">&nbsp;</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">SE</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">Beta</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: #B0B0B0">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">&nbsp;</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">T Test</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">B=0</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: #B0B0B0">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">P Value</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">T-test</span></b></p>
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">B=0</span></b></td>
+  </tr>
+  <tr>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">Intercept</span></b></td>
+    <td nowrap style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">-0.5392</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0597</span></td>
+    <td nowrap style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">-9.0324</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0000</span></td>
+  </tr>
+  <tr>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">AGE</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0025</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0013</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">1.9432</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0531</span></td>
+  </tr>
+  <tr>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">SEX</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.2318</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0269</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">8.6095</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0000</span></td>
+  </tr>
+  <tr>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal"><b>
+    <span lang="EN-GB" style="font-size:13.5pt;font-family:
+  Arial;color:#0033AA">CHRON</span></b></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.3967</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0293</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">13.5492</span></td>
+    <td style="border: 1.0pt inset black; padding: 5.25pt; background: lightgrey">
+    <p class="MsoNormal" align="right" style="text-align:right">
+    <span lang="EN-GB" style="font-family:Arial;color:black">0.0000</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

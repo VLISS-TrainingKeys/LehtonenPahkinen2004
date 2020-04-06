@@ -1,0 +1,47 @@
+<html>
+
+
+<head>
+<title>KEY 277 exercise</title>
+
+<SCRIPT TYPE="text/javascript"> 
+<!--
+function popupa(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+href=mylink;
+else
+href=mylink.href;
+window.open(href, windowname, 'width=600,height=300,scrollbars=yes');
+return false;
+}
+//-->    
+</SCRIPT> 
+
+</head>
+
+
+<body bgcolor="#C0C0C0">
+
+
+<p align="center" style="text-align:center"><font face="Arial Black">INSTRUCTIONS FOR KEY 277 PART A: LOGIT ANOVA WITH THE PML METHOD</font></p>
+<hr>
+<p><font face="Arial" size="3">In Part A, logit ANOVA models are fitted for the OHC Survey data to examine the variation of domain proportions of the binary response variable PSYCH2 (Psychic strain, 1 present; 0 otherwise) across the eight domains formed by a cross-classification of variables SEX, two-category AGE and binary PHYS (Physical health hazards, 1 present; 0 otherwise). </font></p>
+<p><font face="Arial" size="3">The model selection procedure is executed in a step-wise manner beginning from the saturated model that includes all the main effects and interaction terms. The aim is to end up with a reduced model that is parsimonious and fits reasonably well. The reduced model can then be used for the interpretation of the relationships of the predictors with the response variable. In this context PHYS is the main subject matter predictor. Age-sex adjusted odds ratio (OR) statistics will be calculated for PHYS and can be used for the interpretation of results from the final reduced model.</font></p>
+<p><font face="Arial" size="3">We use the PML method for design-based analysis under the DES option. The SAS-callable SUDAAN Version 9 procedure <A HREF="../training/concepts/sudaanrlogist.htm" onClick="return popupa(this,'')"><u>RLOGIST</u></a> is used. Alternatively, the SAS Version 9 procedure <A HREF="../training/concepts/procsurveylogistic.htm" onClick="return popupa(this,'')"><u>SURVEYLOGISTIC</u></a> can be used for design-based logistic ANOVA. This procedure is demonstrated briefly in the second item of Part A where the final reduced logit ANOVA model is fitted.</font></p>
+
+<p><font face="Arial Black" size="3">MODEL SELECTION PROCEDURE</font></p>
+<p><font face="Arial" size="3">Output of the saturated ANOVA model is first displayed. The saturated model includes all the model terms (main effects and interaction terms) that can be constructed given the three discrete predictors. Note that an intercept term is included in all models by default.</font></p>
+<p><font face="Arial" size="3">Your task is to decide the terms that are to be removed from the model, and the order of removal. Decision is based on the statistical significance of each term given in the P_BETA column. Your choice of a term to be removed will be checked automatically against the p-values of the model terms. For this pedagogical exercise we have selected the value 0.05 as the reference (the value 0.10, or even 0.01, could be used instead, possibly leading to different final reduced models). A correct choice allows you to continue to the next step. A warning will be given in the case your choice is invalid, and you can try again. A successful choice will lead to a display of the respective reduced model, and you can continue the process until a reasonable reduced model is obtained. For the interpretation of the results, the OR statistics and graphical displays are shown.</font></p>
+<p><font face="Arial" size="3">Note the hierarchical nature of the model
+selection procedure.</font></p>
+<p><font face="Arial" size="3">In each phase, the predicted values are also displayed graphically for the given model. Please examine also these graphs and note the change when the model is changing. Please note the role of the interaction terms. For the interpretation of the results from the final reduced model, the OR statistics and graphical displays are very useful.</font></p>
+
+
+
+</body>
+
+
+</html> 

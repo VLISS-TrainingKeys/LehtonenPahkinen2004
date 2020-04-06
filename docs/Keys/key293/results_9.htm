@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> <head> <meta name="Generator" content="SAS Software, see
+www.sas.com" sasversion="9.1"> <meta http-equiv="Content-type"
+content="text/html; charset=windows-1252"> <title>SAS
+Output</title> <style type="text/css"> <!-- .l {text-align: left }
+.c {text-align: center } .r {text-align: right } .d {text-align:
+"." } .t {vertical-align: top } .m {vertical-align: middle } .b
+{vertical-align: bottom } TD, TH {vertical-align: top }
+.stacked_cell{padding: 0 } .ContentTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+} .Output {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #F0F0F0;
+  border-width: 1px;
+  border-color: #000000;
+} .HeaderEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .NoteContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Graph {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 1px;
+  border-color: #000000;
+} .WarnContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .NoteBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .FatalContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Document {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} a:link { color:#0066AA } a:visited { color:#004488 } a:active {
+color:#004488 } .BeforeCaption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+} .ContentsDate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+} .Pages {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  margin-left: 8px;
+  margin-right: 8px;
+  list-style-type: decimal;
+} .TitlesAndFooters {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .IndexProcName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .ProcTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .IndexAction {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+} .Data {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Table {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #F0F0F0;
+  border-width: 1px;
+  border-color: #000000;
+} .top_stacked_value {
+  padding-bottom: 1px;
+} .middle_stacked_value {
+  padding-top: 1px;
+  padding-bottom: 1px;
+} .bottom_stacked_value {
+  padding-top: 1px;
+} .FooterEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .SysTitleAndFooterContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+} .RowFooterEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ContentFolder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: NONE;
+} .RowFooterEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowFooterStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowFooterFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .Index {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ExtendedPage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 1pt;
+  text-align: center;
+} .Container {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Date {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+} .Caption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+} .WarnBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Frame {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .HeaderStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .IndexTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+} .NoteContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Byline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FatalBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ProcTitleFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ByContentFolder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: NONE;
+} .PagesProcLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .RowHeaderFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowFooterEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .WarnContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Cell {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .Header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PageNo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  text-align: right;
+  vertical-align: top;
+} .ContentProcLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .HeaderFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PagesTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #002288;
+} .RowHeaderEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PagesProcName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .Batch {
+  font-family: SAS Monospace, Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+  border-width: 1px;
+  border-color: #000000;
+} .ContentItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  list-style-type: NONE;
+} .Body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  margin-left: 8px;
+  margin-right: 8px;
+} .PagesDate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  width: 100%;
+} .HeaderEmpty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ErrorContent {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .DataFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .HeaderStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .DataEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #000000;
+  background-color: #D3D3D3;
+} .TitleAndNoteContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+} .RowFooter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .IndexItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+} .BylineContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  border-width: 0;
+  width: 100%;
+} .FatalContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .BodyDate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+  width: 100%;
+  text-align: right;
+  vertical-align: top;
+} .Contents {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+  margin-left: 8px;
+  margin-right: 8px;
+  list-style-type: decimal;
+} .RowFooterStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .UserText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .HeadersAndFooters {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowHeaderEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .ErrorBanner {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ContentProcName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  list-style-type: decimal;
+} .RowHeaderStrong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .PagesItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  list-style-type: NONE;
+} .RowHeader {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FooterStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .AfterCaption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #E0E0E0;
+} .RowHeaderStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .RowHeaderEmphasis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .DataStrongFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: bold;
+  font-style: normal;
+  color: #000000;
+  background-color: #D3D3D3;
+} .Footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .FolderAction {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  color: #0033AA;
+  margin-left: 6pt;
+  list-style-type: NONE;
+} .HeaderEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} .SystemTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .ErrorContentFixed {
+  font-family: Courier;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: normal;
+  color: #002288;
+  background-color: #E0E0E0;
+} .SystemFooter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: #002288;
+  background-color: #E0E0E0;
+} .FooterEmphasisFixed {
+  font-family: Courier New, Courier, monospace;
+  font-size: x-small;
+  font-weight: normal;
+  font-style: italic;
+  color: #0033AA;
+  background-color: #B0B0B0;
+} --> </style> <script language="javascript"
+type="text/javascript"> <!-- function startup(){
+
+} function shutdown(){
+
+}
+
+//-->
+</script>
+
+<noscript></noscript> </head> <body onload="startup()"
+onunload="shutdown()" class="Body">
+
+<script language="javascript" type="text/javascript"> <!-- var
+_info = navigator.userAgent var _ie = (_info.indexOf("MSIE") > 0
+          && _info.indexOf("Win") > 0
+          && _info.indexOf("Windows 3.1") < 0);
+
+//-->
+</script>
+
+<noscript></noscript> <div class="branch"> <a name="IDX"></a>
+<table class="SysTitleAndFooterContainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr> <td class="c SystemTitle">Design-based linear ANCOVA on
+overall psychic strain</td> </tr> </table><br> <div class="c
+ProcTitle">The SURVEYREG Procedure</div> <div class="c
+ProcTitle">&nbsp;</div> <div class="c ProcTitle">Regression
+Analysis for Dependent Variable PSYCH</div> <p> <div> <div
+align="center"> <table class="Table" cellspacing="1"
+cellpadding="7" rules="groups" frame="box" border="1px"
+bordercolor="#000000" summary="Procedure Surveyreg: Data Summary">
+<colgroup> <col> <col> </colgroup> <thead> <tr> <th class="c b
+Header" colspan="2" scope="colgroup">Data Summary</th> </tr>
+</thead> <tbody> <tr> <th class="l RowHeader" scope="row">Number
+of Observations</th> <td class="r Data">7841</td> </tr> <tr> <th
+class="l RowHeader" scope="row">Mean of PSYCH</th> <td class="r
+Data" nowrap>-2.46E-11</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Sum of PSYCH</th> <td class="r Data"
+nowrap>-1.929E-7</td> </tr> </tbody> </table> </div> </div> <br>
+<a name="IDX1"></a> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Surveyreg: Design Summary"> <colgroup> <col> <col> </colgroup>
+<thead> <tr> <th class="c b Header" colspan="2"
+scope="colgroup">Design Summary</th> </tr> </thead> <tbody> <tr>
+<th class="l RowHeader" scope="row">Number of Strata</th> <td
+class="r Data">5</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Number of Clusters</th> <td class="r Data">250</td>
+</tr> </tbody> </table> </div> </div> <br> <a name="IDX2"></a>
+<div> <div align="center"> <table class="Table" cellspacing="1"
+cellpadding="7" rules="groups" frame="box" border="1px"
+bordercolor="#000000" summary="Procedure Surveyreg: Fit
+Statistics"> <colgroup> <col> <col> </colgroup> <thead> <tr> <th
+class="c b Header" colspan="2" scope="colgroup">Fit
+Statistics</th> </tr> </thead> <tbody> <tr> <th class="l
+RowHeader" scope="row">R-square</th> <td class="r
+Data">0.05810</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Root MSE</th> <td class="r Data">0.9708</td> </tr>
+<tr> <th class="l RowHeader" scope="row">Denominator DF</th> <td
+class="r Data">245</td> </tr> </tbody> </table> </div> </div> <br>
+<a name="IDX3"></a> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Surveyreg: Class Level Information"> <colgroup> <col> </colgroup>
+<colgroup> <col> <col> </colgroup> <thead> <tr> <th class="c b
+Header" colspan="3" scope="colgroup">Class Level Information</th>
+</tr> <tr> <th class="l b Header" scope="col">Class Variable</th>
+<th class="r b Header" scope="col">Levels</th> <th class="l b
+Header" scope="col">Values</th> </tr> </thead> <tbody> <tr> <th
+class="l RowHeader" scope="row">SEX</th> <td class="r Data">2</td>
+<td class="l Data">1 2</td> </tr> </tbody> </table> </div> </div>
+<br> <a name="IDX4"></a> <div> <div align="center"> <table
+class="Table" cellspacing="1" cellpadding="7" rules="groups"
+frame="box" border="1px" bordercolor="#000000" summary="Procedure
+Surveyreg: Tests of Model Effects"> <colgroup> <col> </colgroup>
+<colgroup> <col> <col> <col> </colgroup> <thead> <tr> <th class="c
+b Header" colspan="4" scope="colgroup">Tests of Model Effects</th>
+</tr> <tr> <th class="l b Header" scope="col">Effect</th> <th
+class="r b Header" scope="col">Num DF</th> <th class="r b Header"
+scope="col">F Value</th> <th class="r b Header"
+scope="col">Pr&nbsp;&gt;&nbsp;F</th> </tr> </thead> <tbody> <tr>
+<th class="l RowHeader" scope="row">Model</th> <td class="r
+Data">5</td> <td class="r Data">65.60</td> <td class="r
+Data">&lt;.0001</td> </tr> <tr> <th class="l RowHeader"
+scope="row">Intercept</th> <td class="r Data">1</td> <td class="r
+Data">25.65</td> <td class="r Data">&lt;.0001</td> </tr> <tr> <th
+class="l RowHeader" scope="row">SEX</th> <td class="r Data">1</td>
+<td class="r Data">24.89</td> <td class="r Data">&lt;.0001</td>
+</tr> <tr> <th class="l RowHeader" scope="row">AGE</th> <td
+class="r Data">1</td> <td class="r Data">4.36</td> <td class="r
+Data">0.0378</td> </tr> <tr> <th class="l RowHeader"
+scope="row">PHYS</th> <td class="r Data">1</td> <td class="r
+Data">37.35</td> <td class="r Data">&lt;.0001</td> </tr> <tr> <th
+class="l RowHeader" scope="row">CHRON</th> <td class="r
+Data">1</td> <td class="r Data">177.69</td> <td class="r
+Data">&lt;.0001</td> </tr> <tr> <th class="l RowHeader"
+scope="row">AGE*SEX</th> <td class="r Data">1</td> <td class="r
+Data">5.07</td> <td class="r Data">0.0253</td> </tr> </tbody>
+</table> </div> <br> <p> <div align="center"><table
+class="NoteContent"><tr> <td class="c NoteBanner"> Note:</td> <td
+class="l NoteContent">The denominator degrees of freedom for the F
+tests is 245.</td></tr> </table> </div><p> </div> <br> <a
+name="IDX5"></a> <div> <div align="center"> <table class="Table"
+cellspacing="1" cellpadding="7" rules="groups" frame="box"
+border="1px" bordercolor="#000000" summary="Procedure Surveyreg:
+Estimated Regression Coefficients"> <colgroup> <col> </colgroup>
+<colgroup> <col> <col> <col> <col> <col> </colgroup> <thead> <tr>
+<th class="c b Header" colspan="6" scope="colgroup">Estimated
+Regression Coefficients</th> </tr> <tr> <th class="l b Header"
+scope="col">Parameter</th> <th class="r b Header"
+scope="col">Estimate</th> <th class="r b Header"
+scope="col">Standard Error</th> <th class="r b Header"
+scope="col">t&nbsp;Value</th> <th class="r b Header"
+scope="col">Pr&nbsp;&gt;&nbsp;|t|</th> <th class="r b Header"
+scope="col">Design Effect</th> </tr> </thead> <tbody> <tr> <th
+class="l RowHeader" scope="row">Intercept</th> <td class="r Data"
+nowrap>-0.0120777</td> <td class="r Data">0.08317167</td> <td
+class="r Data" nowrap>-0.15</td> <td class="r Data">0.8847</td>
+<td class="r Data">1.89</td> </tr> <tr> <th class="l RowHeader"
+scope="row">SEX 1</th> <td class="r Data" nowrap>-0.4974745</td>
+<td class="r Data">0.09971249</td> <td class="r Data"
+nowrap>-4.99</td> <td class="r Data">&lt;.0001</td> <td class="r
+Data">1.50</td> </tr> <tr> <th class="l RowHeader" scope="row">SEX
+2</th> <td class="r Data">0.0000000</td> <td class="r
+Data">0.00000000</td> <td class="r Data">.</td> <td class="r
+Data">.</td> <td class="r Data">.</td> </tr> <tr> <th class="l
+RowHeader" scope="row">AGE</th> <td class="r Data"
+nowrap>-0.0000522</td> <td class="r Data">0.00212251</td> <td
+class="r Data" nowrap>-0.02</td> <td class="r Data">0.9804</td>
+<td class="r Data">1.84</td> </tr> <tr> <th class="l RowHeader"
+scope="row">PHYS</th> <td class="r Data">0.1772074</td> <td
+class="r Data">0.02899525</td> <td class="r Data">6.11</td> <td
+class="r Data">&lt;.0001</td> <td class="r Data">1.45</td> </tr>
+<tr> <th class="l RowHeader" scope="row">CHRON</th> <td class="r
+Data">0.3921995</td> <td class="r Data">0.02942193</td> <td
+class="r Data">13.33</td> <td class="r Data">&lt;.0001</td> <td
+class="r Data">1.37</td> </tr> <tr> <th class="l RowHeader"
+scope="row">AGE*SEX 1</th> <td class="r Data">0.0057118</td> <td
+class="r Data">0.00253708</td> <td class="r Data">2.25</td> <td
+class="r Data">0.0253</td> <td class="r Data">1.51</td> </tr> <tr>
+<th class="l RowHeader" scope="row">AGE*SEX 2</th> <td class="r
+Data">0.0000000</td> <td class="r Data">0.00000000</td> <td
+class="r Data">.</td> <td class="r Data">.</td> <td class="r
+Data">.</td> </tr> </tbody> </table> </div> <br> <p> <div
+align="center"><table class="NoteContent"><tr> <td class="c
+NoteBanner"> Note:</td> <td class="l NoteContent">The denominator
+degrees of freedom for the t tests is 245.<br>Matrix X&#39;X is
+singular and a generalized inverse was used to solve the normal
+equations.  Estimates are not unique.</td></tr> </table> </div><p>
+</div> <br> </div> </body> </html>

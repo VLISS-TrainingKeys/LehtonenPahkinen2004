@@ -1,10 +1,8 @@
 name: VLISS-website
 output_dir: "docs"
 navbar:
-  title: VLISS HOME
+  title: VLISS
   left:
-  - text: Home
-    href: index.html
   - text: Chapter 2
     href: Chapter2.html
   - text: Chapter 3

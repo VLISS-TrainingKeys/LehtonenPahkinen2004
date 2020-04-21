@@ -106,7 +106,7 @@ Example 5.4. Similar to the other sample re-use methods and the [linearization m
 
 In this part we will demonstrate how the estimation of the variance of a combined ratio type proportion or mean estimator can be carried out with the bootstrap method. We will also demonstrate how the number of bootstrap samples generated affects to the distribution of bootstrap estimates. The reason for the use of an approximative variance estimator is that the proportion and mean estimators should be treated here as nonlinear estimators of type y/x where both the numerator y and the denominator x are random variables. The denominator x is random because the sampling design of the MFH Survey is a stratified two-stage design where the cluster sample sizes are not fixed in advance, and the subgroup size is not fixed.
 
-<a href="Keys/key162/boot/boot.htm" target="_blank">Start, NOT COMPLETED</a> 
+<a href="Keys/key162/boot/boot.htm" target="_blank">Start</a> 
 
 
 #### B) INTERACTIVE SAS USE

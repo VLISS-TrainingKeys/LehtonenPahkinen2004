@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-In Chapter 8 of the textbook Practical Methods for Design and Analysis of Complex Surveys, four additional case studies are selected to provide a more subject-matter oriented demonstration of the survey methodology discussed in the book.
+In Chapter 9 of the textbook Practical Methods for Design and Analysis of Complex Surveys, four additional case studies are selected to provide a more subject-matter oriented demonstration of the survey methodology discussed in the book.
 
 The first case study deals with monitoring the quality of data collection in a long-term survey. A number of statistics introduced earlier in this book are used as quality indicators. Empirical findings are from a passenger transport survey.
 

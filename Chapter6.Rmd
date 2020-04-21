@@ -63,7 +63,7 @@ We will demonstrate how to perform [model-assisted](concepts/concepts.html) esti
 
 We will demonstrate how to perform model-assisted estimation for domains with different sample sizes. The [Horvitz-Thompson (HT) estimator](concepts/concepts.html) and the [generalized regression (GREG) estimator](concepts/concepts.html) of a domain total are compared by examining the standard error and [coefficient of variation](concepts/concepts.html) estimates. Further instructions are given once you start.
 
-<a href="Keys/key205/simulateframe.htm" target="_blank">Start, NOT COMPLETED</a>   
+<a href="Keys/key205/simulateframe.htm" target="_blank">Start</a>   
  
 
 #### C) INTERACTIVE SAS USE

@@ -81,7 +81,7 @@ In this part we will study how to perform design-based logistic ANCOVA modelling
 
 Instructions will be given once you start.
 
-<a href="Keys/key288/key288exercise.htm" target="_blank">SAS/SUDAAN, NOT COMPLETED</a>   
+<a href="Keys/key288/key288exercise.htm" target="_blank">SAS/SUDAAN</a>   
 
 <a href="Keys/key288/Key288_9exercise.htm" target="_blank">SAS/SURVEYLOGISTIC</a>  
 
@@ -141,14 +141,14 @@ A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE
 
 For a continuous study variable, modeling takes place under a fixed-effects linear model and under a mixed linear model. For a fixed-effects linear model, [GEE estimation](concepts/concepts.html) (generalized estimating equations) is used with the SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. For a mixed linear model, REML estimation is used with the SAS procedure MIXED and the R function lme. Further instructions will be given once you start.
 
-<a href="Keys/key298/key298a.htm" target="_blank">Start, NOT COMPLETED</a>  
+<a href="Keys/key298/key298a.htm" target="_blank">Start</a>  
 
 
 #### B) ACCOUNTING FOR CLUSTERING EFFECTS FOR A BINARY STUDY VARIABLE
 
 For a binary study variable, modeling takes place under a fixed-effects logistic model and under a mixed logistic model. For a fixed-effects logistic model, GEE estimation is used with the SUDAAN procedure LOGISTIC (RLOGIST), the SAS procedure GENMOD and the R function gee. For a mixed logistic model, REML estimation is used with the SAS macro GLIMMIX and the R function glmmPQL. Further instructions will be given once you start.
  
-<a href="Keys/key298/key298b.htm" target="_blank">Start, NOT COMPLETED</a>   
+<a href="Keys/key298/key298b.htm" target="_blank">Start</a>   
 
 
 #### C) INTERACTIVE SAS USE

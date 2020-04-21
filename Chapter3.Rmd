@@ -74,7 +74,7 @@ Computation of a regression estimated total and its standard error for UE91. SAS
 
 Examination of the variation of total estimates of UE91 calculated from different pre-drawn SRSWOR samples using auxiliary variable HOU85. Instructions will be given once you start.
 
-<a href="Keys/key101/reg/key101reg.htm" target="_blank">Start, NOT COMPLETED</a>
+<a href="Keys/key101/reg/key101reg.htm" target="_blank">Start</a>
 
 #### INTERACTIVE SAS USE
 
@@ -100,7 +100,7 @@ Monte Carlo simulation of samples will be applied for the [Province'91 Populatio
 
 Instructions for carrying out the experiments will be given once you start.
 
-<a href="Keys/key101/simulateframe.htm" target="_blank">Start, NOT COMPLETED</a> 
+<a href="Keys/key101/simulateframe.htm" target="_blank">Start</a> 
 
 
 #### B) INTERACTIVE SAS USE

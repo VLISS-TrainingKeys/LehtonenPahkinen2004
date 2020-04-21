@@ -118,9 +118,9 @@ We calculate the SRSWOR total estimates of UE91 and LAB91, the ratio estimate (U
 
 In this part, We examine how sample size affects to the SRSWOR total estimates and for the ratio estimate and their corresponding standard errors. Further instructions will be given once you start.
 
-<a href="Keys/key28/key28b_9.htm" target="_blank">SAS version 9, NOT COMPLETED</a>
+<a href="Keys/key28/key28b_9.htm" target="_blank">SAS version 9</a>
 
-<a href="Keys/key28/key28b.htm" target="_blank">SAS SUDAAN, NOT COMPLETED</a>
+<a href="Keys/key28/key28b.htm" target="_blank">SAS SUDAAN</a>
 
 
 
@@ -128,7 +128,7 @@ In this part, We examine how sample size affects to the SRSWOR total estimates a
 
 Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator. Further instructions will be given once you start.
 
-<a href="Keys/key28/key28c.htm" target="_blank">Start, NOT COMPLETED</a>
+<a href="Keys/key28/key28c.htm" target="_blank">Start</a>
 
 
 # TRAINING KEY 45: Intra-class correlation for systematic sampling
@@ -147,7 +147,7 @@ We calculate the intra-class correlation coefficient for systematic sampling inv
 
 We examine the effect of the sorting order of the Province'91 population on intra-class correlation. It will be shown that the sorting order matters: the value of the intra-class correlation coefficient varies much depending on the sorting order. Further instructions will be given once you start.
 
-<a href="Keys/key45/key45b.htm" target="_blank">Start, NOT COMPLETED</a>
+<a href="Keys/key45/key45b.htm" target="_blank">Start</a>
  
 #### C) INTERACTIVE SAS USE
 
@@ -174,7 +174,7 @@ Systematic PPS sample $(n=8)$ is drawn from the [Province'91 population](concept
 
 We use three different auxiliary variables in [PPSWOR](concepts/concepts.html) sampling. The first auxiliary variable is HOU85 (the number of households in the municipality). The two others are artificial variables x and z. These variables are constructed for pedagogical purposes to demonstrate the role of correlation of the study variable and auxiliary variable, and that a strong correlation alone does not guarantee good efficiency for PPSWOR. Further instructions are given once you start.
 
-<a href="Keys/key54/key54b.htm" target="_blank">Start, NOT COMPLETED</a> 
+<a href="Keys/key54/key54b.htm" target="_blank">Start</a> 
 
 #### C) INTERACTIVE SAS USE
 

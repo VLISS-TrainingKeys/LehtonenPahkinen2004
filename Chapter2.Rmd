@@ -97,7 +97,7 @@ library(knitr)
 kable(province91, caption = "THE PROVINCE91 POPULATION")
 ```
 
-[Explore the Province 91 data](runGitHub("App2", "VLISS-TrainingKeys", subdir = "ShinyApps/"))
+[Explore the Province 91 data](runGitHub("App2", "VLISS-TrainingKeys", subdir = "ShinyApps"))
 
 <!-- runGitHub("shiny_example", "rstudio", subdir = "inst/shinyapp/") -->
 <!-- runGitHub( "<your repository name>", "<your user name>") -->

@@ -97,12 +97,6 @@ library(knitr)
 kable(province91, caption = "THE PROVINCE91 POPULATION")
 ```
 
-[Explore the Province 91 data](runGitHub("VLISS-ShinyApps", "VLISS-TrainingKeys", subdir = "App2/"))
-
-<!-- runGitHub("shiny_example", "rstudio", subdir = "inst/shinyapp/") -->
-<!-- runGitHub( "<your repository name>", "<your user name>") -->
-
-
 # TRAINING KEY 28: Analysing an SRS sample
 
 ### INTRODUCTION
@@ -115,7 +109,31 @@ We calculate the SRSWOR total estimates of UE91 and LAB91, the ratio estimate (U
 
 <a href="Keys/key28/key28a_9.htm" target="_blank">SAS version 9</a>
 
-<a href="Keys/key28/key28a.htm" target="_blank">SAS SUDAAN</a>
+<!-- <a href="Keys/key28/key28a.htm" target="_blank">SAS SUDAAN</a> -->
+```{r, message=FALSE}
+# Create a sample including Jyväskylä, Keuruu, Saarijärvi, Konginkangas, Kuhmoinen, Pihtipudas, Toivakka and Uurainen
+Sample <- province91[c(1,4,5,15,18,26,30,31), ]
+paste("SRSWOR sample is")
+Sample
+#
+# package survey
+library(survey)
+# total=32:  fpc = finite population correction: fpc = (1-n/N)
+# This column (variable) fpc simply contains the number 32 for every record.
+Sample$fpc <- 32
+Sample$weights <- 4
+# Construct an object called province91.srs.design specifying a simple random sampling design. 
+# This province91.srs.design object will be used for all subsequent analysis commands:
+province91.srs.design <- svydesign(ids = ~1, data = Sample, fpc = ~fpc, weights = ~weights)
+paste("Estimates for the total of UE91 and LAB91 under simple random sampling without replacement (SRSWOR)")
+# Print the weighted total and standard error of the ue91 variable:
+svytotal(~UE91, province91.srs.design)
+# Print the weighted total and standard error of the ue91 variable:
+svytotal(~LAB91, province91.srs.design)
+paste("Estimates for the ratio of UE91/LAB91 under simple random sampling without replacement (SRSWOR)")
+svyratio(~UE91, ~LAB91, province91.srs.design)
+confint(svyratio(~UE91, ~LAB91, province91.srs.design))
+```
 
 
 ####  B) SRS ESTIMATION WITH DIFFERENT SAMPLE SIZES
@@ -124,7 +142,7 @@ In this part, We examine how sample size affects to the SRSWOR total estimates a
 
 <a href="Keys/key28/key28b_9.htm" target="_blank">SAS version 9</a>
 
-<a href="Keys/key28/key28b.htm" target="_blank">SAS SUDAAN</a>
+<!-- <a href="Keys/key28/key28b.htm" target="_blank">SAS SUDAAN</a> -->
 
 
 

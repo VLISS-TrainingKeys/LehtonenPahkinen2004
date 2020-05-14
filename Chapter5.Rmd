@@ -123,7 +123,7 @@ NOTE! You need to have access to SAS in your computer.
 <a href="Datat/ohc.sas7bdat">Download SAS data</a> |
 <a href="Datat/ohc.sav">Download SPSS data</a> |
 <a href="Datat/ohc.xls">Download Excel file</a> |
-<a href="Datat/ohc.txt">Download Excel file</a> 
+<a href="Datat/ohc.txt">Download Text file</a> 
 
 ### OHC SURVEY OVERVIEW
 

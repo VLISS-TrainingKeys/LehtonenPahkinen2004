@@ -415,7 +415,6 @@ div.tocify {
 <div id="a-exercise-on-logit-anova-model-fitting-with-the-pml-method" class="section level4">
 <h4>A) EXERCISE ON LOGIT ANOVA MODEL FITTING WITH THE PML METHOD</h4>
 <p>In this part we will exercise how to fit a logit ANOVA model in the OHC survey setting described above. We use <a href="concepts/concepts.html">pseudolikelihood (PML)</a> estimation in this exercise. Detailed instructions of this exercise will be given once you start.</p>
-<p><a href="Keys/key277/key277a.htm" target="_blank">SUDAAN / RLOGIST, SOME LINKS DON’T WORK</a></p>
 <p><a href="Keys/key277/key277a_9.htm" target="_blank">SAS / SURVEYLOGISTIC, SOME LINKS DON’T WORK</a></p>
 </div>
 <div id="b-gwls-method-for-logit-modelling-on-domain-proportions-in-the-ohc-survey-setting" class="section level4">
@@ -446,7 +445,6 @@ div.tocify {
 <h4>A) LOGISTIC ANCOVA</h4>
 <p>In this part we will study how to perform design-based logistic ANCOVA modelling with the PML method for a binary response variable in the case of three continuous predictors and one discrete predictor. We will build the model by removing interaction terms from a model including all possible interaction terms of the discrete predictor with the continuous predictors. Graphical displays are used to show the effect of presence or absence of an interaction term on predicted proportions calculated for a given logistic ANCOVA model. The results can be compared with those from the logit ANOVA exercise (key 277).</p>
 <p>Instructions will be given once you start.</p>
-<p><a href="Keys/key288/key288exercise.htm" target="_blank">SAS/SUDAAN</a></p>
 <p><a href="Keys/key288/Key288_9exercise.htm" target="_blank">SAS/SURVEYLOGISTIC</a></p>
 </div>
 <div id="b-interactive-sas-use" class="section level4">
@@ -456,7 +454,6 @@ div.tocify {
 <p>NOTE! You need to have access to SAS and SUDAAN in your computer.</p>
 <p><a href="Datat/ohc.sas7bdat" target="_blank">Download OHC data</a></p>
 <p><a href="Keys/key288/Key288_9.sas" target="_blank">Download SAS code</a></p>
-<p><a href="Keys/key288/ancovamacro.sas" target="_blank">Download SAS/SUDAAN Code</a></p>
 </div>
 </div>
 </div>
@@ -469,7 +466,6 @@ div.tocify {
 <h4>A) LINEAR ANCOVA</h4>
 <p>In this part we will study how to perform design-based linear ANCOVA modelling with the PML method for a continuous response in the case of three continuous predictors, one discrete predictor and one continuous interaction term. Instructions will be given once you start.</p>
 <p><a href="Keys/key293/key293_9.htm" target="_blank">SAS / SURVEYREG</a></p>
-<p><a href="Keys/key293/key293.htm" target="_blank">SUDAAN / REGRESS</a></p>
 </div>
 <div id="b-interactive-sas-use-1" class="section level4">
 <h4>B) INTERACTIVE SAS USE</h4>
@@ -477,7 +473,6 @@ div.tocify {
 <p>Then download the enclosed SAS code for your own further training of a linear ANCOVA model fitting. NOTE! You need to have access to SAS and SUDAAN in your computer.</p>
 <p><a href="Datat/ohc.sas7bdat" target="_blank">Download OHC data</a></p>
 <p><a href="Keys/key293/linearancova_9.sas" target="_blank">Download SAS code</a></p>
-<p><a href="Keys/key293/linearancova.sas" target="_blank">Download SUDAAN Code</a></p>
 </div>
 </div>
 </div>
@@ -486,11 +481,11 @@ div.tocify {
 <div id="introduction-3" class="section level3">
 <h3>INTRODUCTION</h3>
 <p>In this Training Key, accounting for the sampling design complexities is studied for multivariate survey analysis. The main concern is in the clustering effects. <a href="concepts/concepts.html">Design-based</a> and model-based analysis options are compared empirically, using the appropriate SUDAAN and SAS analysis procedures, and R functions. We use the <a href="concepts/concepts.html">OHC Survey data set</a> in our analyses.</p>
-<ol style="list-style-type: upper-alpha">
-<li>ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE</li>
-</ol>
+<div id="a-accounting-for-clustering-effects-for-a-continous-study-variable" class="section level4">
+<h4>A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE</h4>
 <p>For a continuous study variable, modeling takes place under a fixed-effects linear model and under a mixed linear model. For a fixed-effects linear model, <a href="concepts/concepts.html">GEE estimation</a> (generalized estimating equations) is used with the SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. For a mixed linear model, REML estimation is used with the SAS procedure MIXED and the R function lme. Further instructions will be given once you start.</p>
 <p><a href="Keys/key298/key298a.htm" target="_blank">Start</a></p>
+</div>
 <div id="b-accounting-for-clustering-effects-for-a-binary-study-variable" class="section level4">
 <h4>B) ACCOUNTING FOR CLUSTERING EFFECTS FOR A BINARY STUDY VARIABLE</h4>
 <p>For a binary study variable, modeling takes place under a fixed-effects logistic model and under a mixed logistic model. For a fixed-effects logistic model, GEE estimation is used with the SUDAAN procedure LOGISTIC (RLOGIST), the SAS procedure GENMOD and the R function gee. For a mixed logistic model, REML estimation is used with the SAS macro GLIMMIX and the R function glmmPQL. Further instructions will be given once you start.</p>

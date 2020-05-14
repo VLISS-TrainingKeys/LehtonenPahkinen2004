@@ -41,7 +41,6 @@ In this Training Key we will practice [design-based](concepts/concepts.html) mul
 
 In this part we will exercise how to fit a logit ANOVA model in the OHC survey setting described above. We use [pseudolikelihood (PML)](concepts/concepts.html) estimation in this exercise. Detailed instructions of this exercise will be given once you start.
 
-<a href="Keys/key277/key277a.htm" target="_blank">SUDAAN / RLOGIST, SOME LINKS DON'T WORK</a> 
 
 <a href="Keys/key277/key277a_9.htm" target="_blank">SAS / SURVEYLOGISTIC, SOME LINKS DON'T WORK</a>
 
@@ -81,8 +80,6 @@ In this part we will study how to perform design-based logistic ANCOVA modelling
 
 Instructions will be given once you start.
 
-<a href="Keys/key288/key288exercise.htm" target="_blank">SAS/SUDAAN</a>   
-
 <a href="Keys/key288/Key288_9exercise.htm" target="_blank">SAS/SURVEYLOGISTIC</a>  
 
 
@@ -98,8 +95,6 @@ NOTE! You need to have access to SAS and SUDAAN in your computer.
  
 <a href="Keys/key288/Key288_9.sas" target="_blank">Download SAS code</a>  
  
-<a href="Keys/key288/ancovamacro.sas" target="_blank">Download SAS/SUDAAN Code</a> 
-
 
 # TRAINING KEY 293: Linear ANCOVA
 
@@ -114,8 +109,6 @@ In this part we will study how to perform design-based linear ANCOVA modelling w
 
 <a href="Keys/key293/key293_9.htm" target="_blank">SAS / SURVEYREG</a>
 
-<a href="Keys/key293/key293.htm" target="_blank">SUDAAN / REGRESS</a>
-
 
 #### B) INTERACTIVE SAS USE
 
@@ -127,8 +120,6 @@ Then download the enclosed SAS code for your own further training of a linear AN
  
 <a href="Keys/key293/linearancova_9.sas" target="_blank">Download SAS code</a>  
  
-<a href="Keys/key293/linearancova.sas" target="_blank">Download SUDAAN Code</a>  
- 
  
 # TRAINING KEY 298: Alternative multivariate analyses for the OHC Survey design
 
@@ -137,7 +128,7 @@ Then download the enclosed SAS code for your own further training of a linear AN
 In this Training Key, accounting for the sampling design complexities is studied for multivariate survey analysis. The main concern is in the clustering effects. [Design-based](concepts/concepts.html) and model-based analysis options are compared empirically, using the appropriate SUDAAN and SAS analysis procedures, and R functions. We use the [OHC Survey data set](concepts/concepts.html) in our analyses.
 
 
-A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE
+#### A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE
 
 For a continuous study variable, modeling takes place under a fixed-effects linear model and under a mixed linear model. For a fixed-effects linear model, [GEE estimation](concepts/concepts.html) (generalized estimating equations) is used with the SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. For a mixed linear model, REML estimation is used with the SAS procedure MIXED and the R function lme. Further instructions will be given once you start.
 

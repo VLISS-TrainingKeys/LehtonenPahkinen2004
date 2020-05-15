@@ -24,7 +24,7 @@ In **Training Key 45**, intra-class correlation is demonstrated under systematic
 In **Training Key 54**, PPS sampling is demonstrated by first reproducing the results of Example 2.6. Then, PPS sampling is examined in more detail by incorporating different types of auxiliary data into the estimation procedure.
 
 
-NOTE: Instructions for the use of Training Keys are given in the Instructions section.
+<!-- NOTE: Instructions for the use of Training Keys are given in the Instructions section. -->
 
 # 2.2 The Province'91 population
 
@@ -105,22 +105,22 @@ In this Training Key we use the [Province'91 data set](concepts/concepts.html) a
 
 #### A) ANALYSING AN SRS SAMPLE FROM THE PROVINCE'91 POPULATION
 
-We calculate the SRSWOR total estimates of UE91 and LAB91, the ratio estimate (UE91/LAB91) and their corresponding standard error estimates. Further instructions will be given once you start.
+We calculate the SRSWOR (simple random sampling without replacement) total estimates of UE91 and LAB91, the ratio estimate (UE91/LAB91) and their corresponding standard error estimates. We use Province'91 data set as the frame population. 
 
-<a href="Keys/key28/key28a_9.htm" target="_blank">SAS version 9</a>
+<a href="Keys/key28/key28a_9.htm" target="_blank">Start SAS Training Key</a>
 
-<!-- <a href="Keys/key28/key28a.htm" target="_blank">SAS SUDAAN</a> -->
 ```{r, message=FALSE}
 # Create a sample including Jyväskylä, Keuruu, Saarijärvi, Konginkangas, Kuhmoinen, Pihtipudas, Toivakka and Uurainen
 Sample <- province91[c(1,4,5,15,18,26,30,31), ]
 paste("SRSWOR sample is")
 Sample
 #
-# package survey
+# load package survey (to install package use: install.packages("survey"))
 library(survey)
 # total=32:  fpc = finite population correction: fpc = (1-n/N)
-# This column (variable) fpc simply contains the number 32 for every record.
+# This column (variable) fpc simply contains the number 32 for every record
 Sample$fpc <- 32
+# This variable contains the weights
 Sample$weights <- 4
 # Construct an object called province91.srs.design specifying a simple random sampling design. 
 # This province91.srs.design object will be used for all subsequent analysis commands:
@@ -135,22 +135,62 @@ svyratio(~UE91, ~LAB91, province91.srs.design)
 confint(svyratio(~UE91, ~LAB91, province91.srs.design))
 ```
 
+Selected SRSWOR sample and the estimates for the total of UE91 and LAB91 and for the ratio UE91/LAB91 are similar to the results viewed in table 2.4 on page 29 in Lehtonen and Pahkinen 2004. Pay attention to the estimates and their standard errors and try to think why SRSWOR may lack any significance for practical purposes according to this case study. 
+
+After viewing the results, you can examine the R and SAS codes used to calculate the estimates for the total of UE91 and LAB91 and for the ratio UE91/LAB91. Then, you may move on to next step of Key 28 in which different size SRSWOR samples will be selected to study how the sample size affects to the total estimate and to the ratio estimate. 
 
 ####  B) SRS ESTIMATION WITH DIFFERENT SAMPLE SIZES
 
-In this part, We examine how sample size affects to the SRSWOR total estimates and for the ratio estimate and their corresponding standard errors. Further instructions will be given once you start.
+In this exercise we examine SRSWOR estimation of the total of UE91 (number of unemployed in the province) and LAB91 (size of labour force in the province) and of the ratio UE91/LAB91 by using different size SRSWOR samples. The purpose is to examine how sample size ($n$) affects to the total estimate and to the ratio estimate and their corresponding standard errors. We use Province'91 data set as the frame population.  
 
-<a href="Keys/key28/key28b_9.htm" target="_blank">SAS version 9</a>
+<a href="Keys/key28/key28b_9.htm" target="_blank">Start SAS Training Key</a>
 
-<!-- <a href="Keys/key28/key28b.htm" target="_blank">SAS SUDAAN</a> -->
+```{r, message=FALSE}
+# load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs <- function(n, seed){
+  print("Sample size is")
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince <- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata <- getdata(province91, sampleprovince)
+  print("Selected sample is")
+  print(srs_sampledata)
+  srs_sampledata$fpc <- 32
+  srs_sampledata$weights <- (1/(n/32))
+  # define design object
+  province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print("Estimate for the total of UE91 is")
+  print(svytotal(~UE91, province91.srs.design))
+  print("Estimate for the total of LAB91 is")
+  print(svytotal(~LAB91, province91.srs.design))
+  print("Estimate for the ratio of UE91/LAB91 and confidence interval is")
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
+srs(4,123)
+srs(8,123)
+srs(16,123)
+srs(32,123)
+```
+
 
 
 
 #### C) SIMULATING SRSWOR SAMPLES BY USING MONTE CARLO SIMULATION TECHNIQUES
 
-Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator. Further instructions will be given once you start.
+Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator. 
 
-<a href="Keys/key28/key28c.htm" target="_blank">Start</a>
+<a href="Keys/key28/key28c.htm" target="_blank">Start SAS Training Key</a>
 
 
 # TRAINING KEY 45: Intra-class correlation for systematic sampling
@@ -163,13 +203,13 @@ In this Training Key we use the [Province'91 data set](concepts/concepts.html) a
 
 We calculate the intra-class correlation coefficient for systematic sampling involving four separate systematic samples of eight elements (see book example 2.4 on page 45). Further instructions will be given once you start.
 
-<a href="Keys/key45/key45a.htm" target="_blank">Start, NOT COMPLETED: html file is missing</a>
+<a href="Keys/key45/key45a.htm" target="_blank">Start SAS Training Key, NOT COMPLETED: a html file is missing</a>
 
 #### B) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING WHEN VARYING THE SORTING ORDER
 
 We examine the effect of the sorting order of the Province'91 population on intra-class correlation. It will be shown that the sorting order matters: the value of the intra-class correlation coefficient varies much depending on the sorting order. Further instructions will be given once you start.
 
-<a href="Keys/key45/key45b.htm" target="_blank">Start</a>
+<a href="Keys/key45/key45b.htm" target="_blank">Start SAS Training Key</a>
  
 #### C) INTERACTIVE SAS USE
 
@@ -190,13 +230,13 @@ In point A we will show how to perform estimation under [systematic PPS sampling
 
 Systematic PPS sample $(n=8)$ is drawn from the [Province'91 population](concepts/concepts.html) such that the number of households (HOU85) is used as the size measure $z$. PPSSYS estimate and the corresponding standard error estimate are calculated from the selected sample. The results are compared to estimation under [SRSWOR sampling](concepts/concepts.html). Further instructions will be given once you start.
  
-<a href="Keys/key54/key54a.htm" target="_blank">Start</a> 
+<a href="Keys/key54/key54a.htm" target="_blank">Start SAS Trainig Key</a> 
 
 #### B) THE USE OF ALTERNATIVE AUXILIARY INFORMATION IN PPSWOR SAMPLING
 
 We use three different auxiliary variables in [PPSWOR](concepts/concepts.html) sampling. The first auxiliary variable is HOU85 (the number of households in the municipality). The two others are artificial variables x and z. These variables are constructed for pedagogical purposes to demonstrate the role of correlation of the study variable and auxiliary variable, and that a strong correlation alone does not guarantee good efficiency for PPSWOR. Further instructions are given once you start.
 
-<a href="Keys/key54/key54b.htm" target="_blank">Start</a> 
+<a href="Keys/key54/key54b.htm" target="_blank">Start SAS Training Key</a> 
 
 #### C) INTERACTIVE SAS USE
 

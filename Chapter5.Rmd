@@ -29,7 +29,7 @@ NOTE: Instructions for the use of Training Keys are given in the Instructions se
 
 <a href="Datat/mfh.sas7bdat">Download SAS data</a> |
 <a href="Datat/mfh.sav">Download SPSS data</a> |
-<a href="Datat/mfh.xls">Download Excel file</a> |
+<a href="Datat/mfh.xls">Download Excel file</a> 
 
 ### MFH SURVEY OVERVIEW
 
@@ -121,8 +121,8 @@ NOTE! You need to have access to SAS in your computer.
 # OHC Survey overview
 
 <a href="Datat/ohc.sas7bdat">Download SAS data</a> |
+<a href="Datat/ohc.Rdata">Download R data</a> |
 <a href="Datat/ohc.sav">Download SPSS data</a> |
-<a href="Datat/ohc.xls">Download Excel file</a> |
 <a href="Datat/ohc.txt">Download Text file</a> 
 
 ### OHC SURVEY OVERVIEW

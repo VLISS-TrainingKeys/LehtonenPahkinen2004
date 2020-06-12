@@ -19,21 +19,134 @@ In Chapter 7 of the textbook **Practical Methods for Design and Analysis of Comp
 
 In **Training Key 250,** a design-based Wald test statistic of independence hypothesis for a two-way table is calculated and compared with an unadjusted Pearson test statistic, thus reproducing the results of Example 7.3. The Occupational Health Care Survey data set is used.
 
-NOTE: Instructions for the use of Training Keys are given in the Instructions section.
-
 
 # TRAINING KEY 250: Test of Independence
 
 ### INTRODUCTION
 
-Example 7.3. In this Training Key we will study whether the variables PHYS (physical health hazards of work: None or Some) and PSYCH3 (overall psychic strain classified into three nearly equally sized classes) are associated or not. We use [OHC Survey data](concepts/concepts.html) as an example data set. The general purpose is to show how the sampling design affects to the test of independence of two categorical variables.
+Example 7.3. In this Training Key we will study whether the variables PHYS (physical health hazards of work: None or Some) and PSYCH3 (overall psychic strain classified into three nearly equally sized classes) are associated or not. We use [OHC Survey data](concepts/concepts.html) as an example data set [(Download ohc data)](https://vliss-trainingkeys.github.io/LehtonenPahkinen2004/Chapter5.html#ohc_survey_overview). The general purpose is to show how the sampling design affects to the test of independence of two categorical variables.
 
 
-#### A) TEST OF INDEPENDENCE
+### A) TEST OF INDEPENDENCE
 
-We will demonstrate how to carry out the test of independence of health hazards of work and psychic strain in the OHC Survey setting. Further instructions are given once you start.
+We will demonstrate how to carry out the test of independence of health hazards of work and psychic strain in the OHC Survey setting. The test statistics are introduced in Lehtonen and Pahkinen (2004) Section 7.5, and some of the results of Example 7.3 will be reproduced. 
  
-<a href="Keys/key250/key250_9.htm" target="_blank">SAS version 9</a>  
+<a href="Keys/key250/key250_9.htm" target="_blank">Start SAS Training Key</a>  
 
 NOTE: Due to the simplicity of the problem, we do not include the interactive analysis option in this training key.
+
+
+A hypothesis of independence is stated as $H_0: \: p_{jk} = p_{j+}p_{+k}$ with $j=1,2$ and $k=1,2,3$, or, analogously, $H_0: \: p_{11} - p_{1+}p_{+1} = 0$ and $p_{12} - p_{1+} p_{+2} = 0$.
+
+Basically, two different testing approaches are available: the Rao-Scott adjusted SRS-based test statistics and the design-based Wald test statistics (for an overview see Section 7.5 of Lehtonen and Pahkinen 2004). Both approaches are illustrated in this Training Key.
+
+The two-way table of PHYS and PSYCH3 is first displayed. The tables include cell frequencies and percentages and total percentages. The figures correspond to those in Table 7.4 of Lehtonen and Pahkinen (2004).
+
+Load ohc data, packages (survey and tidyverse) and get a glimpse of  the ohc data.
+
+```{r, message = FALSE}
+# Load ohc data and packages survey and tidyverse.
+load("ohc.Rdata")
+library(survey); library(tidyverse)
+glimpse(ohc)
+```
+
+The sampling design of the OHC Survey is an example of stratified cluster sampling where both one-stage and two-stage sampling have been used. The pedacogical data set constructed for training purposes in this example includes a total of 250 clusters, i.e. industrial establishments, organized in five strata (stratums 2 to 6), and a total of 7841 persons. Stratification is based on the type of industry and cluster size (the number of salaried employees). Clusters having at least 10 employees are included in the OHC example data set. There is variable number of clusters per stratum in the design. The average cluster sample size is 11.2 employees. A more detailed description of the study design and sampling design of the OHC Survey are given in Section 6.1 of Lehtonen and Pahkinen (2004).
+
+Relevant variables for our example for modelling are the following:
+
+* PHYS (Physical Health Hazards, 1 present, 0 otherwise)
+* PSYCH3 (Psychic Strain, 1 none, 2 some,  3 severe)
+* STRATUM (Stratum Identification, 2 to 6)
+* CLUSTER (Cluster Identification)
+
+
+Next we will construct a ohc.design object. This ohc.design object will be used for all subsequent analysis commands: NOTE. nest = TRUE.
+
+```{r, warning = FALSE}
+# Construct a ohc.design object. 
+# This ohc.design object will be used for all subsequent analysis commands:
+# NOTE. nest = TRUE
+ohc.design <- svydesign(ids = ~CLUSTER, data = ohc, strata = ~STRATUM, nest = TRUE)
+```
+
+The two-way table of PHYS and PSYCH3 is first displayed. The tables include  cell frequencies and percentages and total percentages. 
+```{r, warning = FALSE}
+paste("Cell frequencies:")
+svytable(~PHYS+PSYCH3, ohc.design)                # cell frequencies
+paste("Row percentages:")
+prop.table(svytable(~PHYS+PSYCH3, ohc.design), 1) # row percentages
+paste("Column percentages:")
+prop.table(svytable(~PHYS+PSYCH3, ohc.design), 2) # column percentages
+paste("Total percentages:")
+svytable(~PHYS+PSYCH3, ohc.design, Ntotal=100)     # percents
+```
+
+
+
+#### Design-based tests 
+
+Design-based test results for the independence hypothesis are next displayed.  Four test for independence are included (see documentation of survey::svychisq): 
+
+(1) Rao-Scott Rao-Scott adjusted F-test statistics with second-order correction
+(2) Rao-Scott Rao-Scott adjusted Pearson chi-square test statistics 
+(3) design-based Wald test 
+(4) adjusted design-based Wald test
+
+```{r}
+paste("Rao-Scott Rao-Scott adjusted F-test statistics with second-order correction:")
+svychisq(~PHYS+PSYCH3, ohc.design)  # test for independence. Note: The default (statistic="F") is the Rao-Scott second-order correction.
+
+paste("Rao-Scott Rao-Scott adjusted Pearson chi-square test statistics:")
+svychisq(~PHYS+PSYCH3, statistic="Chisq", ohc.design)  # test for independence. Note: corrects the Pearson's chi-squared statistic 
+
+paste("Design-based Wald test:")
+svychisq(~PHYS+PSYCH3, statistic="Wald", ohc.design)  # test for independence. Note: test is that proposed by Koch et al (1975) and used by the SUDAAN software package. It is a Wald test based on the differences between the observed cells counts and those expected under independence.
+
+paste("Adjusted design-based Wald test")
+svychisq(~PHYS+PSYCH3, statistic="adjWald", ohc.design)  # test for independence. Note: adjusted Wald statistics
+```
+
+
+
+
+
+#### SRS-based tests 
+
+<!-- The two-way table of PHYS and PSYCH3 is first displayed. The tables include cell frequencies and percentages and total percentages. -->
+
+<!-- ```{r} -->
+<!-- # t <- table(ohc$PHYS, ohc$PSYCH3) -->
+<!-- # paste("Cell frequencies:") -->
+<!-- # t -->
+<!-- # # cell percentages -->
+<!-- # prop.table(t) -->
+<!-- # # row percentages -->
+<!-- # prop.table(t, 1) -->
+<!-- # # column percentages -->
+<!-- # prop.table(t, 2) -->
+
+<!-- ``` -->
+
+
+The next tables provide results from the corresponding SRS-based tests, including the Pearson chi-square test and likelihood ratio test. Here, all the complexities (stratification and clustering) are ignored, clearly providing 
+overly liberal testing results. Thus, these testing procedures give too large $\chi^2$-values and therefore too small p-values. This is because the clustering effect is not accounted for in the SRS-based tests of independence, contrary to the design-based testing procedures.
+
+```{r}
+paste("Crosstabulation table:")
+table(ohc$PHYS, ohc$PSYCH3)
+paste("Chi-square test and p-value:")
+chisq.test(ohc$PHYS, ohc$PSYCH3)
+tab <- xtabs(~PHYS + PSYCH3, data = ohc)
+library(vcd)
+paste("Likelihood ratio test:")
+assocstats(tab)
+```
+
+
+
+Pay attention to the following. The Rao-Scott adjusted SRS-based tests and the design-based Wald tests provide a reasonable testing procedure for an independence hypothesis of PHYS and PSYCH3 in the OHC survey setting.
+
+
+
 

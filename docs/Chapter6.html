@@ -403,7 +403,6 @@ div.tocify {
 <p>In Chapter 6 of the textbook <strong>Practical Methods for Design and Analysis of Complex Surveys</strong>, estimation of population totals for population subgroups or domains is discussed by using design-based model-assisted estimation procedures. The generalized regression (GREG) estimator is used extensively. Different extensions are introduced where the alternatives of the assisting model cover linear fixed-effects models and linear mixed models involving domain-specific random effects in addition to the fixed effects. In addition to the GREG estimator, various synthetic estimators are introduced. Variance estimation of the estimated domain totals is discussed. The methods are demonstrated for the Occupational Health Care Survey data set.</p>
 <p>In <strong>Training Key 190</strong>, the Horvitz-Thompson estimator and the GREG estimator of domain totals are compared with respect to the accuracy of estimation, reproducing the results of Example 6.1</p>
 <p>In <strong>Training Key 205</strong>, the methods for domain estimation are examined further and the results of Example 6.2 are reproduced. An option is provided for more detailed examination of the accuracy of the estimators with different sample sizes.</p>
-<p>NOTE: Instructions for the use of Training Keys are given in the Instructions section.</p>
 <div id="training-key-190-framework-for-domain-estimation" class="section level1">
 <h1>TRAINING KEY 190: Framework for Domain Estimation</h1>
 <div id="introduction" class="section level3">
@@ -411,7 +410,86 @@ div.tocify {
 <div id="a-reference-example-6.1-sas-code-and-output" class="section level4">
 <h4>A) REFERENCE EXAMPLE 6.1: SAS CODE AND OUTPUT</h4>
 <p>Impact of sampling design in estimation for domains: the cases of <a href="concepts/concepts.html">unplanned domain</a> and <a href="concepts/concepts.html">planned domain</a> structures.</p>
-<p><a href="Keys/key190/intro.htm" target="_blank">Start</a></p>
+<p><a href="Keys/key190/intro.htm" target="_blank">Start SAS Training Key</a></p>
+<p>Impact of sampling design in estimation for domains: the cases of unplanned and planned domain structures. Problems may be encountered when working with an unplanned domain structure, because small domain samples can be obtained for domains with a small population size, if the overall sample size is not large, involving imprecise estimation. For example, if the sample has been drawn with simple random sampling without replacement, then the expected sample size in a domain would be <span class="math inline">\(E(n_{s_d}) = n \times (N_d / N)\)</span>, thus corresponding to proportional allocation in stratified sampling. An alternative is based on the <em>planned domain</em> structure, where the domains are defined as strata. Then, more appropriate allocation schemes can be applied. In this example, the allocation scheme is based on <em>power allocation</em> (see Section 3.1). In power or Bankier allocation, the sample is allocated into the domains based on information on the coefficient of variation of the response variable <span class="math inline">\(y\)</span> in the domains and on the possibly known domain totals <span class="math inline">\(T_{dz}\)</span> of an auxiliary variable <span class="math inline">\(z\)</span>. We use a simplified version of power allocation in a hypothetical situation where the coefficients of variation <span class="math inline">\(C.V_{dy} = S_{dy} / \bar{Y_{d}}\)</span> of the response variable <span class="math inline">\(y\)</span> are known in all domains, where <span class="math inline">\(S_{dy}\)</span> and <span class="math inline">\(\bar{Y_{d}}\)</span> are the population standard deviation and the population mean of <span class="math inline">\(y\)</span> in domain <span class="math inline">\(d\)</span>, respectively.</p>
+<p>We illustrate the methodology by selecting an SRSWOR sample (<span class="math inline">\(n=392\)</span> persons) from the Occupational Health Care Survey (OHC) data set (<span class="math inline">\(N=7841\)</span> persons) and estimating the total number of chronically ill persons in the <span class="math inline">\(D=30\)</span> domains constructed. In the population, the sizes of the domains vary with a minimum of 81 persons and a maximum of 517 persons. The results for the allocation of the sample by proportional allocation (corresponding to an unplanned domain structure) and by power allocation (corresponding to a planned domain structure) are shown in Table 6.2. The domain totals of the number of chronically ill persons are estimated by a Horvitz-Thompson estimator <span class="math inline">\(\hat{t}_{dHT} = \sum_{k \in s_d} w_k y_k\)</span>. The stability of the estimators is measured by the population coefficient of variation of an estimator of a domain total, given by <span class="math inline">\(C.V(\hat{t}_{dHT}) = S.E(\hat{t}_{dHT}) / T_d\)</span>.</p>
+<pre class="r"><code>print(&quot;Load saem data:&quot;)</code></pre>
+<pre><code>## [1] &quot;Load saem data:&quot;</code></pre>
+<pre class="r"><code>load(&quot;saem.Rdata&quot;)
+
+n &lt;- 392 # SRSWOR sample (n=392 persons) from the Occupational Health Care Survey (OHC) data set (N=7841 persons) 
+library(tidyverse)
+print(&quot;Some descriptives by domains:&quot;)</code></pre>
+<pre><code>## [1] &quot;Some descriptives by domains:&quot;</code></pre>
+<pre class="r"><code>sae2 &lt;- saem %&gt;% group_by(DOMAIN) %&gt;% 
+          summarise(n_Pop = n(), t_chron = sum(CHRON), mean_chron = mean(CHRON), std_chron = sd(CHRON)) %&gt;% 
+          arrange(n_Pop)
+sae2</code></pre>
+<pre><code>## # A tibble: 30 x 5
+##    DOMAIN n_Pop t_chron mean_chron std_chron
+##     &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+##  1     10    81      27      0.333     0.474
+##  2     20   101      31      0.307     0.464
+##  3     18   129      36      0.279     0.450
+##  4      3   133      29      0.218     0.414
+##  5      8   141      29      0.206     0.406
+##  6     30   146      34      0.233     0.424
+##  7     21   153      48      0.314     0.466
+##  8     23   156      57      0.365     0.483
+##  9     16   165      45      0.273     0.447
+## 10      1   181      33      0.182     0.387
+## # ... with 20 more rows</code></pre>
+<pre class="r"><code>n_Pop &lt;- sae2$n_Pop
+n_Tot &lt;- nrow(saem)
+
+# n_UnPlanned Calculation
+n_UnPlanned &lt;- n * (n_Pop / n_Tot)
+cv_Chron &lt;- sae2$std_chron / sae2$mean_chron
+
+# n_Planned Calculation
+cv_Tot &lt;- sum(cv_Chron)
+n_Planned &lt;- n * cv_Chron / cv_Tot
+
+# Calculation of Coefficients of Variation
+pd &lt;- n_Pop / n_Tot
+qd &lt;- 1 - pd
+
+# Planned Domains (STRWOR_POWER)
+Var_Planned &lt;- n_Pop^2 * (1 - n_Planned / n_Pop) * (1 / n_Planned) *  sae2$std_chron^2  
+se_Planned  &lt;- sqrt(Var_Planned)
+cv_Planned  &lt;- se_Planned / sae2$t_chron
+
+# UnPlanned Domains (SRSWOR)
+Var_UnPlanned &lt;- n_Tot^2 * (1 - n / n_Tot) * (1 / n) * pd *  sae2$std_chron^2 * ( 1 + qd / cv_Chron^2)
+se_UnPlanned  &lt;- sqrt(Var_UnPlanned)
+cv_UnPlanned  &lt;- se_UnPlanned /  sae2$t_chron
+
+# UnPlanned Domains (SRSWOR) / Conservative approximation
+Var2_UnPlanned &lt;- n_Pop^2 / n_UnPlanned *  sae2$std_chron^2 * (1 + qd / cv_Chron^2)
+se2_UnPlanned  &lt;- sqrt(Var2_UnPlanned)
+cv2_UnPlanned  &lt;- se2_UnPlanned /  sae2$t_chron
+
+# Contructing datasets for plotting
+CV &lt;- rep(&quot;cv_Planned&quot;, 30)
+Value &lt;- cv_Planned
+cv_Planned_data &lt;- cbind.data.frame(n_Pop, Value, CV)
+#
+CV &lt;- rep(&quot;cv_UnPlanned&quot;, 30)
+Value &lt;- cv_UnPlanned
+cv_UnPlanned_data &lt;- cbind.data.frame(n_Pop, Value, CV)
+#
+CV &lt;- rep(&quot;cv2_UnPlanned&quot;, 30)
+Value &lt;- cv2_UnPlanned
+cv2_UnPlanned_data &lt;- cbind.data.frame(n_Pop, Value, CV)
+#
+# combine datasets
+plotdata &lt;- rbind.data.frame(cv_Planned_data, cv_UnPlanned_data, cv2_UnPlanned_data)
+
+# Coefficient of variation (%) for planned and unplanned domains
+ggplot(plotdata, aes(y = Value, x = n_Pop, group = CV)) + 
+  geom_line(aes(color=CV)) + 
+  xlab(&quot;Size of the population domain&quot;) + ylab(&quot;Coefficient of variation (%)&quot;)</code></pre>
+<p><img src="Chapter6_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 <div id="b-interactive-sas-use" class="section level4">
 <h4>B) INTERACTIVE SAS USE</h4>
@@ -521,7 +599,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

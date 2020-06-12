@@ -22,7 +22,6 @@ In **Training Key 117**, reweighting is demonstrated by reproducing the results 
 
 In **Training Key 123**, single imputation and multiple imputation are demonstrated by reproducing the results of Example 4.3. Mean imputation, the nearest neighbor method and ratio estimation, providing single imputation methods, are applied for a SRSWOR sample involving some degree of item nonresponse. In addition, multiple imputation is demonstrated briefly.   
 
-NOTE: Instructions for the use of Training Keys are given in the Instructions section. 
 
 # TRAINING KEY 114: Nonresponse
 
@@ -39,7 +38,59 @@ $BIAS(\hat{t}) = E(\hat{t}_{HT(r)}) - T$, where $\hat{t}_{HT(r)}$ is a Horvitz-T
 
 2. Estimation can be less efficient than planned, because under [unit nonresponse](concepts/concepts.html), the number of measurements is less than the original sample size $(n(r) < n)$ thus decreasing the denominator of the standard error formula.
 
-<a href="Keys/key114/intro.htm" target="_blank">Start</a>
+<a href="Keys/key114/intro.htm" target="_blank">Start SAS Training Key</a>
+
+We investigate the nonresponse bias in the Province’91 population in a hypotetical case by assuming that all the southern municipalities were unable to complete in time the records for the unemployed. These municipalities are Kuhmoinen, Joutsa, Luhanka, Leivonmäki and Toivakka. A variable RES_POP will be created to indicate that a valid response has been received (RES_POP = 1) or has not received (RES_POP = 2), from a municipality. The population of municipalities is thus divided into two subpopulations, the group of respondents (N_1 = 27) and the group of nonrespondents (N_2 = 5). 
+
+```{r}
+# load Province'91 data (see Chapter 2)
+load("province91.Rdata")
+```
+
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+# add variable RESP_POP to province91 data
+obs <- c(18, 9, 22, 21, 30) # municipalities: Kuhmoinen, Joutsa, Luhanka, Leivonmäki and Toivakka 
+# create a RESP_POP indicator: RESP_POP=2 if valid responses has not been received
+province91$RESP_POP[province91$Id %in% obs] <- 2
+`%notin%` <- Negate(`%in%`) # create notin operator
+# RESP_POP=1 if valid responses has been received
+province91$RESP_POP[province91$Id %notin% obs] <- 1
+
+print("List data:")
+province91
+
+print("Calculate group totals, sizes and means by response groups:")
+province91 %>% 
+  group_by(RESP_POP) %>% 
+  summarise(Freq = n(), UE91_sum = sum(UE91), UE91_mean = mean(UE91))
+
+print("Calculate group totals, sizes and means for whole data:")
+province91 %>% 
+  summarise(Freq = n(), UE91_sum = sum(UE91), UE91_mean = mean(UE91))
+
+print("Means by response groups: RESP_POP == 1")
+UE91_m1 <- province91 %>% 
+  filter(RESP_POP == 1) %>% 
+  summarise(UE91_m1 = mean(UE91))
+
+print("Means by response groups: RESP_POP == 2")
+UE91_m2 <- province91 %>% 
+  filter(RESP_POP == 2) %>% 
+  summarise(UE91_m2 = mean(UE91))
+```
+
+Expected value of the total estimator and unit response bias:
+```{r}
+print("Expected value of the total estimator is")
+(EXPECTED <- 32*UE91_m1)
+print("Nonresponse bias is")
+(BIAS <- 5*(UE91_m1-UE91_m2))
+```
+
+The bias calculated under this setting amounts to 2057.6 which is quite large. 
 
  
 # TRAINING KEY 117: Reweighting
@@ -50,7 +101,16 @@ $BIAS(\hat{t}) = E(\hat{t}_{HT(r)}) - T$, where $\hat{t}_{HT(r)}$ is a Horvitz-T
 
 Techniques for adjusting to [unit nonresponse](concepts/concepts.html) are worked out in this Training Key by reweighting for an [SRSWOR](concepts/concepts.html) sample drawn from the [Province'91 population](concepts/concepts.html). The methods include reweighting by the response homogeneity group method and [ratio estimation](concepts/concepts.html). In addition, accounting for the extra variation because of reweighting is illustrated in variance estimation of a [HT estimator](concepts/concepts.html) of the total of UE91.
  
-<a href="Keys/key117/intro.htm" target="_blank">Start</a> 
+<a href="Keys/key117/intro.htm" target="_blank">Start SAS Training Key</a> 
+
+<!-- In this exercise, the initial sample size is eight municipalities drawn from the Province'91 population. Let us assume two unit nonresponse cases, namely, Kuhmoinen and Toivakka. Thus, the estimated response rate is 0.75. Note that the value of the auxiliary variables HOU85 and URB85 are available for the nonresponse cases also. In addition, three of the sampled municipalities are towns (response homogeneity group c = 1) and the other five are rural municipalities (response homogeneity group c = 2). -->
+
+<!-- For calculating the reweights, we should first define the appropriate response homogeneity groups. For the total estimators $\hat{t}^*_{HT}$ and $\hat{t}^*_{rat}$, the total sample is a natural single group. For the total estimator $\hat{t}^*_{rhg}$, two response homogeneity groups are created according to urbanicity (URB85). -->
+
+<!-- Using the calculated reweights, the estimated totals and their variance estimates can be calculated. Estimates for the total $T$ of UE91 are simply reweighted HT estimators calculated for the respondent data set. We focus on the variance estimation because it now includes two components: the variance estimator Var_sam due to the sampling design and the variance estimator Var_rew caused by the response mechanism. We assume that nonresponse is ignorable within each response homogeneity group. -->
+
+<!-- The Var_sam component is the same for each reweighted estimator. The reweighting component depends on the reweighting method used. For all the reweighting methods, the estimation of Var_rew is carried out. This includes, the reweighted Horvitz-Thompson estimator, the response homogeneity group (RHG) method and the ratio method. A desired property of a reweighted estimator is that it reproduces, as closely as possible, the value of the full response estimator. In this case, both the response data estimator and the reweighted HT estimator give poor results. The same holds for variance estimates. The response homogeneity group estimator and the ratio estimator use auxiliary information. These estimators are based on more appropriate model assumptions, and if the assumptions hold closely these two estimators reproduce closely the 'Full response' estimate. -->
+
 
 #### B) INTERACTIVE SAS USE
 

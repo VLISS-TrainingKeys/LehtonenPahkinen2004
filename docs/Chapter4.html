@@ -404,7 +404,6 @@ div.tocify {
 <p>In <strong>Training Key 114</strong>, the effect of unit nonresponse on the bias of an estimator is demonstrated by reproducing the results of Example 4.1</p>
 <p>In <strong>Training Key 117</strong>, reweighting is demonstrated by reproducing the results of Example 4.2. A reweighted Horvitz-Thompson estimator, the response homogeneity group (RHG) method and ratio estimation are applied for a SRSWOR sample involving some degree of unit nonresponse.</p>
 <p>In <strong>Training Key 123</strong>, single imputation and multiple imputation are demonstrated by reproducing the results of Example 4.3. Mean imputation, the nearest neighbor method and ratio estimation, providing single imputation methods, are applied for a SRSWOR sample involving some degree of item nonresponse. In addition, multiple imputation is demonstrated briefly.</p>
-<p>NOTE: Instructions for the use of Training Keys are given in the Instructions section.</p>
 <div id="training-key-114-nonresponse" class="section level1">
 <h1>TRAINING KEY 114: Nonresponse</h1>
 <div id="introduction" class="section level3">
@@ -417,7 +416,78 @@ div.tocify {
 <li><p>Estimation can be biased if the characteristics of the nonrespondents systematically differ from those of the respondets. For example, in the case of a population total <span class="math inline">\(T\)</span>, this difference may cause nonresponse bias defined as <span class="math inline">\(BIAS(\hat{t}) = E(\hat{t}_{HT(r)}) - T\)</span>, where <span class="math inline">\(\hat{t}_{HT(r)}\)</span> is a Horvitz-Thompson estimator calculated from the respondent data.</p></li>
 <li><p>Estimation can be less efficient than planned, because under <a href="concepts/concepts.html">unit nonresponse</a>, the number of measurements is less than the original sample size <span class="math inline">\((n(r) &lt; n)\)</span> thus decreasing the denominator of the standard error formula.</p></li>
 </ol>
-<p><a href="Keys/key114/intro.htm" target="_blank">Start</a></p>
+<p><a href="Keys/key114/intro.htm" target="_blank">Start SAS Training Key</a></p>
+<p>We investigate the nonresponse bias in the Province’91 population in a hypotetical case by assuming that all the southern municipalities were unable to complete in time the records for the unemployed. These municipalities are Kuhmoinen, Joutsa, Luhanka, Leivonmäki and Toivakka. A variable RES_POP will be created to indicate that a valid response has been received (RES_POP = 1) or has not received (RES_POP = 2), from a municipality. The population of municipalities is thus divided into two subpopulations, the group of respondents (N_1 = 27) and the group of nonrespondents (N_2 = 5).</p>
+<pre class="r"><code># load Province&#39;91 data (see Chapter 2)
+load(&quot;province91.Rdata&quot;)</code></pre>
+<pre class="r"><code>library(tidyverse)
+
+# add variable RESP_POP to province91 data
+obs &lt;- c(18, 9, 22, 21, 30) # municipalities: Kuhmoinen, Joutsa, Luhanka, Leivonmäki and Toivakka 
+# create a RESP_POP indicator: RESP_POP=2 if valid responses has not been received
+province91$RESP_POP[province91$Id %in% obs] &lt;- 2
+`%notin%` &lt;- Negate(`%in%`) # create notin operator
+# RESP_POP=1 if valid responses has been received
+province91$RESP_POP[province91$Id %notin% obs] &lt;- 1
+
+print(&quot;List data:&quot;)</code></pre>
+<pre><code>## [1] &quot;List data:&quot;</code></pre>
+<pre class="r"><code>province91</code></pre>
+<pre><code>## # A tibble: 32 x 10
+##    Stratum Cluster    Id Municipality POP91 LAB91  UE91 HOU85 URB85 RESP_POP
+##      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1       1       1     1 Jyväskylä    67200 33786  4123 26881     1        1
+##  2       1       2     2 Jämsä        12907  6016   666  4663     1        1
+##  3       1       2     3 Jämsänkoski   8118  3818   528  3019     1        1
+##  4       1       2     4 Keuruu       12707  5919   760  4896     1        1
+##  5       1       3     5 Saarijärvi   10774  4930   721  3730     1        1
+##  6       1       5     6 Suolahti      6159  3022   457  2389     1        1
+##  7       1       3     7 Äänekoski    11595  5823   767  4264     1        1
+##  8       2       5     8 Hankasalmi    6080  2594   391  2179     0        1
+##  9       2       6     9 Joutsa        4594  2069   194  1823     0        2
+## 10       2       7    10 Jyväskmlk    29349 13727  1623  9230     0        1
+## # ... with 22 more rows</code></pre>
+<pre class="r"><code>print(&quot;Calculate group totals, sizes and means by response groups:&quot;)</code></pre>
+<pre><code>## [1] &quot;Calculate group totals, sizes and means by response groups:&quot;</code></pre>
+<pre class="r"><code>province91 %&gt;% 
+  group_by(RESP_POP) %&gt;% 
+  summarise(Freq = n(), UE91_sum = sum(UE91), UE91_mean = mean(UE91))</code></pre>
+<pre><code>## # A tibble: 2 x 4
+##   RESP_POP  Freq UE91_sum UE91_mean
+##      &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1        1    27    14475      536.
+## 2        2     5      623      125.</code></pre>
+<pre class="r"><code>print(&quot;Calculate group totals, sizes and means for whole data:&quot;)</code></pre>
+<pre><code>## [1] &quot;Calculate group totals, sizes and means for whole data:&quot;</code></pre>
+<pre class="r"><code>province91 %&gt;% 
+  summarise(Freq = n(), UE91_sum = sum(UE91), UE91_mean = mean(UE91))</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##    Freq UE91_sum UE91_mean
+##   &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1    32    15098      472.</code></pre>
+<pre class="r"><code>print(&quot;Means by response groups: RESP_POP == 1&quot;)</code></pre>
+<pre><code>## [1] &quot;Means by response groups: RESP_POP == 1&quot;</code></pre>
+<pre class="r"><code>UE91_m1 &lt;- province91 %&gt;% 
+  filter(RESP_POP == 1) %&gt;% 
+  summarise(UE91_m1 = mean(UE91))
+
+print(&quot;Means by response groups: RESP_POP == 2&quot;)</code></pre>
+<pre><code>## [1] &quot;Means by response groups: RESP_POP == 2&quot;</code></pre>
+<pre class="r"><code>UE91_m2 &lt;- province91 %&gt;% 
+  filter(RESP_POP == 2) %&gt;% 
+  summarise(UE91_m2 = mean(UE91))</code></pre>
+<p>Expected value of the total estimator and unit response bias:</p>
+<pre class="r"><code>print(&quot;Expected value of the total estimator is&quot;)</code></pre>
+<pre><code>## [1] &quot;Expected value of the total estimator is&quot;</code></pre>
+<pre class="r"><code>(EXPECTED &lt;- 32*UE91_m1)</code></pre>
+<pre><code>##    UE91_m1
+## 1 17155.56</code></pre>
+<pre class="r"><code>print(&quot;Nonresponse bias is&quot;)</code></pre>
+<pre><code>## [1] &quot;Nonresponse bias is&quot;</code></pre>
+<pre class="r"><code>(BIAS &lt;- 5*(UE91_m1-UE91_m2))</code></pre>
+<pre><code>##    UE91_m1
+## 1 2057.556</code></pre>
+<p>The bias calculated under this setting amounts to 2057.6 which is quite large.</p>
 </div>
 </div>
 </div>
@@ -428,7 +498,11 @@ div.tocify {
 <div id="a-reference-example-4.2-sas-code-and-output" class="section level4">
 <h4>A) REFERENCE EXAMPLE 4.2: SAS CODE AND OUTPUT</h4>
 <p>Techniques for adjusting to <a href="concepts/concepts.html">unit nonresponse</a> are worked out in this Training Key by reweighting for an <a href="concepts/concepts.html">SRSWOR</a> sample drawn from the <a href="concepts/concepts.html">Province’91 population</a>. The methods include reweighting by the response homogeneity group method and <a href="concepts/concepts.html">ratio estimation</a>. In addition, accounting for the extra variation because of reweighting is illustrated in variance estimation of a <a href="concepts/concepts.html">HT estimator</a> of the total of UE91.</p>
-<p><a href="Keys/key117/intro.htm" target="_blank">Start</a></p>
+<p><a href="Keys/key117/intro.htm" target="_blank">Start SAS Training Key</a></p>
+<!-- In this exercise, the initial sample size is eight municipalities drawn from the Province'91 population. Let us assume two unit nonresponse cases, namely, Kuhmoinen and Toivakka. Thus, the estimated response rate is 0.75. Note that the value of the auxiliary variables HOU85 and URB85 are available for the nonresponse cases also. In addition, three of the sampled municipalities are towns (response homogeneity group c = 1) and the other five are rural municipalities (response homogeneity group c = 2). -->
+<!-- For calculating the reweights, we should first define the appropriate response homogeneity groups. For the total estimators $\hat{t}^*_{HT}$ and $\hat{t}^*_{rat}$, the total sample is a natural single group. For the total estimator $\hat{t}^*_{rhg}$, two response homogeneity groups are created according to urbanicity (URB85). -->
+<!-- Using the calculated reweights, the estimated totals and their variance estimates can be calculated. Estimates for the total $T$ of UE91 are simply reweighted HT estimators calculated for the respondent data set. We focus on the variance estimation because it now includes two components: the variance estimator Var_sam due to the sampling design and the variance estimator Var_rew caused by the response mechanism. We assume that nonresponse is ignorable within each response homogeneity group. -->
+<!-- The Var_sam component is the same for each reweighted estimator. The reweighting component depends on the reweighting method used. For all the reweighting methods, the estimation of Var_rew is carried out. This includes, the reweighted Horvitz-Thompson estimator, the response homogeneity group (RHG) method and the ratio method. A desired property of a reweighted estimator is that it reproduces, as closely as possible, the value of the full response estimator. In this case, both the response data estimator and the reweighted HT estimator give poor results. The same holds for variance estimates. The response homogeneity group estimator and the ratio estimator use auxiliary information. These estimators are based on more appropriate model assumptions, and if the assumptions hold closely these two estimators reproduce closely the 'Full response' estimate. -->
 </div>
 <div id="b-interactive-sas-use" class="section level4">
 <h4>B) INTERACTIVE SAS USE</h4>
@@ -535,7 +609,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

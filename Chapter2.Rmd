@@ -103,7 +103,7 @@ kable(province91, caption = "THE PROVINCE91 POPULATION")
 
 In this Training Key we use the [Province'91 data set](concepts/concepts.html) as a frame population in analysing an [SRSWOR](concepts/concepts.html) sample. In part A we calculate the SRSWOR estimates for the total of UE91 (number of unemployed in the province) and for the total of LAB91 (number of work force in the province) and their corresponding standard errors from the selected sample where sample size is eight $(n=8)$. In part B, we examine how sample size affects to the SRSWOR estimates and their standard errors by selecting different sample sizes. In part C we simulate SRSWOR samples by using Monte Carlo simulation techniques to examine the behaviour of the SRSWOR estimator. Part D is the option for interactive analysis.
 
-#### A) ANALYSING AN SRS SAMPLE FROM THE PROVINCE'91 POPULATION
+### A) ANALYSING AN SRS SAMPLE FROM THE PROVINCE'91 POPULATION
 
 We calculate the SRSWOR (simple random sampling without replacement) total estimates of UE91 and LAB91, the ratio estimate (UE91/LAB91) and their corresponding standard error estimates. We use Province'91 data set as the frame population. 
 
@@ -139,7 +139,7 @@ Selected SRSWOR sample and the estimates for the total of UE91 and LAB91 and for
 
 After viewing the results, you can examine the R and SAS codes used to calculate the estimates for the total of UE91 and LAB91 and for the ratio UE91/LAB91. Then, you may move on to next step of Key 28 in which different size SRSWOR samples will be selected to study how the sample size affects to the total estimate and to the ratio estimate. 
 
-####  B) SRS ESTIMATION WITH DIFFERENT SAMPLE SIZES
+### B) SRS ESTIMATION WITH DIFFERENT SAMPLE SIZES
 
 In this exercise we examine SRSWOR estimation of the total of UE91 (number of unemployed in the province) and LAB91 (size of labour force in the province) and of the ratio UE91/LAB91 by using different size SRSWOR samples. The purpose is to examine how sample size ($n$) affects to the total estimate and to the ratio estimate and their corresponding standard errors. We use Province'91 data set as the frame population.  
 
@@ -186,7 +186,7 @@ srs(32,123)
 
 
 
-#### C) SIMULATING SRSWOR SAMPLES BY USING MONTE CARLO SIMULATION TECHNIQUES
+### C) SIMULATING SRSWOR SAMPLES BY USING MONTE CARLO SIMULATION TECHNIQUES
 
 Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator. 
 
@@ -199,19 +199,180 @@ Monte Carlo simulations are performed to examine the behavior of the SRSWOR esti
 
 In this Training Key we use the [Province'91 data set](concepts/concepts.html) as the frame population in calculating the intra-class correlation coefficient under [systematic sampling](concepts/concepts.html). The total of the study variable UE91 (number of unemployed in the province) is to be estimated. In Part A, the book example will be worked out. The effect of different sorting orders of the population on the intra-class correlation will be examined in Part B. Part C provides an option for interactive analysis.
 
-#### A) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING IN THE PROVINCE'91 POPULATION
+### A) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING IN THE PROVINCE'91 POPULATION
 
 We calculate the intra-class correlation coefficient for systematic sampling involving four separate systematic samples of eight elements (see book example 2.4 on page 45). Further instructions will be given once you start.
 
 <a href="Keys/key45/key45a.htm" target="_blank">Start SAS Training Key, NOT COMPLETED: a html file is missing</a>
 
-#### B) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING WHEN VARYING THE SORTING ORDER
+For the Province'91 population, four separate systematic samples of eight elements $(q=N/n=32/8=4)$ are drawn from the population data set. The total of the study variable UE91 (number of unemployed in the province) is to be estimated.
+
+In systematic sampling, a certain design parameter exists. This parameter, called the intra-class correlation coefficient $\rho_{int}$, will be included in the design variance $V_{sys}$ of an estimator of the population total. The magnitude of the intra-class correlation, and consequently its effect on variance estimates, depends partly on whether there is a successive system of ordering of the study variable values in the population frame. The effect of sorting order is examined in Part B of this training key.
+
+To calculate the intra-class correlation, the population variance is decomposed into the variation between the systematic samples and the variation within the systematic samples, as in standard one-way analysis of variance. In ANOVA terms we have $SST = SSW + SSB$, where $SST$ represents the total sum of squares, $SSW$ the within sum of squares and $SSB$ the between sum of squares. By using the decomposition of the total sum of squares, the intra-class correlation is defined as
+$\rho_{int} = 1 - \frac{n}{(n-1)} \times \frac{SSW}{SST}$. 
+
+Systematic sampling compared with simple random sampling without replacement is 
+
+i) more efficient, if $\frac{-1}{(n-1)} < \rho_{int} < 0$, 
+ii) equally efficient, if $\rho_{int} = 0$ or 
+iii) less efficient, if $0 < \rho_{int} < 1$.
+
+In this exercise the intra-class correlation is negative (-0.08) which means that given the current sorting order of the population, systematic sampling will be more efficient than simple random sampling without replacement (SRSWOR). Note that the population was pre-sorted first by the variable URB85 (urbanicity) and within each URB85 class, by the variable Municipality for this exercise.
+
+```{r}
+paste("Load frame Population data set Province'91:")
+load("province91.Rdata")
+```
+
+Create four systematic samples: sample1, ..., sample4.
+
+```{r}
+sample1 <- province91[c(1,5,9,13,17,21,25,29), ]
+paste("sample1 from population Province'91:"); sample1
+sample2 <- province91[c(2,6,10,14,18,22,26,30), ]
+paste("sample2 from population Province'91:"); sample2
+sample3 <- province91[c(3,7,11,15,19,23,27,31), ]
+paste("sample3 from population Province'91:"); sample3
+sample4 <- province91[c(4,8,12,16,20,24,28,32), ]
+paste("sample4 from population Province'91:"); sample4
+```
+
+```{r, message = FALSE}
+# add sample IDs
+sample1$sampleID <- 1
+sample2$sampleID <- 2
+sample3$sampleID <- 3
+sample4$sampleID <- 4
+
+# combine data sets
+s <- rbind(sample1, sample2, sample3, sample4)
+
+library(samplesize4surveys)
+icc <- ICC(y = s$UE91, cl = s$sampleID)
+paste("Intra-class correlation is"); icc$ICC
+```
+
+The design effect is calculated by equation (2.24):
+$DEFF_{sys}(\hat{t}) = \frac{V_{sys}(\hat{t})}{V_{srs}(\hat{t})} = 1 + (n-1) \times \rho_{int}$. 
+```{r}
+# Design effect
+n <- nrow(sample1)
+DEFF <- 1 + (n-1)*icc$ICC
+paste("Design effect is"); DEFF
+```
+
+In this exercise the design effect is DEFF=0.43 which implies that systematic sampling is very efficient in this case.
+
+
+Further, we can write the design variance of the total estimator in the form
+
+$V_{sys}(\hat{t}) = N^2 \times (1 - \frac{n}{N}) \times \frac{S^2}{n} \times [1 + (n-1)\rho_{int}]$ 
+
+or alternatively
+
+$V_{sys}(\hat{t}) = V_{srs}(\hat{t}) \times [1 + (n-1)\rho_{int}]$, as is given in equation (2.23).
+
+This also implies that systematic sampling is more efficient than SRSWOR when rhoint is negative. 
+
+
+
+### B) INTRA-CLASS CORRELATION FOR SYSTEMATIC SAMPLING WHEN VARYING THE SORTING ORDER
 
 We examine the effect of the sorting order of the Province'91 population on intra-class correlation. It will be shown that the sorting order matters: the value of the intra-class correlation coefficient varies much depending on the sorting order. Further instructions will be given once you start.
 
 <a href="Keys/key45/key45b.htm" target="_blank">Start SAS Training Key</a>
+
+For the Province'91 population, four separate systematic samples of eight elements $(q=N/n=32/8=4)$ are drawn from the population data set similarly as in Part A. The total of the study variable UE91 (number of unemployed in the province) is to be estimated.
+
+We now examine the effect of the sorting order of the population elements on the intra-class correlation coefficient. In sorting, we use the available auxiliary information on the population. The following sorting orders are developed:
+
+a) Sorting by the variable URB85 (urbanicity in 1985), used in Part A
+
+b) Sorting by the variable HOU85 (the number of households in 1985)
+
+c) Sorting by the variable HOU85 (the number of households in 1985) and permuting
+
+d) Sorting in random order by using a sequence of generated random numbers.
+
+Sorting the population by one or several auxiliary variables before a systematic sample is drawn is sometimes called "implicit stratification" and is frequently used in practical application of systematic sampling.
+
+E.g. results and code for sorting order d) (Sorting in random order by using a sequence of generated random numbers) is following. Try to change the sort variable (see code chunk below).
+```{r}
+load("province91.Rdata")
+
+# add random number for sorting
+set.seed(123) # Pick a personal seed number
+Random <- runif(nrow(province91), min = 0, max = 1)
+province91 <- cbind(province91, Random)
+
+# select variable for sorting (e.g. variable Random) and sort data 
+province91.sorted <- province91[order(province91$Random),]
+# try sorting by URB85 and HOU85 variables:
+# province91.sorted <- province91[order(province91$URB85),]
+# province91.sorted <- province91[order(province91$HOU85),]
+
+# Create four systematic samples from sorted data 
+sample1 <- province91.sorted[c(1,5,9,13,17,21,25,29), ]
+sample2 <- province91.sorted[c(2,6,10,14,18,22,26,30), ]
+sample3 <- province91.sorted[c(3,7,11,15,19,23,27,31), ]
+sample4 <- province91.sorted[c(4,8,12,16,20,24,28,32), ]
+
+# HOU85 in descending order + "optimal" permutation:
+#sample1 <- filter(province91, Id %in% c(1,19,14,15,21,28,27,22))
+#sample2 <- filter(province91, Id %in% c(10,29,16,31,23,30,11,13))
+#sample3 <- filter(province91, Id %in% c(20,26,12,24,9,17,18,25))
+#sample4 <- filter(province91, Id %in% c(4,2,7,5,32,3,6,8))
+
+# add sample IDs
+sample1$sampleID <- 1
+sample2$sampleID <- 2
+sample3$sampleID <- 3
+sample4$sampleID <- 4
+
+# combine data sets
+s <- rbind(sample1, sample2, sample3, sample4)
+
+library(samplesize4surveys)
+icc <- ICC(y = s$UE91, cl = s$sampleID)
+paste("Intra-class correlation is:")
+icc$ICC
+
+# Design effect
+n <- nrow(sample1)
+paste("Design effect is:")
+(DEFF <- 1 + (n-1)*icc$ICC)
+```
+
+In a), we use the same sorting order as in Part A. Calculated approximative DEFF=0.426 indicates that the list order of the municipalities (sorting first by URB85 and then by the name of the municipality) is interestingly associated with the number of unemployed, UE91. In b), we use HOU85 as sorting variable. Note that the variable HOU85 correlates strongly with the study variable UE91. In b), the population of municipalities is sorted in descending order by HOU85. Surprisingly, the design effect is DEFF=0.531 which results in less efficient systematic sampling as in case a. Again in c) we start with descending order of HOU85 and in addition we introduce an "optimal" permutation of units within sampling intervals. This results in DEFF=0.25.  
+As a reference in d), where we aim at a randomly ordered population with respect to the study variable UE91, any substantial gain cannot be expected, as indicated by a design effect close to one and systematic sampling is almost equally efficient as SRSWOR.
+
+We next illustrate in more detail the effect of the sorting order on the efficiency of systematic sampling. The next table gives the means of the study variable for each sample configuration under the sorting orders. It can be clearly seen that in c) the means are closest to each other and therefore, the intra-cluster correlation is the smallest.
+
+
+Systematic samples  |  a)    | b)      | c)     | d) 
+--------------------|--------|---------|--------|-------
+Sample 1	          | 736.88 |	781.75 | 597.38	| 345.88
+Sample 2	          | 446.63 | 462.13	 | 342.13	| 799.63
+Sample 3	          | 265.00 | 337.38	 | 340.50 |	466.88
+Sample 4	          | 438.75 | 306.00	 | 607.25	| 274.88
+$\rho_{int}$        | -0.082 | -0.067	 | -0.106	| -0.056
+DEFF	              | 0.426	 | 0.531	 | 0.255	| 0.606
+
+Note that the intra-class correlation coefficient is negative in all example cases which means that given the different sorting orders examined, systematic sampling in these cases is more efficient than simple random sampling without replacement (SRSWOR).
+
+Note also that results in d) depend on the choice of the seed number for the generation of the sequence of random numbers. This is because we now have no control over the composition of the sampling intervals and our population size happens to be small. In this example the seed is 123 and it produces a DEFF 0.606. If a different seed number is chosen, different results will be obtained (see the table below).
+
+The effect of seed number to intra-class correlation and DEFF:
+
+Seed number | $\rho_{int}$  | DEFF
+------------|---------------|------
+98765432	  | -0.0004478304 | 0.9968652
+654326599   | 0.0509257     | 1.35648
+11111111    | -0.06489158   | 0.545759
+
  
-#### C) INTERACTIVE SAS USE
+### C) INTERACTIVE SAS USE
 
 Please download the SAS code for your own further training. Instructions are given in the SAS code once you download. NOTE! You need to have access to SAS in your computer.
 
@@ -226,19 +387,63 @@ Please download the SAS code for your own further training. Instructions are giv
 
 In point A we will show how to perform estimation under [systematic PPS sampling (PPSSYS)](concepts/concepts.html). Point A refers to example 2.6 (page 54). In point B we will demonstrate how the use of [auxiliary information](concepts/concepts.html) affects to the total estimate of UE91 (number of unemployed in the province) and the corresponding variance estimate. This is to get familiar on the selection and use of auxiliary information in [PPS sampling](concepts/concepts.html). Point C is an option for interactive analysis. We use Province'91 data set as the frame population.
 
-#### A) REFERENCE EXAMPLE 2.6: Estimation under systematic PPS sampling
+### A) REFERENCE EXAMPLE 2.6: Estimation under systematic PPS sampling
 
-Systematic PPS sample $(n=8)$ is drawn from the [Province'91 population](concepts/concepts.html) such that the number of households (HOU85) is used as the size measure $z$. PPSSYS estimate and the corresponding standard error estimate are calculated from the selected sample. The results are compared to estimation under [SRSWOR sampling](concepts/concepts.html). Further instructions will be given once you start.
+Systematic PPS sample $(n=8)$ is drawn from the [Province'91 population](concepts/concepts.html) such that the number of households (HOU85) is used as the size measure $z$. PPSSYS estimate and the corresponding standard error estimate are calculated from the selected sample. The results are compared to estimation under [SRSWOR sampling](concepts/concepts.html). 
  
 <a href="Keys/key54/key54a.htm" target="_blank">Start SAS Trainig Key</a> 
 
-#### B) THE USE OF ALTERNATIVE AUXILIARY INFORMATION IN PPSWOR SAMPLING
+In Province'91 population the cumulative sum of HOU85 over the population is 91753 and under systematic PPS sampling the sampling interval would be $q=91753/8=11469$. However, the largest element 'Jyvaskylä' has the value 26881 for the variable, which is more than twice the sampling interval. Therefore, the element would be drawn twice and the remaining 6 elements would be drawn from the remaining population elements. In this case, therefore, we first take the largest element 'Jyväskylä' with certainty and then draw 7 elements from the remaining population elements by systematic PPS sampling. Such a situation is commonly managed in the way described above.
+
+Please view the R code to examine how the study is performed.
+
+```{r}
+load("province91.Rdata")
+Sample.srs <- filter(province91, Id %in% c(1,4,7,10,13,18,26,32))
+Sample.pps <- filter(province91, Id %in% c(1,4,7,10,13,18,26,32))
+
+# Add indicator variable for Jyväskylä
+Sample.pps$Jystrat <- 1
+Sample.pps$Jystrat[Sample$Id %in% c(4,7,10,13,18,26,32)] <- 2
+# NOTE: In each strata we need at least two observations. Because Jyväskylä is sampled with certainty, Jyväskylä is entered 
+# twice in our sample data file and the weight for Jyväskylä is 0.5 per observation line.  
+jyv <- Sample.pps[1,]
+Sample.pps <- rbind(Sample.pps, jyv) # Jyväskylä is now twice in our data
+
+# package survey
+library(survey)
+# total=32:  fpc = finite population correction: fpc = (1-n/N)
+# This column (variable) fpc simply contains the number 32 for every record.
+Sample.srs$fpc <- 32
+Sample.srs$weights <- 4
+# Sampling weight calculation for PPS (the cumulative sum of HOU85 over the population is 91753 and the largest element Jyväskylä has the value 26881)
+# sum(province91$HOU85)
+# sum(province91$HOU85) - 26881 
+Sample.pps$weights_pps <- (91753-26881)/(Sample.pps$HOU85*7)
+Sample.pps$weights_pps[Sample$Id==1] <- 0.5
+
+# define design objects
+province91.srs.design <- svydesign(ids = ~1,  data = Sample.srs, fpc = ~fpc, weights = ~weights)
+province91.pps.design <- svydesign(ids = ~Id, data = Sample.pps, strata = ~Jystrat, weights = ~weights_pps)
+
+t.ue91.srs  <- svytotal(~UE91, province91.srs.design)
+paste("SRSWOR estimation for the total of UE91 and its' se:")
+t.ue91.srs
+# Note. svytotal doesn't work without some adjustment to options (see more: http://r-survey.r-forge.r-project.org/survey/exmample-lonely.html)
+options(survey.lonely.psu = "certainty")
+t.ue91.pps  <- svytotal(~UE91, province91.pps.design)
+paste("PPSSYS estimation for the total of UE91 and its' se:")
+t.ue91.pps
+```
+
+
+### B) THE USE OF ALTERNATIVE AUXILIARY INFORMATION IN PPSWOR SAMPLING
 
 We use three different auxiliary variables in [PPSWOR](concepts/concepts.html) sampling. The first auxiliary variable is HOU85 (the number of households in the municipality). The two others are artificial variables x and z. These variables are constructed for pedagogical purposes to demonstrate the role of correlation of the study variable and auxiliary variable, and that a strong correlation alone does not guarantee good efficiency for PPSWOR. Further instructions are given once you start.
 
 <a href="Keys/key54/key54b.htm" target="_blank">Start SAS Training Key</a> 
 
-#### C) INTERACTIVE SAS USE
+### C) INTERACTIVE SAS USE
 
 Please download the SAS code for your own further training. Further instructions are given once you download the code.
 

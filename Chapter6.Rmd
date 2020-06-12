@@ -20,7 +20,6 @@ In **Training Key 190**, the Horvitz-Thompson estimator and the GREG estimator o
 
 In **Training Key 205**, the methods for domain estimation are examined further and the results of Example 6.2 are reproduced. An option is provided for more detailed examination of the accuracy of the estimators with different sample sizes.
 
-NOTE: Instructions for the use of Training Keys are given in the Instructions section.
 
 
 # TRAINING KEY 190: Framework for Domain Estimation
@@ -31,7 +30,76 @@ NOTE: Instructions for the use of Training Keys are given in the Instructions se
 
 Impact of sampling design in estimation for domains: the cases of [unplanned domain](concepts/concepts.html) and [planned domain](concepts/concepts.html) structures.
  
-<a href="Keys/key190/intro.htm" target="_blank">Start</a> 
+<a href="Keys/key190/intro.htm" target="_blank">Start SAS Training Key</a> 
+
+Impact of sampling design in estimation for domains: the cases of unplanned and planned domain structures. Problems may be encountered when working with an unplanned domain structure, because small domain samples can be obtained for domains with a small population size, if the overall sample size is not large, involving imprecise estimation. For example, if the sample has been drawn with simple random sampling without replacement, then the expected sample size in a domain would be $E(n_{s_d}) = n \times (N_d / N)$, thus corresponding to proportional allocation in stratified sampling. An alternative is based on the *planned domain* structure, where the domains are defined as strata. Then, more appropriate allocation schemes can be applied. In this example, the allocation scheme is based on *power allocation* (see Section 3.1). In power or Bankier allocation, the sample is allocated into the domains based on information on the coefficient of variation of the response variable $y$ in the domains and on the possibly known domain totals $T_{dz}$ of an auxiliary variable $z$. We use a simplified version of power allocation in a hypothetical situation where the coefficients of variation $C.V_{dy} = S_{dy} / \bar{Y_{d}}$ of the response variable $y$ are known in all domains, where $S_{dy}$ and $\bar{Y_{d}}$ are the population standard deviation and the population mean of $y$ in domain $d$, respectively.  
+
+We illustrate the methodology by selecting an SRSWOR sample ($n=392$ persons) from the Occupational Health Care Survey (OHC) data set ($N=7841$ persons) and estimating the total number of chronically ill persons in the $D=30$ domains constructed. In the population, the sizes of the domains vary with a minimum of 81 persons and a maximum of 517 persons. The results for the allocation of the sample by proportional allocation (corresponding to an unplanned domain structure) and by power allocation (corresponding to a planned domain structure) are shown in Table 6.2. The domain totals of the number of chronically ill persons are estimated by a Horvitz-Thompson estimator $\hat{t}_{dHT} = \sum_{k \in s_d} w_k y_k$. The stability of the estimators is measured by the population coefficient of variation of an estimator of a domain total, given by $C.V(\hat{t}_{dHT}) = S.E(\hat{t}_{dHT}) / T_d$.  
+
+
+```{r, message=FALSE, warning=FALSE}
+print("Load saem data:")
+load("saem.Rdata")
+
+n <- 392 # SRSWOR sample (n=392 persons) from the Occupational Health Care Survey (OHC) data set (N=7841 persons) 
+library(tidyverse)
+print("Some descriptives by domains:")
+sae2 <- saem %>% group_by(DOMAIN) %>% 
+          summarise(n_Pop = n(), t_chron = sum(CHRON), mean_chron = mean(CHRON), std_chron = sd(CHRON)) %>% 
+          arrange(n_Pop)
+sae2
+
+n_Pop <- sae2$n_Pop
+n_Tot <- nrow(saem)
+
+# n_UnPlanned Calculation
+n_UnPlanned <- n * (n_Pop / n_Tot)
+cv_Chron <- sae2$std_chron / sae2$mean_chron
+
+# n_Planned Calculation
+cv_Tot <- sum(cv_Chron)
+n_Planned <- n * cv_Chron / cv_Tot
+
+# Calculation of Coefficients of Variation
+pd <- n_Pop / n_Tot
+qd <- 1 - pd
+
+# Planned Domains (STRWOR_POWER)
+Var_Planned <- n_Pop^2 * (1 - n_Planned / n_Pop) * (1 / n_Planned) *  sae2$std_chron^2  
+se_Planned  <- sqrt(Var_Planned)
+cv_Planned  <- se_Planned / sae2$t_chron
+
+# UnPlanned Domains (SRSWOR)
+Var_UnPlanned <- n_Tot^2 * (1 - n / n_Tot) * (1 / n) * pd *  sae2$std_chron^2 * ( 1 + qd / cv_Chron^2)
+se_UnPlanned  <- sqrt(Var_UnPlanned)
+cv_UnPlanned  <- se_UnPlanned /  sae2$t_chron
+
+# UnPlanned Domains (SRSWOR) / Conservative approximation
+Var2_UnPlanned <- n_Pop^2 / n_UnPlanned *  sae2$std_chron^2 * (1 + qd / cv_Chron^2)
+se2_UnPlanned  <- sqrt(Var2_UnPlanned)
+cv2_UnPlanned  <- se2_UnPlanned /  sae2$t_chron
+
+# Contructing datasets for plotting
+CV <- rep("cv_Planned", 30)
+Value <- cv_Planned
+cv_Planned_data <- cbind.data.frame(n_Pop, Value, CV)
+#
+CV <- rep("cv_UnPlanned", 30)
+Value <- cv_UnPlanned
+cv_UnPlanned_data <- cbind.data.frame(n_Pop, Value, CV)
+#
+CV <- rep("cv2_UnPlanned", 30)
+Value <- cv2_UnPlanned
+cv2_UnPlanned_data <- cbind.data.frame(n_Pop, Value, CV)
+#
+# combine datasets
+plotdata <- rbind.data.frame(cv_Planned_data, cv_UnPlanned_data, cv2_UnPlanned_data)
+
+# Coefficient of variation (%) for planned and unplanned domains
+ggplot(plotdata, aes(y = Value, x = n_Pop, group = CV)) + 
+  geom_line(aes(color=CV)) + 
+  xlab("Size of the population domain") + ylab("Coefficient of variation (%)")
+```
 
 
 #### B) INTERACTIVE SAS USE

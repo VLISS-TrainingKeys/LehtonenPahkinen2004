@@ -406,24 +406,69 @@ div.tocify {
 <p>In <strong>Training Key 293</strong>, a linear ANCOVA model is fitted for a continuous response variable from the OHC Survey data set by using weighted least squares estimation.</p>
 <p>The results of Example 8.4 will be reproduced.</p>
 <p>In <strong>Training Key 298</strong>, alternative multivariate analyses for a binary response variable and a continuous response variable from the OHC Survey data set are demonstrated. The methods include the PML and generalized estimating equations (GEE) estimation for fixed-effects logistic and linear models and residual maximum likelihood (REML) estimation for logistic and linear mixed models. The methods extend the methodology presented in the textbook. It will be noted that closely agreeing numerical results can be obtained by the different methods available.</p>
-<p>NOTE: Instructions for the use of Training Keys are given in the Instructions section.</p>
 <div id="training-key-277-logit-anova" class="section level1">
 <h1>TRAINING KEY 277: Logit ANOVA</h1>
 <div id="introduction" class="section level3">
 <h3>INTRODUCTION</h3>
 <p>In this Training Key we will practice <a href="concepts/concepts.html">design-based</a> multivariate model fitting for categorical data in the <a href="concepts/concepts.html">OHC survey</a> setting. In point A, the aim is to model the variation of domain proportions of the binary response variable PSYCH2 (psychic strain; 1 present, 0 otherwise) across the eight domains formed by a cross-classification of SEX, a two-category variable AGE (-44 years, 45- years) and the variable PHYS (physical health hazards of work; 1 present, 0 otherwise) by fitting the model in stepwise manner. In point B, the aim is to describe and practice the <a href="concepts/concepts.html">GWLS method</a> from more detailed and theoretical perspective. Point C is the option for interactive analysis.</p>
-<div id="a-exercise-on-logit-anova-model-fitting-with-the-pml-method" class="section level4">
-<h4>A) EXERCISE ON LOGIT ANOVA MODEL FITTING WITH THE PML METHOD</h4>
-<p>In this part we will exercise how to fit a logit ANOVA model in the OHC survey setting described above. We use <a href="concepts/concepts.html">pseudolikelihood (PML)</a> estimation in this exercise. Detailed instructions of this exercise will be given once you start.</p>
-<p><a href="Keys/key277/key277a_9.htm" target="_blank">SAS / SURVEYLOGISTIC, SOME LINKS DON’T WORK</a></p>
 </div>
-<div id="b-gwls-method-for-logit-modelling-on-domain-proportions-in-the-ohc-survey-setting" class="section level4">
-<h4>B) GWLS METHOD FOR LOGIT MODELLING ON DOMAIN PROPORTIONS IN THE OHC SURVEY SETTING</h4>
-<p>This option is related to Example 8.1 and is for those who wish to gain deeper understanding on how the GWLS method functions in logit ANOVA. SAS/IML macro is provided with the description of each step of the model fitting procedure. Full design-based (DES) option and model-assisted BIN option (assuming <a href="concepts/concepts.html">simple random sampling</a>) are compared. Further instructions are given once you start.</p>
-<p><a href="Keys/key277/key277b.htm" target="_blank">Start</a></p>
+<div id="a-exercise-on-logit-anova-model-fitting-with-the-pml-method" class="section level3">
+<h3>A) EXERCISE ON LOGIT ANOVA MODEL FITTING WITH THE PML METHOD</h3>
+<p>In this part we will exercise how to fit a logit ANOVA model in the OHC survey setting described above. We use <a href="concepts/concepts.html">pseudolikelihood (PML)</a> estimation in this exercise.</p>
+<p><a href="Keys/key277/key277a_9.htm" target="_blank">Start SAS Training Key</a></p>
+<p>Main effects logit ANOVA model is fitted for the OHC Survey data to examine the variation of domain proportions of the binary response variable PSYCH2 (Psychic strain, 1 present; 0 otherwise) across the eight domains formed by a cross-classification of variables SEX, two-category AGE and binary PHYS (Physical health hazards, 1 present; 0 otherwise).</p>
+<p>We will fit a reduced model that is parsimonious and fits reasonably well. The reduced model can be used for the interpretation of the relationships of the predictors with the response variable. In this context PHYS is the main subject matter predictor. Age-sex adjusted odds ratio (OR) statistics will be calculated for PHYS and can be used for the interpretation of the results.</p>
+<pre class="r"><code>print(&quot;Load ohc data:&quot;)</code></pre>
+<pre><code>## [1] &quot;Load ohc data:&quot;</code></pre>
+<pre class="r"><code>load(&quot;ohc.Rdata&quot;)
+
+library(tidyverse)
+library(survey)
+# Construct a ohc.design object. 
+# This ohc.design object will be used for all subsequent analysis commands:
+# NOTE. nest = TRUE
+ohc.design &lt;- svydesign(ids = ~CLUSTER, data = ohc, strata = ~STRATUM, nest = TRUE)
+
+print(&quot;Results for Logit-ANOVA / Model terms: Intercept Sex Age2 Phys:&quot;)</code></pre>
+<pre><code>## [1] &quot;Results for Logit-ANOVA / Model terms: Intercept Sex Age2 Phys:&quot;</code></pre>
+<pre class="r"><code>fit.reduced &lt;- svyglm(PSYCH2 ~ as_factor(SEX) + as_factor(AGE2) + as_factor(PHYS), family=binomial(link = &quot;logit&quot;), ohc.design)
+summary(fit.reduced)</code></pre>
+<pre><code>## 
+## Call:
+## svyglm(formula = PSYCH2 ~ as_factor(SEX) + as_factor(AGE2) + 
+##     as_factor(PHYS), design = ohc.design, family = binomial(link = &quot;logit&quot;))
+## 
+## Survey design:
+## svydesign(ids = ~CLUSTER, data = ohc, strata = ~STRATUM, nest = TRUE)
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      -0.34579    0.04724  -7.319 3.67e-12 ***
+## as_factor(SEX)2   0.49397    0.05921   8.343 5.55e-15 ***
+## as_factor(AGE2)2  0.12339    0.05788   2.132    0.034 *  
+## as_factor(PHYS)1  0.28607    0.05798   4.934 1.50e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1.00005)
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<pre class="r"><code>print(&quot;Odds ratios and confidence intervals:&quot;)</code></pre>
+<pre><code>## [1] &quot;Odds ratios and confidence intervals:&quot;</code></pre>
+<pre class="r"><code>exp(cbind(coefficients(fit.reduced), confint(fit.reduced)))</code></pre>
+<pre><code>##                               2.5 %    97.5 %
+## (Intercept)      0.7076602 0.645076 0.7763162
+## as_factor(SEX)2  1.6388142 1.459256 1.8404663
+## as_factor(AGE2)2 1.1313215 1.009985 1.2672352
+## as_factor(PHYS)1 1.3311856 1.188195 1.4913848</code></pre>
 </div>
-<div id="c-interactive-sas-use" class="section level4">
-<h4>C) INTERACTIVE SAS USE</h4>
+<div id="b-gwls-method-for-logit-modelling-on-domain-proportions-in-the-ohc-survey-setting" class="section level3">
+<h3>B) GWLS METHOD FOR LOGIT MODELLING ON DOMAIN PROPORTIONS IN THE OHC SURVEY SETTING</h3>
+<p>This option is related to Example 8.1 and is for those who wish to gain deeper understanding on how the GWLS method functions in logit ANOVA. SAS/IML macro is provided with the description of each step of the model fitting procedure. Full design-based (DES) option and model-assisted BIN option (assuming <a href="concepts/concepts.html">simple random sampling</a>) are compared.</p>
+<p><a href="Keys/key277/key277b.htm" target="_blank">Start SAS Training Key</a></p>
+</div>
+<div id="c-interactive-sas-use" class="section level3">
+<h3>C) INTERACTIVE SAS USE</h3>
 <ol style="list-style-type: decimal">
 <li>Please download the reduced version of the OHC data set (only relevant variables are included) and save the data in the disk.</li>
 <li>Download the SAS code for your own further training in logit ANOVA model fitting (NOTE! you need to have access to SUDAAN (a SAS callable version)).</li>
@@ -435,20 +480,68 @@ div.tocify {
 <p><a href="Keys/key277/gwlsmacro.sas" target="_blank">Download SAS/IML macro</a></p>
 </div>
 </div>
-</div>
 <div id="training-key-288-logistic-ancova" class="section level1">
 <h1>TRAINING KEY 288: Logistic ANCOVA</h1>
 <div id="introduction-1" class="section level3">
 <h3>INTRODUCTION</h3>
 <p>Example 8.2: In this Training Key we concentrate on performing <a href="concepts/concepts.html">design-based</a> logistic <a href="concepts/concepts.html">ANCOVA</a> (Analysis of Covariance) modelling with the pseudolikelihood or <a href="concepts/concepts.html">PML method</a>. We fit a multivariate logistic ANCOVA model by entering in the model some of the predictors as continuous measurements and some as discrete variables. We will also demonstrate the effect of interaction terms in the interpretation of the results. The data is again from the <a href="concepts/concepts.html">OHC Survey</a>.</p>
-<div id="a-logistic-ancova" class="section level4">
-<h4>A) LOGISTIC ANCOVA</h4>
-<p>In this part we will study how to perform design-based logistic ANCOVA modelling with the PML method for a binary response variable in the case of three continuous predictors and one discrete predictor. We will build the model by removing interaction terms from a model including all possible interaction terms of the discrete predictor with the continuous predictors. Graphical displays are used to show the effect of presence or absence of an interaction term on predicted proportions calculated for a given logistic ANCOVA model. The results can be compared with those from the logit ANOVA exercise (key 277).</p>
-<p>Instructions will be given once you start.</p>
-<p><a href="Keys/key288/Key288_9exercise.htm" target="_blank">SAS/SURVEYLOGISTIC</a></p>
 </div>
-<div id="b-interactive-sas-use" class="section level4">
-<h4>B) INTERACTIVE SAS USE</h4>
+<div id="a-logistic-ancova" class="section level3">
+<h3>A) LOGISTIC ANCOVA</h3>
+<p>In this part we will study how to perform design-based logistic ANCOVA modelling with the PML method for a binary response variable in the case of three continuous predictors and one discrete predictor. We will build the model by removing interaction terms from a model including all possible interaction terms of the discrete predictor with the continuous predictors. Graphical displays are used to show the effect of presence or absence of an interaction term on predicted proportions calculated for a given logistic ANCOVA model. The results can be compared with those from the logit ANOVA exercise (key 277).</p>
+<p><a href="Keys/key288/Key288_9exercise.htm" target="_blank">Start SAS Training Key</a></p>
+<p>The binary response variable PSYCH2 measures psychic strain (1: present, 2: otherwise). AGE (in years), PHYS (binary; Physical health hazards; 1 present, 0 otherwise) and CHRON (binary; Chronic morbidity; 1 present, 0 otherwise) are treated as continuous predictors. SEX is the discrete predictor. Thus there are four predictors available. Because SEX*AGE is statistically significant interaction term it is included in the model.</p>
+<pre class="r"><code>print(&quot;Load ohc data:&quot;)</code></pre>
+<pre><code>## [1] &quot;Load ohc data:&quot;</code></pre>
+<pre class="r"><code>load(&quot;ohc.Rdata&quot;)
+
+# relevel variable sex (to compare the results from Table 8.8) 
+ohc$sex &lt;- factor(ohc$SEX, levels = c(1,2))
+ohc$sex &lt;- relevel(ohc$sex, ref = &quot;2&quot;)
+# define the design
+ohc.design &lt;- svydesign(ids = ~CLUSTER, data = ohc, strata = ~STRATUM, nest = TRUE)
+
+# fit the ancova model: LOGIT(PSYCH2) = INTERCEPT + SEX + AGE + PHYS + CHRON + SEX*AGE
+fit.ancova &lt;- svyglm(PSYCH2 ~ sex * AGE + CHRON + PHYS, family=binomial(link = &quot;logit&quot;), ohc.design)
+print(&quot;Results for Logistic ANCOVA:&quot;)</code></pre>
+<pre><code>## [1] &quot;Results for Logistic ANCOVA:&quot;</code></pre>
+<pre class="r"><code>summary(fit.ancova)</code></pre>
+<pre><code>## 
+## Call:
+## svyglm(formula = PSYCH2 ~ sex * AGE + CHRON + PHYS, design = ohc.design, 
+##     family = binomial(link = &quot;logit&quot;))
+## 
+## Survey design:
+## svydesign(ids = ~CLUSTER, data = ohc, strata = ~STRATUM, nest = TRUE)
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.196442   0.157232   1.249   0.2127    
+## sex1        -0.992571   0.203339  -4.881 1.92e-06 ***
+## AGE         -0.004560   0.004060  -1.123   0.2624    
+## CHRON        0.564103   0.057469   9.816  &lt; 2e-16 ***
+## PHYS         0.276471   0.059596   4.639 5.76e-06 ***
+## sex1:AGE     0.013081   0.005111   2.559   0.0111 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1.00009)
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<pre class="r"><code>print(&quot;Odds ratio estimates and 95% confidence intervals for the final logistic ANCOVA model:&quot;)</code></pre>
+<pre><code>## [1] &quot;Odds ratio estimates and 95% confidence intervals for the final logistic ANCOVA model:&quot;</code></pre>
+<pre class="r"><code>exp(cbind(coefficients(fit.ancova), confint(fit.ancova)))</code></pre>
+<pre><code>##                           2.5 %    97.5 %
+## (Intercept) 1.2170647 0.8942882 1.6563412
+## sex1        0.3706225 0.2487996 0.5520953
+## AGE         0.9954501 0.9875610 1.0034022
+## CHRON       1.7578697 1.5706133 1.9674517
+## PHYS        1.3184692 1.1731185 1.4818289
+## sex1:AGE    1.0131668 1.0030681 1.0233671</code></pre>
+<p>Please compare the results with the logit ANOVA exercise (KEY 277). What conclusions can be drawn?</p>
+</div>
+<div id="b-interactive-sas-use" class="section level3">
+<h3>B) INTERACTIVE SAS USE</h3>
 <p>Please first download the reduced version of the OHC data set (only relevant variables are included) and save it to the disk.</p>
 <p>Then download the enclosed SAS code for your own further training of model fitting by logistic ANCOVA.</p>
 <p>NOTE! You need to have access to SAS and SUDAAN in your computer.</p>
@@ -456,24 +549,52 @@ div.tocify {
 <p><a href="Keys/key288/Key288_9.sas" target="_blank">Download SAS code</a></p>
 </div>
 </div>
-</div>
 <div id="training-key-293-linear-ancova" class="section level1">
 <h1>TRAINING KEY 293: Linear ANCOVA</h1>
 <div id="introduction-2" class="section level3">
 <h3>INTRODUCTION</h3>
 <p>Example 8.4. In this Training Key we concentrate on performing <a href="concepts/concepts.html">design-based</a> linear <a href="concepts/concepts.html">ANCOVA</a> (Analysis of Covariance) modelling with the weighted least squares <a href="concepts/concepts.html">WLS method</a>. We fit a linear ANCOVA model by entering in the model some of the predictors as continuous measurements and some as discrete variables. The data we are using are again from the <a href="concepts/concepts.html">OHC survey</a>.</p>
-<div id="a-linear-ancova" class="section level4">
-<h4>A) LINEAR ANCOVA</h4>
-<p>In this part we will study how to perform design-based linear ANCOVA modelling with the PML method for a continuous response in the case of three continuous predictors, one discrete predictor and one continuous interaction term. Instructions will be given once you start.</p>
-<p><a href="Keys/key293/key293_9.htm" target="_blank">SAS / SURVEYREG</a></p>
 </div>
-<div id="b-interactive-sas-use-1" class="section level4">
-<h4>B) INTERACTIVE SAS USE</h4>
+<div id="a-linear-ancova" class="section level3">
+<h3>A) LINEAR ANCOVA</h3>
+<p>In this part we will study how to perform design-based linear ANCOVA modelling with the PML method for a continuous response in the case of three continuous predictors, one discrete predictor and one continuous interaction term. Instructions will be given once you start.</p>
+<p><a href="Keys/key293/key293_9.htm" target="_blank">Start SAS Training Key</a></p>
+<p>A linear ANCOVA model is fitted on the original continuous variable PSYCH, whose values are scores of the first standardized principal component of nine psychic symptoms. Thus, the average of PSYCH is zero and the variance is one. We include one qualitative variable (SEX) and three continuous predictors (AGE, PHYS and CHRON), and also the pair-wise interaction of SEX and AGE. Thus, the fitted model is:</p>
+<p>PSYCH = Intercept + SEX + AGE + PHYS + CHRON + SEX*AGE.</p>
+<pre class="r"><code>fit.lin.ancova &lt;- svyglm(PSYCH ~ sex * AGE + CHRON + PHYS, family=gaussian(), deff=TRUE, ohc.design)
+print(&quot;Results for Linear ANCOVA:&quot;)</code></pre>
+<pre><code>## [1] &quot;Results for Linear ANCOVA:&quot;</code></pre>
+<pre class="r"><code>summary(fit.lin.ancova)</code></pre>
+<pre><code>## 
+## Call:
+## svyglm(formula = PSYCH ~ sex * AGE + CHRON + PHYS, design = ohc.design, 
+##     family = gaussian(), deff = TRUE)
+## 
+## Survey design:
+## svydesign(ids = ~CLUSTER, data = ohc, strata = ~STRATUM, nest = TRUE)
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -1.208e-02  8.315e-02  -0.145   0.8846    
+## sex1        -4.975e-01  9.968e-02  -4.991 1.16e-06 ***
+## AGE         -5.224e-05  2.122e-03  -0.025   0.9804    
+## CHRON        3.922e-01  2.941e-02  13.334  &lt; 2e-16 ***
+## PHYS         1.772e-01  2.899e-02   6.114 3.92e-09 ***
+## sex1:AGE     5.712e-03  2.536e-03   2.252   0.0252 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for gaussian family taken to be 0.9419035)
+## 
+## Number of Fisher Scoring iterations: 2</code></pre>
+<p>NOTE! The signs of model coefficients and the t-test results follow a similar pattern to those in corresponding logistic ANCOVA model in TRAINING KEY 288. However, model coefficients have different interpretations from those in the logistic model. In a logit ANCOVA we were working on a logit scale on the binary response whereas we are now dealing with continuous measurements. Therefore the results of the linear ANCOVA model can be interpreted in the usual linear regression context.</p>
+</div>
+<div id="b-interactive-sas-use-1" class="section level3">
+<h3>B) INTERACTIVE SAS USE</h3>
 <p>Please first download the reduced version of the OHC data set (only relevant variables are included) and save it to the disk.</p>
 <p>Then download the enclosed SAS code for your own further training of a linear ANCOVA model fitting. NOTE! You need to have access to SAS and SUDAAN in your computer.</p>
 <p><a href="Datat/ohc.sas7bdat" target="_blank">Download OHC data</a></p>
 <p><a href="Keys/key293/linearancova_9.sas" target="_blank">Download SAS code</a></p>
-</div>
 </div>
 </div>
 <div id="training-key-298-alternative-multivariate-analyses-for-the-ohc-survey-design" class="section level1">
@@ -481,23 +602,218 @@ div.tocify {
 <div id="introduction-3" class="section level3">
 <h3>INTRODUCTION</h3>
 <p>In this Training Key, accounting for the sampling design complexities is studied for multivariate survey analysis. The main concern is in the clustering effects. <a href="concepts/concepts.html">Design-based</a> and model-based analysis options are compared empirically, using the appropriate SUDAAN and SAS analysis procedures, and R functions. We use the <a href="concepts/concepts.html">OHC Survey data set</a> in our analyses.</p>
-<div id="a-accounting-for-clustering-effects-for-a-continous-study-variable" class="section level4">
-<h4>A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE</h4>
-<p>For a continuous study variable, modeling takes place under a fixed-effects linear model and under a mixed linear model. For a fixed-effects linear model, <a href="concepts/concepts.html">GEE estimation</a> (generalized estimating equations) is used with the SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. For a mixed linear model, REML estimation is used with the SAS procedure MIXED and the R function lme. Further instructions will be given once you start.</p>
-<p><a href="Keys/key298/key298a.htm" target="_blank">Start</a></p>
 </div>
-<div id="b-accounting-for-clustering-effects-for-a-binary-study-variable" class="section level4">
-<h4>B) ACCOUNTING FOR CLUSTERING EFFECTS FOR A BINARY STUDY VARIABLE</h4>
+<div id="a-accounting-for-clustering-effects-for-a-continous-study-variable" class="section level3">
+<h3>A) ACCOUNTING FOR CLUSTERING EFFECTS FOR A CONTINOUS STUDY VARIABLE</h3>
+<p>For a continuous study variable, modeling takes place under a fixed-effects linear model and under a mixed linear model.</p>
+<!-- For a fixed-effects linear model, [GEE estimation](concepts/concepts.html) (generalized estimating equations) is used with the SUDAAN procedure REGRESS, the SAS procedure GENMOD and the R function gee. For a mixed linear model, REML estimation is used with the SAS procedure MIXED and the R function lme.  -->
+<p><a href="Keys/key298/key298a.htm" target="_blank">Start SAS Training Key</a></p>
+<p>The continuous variable PSYCH is the first principal component of nine psychic symptoms (explaining 42 % of the total variation of the symptoms). The variable PSYCH is standardized for mean zero and variance one. Psychic strain increases with increasing the value of PSYCH. The overall design effect of PSYCH is about 2 indicating substantial clustering effect.</p>
+<p>Our main explanatory variable is CHRON (Chronic morbidity). Age and sex are used as additional predictors in the models; we calculate sex-age adjusted figures.</p>
+<ul>
+<li>Inferential approach: Model-based</li>
+<li>Accounting for clustering: RANDOM statement.</li>
+<li>Model formulation and estimation method: Mixed model</li>
+<li>Estimation: REML (Restricted maximum likelihood)</li>
+</ul>
+<pre class="r"><code>library(nlme)
+# PSYCH = Intercept + AGE + SEX + CHRON
+# For R functions, the variable CLUSTER is transformed to a new variable SUBJECT having values 1,2,...,250.
+print(&quot;Results for Linear mixed-effects model:&quot;)</code></pre>
+<pre><code>## [1] &quot;Results for Linear mixed-effects model:&quot;</code></pre>
+<pre class="r"><code>summary(lme(PSYCH ~ AGE + SEX + CHRON,  random = ∼1|SUBJECT,  data = ohc))</code></pre>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: ohc 
+##        AIC      BIC    logLik
+##   21842.84 21884.64 -10915.42
+## 
+## Random effects:
+##  Formula: ~1 | SUBJECT
+##         (Intercept)  Residual
+## StdDev:   0.1462131 0.9638634
+## 
+## Fixed effects: PSYCH ~ AGE + SEX + CHRON 
+##                  Value  Std.Error   DF   t-value p-value
+## (Intercept) -0.5395868 0.05415573 7588 -9.963614  0.0000
+## AGE          0.0025240 0.00109003 7588  2.315554  0.0206
+## SEX          0.2319722 0.02392106 7588  9.697405  0.0000
+## CHRON        0.3967436 0.02516863 7588 15.763412  0.0000
+##  Correlation: 
+##       (Intr) AGE    SEX   
+## AGE   -0.714              
+## SEX   -0.627 -0.007       
+## CHRON  0.069 -0.275  0.003
+## 
+## Standardized Within-Group Residuals:
+##        Min         Q1        Med         Q3        Max 
+## -1.6533735 -0.7564286 -0.2508930  0.5381757  4.9672219 
+## 
+## Number of Observations: 7841
+## Number of Groups: 250</code></pre>
+<ul>
+<li>Inferential approach: Model-based</li>
+<li>Accounting for clustering: ID and CORSTR statements</li>
+<li>Model formulation and estimation method: Fixed-effects model</li>
+<li>Estimation: GEE (Generalized estimation equations)</li>
+<li>Exchangeable correlation structure,</li>
+</ul>
+<pre class="r"><code>library(gee)  
+# PSYCH = Intercept + AGE + SEX + CHRON
+results.gee &lt;- gee(PSYCH ~ AGE + SEX + CHRON, id = SUBJECT, data = ohc, 
+            family = gaussian, corstr = &#39;exchangeable&#39;)</code></pre>
+<pre class="r"><code>print(&quot;Results:&quot;)</code></pre>
+<p>[1] “Results:”</p>
+<pre class="r"><code>library(stargazer)
+stargazer(results.gee, type=&#39;html&#39;)</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+PSYCH
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AGE
+</td>
+<td>
+0.003<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+SEX
+</td>
+<td>
+0.233<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.027)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+CHRON
+</td>
+<td>
+0.397<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.029)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.542<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.059)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+7,841
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="b-accounting-for-clustering-effects-for-a-binary-study-variable" class="section level3">
+<h3>B) ACCOUNTING FOR CLUSTERING EFFECTS FOR A BINARY STUDY VARIABLE</h3>
 <p>For a binary study variable, modeling takes place under a fixed-effects logistic model and under a mixed logistic model. For a fixed-effects logistic model, GEE estimation is used with the SUDAAN procedure LOGISTIC (RLOGIST), the SAS procedure GENMOD and the R function gee. For a mixed logistic model, REML estimation is used with the SAS macro GLIMMIX and the R function glmmPQL. Further instructions will be given once you start.</p>
-<p><a href="Keys/key298/key298b.htm" target="_blank">Start</a></p>
+<p><a href="Keys/key298/key298b.htm" target="_blank">Start SAS Training Key</a></p>
 </div>
-<div id="c-interactive-sas-use-1" class="section level4">
-<h4>C) INTERACTIVE SAS USE</h4>
+<div id="c-interactive-sas-use-1" class="section level3">
+<h3>C) INTERACTIVE SAS USE</h3>
 <p>Please download the SAS code for your own further training (NOTE! you need to have access to SUDAAN (a SAS callable version)).</p>
 <p>Further instructions are given in the code once you download.</p>
 <p><a href="Keys/key298/key298.sas" target="_blank">Download SAS code</a></p>
-<p><a href="Keys/key298/GLIMMIX.sas" target="_blank">Download SAS macro GLIMMIX</a></p>
-</div>
 </div>
 </div>
 <div id="further-reading" class="section level1">
@@ -582,7 +898,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

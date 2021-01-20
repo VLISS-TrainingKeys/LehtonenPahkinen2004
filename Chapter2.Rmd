@@ -97,6 +97,46 @@ library(knitr)
 kable(province91, caption = "THE PROVINCE91 POPULATION")
 ```
 
+Use dropdown in scatter plot below to toggle between variables. 
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(plotly)
+plot_ly(province91, y = ~UE91, 
+        # Hover text:
+        text = ~paste("Id: ", Id, '<br>Municipality:', Municipality)) %>%
+  add_markers(x = ~LAB91, name = "LAB91") %>%
+  add_markers(x = ~HOU85, name = "HOU85", visible = FALSE) %>%
+  add_markers(x = ~POP91, name = "POP91", visible = FALSE) %>%
+  layout(
+    title = "Scatter plot: Unemployed in 1991 (UE91) vs. other variables",
+    yaxis = list(domain = c(0.1, 1)),
+    xaxis = list(title = "LAB91"),
+    showlegend = FALSE,
+    updatemenus = list(
+      list(
+        x = 0.2,
+        buttons = list(
+          list(method = "update",
+               args = list(list(visible = list(TRUE, FALSE, FALSE)),
+                           list(xaxis = list(title = "LAB91"))),
+               label = "LAB91"),
+          
+          list(method = "update",
+               args = list(list(visible =  list(FALSE, TRUE, FALSE)),
+                           list(xaxis = list(title = "HOU85"))),
+               label = "HOU85"),
+          
+          list(method = "update",
+               args = list(list(visible =  list(FALSE, FALSE, TRUE)),
+                           list(xaxis = list(title = "POP91"))),
+               label = "POP91")))
+    )
+  )
+```
+
+
+
 # TRAINING KEY 28: Analysing an SRS sample
 
 ### INTRODUCTION

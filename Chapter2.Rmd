@@ -149,7 +149,7 @@ We calculate the SRSWOR (simple random sampling without replacement) total estim
 
 <a href="Keys/key28/key28a_9.htm" target="_blank">Start SAS Training Key</a>
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Create a sample including Jyväskylä, Keuruu, Saarijärvi, Konginkangas, Kuhmoinen, Pihtipudas, Toivakka and Uurainen
 Sample <- province91[c(1,4,5,15,18,26,30,31), ]
 paste("SRSWOR sample is")

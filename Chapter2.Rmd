@@ -39,7 +39,7 @@ install.packages("tidyverse")
 library(tidyverse)
 province91 <- tribble(
   ~Stratum,	~Cluster, ~Id, ~Municipality, ~POP91, ~LAB91, ~UE91, ~HOU85, ~URB85,
-  #--|--|----
+  #-------|---------|----|--------------|-------|-------|------|-------|-------
   1, 1,	1, "Jyväskylä", 67200, 33786, 4123, 26881, 1,
   1, 2,	2, "Jämsä",	12907, 6016, 666, 4663, 1,
   1, 2, 3, "Jämsänkoski", 8118,	3818,	528, 3019, 1,
@@ -149,7 +149,7 @@ We calculate the SRSWOR (simple random sampling without replacement) total estim
 
 <a href="Keys/key28/key28a_9.htm" target="_blank">Start SAS Training Key</a>
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE}
 # Create a sample including Jyväskylä, Keuruu, Saarijärvi, Konginkangas, Kuhmoinen, Pihtipudas, Toivakka and Uurainen
 Sample <- province91[c(1,4,5,15,18,26,30,31), ]
 paste("SRSWOR sample is")
@@ -185,6 +185,17 @@ In this exercise we examine SRSWOR estimation of the total of UE91 (number of un
 
 <a href="Keys/key28/key28b_9.htm" target="_blank">Start SAS Training Key</a>
 
+<!-- NOTE: testing... content below tabbed region
+-->
+## Different sample sizes (n=4,8,16 or 32) of SRSWOR sample {.tabset .tabset-fade}
+
+Select the desired sample size from the tab below and view the results.
+
+### n=4 
+SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes
+
+Province91 Population, Sample size = 4
+
 ```{r, message=FALSE}
 # load packages
 library(sampling)
@@ -218,10 +229,128 @@ srs <- function(n, seed){
 # Function srs(n, seed)
 # Give sample size (n) and select your own seed number (seed). Call function srs().
 srs(4,123)
+```
+
+### n=8
+SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes
+
+Province91 Population, Sample size = 8
+
+```{r, message=FALSE}
+# load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs <- function(n, seed){
+  print("Sample size is")
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince <- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata <- getdata(province91, sampleprovince)
+  print("Selected sample is")
+  print(srs_sampledata)
+  srs_sampledata$fpc <- 32
+  srs_sampledata$weights <- (1/(n/32))
+  # define design object
+  province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print("Estimate for the total of UE91 is")
+  print(svytotal(~UE91, province91.srs.design))
+  print("Estimate for the total of LAB91 is")
+  print(svytotal(~LAB91, province91.srs.design))
+  print("Estimate for the ratio of UE91/LAB91 and confidence interval is")
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
 srs(8,123)
+```
+
+### n=16
+SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes
+
+Province91 Population, Sample size = 16
+
+```{r, message=FALSE}
+# load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs <- function(n, seed){
+  print("Sample size is")
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince <- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata <- getdata(province91, sampleprovince)
+  print("Selected sample is")
+  print(srs_sampledata)
+  srs_sampledata$fpc <- 32
+  srs_sampledata$weights <- (1/(n/32))
+  # define design object
+  province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print("Estimate for the total of UE91 is")
+  print(svytotal(~UE91, province91.srs.design))
+  print("Estimate for the total of LAB91 is")
+  print(svytotal(~LAB91, province91.srs.design))
+  print("Estimate for the ratio of UE91/LAB91 and confidence interval is")
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
 srs(16,123)
+```
+
+### n=32
+SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes
+
+Province91 Population, Sample size = 16
+
+```{r, message=FALSE}
+# load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs <- function(n, seed){
+  print("Sample size is")
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince <- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata <- getdata(province91, sampleprovince)
+  print("Selected sample is")
+  print(srs_sampledata)
+  srs_sampledata$fpc <- 32
+  srs_sampledata$weights <- (1/(n/32))
+  # define design object
+  province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print("Estimate for the total of UE91 is")
+  print(svytotal(~UE91, province91.srs.design))
+  print("Estimate for the total of LAB91 is")
+  print(svytotal(~LAB91, province91.srs.design))
+  print("Estimate for the ratio of UE91/LAB91 and confidence interval is")
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
 srs(32,123)
 ```
+##
 
 
 
@@ -231,6 +360,186 @@ srs(32,123)
 Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator. 
 
 <a href="Keys/key28/key28c.htm" target="_blank">Start SAS Training Key</a>
+
+## Simulation Experiments for SRSWOR estimator for the total of UE91 {.tabset .tabset-fade}
+
+Select the desired sample size from the tab below and view the simulation results.
+
+### n=4 
+Sample size 4, Simulations 1000
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+library(sampling)
+library(survey)
+library(ggplot2)
+#####
+
+simu <- function(n, seed){
+  a <- 1000
+  srs_est <- c(0,0)
+
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    srs_sampledata <- getdata(province91, srswor(n,32))
+    #str(srs_sampledata)
+    srs_sampledata$fpc <- 32
+    srs_sampledata$weights <- (1/(n/32))
+    province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+    srs_est[i] <- svytotal(~UE91, province91.srs.design)
+    #srs_est[[i]] <- svytotal(~UE91, province91.srs.design)
+  }
+  #srs_est
+  #str(srs_est)
+  total <- srs_est[1:a]
+  return(total)
+}
+tot_UE91 <- simu(4,1234)
+temp <- as.data.frame(tot_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Bias <- abs(Population_Total-Mean_of_Estimates)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
+
+# plot results
+ggplot(data=temp, aes(tot_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency") +   xlim(2500,55000) 
+```
+
+### n=8
+Sample size 8, Simulations 1000
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+library(sampling)
+library(survey)
+library(ggplot2)
+#####
+
+simu <- function(n, seed){
+  a <- 1000
+  srs_est <- c(0,0)
+
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    srs_sampledata <- getdata(province91, srswor(n,32))
+    #str(srs_sampledata)
+    srs_sampledata$fpc <- 32
+    srs_sampledata$weights <- (1/(n/32))
+    province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+    srs_est[i] <- svytotal(~UE91, province91.srs.design)
+    #srs_est[[i]] <- svytotal(~UE91, province91.srs.design)
+  }
+  #srs_est
+  #str(srs_est)
+  total <- srs_est[1:a]
+  return(total)
+}
+tot_UE91 <- simu(8,1234)
+temp <- as.data.frame(tot_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Bias <- abs(Population_Total-Mean_of_Estimates)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
+
+# plot results
+ggplot(data=temp, aes(tot_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency")  +   xlim(2500,55000) 
+```
+
+### n=16
+Sample size 16, Simulations 1000
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+library(sampling)
+library(survey)
+library(ggplot2)
+#####
+
+simu <- function(n, seed){
+  a <- 1000
+  srs_est <- c(0,0)
+
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    srs_sampledata <- getdata(province91, srswor(n,32))
+    #str(srs_sampledata)
+    srs_sampledata$fpc <- 32
+    srs_sampledata$weights <- (1/(n/32))
+    province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+    srs_est[i] <- svytotal(~UE91, province91.srs.design)
+    #srs_est[[i]] <- svytotal(~UE91, province91.srs.design)
+  }
+  #srs_est
+  #str(srs_est)
+  total <- srs_est[1:a]
+  return(total)
+}
+tot_UE91 <- simu(16,1234)
+temp <- as.data.frame(tot_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Bias <- abs(Population_Total-Mean_of_Estimates)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
+
+# plot results
+ggplot(data=temp, aes(tot_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency")  +   xlim(2500,55000) 
+```
+
+### n=24
+Sample size 24, Simulations 1000
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+library(sampling)
+library(survey)
+library(ggplot2)
+#####
+
+simu <- function(n, seed){
+  a <- 1000
+  srs_est <- c(0,0)
+
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    srs_sampledata <- getdata(province91, srswor(n,32))
+    #str(srs_sampledata)
+    srs_sampledata$fpc <- 32
+    srs_sampledata$weights <- (1/(n/32))
+    province91.srs.design <- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+    srs_est[i] <- svytotal(~UE91, province91.srs.design)
+    #srs_est[[i]] <- svytotal(~UE91, province91.srs.design)
+  }
+  #srs_est
+  #str(srs_est)
+  total <- srs_est[1:a]
+  return(total)
+}
+tot_UE91 <- simu(24,1234)
+temp <- as.data.frame(tot_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Bias <- abs(Population_Total-Mean_of_Estimates)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
+
+# plot results
+ggplot(data=temp, aes(tot_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency")  +   xlim(2500,55000) 
+```
+
+##
+
+
 
 
 # TRAINING KEY 45: Intra-class correlation for systematic sampling
@@ -444,7 +753,7 @@ Sample.pps <- filter(province91, Id %in% c(1,4,7,10,13,18,26,32))
 
 # Add indicator variable for Jyväskylä
 Sample.pps$Jystrat <- 1
-Sample.pps$Jystrat[Sample$Id %in% c(4,7,10,13,18,26,32)] <- 2
+Sample.pps$Jystrat[Sample.pps$Id %in% c(4,7,10,13,18,26,32)] <- 2
 # NOTE: In each strata we need at least two observations. Because Jyväskylä is sampled with certainty, Jyväskylä is entered 
 # twice in our sample data file and the weight for Jyväskylä is 0.5 per observation line.  
 jyv <- Sample.pps[1,]

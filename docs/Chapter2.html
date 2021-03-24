@@ -13,6 +13,7 @@
 
 <title>Chapter 2: Basic Sampling Techniques</title>
 
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -429,7 +430,7 @@ div.tocify {
 library(tidyverse)
 province91 &lt;- tribble(
   ~Stratum, ~Cluster, ~Id, ~Municipality, ~POP91, ~LAB91, ~UE91, ~HOU85, ~URB85,
-  #--|--|----
+  #-------|---------|----|--------------|-------|-------|------|-------|-------
   1, 1, 1, &quot;Jyväskylä&quot;, 67200, 33786, 4123, 26881, 1,
   1, 2, 2, &quot;Jämsä&quot;, 12907, 6016, 666, 4663, 1,
   1, 2, 3, &quot;Jämsänkoski&quot;, 8118, 3818,   528, 3019, 1,
@@ -850,8 +851,8 @@ load(file=&quot;province91.RData&quot;)</code></pre>
 </tbody>
 </table>
 <p>Use dropdown in scatter plot below to toggle between variables.</p>
-<div id="htmlwidget-fd9b730e274e9d9923b4" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fd9b730e274e9d9923b4">{"x":{"visdat":{"2f3078f839fc":["function () ","plotlyVisDat"]},"cur_data":"2f3078f839fc","attrs":{"2f3078f839fc":{"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"scatter","mode":"markers","name":"LAB91","inherit":true},"2f3078f839fc.1":{"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"scatter","mode":"markers","name":"HOU85","visible":false,"inherit":true},"2f3078f839fc.2":{"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"scatter","mode":"markers","name":"POP91","visible":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Scatter plot: Unemployed in 1991 (UE91) vs. other variables","yaxis":{"domain":[0.1,1],"automargin":true,"title":"UE91"},"xaxis":{"domain":[0,1],"automargin":true,"title":"LAB91"},"showlegend":false,"updatemenus":[{"x":0.2,"buttons":[{"method":"update","args":[{"visible":[true,false,false]},{"xaxis":{"title":"LAB91"}}],"label":"LAB91"},{"method":"update","args":[{"visible":[false,true,false]},{"xaxis":{"title":"HOU85"}}],"label":"HOU85"},{"method":"update","args":[{"visible":[false,false,true]},{"xaxis":{"title":"POP91"}}],"label":"POP91"}]}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"y":[4123,666,528,760,721,457,767,391,194,1623,153,341,129,128,142,201,239,187,94,874,61,54,119,296,262,331,98,79,166,127,219,568],"text":["Id:  1 <br>Municipality: Jyväskylä","Id:  2 <br>Municipality: Jämsä","Id:  3 <br>Municipality: Jämsänkoski","Id:  4 <br>Municipality: Keuruu","Id:  5 <br>Municipality: Saarijärvi","Id:  6 <br>Municipality: Suolahti","Id:  7 <br>Municipality: Äänekoski","Id:  8 <br>Municipality: Hankasalmi","Id:  9 <br>Municipality: Joutsa","Id:  10 <br>Municipality: Jyväskmlk","Id:  11 <br>Municipality: Kannonkoski","Id:  12 <br>Municipality: Karstula","Id:  13 <br>Municipality: Kinnula","Id:  14 <br>Municipality: Kivijärvi","Id:  15 <br>Municipality: Konginkangas","Id:  16 <br>Municipality: Konnevesi","Id:  17 <br>Municipality: Korpilahti","Id:  18 <br>Municipality: Kuhmoinen","Id:  19 <br>Municipality: Kyyjärvi","Id:  20 <br>Municipality: Laukaa","Id:  21 <br>Municipality: Leivonmäki","Id:  22 <br>Municipality: Luhanka","Id:  23 <br>Municipality: Multia","Id:  24 <br>Municipality: Muurame","Id:  25 <br>Municipality: Petäjävesi","Id:  26 <br>Municipality: Pihtipudas","Id:  27 <br>Municipality: Pylkönmäki","Id:  28 <br>Municipality: Sumiainen","Id:  29 <br>Municipality: Säynätsalo","Id:  30 <br>Municipality: Toivakka","Id:  31 <br>Municipality: Uurainen","Id:  32 <br>Municipality: Viitasaari"],"x":[33786,6016,3818,5919,4930,3022,5823,2594,2069,13727,821,2521,927,819,675,1557,2144,1448,831,7218,573,522,1059,3024,1737,2543,545,617,1615,1084,1330,4011],"type":"scatter","mode":"markers","name":"LAB91","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":[4123,666,528,760,721,457,767,391,194,1623,153,341,129,128,142,201,239,187,94,874,61,54,119,296,262,331,98,79,166,127,219,568],"text":["Id:  1 <br>Municipality: Jyväskylä","Id:  2 <br>Municipality: Jämsä","Id:  3 <br>Municipality: Jämsänkoski","Id:  4 <br>Municipality: Keuruu","Id:  5 <br>Municipality: Saarijärvi","Id:  6 <br>Municipality: Suolahti","Id:  7 <br>Municipality: Äänekoski","Id:  8 <br>Municipality: Hankasalmi","Id:  9 <br>Municipality: Joutsa","Id:  10 <br>Municipality: Jyväskmlk","Id:  11 <br>Municipality: Kannonkoski","Id:  12 <br>Municipality: Karstula","Id:  13 <br>Municipality: Kinnula","Id:  14 <br>Municipality: Kivijärvi","Id:  15 <br>Municipality: Konginkangas","Id:  16 <br>Municipality: Konnevesi","Id:  17 <br>Municipality: Korpilahti","Id:  18 <br>Municipality: Kuhmoinen","Id:  19 <br>Municipality: Kyyjärvi","Id:  20 <br>Municipality: Laukaa","Id:  21 <br>Municipality: Leivonmäki","Id:  22 <br>Municipality: Luhanka","Id:  23 <br>Municipality: Multia","Id:  24 <br>Municipality: Muurame","Id:  25 <br>Municipality: Petäjävesi","Id:  26 <br>Municipality: Pihtipudas","Id:  27 <br>Municipality: Pylkönmäki","Id:  28 <br>Municipality: Sumiainen","Id:  29 <br>Municipality: Säynätsalo","Id:  30 <br>Municipality: Toivakka","Id:  31 <br>Municipality: Uurainen","Id:  32 <br>Municipality: Viitasaari"],"x":[26881,4663,3019,4896,3730,2389,4264,2179,1823,9230,726,1868,675,634,556,1215,1793,1463,672,4952,545,435,925,1853,1352,1946,473,485,1226,834,932,3119],"type":"scatter","mode":"markers","name":"HOU85","visible":false,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":[4123,666,528,760,721,457,767,391,194,1623,153,341,129,128,142,201,239,187,94,874,61,54,119,296,262,331,98,79,166,127,219,568],"text":["Id:  1 <br>Municipality: Jyväskylä","Id:  2 <br>Municipality: Jämsä","Id:  3 <br>Municipality: Jämsänkoski","Id:  4 <br>Municipality: Keuruu","Id:  5 <br>Municipality: Saarijärvi","Id:  6 <br>Municipality: Suolahti","Id:  7 <br>Municipality: Äänekoski","Id:  8 <br>Municipality: Hankasalmi","Id:  9 <br>Municipality: Joutsa","Id:  10 <br>Municipality: Jyväskmlk","Id:  11 <br>Municipality: Kannonkoski","Id:  12 <br>Municipality: Karstula","Id:  13 <br>Municipality: Kinnula","Id:  14 <br>Municipality: Kivijärvi","Id:  15 <br>Municipality: Konginkangas","Id:  16 <br>Municipality: Konnevesi","Id:  17 <br>Municipality: Korpilahti","Id:  18 <br>Municipality: Kuhmoinen","Id:  19 <br>Municipality: Kyyjärvi","Id:  20 <br>Municipality: Laukaa","Id:  21 <br>Municipality: Leivonmäki","Id:  22 <br>Municipality: Luhanka","Id:  23 <br>Municipality: Multia","Id:  24 <br>Municipality: Muurame","Id:  25 <br>Municipality: Petäjävesi","Id:  26 <br>Municipality: Pihtipudas","Id:  27 <br>Municipality: Pylkönmäki","Id:  28 <br>Municipality: Sumiainen","Id:  29 <br>Municipality: Säynätsalo","Id:  30 <br>Municipality: Toivakka","Id:  31 <br>Municipality: Uurainen","Id:  32 <br>Municipality: Viitasaari"],"x":[67200,12907,8118,12707,10774,6159,11595,6080,4594,29349,1919,5594,2324,1972,1636,3453,5181,3357,1977,16042,1370,1153,2375,6830,3800,5654,1266,1426,3628,2499,3004,8641],"type":"scatter","mode":"markers","name":"POP91","visible":false,"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-90365f5b74d9d6a3afb3" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-90365f5b74d9d6a3afb3">{"x":{"visdat":{"3e2c1f382fd0":["function () ","plotlyVisDat"]},"cur_data":"3e2c1f382fd0","attrs":{"3e2c1f382fd0":{"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"scatter","mode":"markers","name":"LAB91","inherit":true},"3e2c1f382fd0.1":{"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"scatter","mode":"markers","name":"HOU85","visible":false,"inherit":true},"3e2c1f382fd0.2":{"y":{},"text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"scatter","mode":"markers","name":"POP91","visible":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Scatter plot: Unemployed in 1991 (UE91) vs. other variables","yaxis":{"domain":[0.1,1],"automargin":true,"title":"UE91"},"xaxis":{"domain":[0,1],"automargin":true,"title":"LAB91"},"showlegend":false,"updatemenus":[{"x":0.2,"buttons":[{"method":"update","args":[{"visible":[true,false,false]},{"xaxis":{"title":"LAB91"}}],"label":"LAB91"},{"method":"update","args":[{"visible":[false,true,false]},{"xaxis":{"title":"HOU85"}}],"label":"HOU85"},{"method":"update","args":[{"visible":[false,false,true]},{"xaxis":{"title":"POP91"}}],"label":"POP91"}]}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"y":[4123,666,528,760,721,457,767,391,194,1623,153,341,129,128,142,201,239,187,94,874,61,54,119,296,262,331,98,79,166,127,219,568],"text":["Id:  1 <br>Municipality: Jyväskylä","Id:  2 <br>Municipality: Jämsä","Id:  3 <br>Municipality: Jämsänkoski","Id:  4 <br>Municipality: Keuruu","Id:  5 <br>Municipality: Saarijärvi","Id:  6 <br>Municipality: Suolahti","Id:  7 <br>Municipality: Äänekoski","Id:  8 <br>Municipality: Hankasalmi","Id:  9 <br>Municipality: Joutsa","Id:  10 <br>Municipality: Jyväskmlk","Id:  11 <br>Municipality: Kannonkoski","Id:  12 <br>Municipality: Karstula","Id:  13 <br>Municipality: Kinnula","Id:  14 <br>Municipality: Kivijärvi","Id:  15 <br>Municipality: Konginkangas","Id:  16 <br>Municipality: Konnevesi","Id:  17 <br>Municipality: Korpilahti","Id:  18 <br>Municipality: Kuhmoinen","Id:  19 <br>Municipality: Kyyjärvi","Id:  20 <br>Municipality: Laukaa","Id:  21 <br>Municipality: Leivonmäki","Id:  22 <br>Municipality: Luhanka","Id:  23 <br>Municipality: Multia","Id:  24 <br>Municipality: Muurame","Id:  25 <br>Municipality: Petäjävesi","Id:  26 <br>Municipality: Pihtipudas","Id:  27 <br>Municipality: Pylkönmäki","Id:  28 <br>Municipality: Sumiainen","Id:  29 <br>Municipality: Säynätsalo","Id:  30 <br>Municipality: Toivakka","Id:  31 <br>Municipality: Uurainen","Id:  32 <br>Municipality: Viitasaari"],"x":[33786,6016,3818,5919,4930,3022,5823,2594,2069,13727,821,2521,927,819,675,1557,2144,1448,831,7218,573,522,1059,3024,1737,2543,545,617,1615,1084,1330,4011],"type":"scatter","mode":"markers","name":"LAB91","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":[4123,666,528,760,721,457,767,391,194,1623,153,341,129,128,142,201,239,187,94,874,61,54,119,296,262,331,98,79,166,127,219,568],"text":["Id:  1 <br>Municipality: Jyväskylä","Id:  2 <br>Municipality: Jämsä","Id:  3 <br>Municipality: Jämsänkoski","Id:  4 <br>Municipality: Keuruu","Id:  5 <br>Municipality: Saarijärvi","Id:  6 <br>Municipality: Suolahti","Id:  7 <br>Municipality: Äänekoski","Id:  8 <br>Municipality: Hankasalmi","Id:  9 <br>Municipality: Joutsa","Id:  10 <br>Municipality: Jyväskmlk","Id:  11 <br>Municipality: Kannonkoski","Id:  12 <br>Municipality: Karstula","Id:  13 <br>Municipality: Kinnula","Id:  14 <br>Municipality: Kivijärvi","Id:  15 <br>Municipality: Konginkangas","Id:  16 <br>Municipality: Konnevesi","Id:  17 <br>Municipality: Korpilahti","Id:  18 <br>Municipality: Kuhmoinen","Id:  19 <br>Municipality: Kyyjärvi","Id:  20 <br>Municipality: Laukaa","Id:  21 <br>Municipality: Leivonmäki","Id:  22 <br>Municipality: Luhanka","Id:  23 <br>Municipality: Multia","Id:  24 <br>Municipality: Muurame","Id:  25 <br>Municipality: Petäjävesi","Id:  26 <br>Municipality: Pihtipudas","Id:  27 <br>Municipality: Pylkönmäki","Id:  28 <br>Municipality: Sumiainen","Id:  29 <br>Municipality: Säynätsalo","Id:  30 <br>Municipality: Toivakka","Id:  31 <br>Municipality: Uurainen","Id:  32 <br>Municipality: Viitasaari"],"x":[26881,4663,3019,4896,3730,2389,4264,2179,1823,9230,726,1868,675,634,556,1215,1793,1463,672,4952,545,435,925,1853,1352,1946,473,485,1226,834,932,3119],"type":"scatter","mode":"markers","name":"HOU85","visible":false,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":[4123,666,528,760,721,457,767,391,194,1623,153,341,129,128,142,201,239,187,94,874,61,54,119,296,262,331,98,79,166,127,219,568],"text":["Id:  1 <br>Municipality: Jyväskylä","Id:  2 <br>Municipality: Jämsä","Id:  3 <br>Municipality: Jämsänkoski","Id:  4 <br>Municipality: Keuruu","Id:  5 <br>Municipality: Saarijärvi","Id:  6 <br>Municipality: Suolahti","Id:  7 <br>Municipality: Äänekoski","Id:  8 <br>Municipality: Hankasalmi","Id:  9 <br>Municipality: Joutsa","Id:  10 <br>Municipality: Jyväskmlk","Id:  11 <br>Municipality: Kannonkoski","Id:  12 <br>Municipality: Karstula","Id:  13 <br>Municipality: Kinnula","Id:  14 <br>Municipality: Kivijärvi","Id:  15 <br>Municipality: Konginkangas","Id:  16 <br>Municipality: Konnevesi","Id:  17 <br>Municipality: Korpilahti","Id:  18 <br>Municipality: Kuhmoinen","Id:  19 <br>Municipality: Kyyjärvi","Id:  20 <br>Municipality: Laukaa","Id:  21 <br>Municipality: Leivonmäki","Id:  22 <br>Municipality: Luhanka","Id:  23 <br>Municipality: Multia","Id:  24 <br>Municipality: Muurame","Id:  25 <br>Municipality: Petäjävesi","Id:  26 <br>Municipality: Pihtipudas","Id:  27 <br>Municipality: Pylkönmäki","Id:  28 <br>Municipality: Sumiainen","Id:  29 <br>Municipality: Säynätsalo","Id:  30 <br>Municipality: Toivakka","Id:  31 <br>Municipality: Uurainen","Id:  32 <br>Municipality: Viitasaari"],"x":[67200,12907,8118,12707,10774,6159,11595,6080,4594,29349,1919,5594,2324,1972,1636,3453,5181,3357,1977,16042,1370,1153,2375,6830,3800,5654,1266,1426,3628,2499,3004,8641],"type":"scatter","mode":"markers","name":"POP91","visible":false,"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="training-key-28-analysing-an-srs-sample" class="section level1">
 <h1>TRAINING KEY 28: Analysing an SRS sample</h1>
@@ -920,6 +921,16 @@ svytotal(~LAB91, province91.srs.design)</code></pre>
 <h3>B) SRS ESTIMATION WITH DIFFERENT SAMPLE SIZES</h3>
 <p>In this exercise we examine SRSWOR estimation of the total of UE91 (number of unemployed in the province) and LAB91 (size of labour force in the province) and of the ratio UE91/LAB91 by using different size SRSWOR samples. The purpose is to examine how sample size (<span class="math inline">\(n\)</span>) affects to the total estimate and to the ratio estimate and their corresponding standard errors. We use Province’91 data set as the frame population.</p>
 <p><a href="Keys/key28/key28b_9.htm" target="_blank">Start SAS Training Key</a></p>
+<!-- NOTE: testing... content below tabbed region
+-->
+</div>
+<div id="different-sample-sizes-n4816-or-32-of-srswor-sample" class="section level2 tabset tabset-fade">
+<h2 class="tabset tabset-fade">Different sample sizes (n=4,8,16 or 32) of SRSWOR sample</h2>
+<p>Select the desired sample size from the tab below and view the results.</p>
+<div id="n4" class="section level3">
+<h3>n=4</h3>
+<p>SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes</p>
+<p>Province91 Population, Sample size = 4</p>
 <pre class="r"><code># load packages
 library(sampling)
 library(survey)
@@ -976,7 +987,43 @@ srs(4,123)</code></pre>
 ## UE91 0.01540906
 ##                2.5 %    97.5 %
 ## UE91/LAB91 0.1293063 0.1897087</code></pre>
-<pre class="r"><code>srs(8,123)</code></pre>
+</div>
+<div id="n8" class="section level3">
+<h3>n=8</h3>
+<p>SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes</p>
+<p>Province91 Population, Sample size = 8</p>
+<pre class="r"><code># load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs &lt;- function(n, seed){
+  print(&quot;Sample size is&quot;)
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince &lt;- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata &lt;- getdata(province91, sampleprovince)
+  print(&quot;Selected sample is&quot;)
+  print(srs_sampledata)
+  srs_sampledata$fpc &lt;- 32
+  srs_sampledata$weights &lt;- (1/(n/32))
+  # define design object
+  province91.srs.design &lt;- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print(&quot;Estimate for the total of UE91 is&quot;)
+  print(svytotal(~UE91, province91.srs.design))
+  print(&quot;Estimate for the total of LAB91 is&quot;)
+  print(svytotal(~LAB91, province91.srs.design))
+  print(&quot;Estimate for the ratio of UE91/LAB91 and confidence interval is&quot;)
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
+srs(8,123)</code></pre>
 <pre><code>## [1] &quot;Sample size is&quot;
 ## [1] 8
 ## [1] &quot;Selected sample is&quot;
@@ -1005,7 +1052,43 @@ srs(4,123)</code></pre>
 ## UE91 0.006582346
 ##                2.5 % 97.5 %
 ## UE91/LAB91 0.1154976 0.1413</code></pre>
-<pre class="r"><code>srs(16,123)</code></pre>
+</div>
+<div id="n16" class="section level3">
+<h3>n=16</h3>
+<p>SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes</p>
+<p>Province91 Population, Sample size = 16</p>
+<pre class="r"><code># load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs &lt;- function(n, seed){
+  print(&quot;Sample size is&quot;)
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince &lt;- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata &lt;- getdata(province91, sampleprovince)
+  print(&quot;Selected sample is&quot;)
+  print(srs_sampledata)
+  srs_sampledata$fpc &lt;- 32
+  srs_sampledata$weights &lt;- (1/(n/32))
+  # define design object
+  province91.srs.design &lt;- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print(&quot;Estimate for the total of UE91 is&quot;)
+  print(svytotal(~UE91, province91.srs.design))
+  print(&quot;Estimate for the total of LAB91 is&quot;)
+  print(svytotal(~LAB91, province91.srs.design))
+  print(&quot;Estimate for the ratio of UE91/LAB91 and confidence interval is&quot;)
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
+srs(16,123)</code></pre>
 <pre><code>## [1] &quot;Sample size is&quot;
 ## [1] 16
 ## [1] &quot;Selected sample is&quot;
@@ -1042,7 +1125,43 @@ srs(4,123)</code></pre>
 ## UE91 0.003543583
 ##                2.5 %    97.5 %
 ## UE91/LAB91 0.1200537 0.1339443</code></pre>
-<pre class="r"><code>srs(32,123)</code></pre>
+</div>
+<div id="n32" class="section level3">
+<h3>n=32</h3>
+<p>SRSWOR estimation for the total of UE91 and LAB91 and for the ratio UE91/LAB91 with different sample sizes</p>
+<p>Province91 Population, Sample size = 16</p>
+<pre class="r"><code># load packages
+library(sampling)
+library(survey)
+
+# create function to select different size SRSWOR samples with user defined seed number
+srs &lt;- function(n, seed){
+  print(&quot;Sample size is&quot;)
+  print(n)
+  set.seed(seed)
+  # select a sample
+  sampleprovince &lt;- srswor(n,32)
+  # the sample is
+  (1:32)[sampleprovince==1]
+  # selected data
+  srs_sampledata &lt;- getdata(province91, sampleprovince)
+  print(&quot;Selected sample is&quot;)
+  print(srs_sampledata)
+  srs_sampledata$fpc &lt;- 32
+  srs_sampledata$weights &lt;- (1/(n/32))
+  # define design object
+  province91.srs.design &lt;- svydesign(ids = ~1, data = srs_sampledata, fpc = ~fpc, weights = ~weights)
+  print(&quot;Estimate for the total of UE91 is&quot;)
+  print(svytotal(~UE91, province91.srs.design))
+  print(&quot;Estimate for the total of LAB91 is&quot;)
+  print(svytotal(~LAB91, province91.srs.design))
+  print(&quot;Estimate for the ratio of UE91/LAB91 and confidence interval is&quot;)
+  print(svyratio(~UE91, ~LAB91, province91.srs.design))
+  print(confint(svyratio(~UE91, ~LAB91, province91.srs.design)))
+}
+# Function srs(n, seed)
+# Give sample size (n) and select your own seed number (seed). Call function srs().
+srs(32,123)</code></pre>
 <pre><code>## [1] &quot;Sample size is&quot;
 ## [1] 32
 ## [1] &quot;Selected sample is&quot;
@@ -1096,10 +1215,117 @@ srs(4,123)</code></pre>
 ##                2.5 %    97.5 %
 ## UE91/LAB91 0.1265284 0.1265284</code></pre>
 </div>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
 <div id="c-simulating-srswor-samples-by-using-monte-carlo-simulation-techniques" class="section level3">
 <h3>C) SIMULATING SRSWOR SAMPLES BY USING MONTE CARLO SIMULATION TECHNIQUES</h3>
 <p>Monte Carlo simulations are performed to examine the behavior of the SRSWOR estimator.</p>
 <p><a href="Keys/key28/key28c.htm" target="_blank">Start SAS Training Key</a></p>
+</div>
+</div>
+<div id="simulation-experiments-for-srswor-estimator-for-the-total-of-ue91" class="section level2 tabset tabset-fade">
+<h2 class="tabset tabset-fade">Simulation Experiments for SRSWOR estimator for the total of UE91</h2>
+<p>Select the desired sample size from the tab below and view the simulation results.</p>
+<div id="n4-1" class="section level3">
+<h3>n=4</h3>
+<p>Sample size 4, Simulations 1000</p>
+<table>
+<caption><strong>Simulation Experiments for SRSWOR estimator for the total of UE91.</strong></caption>
+<thead>
+<tr class="header">
+<th align="right">Population_Total</th>
+<th align="right">Mean_of_Estimates</th>
+<th align="right">Std_error</th>
+<th align="right">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">15098</td>
+<td align="right">15448.77</td>
+<td align="right">11228.39</td>
+<td align="right">350.768</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Chapter2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="n8-1" class="section level3">
+<h3>n=8</h3>
+<p>Sample size 8, Simulations 1000</p>
+<table>
+<caption><strong>Simulation Experiments for SRSWOR estimator for the total of UE91.</strong></caption>
+<thead>
+<tr class="header">
+<th align="right">Population_Total</th>
+<th align="right">Mean_of_Estimates</th>
+<th align="right">Std_error</th>
+<th align="right">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">15098</td>
+<td align="right">15232.58</td>
+<td align="right">7281.658</td>
+<td align="right">134.58</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Chapter2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="n16-1" class="section level3">
+<h3>n=16</h3>
+<p>Sample size 16, Simulations 1000</p>
+<table>
+<caption><strong>Simulation Experiments for SRSWOR estimator for the total of UE91.</strong></caption>
+<thead>
+<tr class="header">
+<th align="right">Population_Total</th>
+<th align="right">Mean_of_Estimates</th>
+<th align="right">Std_error</th>
+<th align="right">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">15098</td>
+<td align="right">15252.28</td>
+<td align="right">4265.515</td>
+<td align="right">154.276</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Chapter2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="n24" class="section level3">
+<h3>n=24</h3>
+<p>Sample size 24, Simulations 1000</p>
+<table>
+<caption><strong>Simulation Experiments for SRSWOR estimator for the total of UE91.</strong></caption>
+<thead>
+<tr class="header">
+<th align="right">Population_Total</th>
+<th align="right">Mean_of_Estimates</th>
+<th align="right">Std_error</th>
+<th align="right">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">15098</td>
+<td align="right">15247.58</td>
+<td align="right">2368.397</td>
+<td align="right">149.584</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Chapter2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+</div>
+<div id="section-1" class="section level2">
+<h2></h2>
 </div>
 </div>
 <div id="training-key-45-intra-class-correlation-for-systematic-sampling" class="section level1">
@@ -1383,7 +1609,7 @@ Sample.pps &lt;- filter(province91, Id %in% c(1,4,7,10,13,18,26,32))
 
 # Add indicator variable for Jyväskylä
 Sample.pps$Jystrat &lt;- 1
-Sample.pps$Jystrat[Sample$Id %in% c(4,7,10,13,18,26,32)] &lt;- 2
+Sample.pps$Jystrat[Sample.pps$Id %in% c(4,7,10,13,18,26,32)] &lt;- 2
 # NOTE: In each strata we need at least two observations. Because Jyväskylä is sampled with certainty, Jyväskylä is entered 
 # twice in our sample data file and the weight for Jyväskylä is 0.5 per observation line.  
 jyv &lt;- Sample.pps[1,]
@@ -1418,7 +1644,7 @@ paste(&quot;PPSSYS estimation for the total of UE91 and its&#39; se:&quot;)</cod
 <pre><code>## [1] &quot;PPSSYS estimation for the total of UE91 and its&#39; se:&quot;</code></pre>
 <pre class="r"><code>t.ue91.pps</code></pre>
 <pre><code>##      total     SE
-## UE91 15078 2536.4</code></pre>
+## UE91 15078 521.33</code></pre>
 </div>
 <div id="b-the-use-of-alternative-auxiliary-information-in-ppswor-sampling" class="section level3">
 <h3>B) THE USE OF ALTERNATIVE AUXILIARY INFORMATION IN PPSWOR SAMPLING</h3>

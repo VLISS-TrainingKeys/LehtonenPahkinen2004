@@ -792,6 +792,180 @@ We use three different auxiliary variables in [PPSWOR](concepts/concepts.html) s
 
 <a href="Keys/key54/key54b.htm" target="_blank">Start SAS Training Key</a> 
 
+## Simulation Experiments: the use of alternative auxiliary information in PPSWOR sampling {.tabset .tabset-fade}
+
+Select the desired size measure variable from the tab below and view the simulation results. Size variables that you can select are:
+
+1) HOU85 (number of households in a municipality)
+2) Z (artificially created variable for pedagogical purposes, N(500,150))
+3) X (artificially created variable for pedagogical purposes, UE91 + 3000)
+
+### HOU85
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+load("province91.Rdata")
+# Create new size variables
+# 1) HOU85 variable is already in data
+# 2) Z (artificially created variable for pedagogical purposes, N(500,150))
+set.seed(123)
+province91$Z <- rnorm(nrow(province91), mean=500, sd=150) 
+# 3) X (artificially created variable for pedagogical purposes, UE91 + 3000)
+province91$X <- province91$UE91 + 3000
+# Create stratification variable jkl for STR-PPSWOR
+#province91$Jystrat <- ifelse(province91$Municipality == "Jyväskylä", 1, 2)
+library(pps); library(TeachingSampling)
+
+########################################################
+### Kokomuuttujana 1) HOU85
+########################################################
+simu.pps1 <- function(n, seed){
+  a <- 1000
+  pps1_est <- c(0,0)
+  
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    
+    # Create stratification variable jkl for STR-PPSWOR
+    province91$Jystrat <- ifelse(province91$Municipality == "Jyväskylä", 1, 2)
+    
+    # NOTE: The certainty PSU (the first line of the data) will be twice in the data and the weight will be 
+    # changed from 1 to .5 for each observation. This is necessary because you need to have two observations 
+    # in each strata.
+    # twice in our sample data file and the weight for Jyväskylä is 0.5 per observation line.  
+    jyv <- province91[province91$Municipality == "Jyväskylä",]
+    province91.Jystrat <- rbind(province91, jyv) # Jyväskylä is now twice in our data
+    province91.Jystrat <- arrange(province91.Jystrat, Jystrat)
+    
+    # Starting from data province91.Jystrat
+    PPSsample1X <- ppssstrat(province91.Jystrat$HOU85,province91.Jystrat$Jystrat, c(1,7)) # sizes,stratum,n
+    PPSsample1 <- province91.Jystrat[PPSsample1X, ]
+    
+    # Again... twice in our sample data file and the weight for Jyväskylä is 0.5 per observation line.  
+    jyv <- PPSsample1[1,]
+    PPSsample1 <- rbind(PPSsample1, jyv) # Jyväskylä is now twice in our data
+    # Sampling weight calculation for PPS (the cumulative sum of HOU85 over the population is 91753 and 
+    # the largest element Jyväskylä has the value 26881)
+    # sum(province91$HOU85)
+    # sum(province91$HOU85) - 26881 
+    PPSsample1$weights_pps <- (91753-26881)/(PPSsample1$HOU85*7)
+    PPSsample1$weights_pps[PPSsample1$Municipality == "Jyväskylä"] <- 0.5
+    #sum(PPSsample1$weights_pps)
+    # define design objects
+    design1 <- svydesign(ids = ~Id, data = PPSsample1, strata = ~Jystrat, weights = ~weights_pps)
+    options(survey.lonely.psu = "certainty")
+    pps1_est[i] <- svytotal(~UE91, design1)
+  }
+  total <- pps1_est[1:a]
+  return(total)
+}
+tot1_UE91 <- simu.pps1(8,1234)
+temp1 <- as.data.frame(tot1_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot1_UE91); Std_error <- sd(tot1_UE91);  Bias <- abs(Population_Total-Mean_of_Estimates)
+results1 <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results1, caption = "**Simulation Experiments for PPS estimator for the total of UE91. Size variable HOU85, Sample size 8, Simulations 1000.**")
+
+# plot results
+ggplot(data=temp1, aes(tot1_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency") +
+  xlim(3500,45000) 
+```
+
+### Z 
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+load("province91.Rdata")
+# Create new size variables
+# 1) HOU85 variable is already in data
+# 2) Z (artificially created variable for pedagogical purposes, N(500,150))
+set.seed(123)
+province91$Z <- rnorm(nrow(province91), mean=500, sd=150) 
+# 3) X (artificially created variable for pedagogical purposes, UE91 + 3000)
+province91$X <- province91$UE91 + 3000
+# Create stratification variable jkl for STR-PPSWOR
+#province91$Jystrat <- ifelse(province91$Municipality == "Jyväskylä", 1, 2)
+library(pps); library(TeachingSampling)
+########################################################
+# 2) Z (artificially created variable for pedagogical purposes, N(500,150))
+########################################################
+simu.pps2 <- function(n, seed){
+  a <- 1000
+  pps2_est <- c(0,0)
+  
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    
+    PPSsample2X <- S.piPS(8, province91$Z) # samp = The selected sample, Pik.s = The selection probability of each unit is proportional to the variable <z>
+    sample2 <- PPSsample2X[,1]; Pik.s <- PPSsample2X[,2]
+    PPSsample2 <- province91[sample2,]
+    PPSsample2 <- cbind(PPSsample2,Pik.s)
+    
+    # Estimation of UE91 total
+    desing2 <- svydesign(ids = ~1, data = PPSsample2, prob = ~Pik.s)
+    # define design objects
+    pps2_est[i] <- svytotal(~UE91, desing2)
+  }
+  total <- pps2_est[1:a]
+  return(total)
+}
+tot2_UE91 <- simu.pps2(8,1234)
+temp2 <- as.data.frame(tot2_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot2_UE91); Std_error <- sd(tot2_UE91);  Bias <- abs(Population_Total-Mean_of_Estimates)
+results2 <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results2, caption = "**Simulation Experiments for PPS estimator for the total of UE91. Size variable Z, Sample size 8, Simulations 1000.**")
+
+# plot results
+ggplot(data=temp2, aes(tot2_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency") +
+  xlim(3500,45000) 
+```
+
+### X
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+########################################################
+# 3) X (artificially created variable for pedagogical purposes, UE91 + 3000)
+########################################################
+simu.pps3 <- function(n, seed){
+  a <- 1000
+  pps3_est <- c(0,0)
+  
+  for(i in 1:a){
+    seed <- seed+1
+    set.seed(seed)
+    
+    PPSsample3X <- S.piPS(8, province91$X) # samp = The selected sample, Pik.s = The selection probability of each unit is proportional to the variable <z>
+    sample3 <- PPSsample3X[,1]; Pik.s <- PPSsample3X[,2]
+    PPSsample3 <- province91[sample3,]
+    PPSsample3 <- cbind(PPSsample3,Pik.s)
+    
+    # Estimation of UE91 total
+    desing3 <- svydesign(ids = ~1, data = PPSsample3, prob = ~Pik.s)
+    # define design objects
+    pps3_est[i] <- svytotal(~UE91, desing3)
+  }
+  total <- pps3_est[1:a]
+  return(total)
+}
+tot3_UE91 <- simu.pps3(8,1234)
+temp3 <- as.data.frame(tot3_UE91)
+
+Population_Total <- 15098
+Mean_of_Estimates <- mean(tot3_UE91); Std_error <- sd(tot3_UE91);  Bias <- abs(Population_Total-Mean_of_Estimates)
+results3 <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+library(knitr)
+kable(results3, caption = "**Simulation Experiments for PPS estimator for the total of UE91. Size variable X, Sample size 8, Simulations 1000.**")
+
+# plot results
+ggplot(data=temp3, aes(tot3_UE91)) + geom_histogram() + xlab("Sum for UE91") + ylab("Frequency") +
+  xlim(3500,45000) 
+```
+
+##
+
 ### C) INTERACTIVE SAS USE
 
 Please download the SAS code for your own further training. Further instructions are given once you download the code.

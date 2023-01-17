@@ -29,8 +29,8 @@ In **Training Key 54**, PPS sampling is demonstrated by first reproducing the re
 # 2.2 The Province'91 population
 
 <a href="Datat/province91.sas7bdat">Download SAS data</a> |
-<a href="Datat/province91.sav">Download SPSS data</a> |
-<a href="Datat/province91.xls">Download Excel file</a> |
+<a href="Datat/Province91.sav">Download SPSS data</a> |
+<a href="Datat/Province91.xls">Download Excel file</a> |
 <a href="Datat/Province91.txt">Download text file</a>
 
  

@@ -21,7 +21,7 @@ In **Training Key 28**, SRSWOR sampling is demonstrated by first reproducing the
 
 In **Training Key 45**, intra-class correlation is demonstrated under systematic sampling. First, the results of Example 2.4 are reproduced. Then, intra-class correlation is examined for systematic sampling under varying sorting orders of the population.
 
-In **Training Key 54**, PPS sampling is demonstrated by first reproducing the results of Example 2.6. Then, PPS sampling is examined in more detail by incorporating different types of auxiliary data into the estimation procedure.
+In **Training Key 54**, PPS sampling is demonstrated by first reproducing the results of Example 2.6. Then, PPS sampling is examined in more detail by incorporating different types of auxiliary data into the estimation procedure. 
 
 
 <!-- NOTE: Instructions for the use of Training Keys are given in the Instructions section. -->

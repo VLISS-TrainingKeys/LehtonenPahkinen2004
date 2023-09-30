@@ -17,4 +17,4 @@ Training Keys section is the core of the Web pages. Training Keys are connected 
 
 This Web site is maintained since 2020 by the [Centre for Social Data Science (CSDS)](https://www.helsinki.fi/en/networks/centre-social-data-science) of the University of Helsinki. The development of the application in 2001-2005 has been supported by the Virtual University Project of the University of Jyväskylä and 2005-2017 the Department of Mathematics and Statistics of the University of Helsinki. Feedback on accessibility and contents is warmly welcomed. Contact person: [Maria Valaste](https://www.helsinki.fi/en/people/people-finder/maria-valaste-9077557).
 
-Last update: 30 September 2023
+Last update: 30 September 2023  

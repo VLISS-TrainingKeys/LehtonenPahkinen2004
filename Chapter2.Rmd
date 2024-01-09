@@ -97,7 +97,7 @@ library(knitr)
 kable(province91, caption = "THE PROVINCE91 POPULATION")
 ```
 
-Use dropdown in scatter plot below to toggle between variables. X
+Use dropdown in scatter plot below to toggle between variables.
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)

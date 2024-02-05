@@ -398,9 +398,11 @@ tot_UE91 <- simu(4,1234)
 temp <- as.data.frame(tot_UE91)
 
 Population_Total <- 15098
-Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Mean_of_Estimates <- mean(tot_UE91)
+# NOTE. Should be std_err
+Std <- sd(tot_UE91) 
 Bias <- abs(Population_Total-Mean_of_Estimates)
-results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std, Bias)
 library(knitr)
 kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
 
@@ -441,9 +443,11 @@ tot_UE91 <- simu(8,1234)
 temp <- as.data.frame(tot_UE91)
 
 Population_Total <- 15098
-Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Mean_of_Estimates <- mean(tot_UE91)
+# NOTE. Should be std_err
+Std <- sd(tot_UE91) 
 Bias <- abs(Population_Total-Mean_of_Estimates)
-results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std, Bias)
 library(knitr)
 kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
 
@@ -484,9 +488,11 @@ tot_UE91 <- simu(16,1234)
 temp <- as.data.frame(tot_UE91)
 
 Population_Total <- 15098
-Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Mean_of_Estimates <- mean(tot_UE91)
+# NOTE. Should be std_err
+Std <- sd(tot_UE91) 
 Bias <- abs(Population_Total-Mean_of_Estimates)
-results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std, Bias)
 library(knitr)
 kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
 
@@ -527,9 +533,11 @@ tot_UE91 <- simu(24,1234)
 temp <- as.data.frame(tot_UE91)
 
 Population_Total <- 15098
-Mean_of_Estimates <- mean(tot_UE91); Std_error <- sd(tot_UE91) 
+Mean_of_Estimates <- mean(tot_UE91)
+# NOTE. Should be std_err
+Std <- sd(tot_UE91) 
 Bias <- abs(Population_Total-Mean_of_Estimates)
-results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std_error, Bias)
+results <- cbind.data.frame(Population_Total, Mean_of_Estimates, Std, Bias)
 library(knitr)
 kable(results, caption = "**Simulation Experiments for SRSWOR estimator for the total of UE91.**")
 
